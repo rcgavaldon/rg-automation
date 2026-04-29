@@ -1,140 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="facebook-domain-verification" content="enehkn7pnqisw3hu5oee9peazkult9" />
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RG Automation — AI Voice Solutions for Local Business</title>
-  <meta name="description" content="AI-powered voice automation and web solutions for local service businesses. Based in El Paso, TX."/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="facebook-domain-verification" content="enehkn7pnqisw3hu5oee9peazkult9">
+  <title>Sofia AI — 24/7 Bilingual Voice Receptionist for Plumbers</title>
+  <meta name="description" content="Sofia answers every inbound call, qualifies leads in English or Spanish, and sends you a WhatsApp card instantly. 14-day free trial.">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --dark:#0a0a0f;
-      --surface:#13131a;
-      --border:#1e1e2e;
-      --amber:#f59e0b;
-      --white:#f1f5f9;
-      --muted:#64748b;
-      --blue:#3b82f6;
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --border: #1e1e2e;
+      --amber: #f59e0b;
+      --amber-dim: rgba(245,158,11,0.12);
+      --amber-border: rgba(245,158,11,0.25);
+      --white: #f1f5f9;
+      --muted: #64748b;
+      --text: #cbd5e1;
     }
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--dark);color:var(--white);line-height:1.6}
-    a{color:var(--amber);text-decoration:none}
-    a:hover{text-decoration:underline}
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica Neue, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a { color: var(--amber); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     /* NAV */
-    nav{padding:20px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
-    .logo{font-size:1.1rem;font-weight:700;letter-spacing:0.04em}
-    .logo span{color:var(--amber)}
-    nav a.cta{background:var(--amber);color:#000;font-weight:700;font-size:0.82rem;padding:8px 18px;border-radius:6px;letter-spacing:0.04em}
-    nav a.cta:hover{text-decoration:none;opacity:0.9}
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 5%;
+      background: rgba(10,10,15,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); }
+    .logo span { color: var(--amber); }
+    .nav-btn {
+      background: var(--amber);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 9px 20px;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-btn:hover { opacity: 0.9; text-decoration: none; }
 
     /* HERO */
-    .hero{padding:90px 5% 70px;max-width:780px;margin:0 auto;text-align:center}
-    .hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;margin-bottom:20px}
-    .hero h1 span{color:var(--amber)}
-    .hero p{font-size:1.05rem;color:var(--muted);max-width:560px;margin:0 auto 36px}
-    .hero-cta{display:inline-block;background:var(--amber);color:#000;font-weight:700;padding:14px 32px;border-radius:8px;font-size:1rem}
-    .hero-cta:hover{text-decoration:none;opacity:0.9}
+    .hero {
+      padding: 80px 5% 70px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--amber-dim);
+      border: 1px solid var(--amber-border);
+      color: var(--amber);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero h1 .accent { color: var(--amber); }
+    .hero-sub {
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--amber);
+      color: #000;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .btn-primary:hover { opacity: 0.9; text-decoration: none; }
+    .btn-ghost {
+      color: var(--muted);
+      font-size: 1rem;
+      padding: 14px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { color: var(--white); text-decoration: none; }
 
-    /* SERVICES */
-    .section{padding:60px 5%;max-width:1000px;margin:0 auto}
-    .section-label{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
-    .section h2{font-size:1.8rem;font-weight:700;margin-bottom:40px}
-    .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px}
-    .card-icon{font-size:1.6rem;margin-bottom:12px}
-    .card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
-    .card p{font-size:0.85rem;color:var(--muted);line-height:1.6}
+    /* TRUST STRIP */
+    .strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 5%;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
 
-    /* ABOUT */
-    .about{padding:60px 5%;max-width:700px;margin:0 auto;text-align:center}
-    .about h2{font-size:1.8rem;font-weight:700;margin-bottom:16px}
-    .about p{color:var(--muted);margin-bottom:12px}
+    /* SECTIONS */
+    .section {
+      padding: 72px 5%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+    .section h2 {
+      font-size: clamp(1.75rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 480px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
 
-    /* CONTACT */
-    .contact{background:var(--surface);border-top:1px solid var(--border);padding:60px 5%;text-align:center}
-    .contact h2{font-size:1.6rem;font-weight:700;margin-bottom:8px}
-    .contact p{color:var(--muted);margin-bottom:24px}
-    .contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-    .contact-links a{background:var(--border);padding:10px 22px;border-radius:6px;font-weight:600;font-size:0.9rem;color:var(--white)}
-    .contact-links a:hover{background:var(--amber);color:#000;text-decoration:none}
+    /* STEPS */
+    .steps { display: flex; flex-direction: column; }
+    .step {
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+    .step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: 44px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(245,158,11,0.35), rgba(245,158,11,0.04));
+    }
+    .step-left { flex-shrink: 0; }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--amber-dim);
+      border: 2px solid var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--amber);
+    }
+    .step-body {
+      padding-bottom: 44px;
+      flex: 1;
+    }
+    .step:last-child .step-body { padding-bottom: 0; }
+    .step-body h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      padding-top: 10px;
+    }
+    .step-body p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* WA CARD MOCK */
+    .wa-wrap { margin-top: 20px; max-width: 300px; }
+    .wa-chip {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #4ade80;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.2);
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 6px;
+    }
+    .wa-card {
+      background: #111c11;
+      border: 1px solid #1f3d1f;
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 0.82rem;
+    }
+    .wa-rows { margin-bottom: 10px; }
+    .wa-row { display: flex; gap: 8px; margin-bottom: 4px; }
+    .wa-lbl { color: #4b5563; min-width: 68px; font-size: 0.78rem; }
+    .wa-val { color: #d1fae5; font-size: 0.78rem; }
+    .wa-urgency { color: #f87171; font-weight: 700; }
+    .wa-ai {
+      background: rgba(74,222,128,0.07);
+      border-left: 2px solid #4ade80;
+      padding: 8px 10px;
+      border-radius: 0 6px 6px 0;
+      color: #a7f3d0;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .wa-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+    .wa-btn {
+      text-align: center;
+      padding: 7px 4px;
+      border-radius: 6px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .wa-btn-g { background: rgba(74,222,128,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.25); }
+    .wa-btn-b { background: rgba(96,165,250,0.12); color: #60a5fa; border: 1px solid rgba(96,165,250,0.25); }
+    .wa-btn-r { background: rgba(248,113,113,0.12); color: #f87171; border: 1px solid rgba(248,113,113,0.25); }
+
+    /* FEATURE GRID */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 560px) {
+      .feat-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 840px) {
+      .feat-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .feat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+    }
+    .feat-icon { font-size: 1.4rem; margin-bottom: 10px; }
+    .feat-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+    .feat-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+    .cmd-examples { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .cmd {
+      display: inline-block;
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.2);
+      color: var(--amber);
+      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* CTA BOX */
+    .cta-wrap { max-width: 600px; margin: 0 auto; }
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 56px 32px;
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .cta-box p { color: var(--muted); font-size: 0.95rem; margin-bottom: 28px; }
+    .trial-note { margin-top: 14px; font-size: 0.78rem; color: #374151; }
 
     /* FOOTER */
-    footer{padding:20px 5%;text-align:center;font-size:0.75rem;color:var(--muted);border-top:1px solid var(--border)}
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 5%;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.75rem; color: #374151; }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="logo">RG<span>Automation</span></div>
-  <a class="cta" href="mailto:roberto.gavaldon3@gmail.com">Get in Touch</a>
+  <div class="logo">Sofia <span>AI</span></div>
+  <a class="nav-btn" href="mailto:roberto.gavaldon3@gmail.com">Book Demo</a>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
-  <h1>AI Voice &amp; Web Automation<br/>for <span>Local Business</span></h1>
-  <p>We build AI-powered phone agents, lead capture systems, and professional websites that help local service businesses answer every call and convert more leads — automatically.</p>
-  <a class="hero-cta" href="mailto:roberto.gavaldon3@gmail.com">Book a Free Consultation</a>
+  <div class="badge">📞 AI Voice Receptionist for Plumbers</div>
+  <h1>Sofia answers every call.<br><span class="accent">You get a WhatsApp.</span></h1>
+  <p class="hero-sub">24/7 bilingual AI receptionist built for plumbing businesses. Every call answered, every lead captured, every customer notified — automatically.</p>
+  <div class="cta-group">
+    <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-primary">Book a Free Demo</a>
+    <a href="#how-it-works" class="btn-ghost">See how it works ↓</a>
+  </div>
 </div>
 
+<!-- STRIP -->
+<div class="strip">
+  Works 24/7 &nbsp;·&nbsp; English &amp; Spanish &nbsp;·&nbsp; No app to download &nbsp;·&nbsp; Setup in under 1 hour
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section" id="how-it-works">
+  <div class="section-label">How It Works</div>
+  <h2>A call comes in.<br>You get a tap-to-act card.</h2>
+  <p class="section-sub">No missed calls. No voicemails. No scrambling to call back. Sofia handles the intake — you handle the job.</p>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">1</div></div>
+      <div class="step-body">
+        <h3>Customer calls your number</h3>
+        <p>Sofia answers instantly — warm, natural, bilingual. She collects the caller's name, address, service needed, and urgency. No hold music. No voicemail.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">2</div></div>
+      <div class="step-body">
+        <h3>You get a WhatsApp lead card</h3>
+        <p>Within seconds you receive a structured card with the caller's details, urgency level, and an AI summary of the call. Three buttons — one tap to respond.</p>
+        <div class="wa-wrap">
+          <span class="wa-chip">WhatsApp · Sofia AI</span>
+          <div class="wa-card">
+            <div class="wa-rows">
+              <div class="wa-row"><span class="wa-lbl">Nombre:</span><span class="wa-val">Carlos Mendez</span></div>
+              <div class="wa-row"><span class="wa-lbl">Teléfono:</span><span class="wa-val">(915) 555-0142</span></div>
+              <div class="wa-row"><span class="wa-lbl">Servicio:</span><span class="wa-val">Fuga bajo el fregadero</span></div>
+              <div class="wa-row"><span class="wa-lbl">Urgencia:</span><span class="wa-val wa-urgency">🔴 Emergencia</span></div>
+            </div>
+            <div class="wa-ai">Fuga activa bajo el fregadero de cocina. Agua acumulándose en el gabinete. Solicita atención urgente.</div>
+            <div class="wa-btns">
+              <div class="wa-btn wa-btn-g">✅ En Camino</div>
+              <div class="wa-btn wa-btn-b">📅 Agendar</div>
+              <div class="wa-btn wa-btn-r">✕ No cliente</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">3</div></div>
+      <div class="step-body">
+        <h3>One tap — customer is notified</h3>
+        <p>Tap <strong style="color:#4ade80">En Camino</strong> and Sofia texts the customer you're on your way. Tap <strong style="color:#60a5fa">Agendar</strong> and she confirms you'll follow up to schedule. All in their language.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">4</div></div>
+      <div class="step-body">
+        <h3>Manage the whole job from WhatsApp</h3>
+        <p>Type natural commands as the job progresses. Sofia sends quotes, closes jobs with a thank-you, requests Google reviews, and follows up on open estimates — no app, no dashboard required.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="section" style="padding-top: 0;">
+  <div class="section-label">What You Get</div>
+  <h2>Everything you need.<br>Nothing you don't.</h2>
+  <p class="section-sub">Built specifically for plumbing businesses. Every feature is live and in use today.</p>
+
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="feat-icon">📞</div>
+      <h3>24/7 Bilingual Answering</h3>
+      <p>Sofia answers in English or Spanish based on the caller. No missed calls — not evenings, weekends, or holidays.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📲</div>
+      <h3>Instant WhatsApp Lead Cards</h3>
+      <p>Every call becomes a structured card with name, address, service, urgency, and 3 tap-to-respond buttons.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💬</div>
+      <h3>Automatic Customer Texts</h3>
+      <p>Post-call confirmation, on-my-way, scheduled, quote, and thank-you — all sent in the customer's language.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📷</div>
+      <h3>Two-Way SMS with Photos</h3>
+      <p>Customers can reply with photos of the problem. They're forwarded straight to your WhatsApp automatically.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔁</div>
+      <h3>Automatic Quote Follow-Ups</h3>
+      <p>Sent a quote? Sofia follows up at day 1, 3, and 7 automatically. Never chase a lead manually again.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🌅</div>
+      <h3>Daily Job Board</h3>
+      <p>Morning and evening summaries sent to your WhatsApp. Know what's open, scheduled, and pending every day.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⌨️</div>
+      <h3>Natural Language Commands</h3>
+      <p>Type naturally — Sofia handles the rest. No app, no dashboard required.</p>
+      <div class="cmd-examples">
+        <span class="cmd">"Carlos listo"</span>
+        <span class="cmd">"cotizacion Maria 350"</span>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⭐</div>
+      <h3>Google Review Requests</h3>
+      <p>Every closed job triggers an automatic review request to the customer. Build your reputation on autopilot.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📊</div>
+      <h3>Real-Time Dashboard</h3>
+      <p>Every call, every lead, every status — logged and accessible from any device. Full history, notes, and usage.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
 <div class="section">
-  <div class="section-label">What We Do</div>
-  <h2>Services</h2>
-  <div class="grid3">
-    <div class="card">
-      <div class="card-icon">🤖</div>
-      <h3>AI Voice Agent</h3>
-      <p>A 24/7 virtual receptionist that answers calls, captures leads, and books appointments — in English or Spanish.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🌐</div>
-      <h3>Business Websites</h3>
-      <p>Fast, mobile-optimized websites with contact forms wired directly to your CRM and notification system.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">📊</div>
-      <h3>Lead Management</h3>
-      <p>Every call and form submission logged automatically in Notion with AI summaries, lead temperature, and follow-up tracking.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">📩</div>
-      <h3>Instant Notifications</h3>
-      <p>Get notified by email the moment a new lead comes in — with an AI-generated summary so you know exactly what they need.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">📅</div>
-      <h3>Appointment Booking</h3>
-      <p>The AI agent books appointments directly into your calendar. No back-and-forth, no missed calls.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🔁</div>
-      <h3>Automated Follow-Up</h3>
-      <p>Outbound call campaigns to re-engage cold leads — powered by the same AI agent, with full call transcripts logged.</p>
+  <div class="cta-wrap">
+    <div class="cta-box">
+      <h2>Start your <span style="color:var(--amber)">14-day free trial</span></h2>
+      <p>No credit card required. Setup in under an hour. Cancel anytime.</p>
+      <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-primary" style="font-size:1.05rem; padding:16px 36px;">Book a Free Demo</a>
+      <p class="trial-note">14-day free trial &nbsp;·&nbsp; Simple monthly plan &nbsp;·&nbsp; Cancel anytime</p>
     </div>
   </div>
 </div>
 
-<div class="about">
-  <div class="section-label">About</div>
-  <h2>Built for Trades &amp; Local Services</h2>
-  <p>RG Automation is based in El Paso, TX. We work with HVAC companies, plumbers, electricians, and other local service businesses who want to stop missing calls and start closing more jobs.</p>
-  <p>We handle the tech — you handle the work.</p>
-</div>
-
-<div class="contact">
-  <h2>Ready to automate your business?</h2>
-  <p>Reach out and we'll walk you through exactly what's possible for your business.</p>
-  <div class="contact-links">
-    <a href="mailto:roberto.gavaldon3@gmail.com">roberto.gavaldon3@gmail.com</a>
-    <a href="tel:+19152269501">(915) 226-9501</a>
-  </div>
-</div>
-
+<!-- FOOTER -->
 <footer>
-  &copy; 2026 RG Automation — El Paso, TX &nbsp;|&nbsp; AI Voice &amp; Web Solutions
-  &nbsp;&nbsp;
-  <a href="/rg-automation/privacy-policy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a>
-  &nbsp;|&nbsp;
-  <a href="/rg-automation/terms.html" style="color:inherit;text-decoration:underline">Terms &amp; Conditions</a>
+  <div class="footer-links">
+    <a href="https://rcgavaldon.github.io/rg-automation/terms.html">Terms &amp; Conditions</a>
+    <a href="https://rcgavaldon.github.io/rg-automation/privacy-policy.html">Privacy Policy</a>
+    <a href="mailto:roberto.gavaldon3@gmail.com">Contact</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Sofia AI &nbsp;·&nbsp; All rights reserved</p>
 </footer>
 
 </body>
