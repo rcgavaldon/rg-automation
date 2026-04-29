@@ -30,15 +30,12 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica Neue, sans-serif;
-      background: var(--bg);
-      color: var(--white);
-      line-height: 1.6;
-      font-size: 16px;
+      background: var(--bg); color: var(--white); line-height: 1.6; font-size: 16px;
     }
     a { color: var(--amber); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -46,36 +43,49 @@
       background: rgba(10,10,15,0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
+      gap: 12px;
     }
-    .logo { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; }
+    .logo { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; flex-shrink: 0; }
     .logo span { color: var(--amber); }
+    .lang-toggle {
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: transparent; border: none;
+      color: var(--muted); font-size: 0.73rem; font-weight: 700;
+      letter-spacing: 0.08em; padding: 7px 13px;
+      cursor: pointer; font-family: inherit;
+    }
+    .lang-btn:hover { color: var(--white); }
+    .lang-btn.active { background: var(--amber); color: #000; }
     .nav-cta {
       background: var(--amber); color: #000;
       font-weight: 700; font-size: 0.82rem;
-      padding: 9px 20px; border-radius: 6px;
-      text-decoration: none;
+      padding: 9px 18px; border-radius: 6px;
+      text-decoration: none; flex-shrink: 0;
+      white-space: nowrap;
     }
     .nav-cta:hover { opacity: 0.9; text-decoration: none; }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
-      position: relative;
-      padding: 96px 5% 88px;
-      text-align: center;
-      overflow: hidden;
+      position: relative; padding: 96px 5% 88px;
+      text-align: center; overflow: hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse at 50% -10%, rgba(245,158,11,0.13) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero::after {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 28px 28px;
-      pointer-events: none;
+      background-size: 28px 28px; pointer-events: none;
     }
     .hero-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
     .badge {
@@ -99,8 +109,7 @@
     .hero-sub strong { color: var(--white); }
     .hero-cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
     .btn-hero {
-      display: inline-block;
-      background: var(--amber); color: #000;
+      display: inline-block; background: var(--amber); color: #000;
       font-weight: 800; font-size: 1.1rem;
       padding: 16px 42px; border-radius: 8px;
       text-decoration: none; letter-spacing: -0.01em;
@@ -108,7 +117,7 @@
     .btn-hero:hover { opacity: 0.9; text-decoration: none; }
     .hero-note { font-size: 0.8rem; color: var(--muted); }
 
-    /* ── STRIP ── */
+    /* STRIP */
     .strip {
       background: var(--surface);
       border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
@@ -117,7 +126,7 @@
     }
     .strip strong { color: var(--white); }
 
-    /* ── SECTION BASE ── */
+    /* SECTION BASE */
     .section { padding: 80px 5%; max-width: 1000px; margin: 0 auto; }
     .sec-label {
       font-size: 0.7rem; font-weight: 700;
@@ -131,12 +140,9 @@
       font-weight: 800; letter-spacing: -0.03em;
       line-height: 1.15; margin-bottom: 14px;
     }
-    .sec-sub {
-      color: var(--muted); font-size: 0.95rem;
-      line-height: 1.8; max-width: 580px;
-    }
+    .sec-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.8; max-width: 580px; }
 
-    /* ── PROBLEM ── */
+    /* PROBLEM */
     .problem-bg {
       background: linear-gradient(180deg, var(--bg) 0%, rgba(239,68,68,0.04) 50%, var(--bg) 100%);
     }
@@ -145,9 +151,7 @@
       background: var(--red-dim); border: 1px solid var(--red-border);
       border-radius: 16px; padding: 36px; margin: 40px 0;
     }
-    @media (min-width: 680px) {
-      .loss-callout { flex-direction: row; align-items: center; }
-    }
+    @media (min-width: 680px) { .loss-callout { flex-direction: row; align-items: center; } }
     .loss-number {
       font-size: clamp(3.5rem, 10vw, 5.5rem);
       font-weight: 900; color: var(--red);
@@ -164,12 +168,11 @@
     }
     .problem-body { color: var(--muted); font-size: 0.95rem; line-height: 1.8; max-width: 640px; }
 
-    /* ── VALUE TABLE ── */
+    /* VALUE TABLE */
     .value-table { margin-top: 40px; }
     .value-row {
       display: flex; align-items: flex-start;
-      gap: 16px; padding: 16px 0;
-      border-bottom: 1px solid var(--border);
+      gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);
     }
     .value-row:last-child { border-bottom: none; }
     .value-icon { font-size: 1.25rem; flex-shrink: 0; padding-top: 1px; }
@@ -178,18 +181,16 @@
     .value-text p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
     .value-price { font-size: 0.8rem; color: var(--amber); font-weight: 700; white-space: nowrap; padding-top: 2px; }
     .value-total-row {
-      margin-top: 24px;
-      background: var(--surface); border: 1px solid var(--border);
+      margin-top: 24px; background: var(--surface); border: 1px solid var(--border);
       border-radius: 12px; padding: 24px 28px;
-      display: flex; flex-wrap: wrap;
-      align-items: center; justify-content: space-between; gap: 20px;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;
     }
     .vt-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
     .vt-big { font-size: 2rem; font-weight: 900; letter-spacing: -0.04em; }
     .vt-big.amber { color: var(--amber); }
     .vt-sub { font-size: 0.8rem; color: var(--muted); font-weight: 400; }
 
-    /* ── HOW IT WORKS ── */
+    /* HOW IT WORKS */
     .hiw-bg { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .steps { display: flex; flex-direction: column; }
     .step { display: flex; gap: 20px; position: relative; }
@@ -218,10 +219,7 @@
       border: 1px solid rgba(74,222,128,0.2);
       padding: 3px 10px; border-radius: 100px; margin-bottom: 6px;
     }
-    .wa-card {
-      background: #111c11; border: 1px solid #1f3d1f;
-      border-radius: 12px; padding: 15px;
-    }
+    .wa-card { background: #111c11; border: 1px solid #1f3d1f; border-radius: 12px; padding: 15px; }
     .wa-rows { margin-bottom: 10px; }
     .wa-row { display: flex; gap: 8px; margin-bottom: 4px; }
     .wa-lbl { color: #4b5563; min-width: 76px; font-size: 0.75rem; flex-shrink: 0; }
@@ -233,49 +231,36 @@
       color: #a7f3d0; font-size: 0.75rem; line-height: 1.65; margin-bottom: 12px;
     }
     .wa-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; }
-    .wa-btn {
-      text-align: center; padding: 7px 4px; border-radius: 6px;
-      font-size: 0.67rem; font-weight: 600; line-height: 1.3;
-    }
+    .wa-btn { text-align: center; padding: 7px 4px; border-radius: 6px; font-size: 0.67rem; font-weight: 600; line-height: 1.3; }
     .wa-g { background: rgba(74,222,128,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.25); }
     .wa-b { background: rgba(96,165,250,0.12); color: #60a5fa; border: 1px solid rgba(96,165,250,0.25); }
     .wa-r { background: rgba(248,113,113,0.12); color: #f87171; border: 1px solid rgba(248,113,113,0.25); }
 
-    /* ── PRICING ── */
+    /* PRICING */
     .pricing-intro { text-align: center; max-width: 540px; margin: 0 auto 44px; }
     .trial-banner {
       background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(245,158,11,0.04));
       border: 1px solid var(--amber-border); border-radius: 16px;
       padding: 28px 32px;
-      display: flex; flex-wrap: wrap;
-      align-items: center; justify-content: space-between; gap: 20px;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;
       margin-bottom: 28px;
     }
     .trial-left h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 4px; }
     .trial-left p { font-size: 0.87rem; color: var(--muted); }
     .trial-bullets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .tb {
-      background: var(--amber-dim); border: 1px solid var(--amber-border);
-      color: var(--text); font-size: 0.78rem;
-      padding: 3px 10px; border-radius: 100px;
-    }
+    .tb { background: var(--amber-dim); border: 1px solid var(--amber-border); color: var(--text); font-size: 0.78rem; padding: 3px 10px; border-radius: 100px; }
     .btn-trial {
-      background: var(--amber); color: #000;
-      font-weight: 800; font-size: 1rem;
-      padding: 14px 28px; border-radius: 8px;
-      text-decoration: none; white-space: nowrap;
+      background: var(--amber); color: #000; font-weight: 800; font-size: 1rem;
+      padding: 14px 28px; border-radius: 8px; text-decoration: none; white-space: nowrap;
     }
     .btn-trial:hover { opacity: 0.9; text-decoration: none; }
-    .plans-grid {
-      display: grid; grid-template-columns: 1fr; gap: 16px;
-    }
+    .plans-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
     @media (min-width: 620px) { .plans-grid { grid-template-columns: 1fr 1fr; } }
     @media (min-width: 940px) { .plans-grid { grid-template-columns: 1fr 1fr 1fr; } }
     .plan-card {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 14px; padding: 28px;
-      display: flex; flex-direction: column;
-      position: relative;
+      display: flex; flex-direction: column; position: relative;
     }
     .plan-card.featured {
       border-color: var(--amber);
@@ -298,57 +283,42 @@
     .plan-features li::before { content: '✓'; color: var(--amber); font-weight: 700; flex-shrink: 0; }
     .plan-best { font-size: 0.75rem; color: var(--muted); margin-bottom: 18px; }
     .plan-best strong { color: var(--text); }
-    .btn-plan {
-      display: block; text-align: center;
-      padding: 12px; border-radius: 8px;
-      font-weight: 700; font-size: 0.9rem; text-decoration: none;
-    }
+    .btn-plan { display: block; text-align: center; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
     .btn-amber { background: var(--amber); color: #000; }
     .btn-amber:hover { opacity: 0.9; text-decoration: none; }
     .btn-outline { background: transparent; color: var(--white); border: 1px solid var(--border); }
     .btn-outline:hover { border-color: var(--amber); color: var(--amber); text-decoration: none; }
-    .roi-note {
-      text-align: center; margin-top: 20px;
-      font-size: 0.82rem; color: var(--muted);
-    }
+    .roi-note { text-align: center; margin-top: 20px; font-size: 0.82rem; color: var(--muted); }
     .roi-note strong { color: var(--amber); }
 
-    /* ── GUARANTEE ── */
-    .guarantee-bg {
-      background: linear-gradient(180deg, var(--bg) 0%, rgba(34,197,94,0.04) 50%, var(--bg) 100%);
-    }
+    /* GUARANTEE */
+    .guarantee-bg { background: linear-gradient(180deg, var(--bg) 0%, rgba(34,197,94,0.04) 50%, var(--bg) 100%); }
     .guarantee-box {
       max-width: 680px; margin: 0 auto;
       background: var(--green-dim); border: 1px solid var(--green-border);
       border-radius: 20px; padding: 52px 40px; text-align: center;
     }
     .guarantee-icon { font-size: 3rem; margin-bottom: 20px; }
-    .guarantee-box h2 {
-      font-size: clamp(1.7rem, 4vw, 2.3rem);
-      font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 18px;
-    }
+    .guarantee-box h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 18px; }
     .guarantee-box p { color: var(--text); font-size: 0.95rem; line-height: 1.8; max-width: 520px; margin: 0 auto 14px; }
     .guarantee-stat { font-size: 1.1rem; font-weight: 700; color: var(--green); margin-top: 8px; }
 
-    /* ── FAQ ── */
+    /* FAQ */
     .faq-list { display: flex; flex-direction: column; }
     .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
     .faq-item:last-child { border-bottom: none; }
     .faq-q { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
     .faq-a { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
 
-    /* ── FINAL CTA ── */
+    /* FINAL CTA */
     .final-cta-bg { background: var(--surface); border-top: 1px solid var(--border); }
     .final-cta { text-align: center; max-width: 600px; margin: 0 auto; padding: 80px 5%; }
-    .final-cta h2 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 16px;
-    }
+    .final-cta h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 16px; }
     .final-cta h2 .red { color: var(--red); }
     .final-cta p { color: var(--muted); font-size: 1rem; margin-bottom: 32px; line-height: 1.75; }
     .final-note { font-size: 0.82rem; color: var(--muted); margin-top: 14px; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 28px 5%; text-align: center; }
     .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }
     .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
@@ -361,47 +331,48 @@
 <!-- NAV -->
 <nav>
   <div class="logo">Sofia <span>AI</span></div>
-  <a class="nav-cta" href="mailto:roberto.gavaldon3@gmail.com">Start Free Trial</a>
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="es">ES</button>
+  </div>
+  <a class="nav-cta" data-i18n="nav-cta" href="mailto:roberto.gavaldon3@gmail.com">Start Free Trial</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="badge">📞 AI Voice Receptionist for Plumbers</div>
-    <h1>Never Lose Another<br><span class="dollar">$1,500</span> Emergency Call</h1>
-    <p class="hero-sub">Sofia answers every call <strong>24/7 in English &amp; Spanish</strong>, sends you leads in WhatsApp with tap buttons, and costs <strong>90% less than a receptionist.</strong></p>
+    <div class="badge" data-i18n="hero-badge">📞 AI Voice Receptionist for Plumbers</div>
+    <h1 data-i18n="hero-h1">Never Lose Another<br><span class="dollar">$1,500</span> Emergency Call</h1>
+    <p class="hero-sub" data-i18n="hero-sub">Sofia answers every call <strong>24/7 in English &amp; Spanish</strong>, sends you leads in WhatsApp with tap buttons, and costs <strong>90% less than a receptionist.</strong></p>
     <div class="hero-cta-wrap">
-      <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-hero">Start Free 14-Day Trial</a>
-      <span class="hero-note">No credit card required &nbsp;·&nbsp; Live same day &nbsp;·&nbsp; Cancel anytime</span>
+      <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-hero" data-i18n="hero-cta">Start Free 14-Day Trial</a>
+      <span class="hero-note" data-i18n="hero-note">No credit card required &nbsp;·&nbsp; Live same day &nbsp;·&nbsp; Cancel anytime</span>
     </div>
   </div>
 </div>
 
 <!-- STRIP -->
-<div class="strip">
-  <strong>99.97% answer rate</strong> &nbsp;·&nbsp; Works 24/7 &nbsp;·&nbsp; English &amp; Spanish &nbsp;·&nbsp; No app to download &nbsp;·&nbsp; White-glove setup included
-</div>
+<div class="strip" data-i18n="strip"><strong>99.97% answer rate</strong> &nbsp;·&nbsp; Works 24/7 &nbsp;·&nbsp; English &amp; Spanish &nbsp;·&nbsp; No app to download &nbsp;·&nbsp; White-glove setup included</div>
 
 <!-- PROBLEM -->
 <div class="problem-bg">
   <div class="section">
-    <div class="sec-label sec-label-red">The Problem</div>
-    <h2 class="sec-h">You're Losing <span style="color:var(--red)">$93,600/Year</span><br>in Missed Calls</h2>
-    <p class="problem-body">Every time your phone goes to voicemail while you're under a sink, that's $300–$1,500 walking out the door. The customer doesn't wait. They call the next plumber in Google. The one who answers.</p>
-
+    <div class="sec-label sec-label-red" data-i18n="prob-label">The Problem</div>
+    <h2 class="sec-h" data-i18n="prob-h2">You're Losing <span style="color:var(--red)">$93,600/Year</span><br>in Missed Calls</h2>
+    <p class="problem-body" data-i18n="prob-body">Every time your phone goes to voicemail while you're under a sink, that's $300–$1,500 walking out the door. The customer doesn't wait. They call the next plumber in Google. The one who answers.</p>
     <div class="loss-callout">
       <div>
-        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">Lost revenue per year</div>
+        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px;" data-i18n="loss-label">Lost revenue per year</div>
         <div class="loss-number">$93,600</div>
       </div>
       <div class="loss-detail">
-        <h3>Here's the math</h3>
-        <p>Most 1–2 truck plumbing companies miss 3–5 calls per week. At a $600 average job, that's money you earned but never collected. You know this. You feel it every time your phone rings and you can't answer.</p>
+        <h3 data-i18n="loss-h3">Here's the math</h3>
+        <p data-i18n="loss-p">Most 1–2 truck plumbing companies miss 3–5 calls per week. At a $600 average job, that's money you earned but never collected. You know this. You feel it every time your phone rings and you can't answer.</p>
         <div class="loss-math">
-          <span class="math-chip">3 missed calls/week</span>
-          <span class="math-chip">× $600 avg job</span>
+          <span class="math-chip" data-i18n="mc1">3 missed calls/week</span>
+          <span class="math-chip" data-i18n="mc2">× $600 avg job</span>
           <span class="math-chip">× 52 weeks</span>
-          <span class="math-chip">= $93,600/year</span>
+          <span class="math-chip" data-i18n="mc4">= $93,600/year</span>
         </div>
       </div>
     </div>
@@ -410,96 +381,96 @@
 
 <!-- SOLUTION -->
 <div class="section">
-  <div class="sec-label sec-label-green">The Solution</div>
-  <h2 class="sec-h">Meet Sofia: Your 24/7<br>Bilingual AI Receptionist</h2>
-  <p class="sec-sub">Sofia answers every call. Qualifies emergencies vs scheduled jobs. Captures name, phone, address, and problem. Sends you a WhatsApp card with one-tap buttons. You tap "On My Way" — customer gets instant confirmation. You show up. You close the job.</p>
+  <div class="sec-label sec-label-green" data-i18n="sol-label">The Solution</div>
+  <h2 class="sec-h" data-i18n="sol-h2">Meet Sofia: Your 24/7<br>Bilingual AI Receptionist</h2>
+  <p class="sec-sub" data-i18n="sol-sub">Sofia answers every call. Qualifies emergencies vs scheduled jobs. Captures name, phone, address, and problem. Sends you a WhatsApp card with one-tap buttons. You tap "On My Way" — customer gets instant confirmation. You show up. You close the job.</p>
 
   <div class="value-table">
     <div class="value-row">
       <div class="value-icon">📞</div>
       <div class="value-text">
-        <strong>24/7 Bilingual AI Receptionist</strong>
-        <p>Answers in English AND Spanish, never sleeps, never quits</p>
+        <strong data-i18n="v1-name">24/7 Bilingual AI Receptionist</strong>
+        <p data-i18n="v1-desc">Answers in English AND Spanish, never sleeps, never quits</p>
       </div>
       <div class="value-price">$42,000/yr</div>
     </div>
     <div class="value-row">
       <div class="value-icon">📲</div>
       <div class="value-text">
-        <strong>WhatsApp Lead Management</strong>
-        <p>One-tap buttons (On My Way / Schedule / Not a Lead). Manage pipeline via text commands like "Jennifer done"</p>
+        <strong data-i18n="v2-name">WhatsApp Lead Management</strong>
+        <p data-i18n="v2-desc">One-tap buttons (On My Way / Schedule / Not a Lead). Manage pipeline via text commands like "Jennifer done"</p>
       </div>
       <div class="value-price">$6,000/yr</div>
     </div>
     <div class="value-row">
       <div class="value-icon">💬</div>
       <div class="value-text">
-        <strong>Instant Customer Confirmations</strong>
-        <p>Automatic SMS/WhatsApp when you accept a job. Reduces no-shows by 40%</p>
+        <strong data-i18n="v3-name">Instant Customer Confirmations</strong>
+        <p data-i18n="v3-desc">Automatic SMS/WhatsApp when you accept a job. Reduces no-shows by 40%</p>
       </div>
       <div class="value-price">$18,000/yr</div>
     </div>
     <div class="value-row">
       <div class="value-icon">🎯</div>
       <div class="value-text">
-        <strong>Smart Call Qualification</strong>
-        <p>Emergency vs Scheduled vs Not a Lead. Saves time on junk calls</p>
+        <strong data-i18n="v4-name">Smart Call Qualification</strong>
+        <p data-i18n="v4-desc">Emergency vs Scheduled vs Not a Lead. Saves time on junk calls</p>
       </div>
       <div class="value-price">$12,000/yr</div>
     </div>
     <div class="value-row">
       <div class="value-icon">📷</div>
       <div class="value-text">
-        <strong>Photo Forwarding</strong>
-        <p>Customer sends job site pics, Sofia forwards to you. Better quotes, fewer surprises</p>
+        <strong data-i18n="v5-name">Photo Forwarding</strong>
+        <p data-i18n="v5-desc">Customer sends job site pics, Sofia forwards to you. Better quotes, fewer surprises</p>
       </div>
       <div class="value-price">$8,400/yr</div>
     </div>
     <div class="value-row">
       <div class="value-icon">🔁</div>
       <div class="value-text">
-        <strong>Automated Quote Follow-Up</strong>
-        <p>Day 1, 3, 7 follow-ups on sent quotes. Closes 25% more estimates</p>
+        <strong data-i18n="v6-name">Automated Quote Follow-Up</strong>
+        <p data-i18n="v6-desc">Day 1, 3, 7 follow-ups on sent quotes. Closes 25% more estimates</p>
       </div>
       <div class="value-price">$31,200/yr</div>
     </div>
     <div class="value-row">
       <div class="value-icon">⭐</div>
       <div class="value-text">
-        <strong>Google Review Auto-Request</strong>
-        <p>Sent when jobs close. Builds your 5-star reputation on autopilot</p>
+        <strong data-i18n="v7-name">Google Review Auto-Request</strong>
+        <p data-i18n="v7-desc">Sent when jobs close. Builds your 5-star reputation on autopilot</p>
       </div>
       <div class="value-price">$24,000/yr</div>
     </div>
     <div class="value-row">
       <div class="value-icon">🌅</div>
       <div class="value-text">
-        <strong>Daily Job Board</strong>
-        <p>Morning + evening WhatsApp summary of your pipeline. Never forget a follow-up</p>
+        <strong data-i18n="v8-name">Daily Job Board</strong>
+        <p data-i18n="v8-desc">Morning + evening WhatsApp summary of your pipeline. Never forget a follow-up</p>
       </div>
       <div class="value-price">$9,600/yr</div>
     </div>
     <div class="value-row">
       <div class="value-icon">🔔</div>
       <div class="value-text">
-        <strong>Appointment Reminders</strong>
-        <p>Auto-sent to customers the day before. Reduces no-shows by 50%</p>
+        <strong data-i18n="v9-name">Appointment Reminders</strong>
+        <p data-i18n="v9-desc">Auto-sent to customers the day before. Reduces no-shows by 50%</p>
       </div>
       <div class="value-price">$14,400/yr</div>
     </div>
     <div class="value-row">
       <div class="value-icon">📊</div>
       <div class="value-text">
-        <strong>Full Dashboard</strong>
-        <p>Every call recorded, transcribed, with lead status and pipeline analytics</p>
+        <strong data-i18n="v10-name">Full Dashboard</strong>
+        <p data-i18n="v10-desc">Every call recorded, transcribed, with lead status and pipeline analytics</p>
       </div>
       <div class="value-price">$4,800/yr</div>
     </div>
     <div class="value-row">
       <div class="value-icon">🛠️</div>
       <div class="value-text">
-        <strong>White-Glove Setup</strong>
-        <p>We configure everything. You do nothing technical. Live same day</p>
+        <strong data-i18n="v11-name">White-Glove Setup</strong>
+        <p data-i18n="v11-desc">We configure everything. You do nothing technical. Live same day</p>
       </div>
       <div class="value-price">$2,000</div>
     </div>
@@ -507,13 +478,13 @@
 
   <div class="value-total-row">
     <div>
-      <div class="vt-label">Total value</div>
-      <div class="vt-big amber">$172,400<span class="vt-sub">/year</span></div>
+      <div class="vt-label" data-i18n="vt-total-label">Total value</div>
+      <div class="vt-big amber" data-i18n="vt-total-amount">$172,400<span class="vt-sub">/year</span></div>
     </div>
     <div style="color:var(--muted);font-size:1.5rem;">→</div>
     <div>
-      <div class="vt-label">Starts at</div>
-      <div class="vt-big">$499<span class="vt-sub">/mo after free trial</span></div>
+      <div class="vt-label" data-i18n="vt-starts-label">Starts at</div>
+      <div class="vt-big" data-i18n="vt-starts-price">$499<span class="vt-sub">/mo after free trial</span></div>
     </div>
   </div>
 </div>
@@ -521,30 +492,30 @@
 <!-- HOW IT WORKS -->
 <div class="hiw-bg">
   <div class="section">
-    <div class="sec-label">How It Works</div>
-    <h2 class="sec-h">From Missed Call to Closed Job<br>in 90 Seconds</h2>
-    <p class="sec-sub" style="margin-bottom:48px;">No missed calls. No voicemails. No scrambling. Sofia handles the intake — you handle the job.</p>
+    <div class="sec-label" data-i18n="hiw-label">How It Works</div>
+    <h2 class="sec-h" data-i18n="hiw-h2">From Missed Call to Closed Job<br>in 90 Seconds</h2>
+    <p class="sec-sub" style="margin-bottom:48px;" data-i18n="hiw-sub">No missed calls. No voicemails. No scrambling. Sofia handles the intake — you handle the job.</p>
 
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <h3>Customer calls your business number</h3>
-          <p>Your existing number forwards to Sofia. No change to your phone or number. Takes 60 seconds to set up.</p>
+          <h3 data-i18n="s1-h">Customer calls your business number</h3>
+          <p data-i18n="s1-p">Your existing number forwards to Sofia. No change to your phone or number. Takes 60 seconds to set up.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
-          <h3>Sofia answers — bilingual, warm, natural</h3>
-          <p>She qualifies the call, captures name, phone, address, service needed, and urgency. All in their language — English or Spanish.</p>
+          <h3 data-i18n="s2-h">Sofia answers — bilingual, warm, natural</h3>
+          <p data-i18n="s2-p">She qualifies the call, captures name, phone, address, service needed, and urgency. All in their language — English or Spanish.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
-          <h3>You get a WhatsApp lead card instantly</h3>
-          <p>Full details, AI summary of the call, and three tap buttons to respond in seconds.</p>
+          <h3 data-i18n="s3-h">You get a WhatsApp lead card instantly</h3>
+          <p data-i18n="s3-p">Full details, AI summary of the call, and three tap buttons to respond in seconds.</p>
           <div class="wa-wrap">
             <span class="wa-chip">WhatsApp · Sofia AI</span>
             <div class="wa-card">
@@ -568,15 +539,15 @@
       <div class="step">
         <div class="step-num">4</div>
         <div class="step-body">
-          <h3>You tap "On My Way"</h3>
-          <p>Customer gets an automatic text confirmation in their language. They know you're coming. No-show risk drops immediately.</p>
+          <h3 data-i18n="s4-h">You tap "On My Way"</h3>
+          <p data-i18n="s4-p">Customer gets an automatic text confirmation in their language. They know you're coming. No-show risk drops immediately.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">5</div>
         <div class="step-body">
-          <h3>You show up, close the job, get paid</h3>
-          <p>Type "Carlos listo" — Sofia closes the job, sends a thank-you to the customer, and triggers a Google review request. All automatic.</p>
+          <h3 data-i18n="s5-h">You show up, close the job, get paid</h3>
+          <p data-i18n="s5-p">Type "Carlos listo" — Sofia closes the job, sends a thank-you to the customer, and triggers a Google review request. All automatic.</p>
         </div>
       </div>
     </div>
@@ -586,83 +557,83 @@
 <!-- PRICING -->
 <div class="section">
   <div class="pricing-intro">
-    <div class="sec-label">Pricing</div>
-    <h2 class="sec-h">Choose Your Plan</h2>
-    <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;">Start free. No credit card. Sofia pays for itself if she captures just 1 job per month. She captures 10–15.</p>
+    <div class="sec-label" data-i18n="price-label">Pricing</div>
+    <h2 class="sec-h" data-i18n="price-h2">Choose Your Plan</h2>
+    <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;" data-i18n="price-sub">Start free. No credit card. Sofia pays for itself if she captures just 1 job per month. She captures 10–15.</p>
   </div>
 
   <div class="trial-banner">
     <div class="trial-left">
-      <h3>Start Free — 14 Days, Zero Risk</h3>
-      <p>Full Starter features. Keep every lead Sofia captures. No credit card required.</p>
+      <h3 data-i18n="trial-h3">Start Free — 14 Days, Zero Risk</h3>
+      <p data-i18n="trial-p">Full Starter features. Keep every lead Sofia captures. No credit card required.</p>
       <div class="trial-bullets">
-        <span class="tb">✓ Full Starter features</span>
-        <span class="tb">✓ No credit card</span>
-        <span class="tb">✓ Keep all leads captured</span>
-        <span class="tb">✓ Live same day</span>
+        <span class="tb" data-i18n="tb1">✓ Full Starter features</span>
+        <span class="tb" data-i18n="tb2">✓ No credit card</span>
+        <span class="tb" data-i18n="tb3">✓ Keep all leads captured</span>
+        <span class="tb" data-i18n="tb4">✓ Live same day</span>
       </div>
     </div>
-    <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-trial">Start Free Trial →</a>
+    <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-trial" data-i18n="trial-btn">Start Free Trial →</a>
   </div>
 
   <div class="plans-grid">
     <div class="plan-card">
-      <div class="plan-name">Starter</div>
+      <div class="plan-name" data-i18n="s-name">Starter</div>
       <div class="plan-price">$499<span>/mo</span></div>
-      <div class="plan-tagline">~150 calls/month</div>
+      <div class="plan-tagline" data-i18n="s-tagline">~150 calls/month</div>
       <hr class="plan-divider">
       <ul class="plan-features">
-        <li>450 AI minutes</li>
-        <li>24/7 bilingual answering</li>
-        <li>WhatsApp lead cards + tap buttons</li>
-        <li>Customer SMS confirmations</li>
-        <li>Two-way SMS + photo forwarding</li>
-        <li>Daily job board summaries</li>
-        <li>Full dashboard access</li>
-        <li>48-hour setup</li>
+        <li data-i18n="sf1">450 AI minutes</li>
+        <li data-i18n="sf2">24/7 bilingual answering</li>
+        <li data-i18n="sf3">WhatsApp lead cards + tap buttons</li>
+        <li data-i18n="sf4">Customer SMS confirmations</li>
+        <li data-i18n="sf5">Two-way SMS + photo forwarding</li>
+        <li data-i18n="sf6">Daily job board summaries</li>
+        <li data-i18n="sf7">Full dashboard access</li>
+        <li data-i18n="sf8">48-hour setup</li>
       </ul>
-      <p class="plan-best">Best for: <strong>1–2 truck operations</strong></p>
-      <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-plan btn-outline">Start Trial</a>
+      <p class="plan-best" data-i18n="s-best">Best for: <strong>1–2 truck operations</strong></p>
+      <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-plan btn-outline" data-i18n="s-cta">Start Trial</a>
     </div>
 
     <div class="plan-card featured">
-      <div class="popular-badge">Most Popular</div>
-      <div class="plan-name">Pro</div>
+      <div class="popular-badge" data-i18n="popular">Most Popular</div>
+      <div class="plan-name" data-i18n="p-name">Pro</div>
       <div class="plan-price">$799<span>/mo</span></div>
-      <div class="plan-tagline">~250 calls/month</div>
+      <div class="plan-tagline" data-i18n="p-tagline">~250 calls/month</div>
       <hr class="plan-divider">
       <ul class="plan-features">
-        <li>750 AI minutes</li>
-        <li>Everything in Starter</li>
-        <li>Priority setup (24hr)</li>
-        <li>Google review automation</li>
-        <li>Quote follow-ups (Day 1 / 3 / 7)</li>
-        <li>Appointment reminders</li>
-        <li>Smart call qualification</li>
+        <li data-i18n="pf1">750 AI minutes</li>
+        <li data-i18n="pf2">Everything in Starter</li>
+        <li data-i18n="pf3">Priority setup (24hr)</li>
+        <li data-i18n="pf4">Google review automation</li>
+        <li data-i18n="pf5">Quote follow-ups (Day 1 / 3 / 7)</li>
+        <li data-i18n="pf6">Appointment reminders</li>
+        <li data-i18n="pf7">Smart call qualification</li>
       </ul>
-      <p class="plan-best">Best for: <strong>3–5 truck operations</strong></p>
-      <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-plan btn-amber">Start Trial</a>
+      <p class="plan-best" data-i18n="p-best">Best for: <strong>3–5 truck operations</strong></p>
+      <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-plan btn-amber" data-i18n="p-cta">Start Trial</a>
     </div>
 
     <div class="plan-card">
-      <div class="plan-name">Enterprise</div>
+      <div class="plan-name" data-i18n="e-name">Enterprise</div>
       <div class="plan-price">$1,099<span>/mo</span></div>
-      <div class="plan-tagline">Unlimited calls</div>
+      <div class="plan-tagline" data-i18n="e-tagline">1,200 AI minutes/month</div>
       <hr class="plan-divider">
       <ul class="plan-features">
-        <li>Unlimited AI minutes</li>
-        <li>Everything in Pro</li>
-        <li>Custom voice training</li>
-        <li>Priority support</li>
-        <li>White-label dashboard</li>
-        <li>Dedicated account manager</li>
+        <li data-i18n="ef1">1,200 AI minutes</li>
+        <li data-i18n="ef2">Everything in Pro</li>
+        <li data-i18n="ef3">Custom voice training</li>
+        <li data-i18n="ef4">Priority support</li>
+        <li data-i18n="ef5">White-label dashboard</li>
+        <li data-i18n="ef6">Dedicated account manager</li>
       </ul>
-      <p class="plan-best">Best for: <strong>5+ trucks, high volume</strong></p>
-      <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-plan btn-outline">Contact Sales</a>
+      <p class="plan-best" data-i18n="e-best">Best for: <strong>5+ trucks, high volume</strong></p>
+      <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-plan btn-outline" data-i18n="e-cta">Contact Sales</a>
     </div>
   </div>
 
-  <p class="roi-note">At $499/mo, Sofia pays for herself if she captures <strong>1 job per month</strong>. Average customers capture 10–15.</p>
+  <p class="roi-note" data-i18n="roi-note">At $499/mo, Sofia pays for herself if she captures <strong>1 job per month</strong>. Average customers capture 10–15.</p>
 </div>
 
 <!-- GUARANTEE -->
@@ -670,38 +641,38 @@
   <div class="section">
     <div class="guarantee-box">
       <div class="guarantee-icon">🛡️</div>
-      <h2>The Missed Call<br>Money-Back Guarantee</h2>
-      <p>In your first 30 days, if Sofia misses a single legitimate plumbing call during business hours (8am–8pm), we'll refund your entire first month AND give you the next month free.</p>
-      <p>Why? Because Sofia has a 99.97% answer rate. She doesn't miss. And if she does, you shouldn't pay.</p>
-      <div class="guarantee-stat">99.97% answer rate. Zero excuses.</div>
+      <h2 data-i18n="guar-h2">The Missed Call<br>Money-Back Guarantee</h2>
+      <p data-i18n="guar-p1">In your first 30 days, if Sofia misses a single legitimate plumbing call during business hours (8am–8pm), we'll refund your entire first month AND give you the next month free.</p>
+      <p data-i18n="guar-p2">Why? Because Sofia has a 99.97% answer rate. She doesn't miss. And if she does, you shouldn't pay.</p>
+      <div class="guarantee-stat" data-i18n="guar-stat">99.97% answer rate. Zero excuses.</div>
     </div>
   </div>
 </div>
 
 <!-- FAQ -->
 <div class="section">
-  <div class="sec-label">FAQ</div>
-  <h2 class="sec-h" style="margin-bottom:40px;">Common Questions</h2>
+  <div class="sec-label" data-i18n="faq-label">FAQ</div>
+  <h2 class="sec-h" style="margin-bottom:40px;" data-i18n="faq-h2">Common Questions</h2>
   <div class="faq-list">
     <div class="faq-item">
-      <div class="faq-q">Will my customers know it's AI?</div>
-      <div class="faq-a">73% can't tell. And they don't care — they care that someone <em>answered</em> and solved their problem. Sofia is warm, natural, and bilingual. Your customers will be impressed someone picked up at all.</div>
+      <div class="faq-q" data-i18n="faq-q1">Will my customers know it's AI?</div>
+      <div class="faq-a" data-i18n="faq-a1">73% can't tell. And they don't care — they care that someone <em>answered</em> and solved their problem. Sofia is warm, natural, and bilingual. Your customers will be impressed someone picked up at all.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What about my existing phone number?</div>
-      <div class="faq-a">You keep it. We just forward calls to Sofia. Takes 60 seconds to set up and you can disable it anytime.</div>
+      <div class="faq-q" data-i18n="faq-q2">What about my existing phone number?</div>
+      <div class="faq-a" data-i18n="faq-a2">You keep it. We just forward calls to Sofia. Takes 60 seconds to set up and you can disable it anytime.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">I'm not good with technology.</div>
-      <div class="faq-a">We do white-glove setup. You don't touch any technology. We configure everything — you just tap buttons in WhatsApp. If you can text, you can use Sofia.</div>
+      <div class="faq-q" data-i18n="faq-q3">I'm not good with technology.</div>
+      <div class="faq-a" data-i18n="faq-a3">We do white-glove setup. You don't touch any technology. We configure everything — you just tap buttons in WhatsApp. If you can text, you can use Sofia.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What if it breaks?</div>
-      <div class="faq-a">99.97% uptime. If something breaks, we fix it in under 4 hours. Plus the money-back guarantee covers you for the first 30 days.</div>
+      <div class="faq-q" data-i18n="faq-q4">What if it breaks?</div>
+      <div class="faq-a" data-i18n="faq-a4">99.97% uptime. If something breaks, we fix it in under 4 hours. Plus the money-back guarantee covers you for the first 30 days.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Can I cancel anytime?</div>
-      <div class="faq-a">Yes. Monthly billing, no contracts, cancel anytime. But with the free trial, you'll see if it works before you pay a single dollar.</div>
+      <div class="faq-q" data-i18n="faq-q5">Can I cancel anytime?</div>
+      <div class="faq-a" data-i18n="faq-a5">Yes. Monthly billing, no contracts, cancel anytime. But with the free trial, you'll see if it works before you pay a single dollar.</div>
     </div>
   </div>
 </div>
@@ -709,10 +680,10 @@
 <!-- FINAL CTA -->
 <div class="final-cta-bg">
   <div class="final-cta">
-    <h2>Stop Losing <span class="red">$7,800/Month</span><br>to Missed Calls</h2>
-    <p>14-day free trial. No credit card. Forward your number, Sofia answers your next call. If you don't love it, you're out nothing.</p>
-    <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-hero">Start Free 14-Day Trial</a>
-    <p class="final-note">Setup takes 60 seconds &nbsp;·&nbsp; Live same day &nbsp;·&nbsp; Cancel anytime</p>
+    <h2 data-i18n="final-h2">Stop Losing <span class="red">$7,800/Month</span><br>to Missed Calls</h2>
+    <p data-i18n="final-p">14-day free trial. No credit card. Forward your number, Sofia answers your next call. If you don't love it, you're out nothing.</p>
+    <a href="mailto:roberto.gavaldon3@gmail.com" class="btn-hero" data-i18n="final-cta-btn">Start Free 14-Day Trial</a>
+    <p class="final-note" data-i18n="final-note">Setup takes 60 seconds &nbsp;·&nbsp; Live same day &nbsp;·&nbsp; Cancel anytime</p>
   </div>
 </div>
 
@@ -726,5 +697,243 @@
   <p class="footer-copy">&copy; 2026 Sofia AI &nbsp;·&nbsp; All rights reserved</p>
 </footer>
 
+<script>
+  const T = {
+    en: {
+      'nav-cta': 'Start Free Trial',
+      'hero-badge': '📞 AI Voice Receptionist for Plumbers',
+      'hero-h1': 'Never Lose Another<br><span class="dollar">$1,500</span> Emergency Call',
+      'hero-sub': 'Sofia answers every call <strong>24/7 in English &amp; Spanish</strong>, sends you leads in WhatsApp with tap buttons, and costs <strong>90% less than a receptionist.</strong>',
+      'hero-cta': 'Start Free 14-Day Trial',
+      'hero-note': 'No credit card required &nbsp;·&nbsp; Live same day &nbsp;·&nbsp; Cancel anytime',
+      'strip': '<strong>99.97% answer rate</strong> &nbsp;·&nbsp; Works 24/7 &nbsp;·&nbsp; English &amp; Spanish &nbsp;·&nbsp; No app to download &nbsp;·&nbsp; White-glove setup included',
+      'prob-label': 'The Problem',
+      'prob-h2': "You're Losing <span style=\"color:var(--red)\">$93,600/Year</span><br>in Missed Calls",
+      'prob-body': "Every time your phone goes to voicemail while you're under a sink, that's $300–$1,500 walking out the door. The customer doesn't wait. They call the next plumber in Google. The one who answers.",
+      'loss-label': 'Lost revenue per year',
+      'loss-h3': "Here's the math",
+      'loss-p': "Most 1–2 truck plumbing companies miss 3–5 calls per week. At a $600 average job, that's money you earned but never collected. You know this. You feel it every time your phone rings and you can't answer.",
+      'mc1': '3 missed calls/week',
+      'mc2': '× $600 avg job',
+      'mc4': '= $93,600/year',
+      'sol-label': 'The Solution',
+      'sol-h2': 'Meet Sofia: Your 24/7<br>Bilingual AI Receptionist',
+      'sol-sub': 'Sofia answers every call. Qualifies emergencies vs scheduled jobs. Captures name, phone, address, and problem. Sends you a WhatsApp card with one-tap buttons. You tap "On My Way" — customer gets instant confirmation. You show up. You close the job.',
+      'v1-name': '24/7 Bilingual AI Receptionist',
+      'v1-desc': 'Answers in English AND Spanish, never sleeps, never quits',
+      'v2-name': 'WhatsApp Lead Management',
+      'v2-desc': 'One-tap buttons (On My Way / Schedule / Not a Lead). Manage pipeline via text commands like "Jennifer done"',
+      'v3-name': 'Instant Customer Confirmations',
+      'v3-desc': 'Automatic SMS/WhatsApp when you accept a job. Reduces no-shows by 40%',
+      'v4-name': 'Smart Call Qualification',
+      'v4-desc': 'Emergency vs Scheduled vs Not a Lead. Saves time on junk calls',
+      'v5-name': 'Photo Forwarding',
+      'v5-desc': 'Customer sends job site pics, Sofia forwards to you. Better quotes, fewer surprises',
+      'v6-name': 'Automated Quote Follow-Up',
+      'v6-desc': 'Day 1, 3, 7 follow-ups on sent quotes. Closes 25% more estimates',
+      'v7-name': 'Google Review Auto-Request',
+      'v7-desc': 'Sent when jobs close. Builds your 5-star reputation on autopilot',
+      'v8-name': 'Daily Job Board',
+      'v8-desc': 'Morning + evening WhatsApp summary of your pipeline. Never forget a follow-up',
+      'v9-name': 'Appointment Reminders',
+      'v9-desc': 'Auto-sent to customers the day before. Reduces no-shows by 50%',
+      'v10-name': 'Full Dashboard',
+      'v10-desc': 'Every call recorded, transcribed, with lead status and pipeline analytics',
+      'v11-name': 'White-Glove Setup',
+      'v11-desc': 'We configure everything. You do nothing technical. Live same day',
+      'vt-total-label': 'Total value',
+      'vt-total-amount': '$172,400<span class="vt-sub">/year</span>',
+      'vt-starts-label': 'Starts at',
+      'vt-starts-price': '$499<span class="vt-sub">/mo after free trial</span>',
+      'hiw-label': 'How It Works',
+      'hiw-h2': 'From Missed Call to Closed Job<br>in 90 Seconds',
+      'hiw-sub': 'No missed calls. No voicemails. No scrambling. Sofia handles the intake — you handle the job.',
+      's1-h': 'Customer calls your business number',
+      's1-p': 'Your existing number forwards to Sofia. No change to your phone or number. Takes 60 seconds to set up.',
+      's2-h': 'Sofia answers — bilingual, warm, natural',
+      's2-p': 'She qualifies the call, captures name, phone, address, service needed, and urgency. All in their language — English or Spanish.',
+      's3-h': 'You get a WhatsApp lead card instantly',
+      's3-p': 'Full details, AI summary of the call, and three tap buttons to respond in seconds.',
+      's4-h': 'You tap "On My Way"',
+      's4-p': "Customer gets an automatic text confirmation in their language. They know you're coming. No-show risk drops immediately.",
+      's5-h': 'You show up, close the job, get paid',
+      's5-p': 'Type "Carlos listo" — Sofia closes the job, sends a thank-you to the customer, and triggers a Google review request. All automatic.',
+      'price-label': 'Pricing',
+      'price-h2': 'Choose Your Plan',
+      'price-sub': 'Start free. No credit card. Sofia pays for itself if she captures just 1 job per month. She captures 10–15.',
+      'trial-h3': 'Start Free — 14 Days, Zero Risk',
+      'trial-p': 'Full Starter features. Keep every lead Sofia captures. No credit card required.',
+      'tb1': '✓ Full Starter features',
+      'tb2': '✓ No credit card',
+      'tb3': '✓ Keep all leads captured',
+      'tb4': '✓ Live same day',
+      'trial-btn': 'Start Free Trial →',
+      'popular': 'Most Popular',
+      's-name': 'Starter', 's-tagline': '~150 calls/month',
+      'sf1': '450 AI minutes', 'sf2': '24/7 bilingual answering',
+      'sf3': 'WhatsApp lead cards + tap buttons', 'sf4': 'Customer SMS confirmations',
+      'sf5': 'Two-way SMS + photo forwarding', 'sf6': 'Daily job board summaries',
+      'sf7': 'Full dashboard access', 'sf8': '48-hour setup',
+      's-best': 'Best for: <strong>1–2 truck operations</strong>', 's-cta': 'Start Trial',
+      'p-name': 'Pro', 'p-tagline': '~250 calls/month',
+      'pf1': '750 AI minutes', 'pf2': 'Everything in Starter',
+      'pf3': 'Priority setup (24hr)', 'pf4': 'Google review automation',
+      'pf5': 'Quote follow-ups (Day 1 / 3 / 7)', 'pf6': 'Appointment reminders',
+      'pf7': 'Smart call qualification',
+      'p-best': 'Best for: <strong>3–5 truck operations</strong>', 'p-cta': 'Start Trial',
+      'e-name': 'Enterprise', 'e-tagline': '1,200 AI minutes/month',
+      'ef1': '1,200 AI minutes', 'ef2': 'Everything in Pro',
+      'ef3': 'Custom voice training', 'ef4': 'Priority support',
+      'ef5': 'White-label dashboard', 'ef6': 'Dedicated account manager',
+      'e-best': 'Best for: <strong>5+ trucks, high volume</strong>', 'e-cta': 'Contact Sales',
+      'roi-note': 'At $499/mo, Sofia pays for herself if she captures <strong>1 job per month</strong>. Average customers capture 10–15.',
+      'guar-h2': 'The Missed Call<br>Money-Back Guarantee',
+      'guar-p1': "In your first 30 days, if Sofia misses a single legitimate plumbing call during business hours (8am–8pm), we'll refund your entire first month AND give you the next month free.",
+      'guar-p2': "Why? Because Sofia has a 99.97% answer rate. She doesn't miss. And if she does, you shouldn't pay.",
+      'guar-stat': '99.97% answer rate. Zero excuses.',
+      'faq-label': 'FAQ', 'faq-h2': 'Common Questions',
+      'faq-q1': "Will my customers know it's AI?",
+      'faq-a1': "73% can't tell. And they don't care — they care that someone <em>answered</em> and solved their problem. Sofia is warm, natural, and bilingual. Your customers will be impressed someone picked up at all.",
+      'faq-q2': 'What about my existing phone number?',
+      'faq-a2': 'You keep it. We just forward calls to Sofia. Takes 60 seconds to set up and you can disable it anytime.',
+      'faq-q3': "I'm not good with technology.",
+      'faq-a3': "We do white-glove setup. You don't touch any technology. We configure everything — you just tap buttons in WhatsApp. If you can text, you can use Sofia.",
+      'faq-q4': 'What if it breaks?',
+      'faq-a4': '99.97% uptime. If something breaks, we fix it in under 4 hours. Plus the money-back guarantee covers you for the first 30 days.',
+      'faq-q5': 'Can I cancel anytime?',
+      'faq-a5': "Yes. Monthly billing, no contracts, cancel anytime. But with the free trial, you'll see if it works before you pay a single dollar.",
+      'final-h2': 'Stop Losing <span class="red">$7,800/Month</span><br>to Missed Calls',
+      'final-p': "14-day free trial. No credit card. Forward your number, Sofia answers your next call. If you don't love it, you're out nothing.",
+      'final-cta-btn': 'Start Free 14-Day Trial',
+      'final-note': 'Setup takes 60 seconds &nbsp;·&nbsp; Live same day &nbsp;·&nbsp; Cancel anytime'
+    },
+    es: {
+      'nav-cta': 'Prueba Gratis',
+      'hero-badge': '📞 Recepcionista de Voz IA para Plomeros',
+      'hero-h1': 'Nunca Pierdas Otra<br><span class="dollar">$1,500</span> Llamada de Emergencia',
+      'hero-sub': 'Sofia contesta cada llamada <strong>24/7 en inglés y español</strong>, te manda leads por WhatsApp con botones de un toque, y cuesta <strong>90% menos que una recepcionista.</strong>',
+      'hero-cta': 'Empezar Prueba Gratis de 14 Días',
+      'hero-note': 'Sin tarjeta de crédito &nbsp;·&nbsp; En línea el mismo día &nbsp;·&nbsp; Cancela cuando quieras',
+      'strip': '<strong>99.97% tasa de respuesta</strong> &nbsp;·&nbsp; Trabaja 24/7 &nbsp;·&nbsp; Inglés y Español &nbsp;·&nbsp; Sin app que descargar &nbsp;·&nbsp; Configuración completa incluida',
+      'prob-label': 'El Problema',
+      'prob-h2': 'Estás Perdiendo <span style="color:var(--red)">$93,600/Año</span><br>en Llamadas Perdidas',
+      'prob-body': 'Cada vez que tu teléfono va al buzón de voz mientras estás bajo el fregadero, son $300–$1,500 que se van. El cliente no espera. Llama al siguiente plomero en Google. Al que sí contesta.',
+      'loss-label': 'Ingresos perdidos por año',
+      'loss-h3': 'Así se calcula',
+      'loss-p': 'La mayoría de las empresas de plomería de 1–2 camiones pierden 3–5 llamadas por semana. A $600 por trabajo promedio, ese es dinero que ganaste pero nunca cobraste. Lo sabes. Lo sientes cada vez que tu teléfono suena y no puedes contestar.',
+      'mc1': '3 llamadas perdidas/semana',
+      'mc2': '× $600 trabajo promedio',
+      'mc4': '= $93,600/año',
+      'sol-label': 'La Solución',
+      'sol-h2': 'Conoce a Sofia: Tu Recepcionista<br>de IA 24/7 Bilingüe',
+      'sol-sub': 'Sofia contesta cada llamada. Califica emergencias vs trabajos programados. Captura nombre, teléfono, dirección y problema. Te manda una tarjeta de WhatsApp con botones de un toque. Tocas "En Camino" — el cliente recibe confirmación inmediata. Llegas. Cierras el trabajo.',
+      'v1-name': 'Recepcionista de IA 24/7 Bilingüe',
+      'v1-desc': 'Contesta en inglés Y español, nunca duerme, nunca renuncia',
+      'v2-name': 'Gestión de Leads por WhatsApp',
+      'v2-desc': 'Botones de un toque (En Camino / Agendar / No es Cliente). Maneja tu pipeline con comandos de texto como "Jennifer lista"',
+      'v3-name': 'Confirmaciones Automáticas al Cliente',
+      'v3-desc': 'SMS/WhatsApp automático cuando aceptas un trabajo. Reduce ausencias en un 40%',
+      'v4-name': 'Calificación Inteligente de Llamadas',
+      'v4-desc': 'Emergencia vs Programado vs No es Cliente. Ahorra tiempo en llamadas sin valor',
+      'v5-name': 'Reenvío de Fotos',
+      'v5-desc': 'El cliente manda fotos del problema, Sofia te las reenvía. Mejores cotizaciones, menos sorpresas',
+      'v6-name': 'Seguimiento Automático de Cotizaciones',
+      'v6-desc': 'Seguimientos en día 1, 3 y 7. Cierra 25% más presupuestos',
+      'v7-name': 'Solicitud Automática de Reseñas Google',
+      'v7-desc': 'Se envía al cerrar trabajos. Construye tu reputación de 5 estrellas en piloto automático',
+      'v8-name': 'Resumen Diario de Trabajos',
+      'v8-desc': 'Resumen de mañana y tarde por WhatsApp de tu pipeline. Nunca olvides un seguimiento',
+      'v9-name': 'Recordatorios de Cita',
+      'v9-desc': 'Enviados automáticamente al cliente el día anterior. Reduce ausencias en un 50%',
+      'v10-name': 'Dashboard Completo',
+      'v10-desc': 'Cada llamada grabada y transcrita, con estado de lead y análisis de pipeline',
+      'v11-name': 'Configuración de Guante Blanco',
+      'v11-desc': 'Nosotros configuramos todo. Tú no tocas nada técnico. En línea el mismo día',
+      'vt-total-label': 'Valor total',
+      'vt-total-amount': '$172,400<span class="vt-sub">/año</span>',
+      'vt-starts-label': 'Empieza desde',
+      'vt-starts-price': '$499<span class="vt-sub">/mes después de la prueba</span>',
+      'hiw-label': 'Cómo Funciona',
+      'hiw-h2': 'De Llamada Perdida a Trabajo Cerrado<br>en 90 Segundos',
+      'hiw-sub': 'Sin llamadas perdidas. Sin buzones de voz. Sin apuros. Sofia maneja la recepción — tú manejas el trabajo.',
+      's1-h': 'El cliente llama a tu número de negocio',
+      's1-p': 'Tu número actual redirige a Sofia. Sin cambios a tu teléfono o número. Tarda 60 segundos en configurar.',
+      's2-h': 'Sofia contesta — bilingüe, cálida, natural',
+      's2-p': 'Califica la llamada, captura nombre, teléfono, dirección, servicio y urgencia. Todo en el idioma del cliente — inglés o español.',
+      's3-h': 'Recibes una tarjeta de lead por WhatsApp al instante',
+      's3-p': 'Datos completos, resumen de IA de la llamada y tres botones para responder en segundos.',
+      's4-h': 'Tocas "En Camino"',
+      's4-p': 'El cliente recibe confirmación automática en su idioma. Saben que vas. El riesgo de ausencia baja de inmediato.',
+      's5-h': 'Llegas, cierras el trabajo, cobras',
+      's5-p': 'Escribe "Carlos listo" — Sofia cierra el trabajo, manda un agradecimiento y activa la solicitud de reseña en Google. Todo automático.',
+      'price-label': 'Precios',
+      'price-h2': 'Elige Tu Plan',
+      'price-sub': 'Empieza gratis. Sin tarjeta de crédito. Sofia se paga sola si captura solo 1 trabajo al mes. Captura 10–15.',
+      'trial-h3': 'Empieza Gratis — 14 Días, Sin Riesgo',
+      'trial-p': 'Todas las funciones del plan Starter. Conserva todos los leads. Sin tarjeta de crédito.',
+      'tb1': '✓ Todas las funciones Starter',
+      'tb2': '✓ Sin tarjeta de crédito',
+      'tb3': '✓ Conserva todos los leads',
+      'tb4': '✓ En línea el mismo día',
+      'trial-btn': 'Empezar Prueba Gratis →',
+      'popular': 'Más Popular',
+      's-name': 'Starter', 's-tagline': '~150 llamadas/mes',
+      'sf1': '450 minutos de IA', 'sf2': 'Respuesta bilingüe 24/7',
+      'sf3': 'Tarjetas de lead por WhatsApp + botones', 'sf4': 'Confirmaciones SMS al cliente',
+      'sf5': 'SMS de dos vías + reenvío de fotos', 'sf6': 'Resúmenes diarios de trabajos',
+      'sf7': 'Acceso completo al dashboard', 'sf8': 'Configuración en 48 horas',
+      's-best': 'Ideal para: <strong>operaciones de 1–2 camiones</strong>', 's-cta': 'Empezar Prueba',
+      'p-name': 'Pro', 'p-tagline': '~250 llamadas/mes',
+      'pf1': '750 minutos de IA', 'pf2': 'Todo lo de Starter',
+      'pf3': 'Configuración prioritaria (24hr)', 'pf4': 'Automatización de reseñas Google',
+      'pf5': 'Seguimientos de cotización (Día 1 / 3 / 7)', 'pf6': 'Recordatorios de cita',
+      'pf7': 'Calificación inteligente de llamadas',
+      'p-best': 'Ideal para: <strong>operaciones de 3–5 camiones</strong>', 'p-cta': 'Empezar Prueba',
+      'e-name': 'Enterprise', 'e-tagline': '1,200 minutos de IA/mes',
+      'ef1': '1,200 minutos de IA', 'ef2': 'Todo lo de Pro',
+      'ef3': 'Entrenamiento de voz personalizado', 'ef4': 'Soporte prioritario',
+      'ef5': 'Dashboard white-label', 'ef6': 'Gerente de cuenta dedicado',
+      'e-best': 'Ideal para: <strong>5+ camiones, alto volumen</strong>', 'e-cta': 'Contactar Ventas',
+      'roi-note': 'A $499/mes, Sofia se paga sola si captura <strong>1 trabajo al mes</strong>. Los clientes promedian 10–15.',
+      'guar-h2': 'La Garantía de<br>Reembolso por Llamada Perdida',
+      'guar-p1': 'En tus primeros 30 días, si Sofia pierde una sola llamada legítima de plomería durante horas hábiles (8am–8pm), te reembolsamos el primer mes completo Y te damos el siguiente mes gratis.',
+      'guar-p2': '¿Por qué? Porque Sofia tiene una tasa de respuesta del 99.97%. No falla. Y si falla, no deberías pagar.',
+      'guar-stat': '99.97% de tasa de respuesta. Sin excusas.',
+      'faq-label': 'Preguntas Frecuentes', 'faq-h2': 'Preguntas Comunes',
+      'faq-q1': '¿Mis clientes sabrán que es IA?',
+      'faq-a1': 'El 73% no puede distinguirla. Y no les importa — les importa que alguien <em>contestó</em> y resolvió su problema. Sofia es cálida, natural y bilingüe. Tus clientes quedarán impresionados de que alguien haya contestado.',
+      'faq-q2': '¿Qué pasa con mi número de teléfono actual?',
+      'faq-a2': 'Lo conservas. Solo redirigimos las llamadas a Sofia. Tarda 60 segundos y puedes desactivarlo cuando quieras.',
+      'faq-q3': 'No me manejo bien con la tecnología.',
+      'faq-a3': 'Nosotros hacemos toda la configuración. Tú no tocas ninguna tecnología. Configuramos todo — tú solo tocas botones en WhatsApp. Si puedes mandar un mensaje, puedes usar Sofia.',
+      'faq-q4': '¿Qué pasa si se rompe?',
+      'faq-a4': '99.97% de tiempo activo. Si algo falla, lo arreglamos en menos de 4 horas. La garantía de reembolso te cubre los primeros 30 días.',
+      'faq-q5': '¿Puedo cancelar en cualquier momento?',
+      'faq-a5': 'Sí. Facturación mensual, sin contratos, cancela cuando quieras. Con la prueba gratuita, verás si funciona antes de pagar un solo dólar.',
+      'final-h2': 'Deja de Perder <span class="red">$7,800/Mes</span><br>en Llamadas Perdidas',
+      'final-p': 'Prueba gratis de 14 días. Sin tarjeta de crédito. Redirige tu número y Sofia contesta tu próxima llamada. Si no te encanta, no pierdes nada.',
+      'final-cta-btn': 'Empezar Prueba Gratis de 14 Días',
+      'final-note': 'Configuración en 60 segundos &nbsp;·&nbsp; En línea el mismo día &nbsp;·&nbsp; Cancela cuando quieras'
+    }
+  };
+
+  function setLang(lang) {
+    localStorage.setItem('sofia-lang', lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { setLang(btn.getAttribute('data-lang')); });
+  });
+
+  setLang(localStorage.getItem('sofia-lang') || 'en');
+</script>
 </body>
 </html>
