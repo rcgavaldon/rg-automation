@@ -265,31 +265,34 @@
 
     .hiw-scene {
       position: absolute; inset: 0;
-      padding: 48px 32px 32px;
+      padding: 52px 32px 28px;
       display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
+      align-items: center; justify-content: flex-start;
+      gap: 20px;
       opacity: 0; pointer-events: none;
       transition: opacity 0.6s ease;
     }
-    @media (max-width: 480px) { .hiw-scene { padding: 48px 20px 24px; } }
+    @media (max-width: 480px) { .hiw-scene { padding: 52px 20px 20px; gap: 16px; } }
     .hiw-scene.active { opacity: 1; pointer-events: auto; }
 
     .hiw-tag {
-      position: absolute; top: 18px; left: 50%;
+      position: absolute; top: 16px; left: 50%;
       transform: translateX(-50%);
-      font-size: 0.62rem; font-weight: 700;
+      font-size: 0.6rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--amber); background: var(--amber-dim);
-      border: 1px solid var(--amber-border);
-      padding: 4px 14px; border-radius: 100px; white-space: nowrap;
+      color: var(--muted); background: transparent;
+      white-space: nowrap;
     }
     .hiw-callout {
-      margin-top: 22px;
-      font-size: clamp(0.88rem, 2.2vw, 1rem);
-      color: var(--muted); text-align: center; line-height: 1.5;
+      font-size: clamp(1.15rem, 3.5vw, 1.4rem);
+      font-weight: 800;
+      color: var(--white);
+      text-align: center;
+      line-height: 1.3;
       max-width: 380px;
+      flex-shrink: 0;
     }
-    .hiw-callout strong { color: var(--text); }
+    .hiw-callout strong { color: var(--amber); }
 
     /* Scene 1 */
     .hiw-time { text-align: center; margin-bottom: 24px; }
@@ -691,6 +694,7 @@
       <!-- S1: Incoming call -->
       <div class="hiw-scene" id="hiw-s1">
         <div class="hiw-tag">Incoming Call</div>
+        <div class="hiw-callout" id="hiw-c1">You're unavailable. <strong>Sofia picks up instantly.</strong></div>
         <div class="hiw-time">
           <div class="hiw-time-digits"><strong>11:47</strong> PM</div>
           <div class="hiw-time-label">Incoming call</div>
@@ -706,12 +710,12 @@
           </div>
           <div class="hiw-urg">Urgent</div>
         </div>
-        <div class="hiw-callout" id="hiw-c1">You're unavailable. <strong>Sofia picks up instantly.</strong></div>
       </div>
 
       <!-- S2: Sofia answers bilingual -->
       <div class="hiw-scene" id="hiw-s2">
         <div class="hiw-tag">Sofia Answers</div>
+        <div class="hiw-callout" id="hiw-c2">Answers <strong>24/7 in English or Spanish</strong> — automatically</div>
         <div class="hiw-sofia-card">
           <div class="hiw-sofia-hd">
             <div class="hiw-sofia-av">🤖</div>
@@ -729,12 +733,12 @@
             <div class="hiw-speech-sub" id="hiw-speech-sub">Detected Spanish → switched automatically</div>
           </div>
         </div>
-        <div class="hiw-callout" id="hiw-c2">Answers <strong>24/7 in English or Spanish</strong> — no setup needed</div>
       </div>
 
       <!-- S3: WhatsApp card -->
       <div class="hiw-scene" id="hiw-s3">
         <div class="hiw-tag">WhatsApp Lead Card</div>
+        <div class="hiw-callout" id="hiw-c3">Full details. <strong>Three tap buttons.</strong> Respond in seconds.</div>
         <div class="hiw-wa-wrap">
           <span class="wa-chip">WhatsApp · Sofia AI</span>
           <div class="wa-card">
@@ -752,12 +756,12 @@
             </div>
           </div>
         </div>
-        <div class="hiw-callout" id="hiw-c3">Full details. <strong>Three tap buttons.</strong> Respond in seconds.</div>
       </div>
 
       <!-- S4: Tap + customer SMS -->
       <div class="hiw-scene" id="hiw-s4">
         <div class="hiw-tag">One Tap — Customer Notified</div>
+        <div class="hiw-callout" id="hiw-c4">Tap once. Customer <strong>auto-notified in their language.</strong></div>
         <div class="hiw-tap-row">
           <div class="hiw-tap-btn" id="hiw-tap-omw" style="background:rgba(74,222,128,0.12);border-color:rgba(74,222,128,0.25);color:#4ade80;">✅ En Camino</div>
           <div class="hiw-tap-btn" style="background:rgba(96,165,250,0.12);border-color:rgba(96,165,250,0.25);color:#60a5fa;">📅 Agendar</div>
@@ -771,12 +775,12 @@
             Tiempo estimado: <strong>15 min</strong> ⏱️
           </div>
         </div>
-        <div class="hiw-callout" id="hiw-c4">Customer <strong>auto-notified in their language.</strong> No-shows drop 40%.</div>
       </div>
 
       <!-- S5: Automations -->
       <div class="hiw-scene" id="hiw-s5">
         <div class="hiw-tag">Automatic Follow-Ups</div>
+        <div class="hiw-callout" id="hiw-c5"><strong>Sofia handles the rest.</strong> You just do the work.</div>
         <div class="hiw-auto-list">
           <div class="hiw-auto-row" id="hiw-a1">
             <div class="hiw-auto-icon">💲</div>
@@ -803,7 +807,6 @@
             <div class="hiw-auto-badge grn">Done ✓</div>
           </div>
         </div>
-        <div class="hiw-callout" id="hiw-c5"><strong>Sofia handles the rest.</strong> You just do the work.</div>
       </div>
 
     </div><!-- /hiw-stage -->
