@@ -144,7 +144,10 @@
     .hero-note { font-size: 0.8rem; color: var(--muted); }
 
     /* Hero visual — WA card preview */
-    .hero-visual { position: relative; }
+    .hero-visual {
+      display: flex; flex-direction: column; align-items: flex-start;
+      position: relative;
+    }
     .hero-notif {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--surface); border: 1px solid var(--border);
@@ -695,7 +698,7 @@
         <div class="hiw-call-card">
           <div class="hiw-av">
             👤
-            <div class="hiw-flag">🇲🇽</div>
+            <div class="hiw-flag" id="hiw-caller-flag">🇲🇽</div>
           </div>
           <div class="hiw-caller">
             <div class="hiw-caller-name">María García</div>
@@ -703,7 +706,7 @@
           </div>
           <div class="hiw-urg">Urgent</div>
         </div>
-        <div class="hiw-callout">You're under a sink. <strong>Sofia picks up instantly.</strong></div>
+        <div class="hiw-callout" id="hiw-c1">You're unavailable. <strong>Sofia picks up instantly.</strong></div>
       </div>
 
       <!-- S2: Sofia answers bilingual -->
@@ -717,16 +720,16 @@
               <div class="hiw-sofia-st">● Live — answering call</div>
             </div>
             <div class="hiw-lang-tog">
-              <div class="hiw-lang-opt">EN</div>
-              <div class="hiw-lang-opt on">ES</div>
+              <div class="hiw-lang-opt" id="hiw-lang-en">EN</div>
+              <div class="hiw-lang-opt on" id="hiw-lang-es">ES</div>
             </div>
           </div>
           <div class="hiw-speech">
-            <div class="hiw-speech-main">"¿Cuál es su dirección?"</div>
-            <div class="hiw-speech-sub">Detected Spanish → switched automatically</div>
+            <div class="hiw-speech-main" id="hiw-speech-main">"¿Cuál es su dirección?"</div>
+            <div class="hiw-speech-sub" id="hiw-speech-sub">Detected Spanish → switched automatically</div>
           </div>
         </div>
-        <div class="hiw-callout">Answers <strong>24/7 in English or Spanish</strong> — no setup needed</div>
+        <div class="hiw-callout" id="hiw-c2">Answers <strong>24/7 in English or Spanish</strong> — no setup needed</div>
       </div>
 
       <!-- S3: WhatsApp card -->
@@ -749,7 +752,7 @@
             </div>
           </div>
         </div>
-        <div class="hiw-callout">Full details. <strong>Three tap buttons.</strong> Respond in seconds.</div>
+        <div class="hiw-callout" id="hiw-c3">Full details. <strong>Three tap buttons.</strong> Respond in seconds.</div>
       </div>
 
       <!-- S4: Tap + customer SMS -->
@@ -761,14 +764,14 @@
           <div class="hiw-tap-btn" style="background:rgba(248,113,113,0.12);border-color:rgba(248,113,113,0.25);color:#f87171;">✕ No cliente</div>
         </div>
         <div class="hiw-sms-preview" id="hiw-sms">
-          <div class="hiw-sms-label">🇲🇽 &nbsp; Customer receives instantly:</div>
-          <div class="hiw-sms-text">
+          <div class="hiw-sms-label" id="hiw-sms-label">🇲🇽 &nbsp; Customer receives instantly:</div>
+          <div class="hiw-sms-text" id="hiw-sms-text">
             Hola <strong>María</strong> 👋<br>
             <strong>Juan va en camino.</strong><br>
             Tiempo estimado: <strong>15 min</strong> ⏱️
           </div>
         </div>
-        <div class="hiw-callout">Customer <strong>auto-notified in Spanish.</strong> No-shows drop 40%.</div>
+        <div class="hiw-callout" id="hiw-c4">Customer <strong>auto-notified in their language.</strong> No-shows drop 40%.</div>
       </div>
 
       <!-- S5: Automations -->
@@ -800,7 +803,7 @@
             <div class="hiw-auto-badge grn">Done ✓</div>
           </div>
         </div>
-        <div class="hiw-callout"><strong>Sofia handles the rest.</strong> You just do the work.</div>
+        <div class="hiw-callout" id="hiw-c5"><strong>Sofia handles the rest.</strong> You just do the work.</div>
       </div>
 
     </div><!-- /hiw-stage -->
@@ -1107,7 +1110,18 @@
       'final-h2': 'Stop Losing <span class="red">$7,800/Month</span><br>to Missed Calls',
       'final-p': "7-day free trial. No credit card. Forward your number, Sofia answers your next call. If you don't love it, you're out nothing.",
       'final-cta-btn': 'Start Free 7-Day Trial',
-      'final-note': 'Setup takes 60 seconds &nbsp;·&nbsp; Live same day &nbsp;·&nbsp; Cancel anytime'
+      'final-note': 'Setup takes 60 seconds &nbsp;·&nbsp; Live same day &nbsp;·&nbsp; Cancel anytime',
+      'hiw-caller-flag': '🇺🇸',
+      'hiw-lang-active': 'en',
+      'hiw-speech-main': '"What is your address?"',
+      'hiw-speech-sub': 'Detected English → switched automatically',
+      'hiw-sms-label': '🇺🇸 &nbsp; Customer receives instantly:',
+      'hiw-sms-text': 'Hi <strong>María</strong> 👋<br><strong>Juan is on his way.</strong><br>Estimated time: <strong>15 min</strong> ⏱️',
+      'hiw-c1': "You're unavailable. <strong>Sofia picks up instantly.</strong>",
+      'hiw-c2': 'Answers <strong>24/7 in English or Spanish</strong> — no setup needed',
+      'hiw-c3': 'Full details. <strong>Three tap buttons.</strong> Respond in seconds.',
+      'hiw-c4': 'Customer <strong>auto-notified in English.</strong> No-shows drop 40%.',
+      'hiw-c5': '<strong>Sofia handles the rest.</strong> You just do the work.'
     },
     es: {
       'nav-cta': 'Prueba Gratis',
@@ -1171,9 +1185,43 @@
       'final-h2': 'Deja de Perder <span class="red">$7,800/Mes</span><br>en Llamadas Perdidas',
       'final-p': 'Prueba gratis de 7 días. Sin tarjeta. Redirige tu número y Sofia contesta tu próxima llamada.',
       'final-cta-btn': 'Empezar Prueba Gratis de 7 Días',
-      'final-note': 'Configuración en 60 segundos &nbsp;·&nbsp; En línea el mismo día &nbsp;·&nbsp; Cancela cuando quieras'
+      'final-note': 'Configuración en 60 segundos &nbsp;·&nbsp; En línea el mismo día &nbsp;·&nbsp; Cancela cuando quieras',
+      'hiw-caller-flag': '🇲🇽',
+      'hiw-lang-active': 'es',
+      'hiw-speech-main': '"¿Cuál es su dirección?"',
+      'hiw-speech-sub': 'Detectó español → cambió automáticamente',
+      'hiw-sms-label': '🇲🇽 &nbsp; El cliente recibe al instante:',
+      'hiw-sms-text': 'Hola <strong>María</strong> 👋<br><strong>Juan va en camino.</strong><br>Tiempo estimado: <strong>15 min</strong> ⏱️',
+      'hiw-c1': 'No puedes contestar. <strong>Sofia contesta al instante.</strong>',
+      'hiw-c2': 'Contesta <strong>24/7 en inglés o español</strong> — sin configuración',
+      'hiw-c3': 'Datos completos. <strong>Tres botones.</strong> Responde en segundos.',
+      'hiw-c4': 'Cliente <strong>notificado en su idioma.</strong> Las ausencias bajan 40%.',
+      'hiw-c5': '<strong>Sofia maneja el resto.</strong> Tú solo haces el trabajo.'
     }
   };
+
+  function updateAnimLang(lang) {
+    var t = T[lang];
+    var ids = {
+      'hiw-caller-flag': 'textContent',
+      'hiw-speech-main': 'textContent',
+      'hiw-speech-sub':  'textContent',
+      'hiw-sms-label':   'innerHTML',
+      'hiw-sms-text':    'innerHTML',
+      'hiw-c1': 'innerHTML', 'hiw-c2': 'innerHTML',
+      'hiw-c3': 'innerHTML', 'hiw-c4': 'innerHTML', 'hiw-c5': 'innerHTML'
+    };
+    Object.keys(ids).forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && t[id] !== undefined) el[ids[id]] = t[id];
+    });
+    var enOpt = document.getElementById('hiw-lang-en');
+    var esOpt = document.getElementById('hiw-lang-es');
+    if (enOpt && esOpt) {
+      enOpt.classList.toggle('on', lang === 'en');
+      esOpt.classList.toggle('on', lang === 'es');
+    }
+  }
 
   function setLang(lang) {
     localStorage.setItem('sofia-lang', lang);
@@ -1185,6 +1233,7 @@
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
+    updateAnimLang(lang);
   }
   document.querySelectorAll('.lang-btn').forEach(function(btn) {
     btn.addEventListener('click', function() { setLang(btn.getAttribute('data-lang')); });
