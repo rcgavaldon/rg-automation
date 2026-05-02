@@ -1001,8 +1001,7 @@
     <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#f59e0b;margin-bottom:10px;">Get Started</div>
     <h2 style="font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;">Request a Free Demo</h2>
     <p style="color:#64748b;font-size:0.95rem;margin-bottom:32px;">Hear Sofia live — no commitment required.</p>
-    <form id="contact-form" action="mailto:roberto.gavaldon3@gmail.com" method="post" enctype="text/plain"
-          style="display:flex;flex-direction:column;gap:13px;text-align:left;">
+    <form id="contact-form" style="display:flex;flex-direction:column;gap:13px;text-align:left;">
       <div>
         <label style="display:block;font-size:0.78rem;color:#94a3b8;margin-bottom:5px;">Your Name *</label>
         <input type="text" name="name" required placeholder="John Smith"
@@ -1025,7 +1024,7 @@
           I agree to receive SMS messages from RG Automation at the number provided regarding my demo request and service info. Msg &amp; data rates may apply. Reply <strong style="color:#f1f5f9;">STOP</strong> to unsubscribe. See our <a href="https://rcgavaldon.github.io/rg-automation/privacy-policy.html" style="color:#f59e0b;">Privacy Policy</a> and <a href="https://rcgavaldon.github.io/rg-automation/sms-opt-in.html" style="color:#f59e0b;">SMS Terms</a>.
         </label>
       </div>
-      <button type="submit"
+      <button type="submit" id="contact-submit"
               style="background:#f59e0b;color:#000;font-weight:800;font-size:1rem;padding:14px;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">
         Request My Free Demo →
       </button>
@@ -1033,6 +1032,11 @@
         Messages from <strong style="color:#94a3b8;">+1 (866) 827-6803</strong>. Reply STOP to opt out.
       </p>
     </form>
+    <div id="contact-success" style="display:none;text-align:center;padding:24px 0;">
+      <div style="font-size:2rem;margin-bottom:12px;">✅</div>
+      <p style="color:#22c55e;font-weight:700;font-size:1.1rem;margin-bottom:6px;">Request received!</p>
+      <p style="color:#64748b;font-size:0.9rem;">We'll reach out within 24 hours.</p>
+    </div>
   </div>
 </div>
 
@@ -1287,6 +1291,42 @@
     btn.addEventListener('click', function() { setLang(btn.getAttribute('data-lang')); });
   });
   setLang(localStorage.getItem('sofia-lang') || 'en');
+
+  /* ══ CONTACT FORM ══════════════════════════════════════════ */
+  var CONTACT_API = 'https://rcgavaldon3--sofia-ai-voice-web.modal.run/api/contact';
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('contact-submit');
+      var name = contactForm.querySelector('[name="name"]').value.trim();
+      var business = contactForm.querySelector('[name="business"]').value.trim();
+      var phone = contactForm.querySelector('[name="phone"]').value.trim();
+      if (!name || !phone) return;
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      fetch(CONTACT_API, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name: name, business: business, phone: phone, sms_consent: true})
+      }).then(function(r) { return r.json(); }).then(function(data) {
+        if (data.ok) {
+          contactForm.style.display = 'none';
+          document.getElementById('contact-success').style.display = 'block';
+        } else {
+          btn.textContent = 'Request My Free Demo →';
+          btn.disabled = false;
+        }
+      }).catch(function() {
+        // API unreachable — fall back to mailto
+        var subj = encodeURIComponent('Demo Request - ' + business);
+        var body = encodeURIComponent('Name: ' + name + '\nBusiness: ' + business + '\nPhone: ' + phone);
+        window.open('mailto:roberto.gavaldon3@gmail.com?subject=' + subj + '&body=' + body);
+        btn.textContent = 'Request My Free Demo →';
+        btn.disabled = false;
+      });
+    });
+  }
 
   /* ══ FAQ ACCORDION ═════════════════════════════════════════ */
   document.querySelectorAll('.faq-q').forEach(function(q) {
