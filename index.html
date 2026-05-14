@@ -34,8 +34,8 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica Neue, sans-serif;
       background: var(--bg);
       color: var(--white);
-      line-height: 1.65;
-      font-size: 17px;
+      line-height: 1.7;
+      font-size: 18px;
       -webkit-font-smoothing: antialiased;
     }
     a { color: var(--amber); text-decoration: none; }
@@ -121,13 +121,13 @@
       text-transform: uppercase; margin-bottom: 22px;
     }
     .hero h1 {
-      font-size: clamp(2.6rem, 6vw, 4rem);
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
       font-weight: 900; line-height: 1.06;
       letter-spacing: -0.04em; margin-bottom: 20px;
     }
     .hero h1 .hl { color: var(--amber); }
     .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.1rem);
+      font-size: clamp(1.05rem, 2vw, 1.15rem);
       color: var(--text); line-height: 1.75;
       margin-bottom: 36px; max-width: 480px;
     }
@@ -135,8 +135,8 @@
     .hero-cta-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
     .btn-hero {
       display: inline-block; background: var(--amber); color: #000;
-      font-weight: 800; font-size: 1.05rem;
-      padding: 16px 40px; border-radius: 8px;
+      font-weight: 800; font-size: 1.12rem;
+      padding: 18px 46px; border-radius: 8px;
       text-decoration: none; letter-spacing: -0.01em;
       transition: opacity 0.15s;
     }
@@ -184,7 +184,7 @@
     .sec-label-red   { color: var(--red); }
     .sec-label-green { color: var(--green); }
     .sec-h {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800; letter-spacing: -0.03em;
       line-height: 1.12; margin-bottom: 14px;
     }
@@ -531,7 +531,7 @@
       letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
     }
     .plan-name    { font-size: 0.74rem; font-weight: 700; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 9px; }
-    .plan-price   { font-size: 2.6rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px; color: var(--amber); }
+    .plan-price   { font-size: 3rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px; color: var(--amber); }
     .plan-price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
     .plan-tagline { font-size: 0.82rem; color: var(--muted); margin-bottom: 20px; }
     .plan-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 20px; }
@@ -761,7 +761,7 @@
     </details>
 
     <div style="background:var(--amber-dim);border:1px solid var(--amber-border);border-radius:12px;padding:18px 22px;margin-top:22px;">
-      <p style="font-size:0.88rem;color:var(--white);line-height:1.7;margin:0;"><strong style="color:var(--amber);">That call above is real.</strong> Sofia collected the full name, address, service type, and scheduling preference — and switched to Spanish mid-call without being asked. The plumber had a complete WhatsApp lead card before the caller hung up.</p>
+      <p style="font-size:0.88rem;color:var(--white);line-height:1.7;margin:0;" data-i18n="demo-callout"><strong style="color:var(--amber);">That call above is real.</strong> Sofia got the full name, address, what they need, and when — then switched to Spanish mid-call. The plumber got the WhatsApp text before the customer hung up.</p>
     </div>
 
     <div class="hiw-stage" id="hiw-stage" style="display:none">
@@ -891,58 +891,58 @@
 
 <!-- ══ WHATSAPP FLOW ══════════════════════════════════════════ -->
 <div class="section">
-  <div class="sec-label sec-label-green">WhatsApp Lead Flow</div>
-  <h2 class="sec-h">Call Ends. Lead Arrives.<br>You Tap Once.</h2>
-  <p class="sec-sub" style="margin-bottom:44px;">No dashboard. No app. No login. Sofia sends every lead straight to your WhatsApp — the app you already have on your phone. Three buttons. Done.</p>
+  <div class="sec-label sec-label-green" data-i18n="waf-label">How WhatsApp Works</div>
+  <h2 class="sec-h" data-i18n="waf-h">Call Ends. Job Hits Your Phone.<br>You Tap Once.</h2>
+  <p class="sec-sub" style="margin-bottom:44px;" data-i18n="waf-sub">No new app. No login. Sofia texts you the job on WhatsApp — the app already on your phone. Three buttons. Done.</p>
 
   <div class="waflow-steps">
     <div class="waflow-step">
       <div class="waflow-num">1</div>
       <div>
-        <div class="waflow-title">Call ends — card arrives</div>
-        <div class="waflow-body">Sofia qualifies the caller, collects their info, and hangs up. Your WhatsApp gets the full lead card within seconds.</div>
+        <div class="waflow-title" data-i18n="waf-s1-title">Call ends — job arrives</div>
+        <div class="waflow-body" data-i18n="waf-s1-body">Sofia talks to them. Gets their name and address. Hangs up. You get it all on WhatsApp in seconds.</div>
       </div>
     </div>
     <div class="waflow-step">
       <div class="waflow-num">2</div>
       <div>
-        <div class="waflow-title">Tap one button</div>
-        <div class="waflow-body">✅ On My Way — 📅 Schedule — ✕ Not a Client. One tap. That's your entire response to this lead.</div>
+        <div class="waflow-title" data-i18n="waf-s2-title">Tap one button</div>
+        <div class="waflow-body" data-i18n="waf-s2-body">✅ On My Way · 📅 Schedule · ✕ Not a Client. One tap. Done.</div>
       </div>
     </div>
     <div class="waflow-step">
       <div class="waflow-num">3</div>
       <div>
-        <div class="waflow-title">Customer notified instantly</div>
-        <div class="waflow-body">They get a text in their language — English or Spanish — the moment you tap. No phone tag. No follow-up calls needed.</div>
+        <div class="waflow-title" data-i18n="waf-s3-title">They get a text right away</div>
+        <div class="waflow-body" data-i18n="waf-s3-body">The second you tap, your customer gets a text. In their language. English or Spanish. You didn't have to call anyone.</div>
       </div>
     </div>
     <div class="waflow-step">
       <div class="waflow-num">4</div>
       <div>
-        <div class="waflow-title">Sofia handles the rest</div>
-        <div class="waflow-body">Quote follow-ups, appointment reminders, review requests — all automatic. You just do the job.</div>
+        <div class="waflow-title" data-i18n="waf-s4-title">Sofia does the rest</div>
+        <div class="waflow-body" data-i18n="waf-s4-body">Follow-ups. Reminders. Review requests. Sofia sends all of it. You just do the job.</div>
       </div>
     </div>
   </div>
 
   <div class="waflow-panels">
     <div class="waflow-panel">
-      <div class="waflow-panel-label">📲 You receive in WhatsApp</div>
+      <div class="waflow-panel-label" data-i18n="waf-p1-label">📲 What you see in WhatsApp</div>
       <span class="wa-chip">WhatsApp · Sofia AI</span>
       <div class="wa-card">
         <div class="wa-rows">
-          <div class="wa-row"><span class="wa-lbl">Name:</span><span class="wa-val">Carlos Mendez</span></div>
-          <div class="wa-row"><span class="wa-lbl">Phone:</span><span class="wa-val">(915) 555-0142</span></div>
-          <div class="wa-row"><span class="wa-lbl">Address:</span><span class="wa-val">2847 Mesa Hills Dr</span></div>
-          <div class="wa-row"><span class="wa-lbl">Service:</span><span class="wa-val">Leak under sink</span></div>
-          <div class="wa-row"><span class="wa-lbl">Urgency:</span><span class="wa-val wa-urgency">🔴 Emergency</span></div>
+          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl1">Name:</span><span class="wa-val">Carlos Mendez</span></div>
+          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl2">Phone:</span><span class="wa-val">(915) 555-0142</span></div>
+          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl3">Address:</span><span class="wa-val">2847 Mesa Hills Dr</span></div>
+          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl4">Service:</span><span class="wa-val" data-i18n="waf-card-service">Leak under sink</span></div>
+          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl5">Urgency:</span><span class="wa-val wa-urgency" data-i18n="waf-card-urgency">🔴 Emergency</span></div>
         </div>
-        <div class="wa-ai">Active leak under sink. Water accumulating in cabinet. Needs urgent attention.</div>
+        <div class="wa-ai" data-i18n="waf-card-ai">Active leak under sink. Water in cabinet. Needs attention now.</div>
         <div class="wa-btns">
-          <div class="wa-btn wa-g">✅ On My Way</div>
-          <div class="wa-btn wa-b">📅 Schedule</div>
-          <div class="wa-btn wa-r">✕ Not a Client</div>
+          <div class="wa-btn wa-g" data-i18n="wa-btn-g">✅ On My Way</div>
+          <div class="wa-btn wa-b" data-i18n="wa-btn-b">📅 Schedule</div>
+          <div class="wa-btn wa-r" data-i18n="wa-btn-r">✕ Not a Client</div>
         </div>
       </div>
     </div>
@@ -950,31 +950,31 @@
     <div class="waflow-arrow">→</div>
 
     <div class="waflow-panel">
-      <div class="waflow-panel-label">💬 Customer receives instantly</div>
+      <div class="waflow-panel-label" data-i18n="waf-p2-label">💬 What your customer gets</div>
       <div class="waflow-sms">
-        <div style="font-size:0.65rem;color:#4b7a4b;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">SMS from (866) 827-6803</div>
+        <div style="font-size:0.65rem;color:#4b7a4b;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">SMS · (866) 827-6803</div>
         <div class="waflow-bubble">
           Hola <strong>Carlos</strong> 👋<br>
-          <strong>Juan va en camino.</strong> Llegará pronto a <strong>2847 Mesa Hills Dr</strong>. Si tienes fotos del problema puedes responder este mensaje. — Gavaldon Plomería
+          <strong>Juan va en camino.</strong> Llegará pronto a <strong>2847 Mesa Hills Dr</strong>. Si tienes fotos puedes responder este mensaje. — Gavaldon Plomería
         </div>
-        <div style="font-size:0.72rem;color:#4b7a4b;margin-top:10px;font-style:italic;">In English if they spoke English on the call.</div>
+        <div style="font-size:0.72rem;color:#4b7a4b;margin-top:10px;font-style:italic;" data-i18n="waf-sms-note">In English if they called in English.</div>
       </div>
     </div>
   </div>
 
   <div class="waflow-cmds">
-    <div class="sec-label" style="margin-bottom:14px;">Bonus: Run everything by text</div>
+    <div class="sec-label" style="margin-bottom:14px;" data-i18n="waf-cmds-label">Bonus: Text Sofia to run your jobs</div>
     <div class="waflow-cmd">
       <div class="waflow-cmd-text">"mark Carlos done"</div>
-      <div class="waflow-cmd-result">→ Job closed · Google review request sent to customer</div>
+      <div class="waflow-cmd-result" data-i18n="waf-cmd1-r">→ Job closed · Google review sent to customer</div>
     </div>
     <div class="waflow-cmd">
       <div class="waflow-cmd-text">"schedule Tuesday 2pm"</div>
-      <div class="waflow-cmd-result">→ Appointment confirmed · Customer notified instantly</div>
+      <div class="waflow-cmd-result" data-i18n="waf-cmd2-r">→ Customer gets a text right away</div>
     </div>
     <div class="waflow-cmd">
       <div class="waflow-cmd-text">"send quote $450 leak repair"</div>
-      <div class="waflow-cmd-result">→ Quote sent to customer · Follow-ups scheduled Day 1, 3, 7</div>
+      <div class="waflow-cmd-result" data-i18n="waf-cmd3-r">→ Quote sent · Sofia follows up Day 1, 3, 7</div>
     </div>
   </div>
 </div>
@@ -983,32 +983,32 @@
 <div class="ba-wrap">
   <div class="ba-inner">
     <div style="text-align:center;margin-bottom:32px;">
-      <div class="sec-label">The Difference</div>
-      <h2 class="sec-h">Before &amp; After Sofia</h2>
+      <div class="sec-label" data-i18n="ba-sec-label">The Difference</div>
+      <h2 class="sec-h" data-i18n="ba-sec-h">Before and After Sofia</h2>
     </div>
     <div class="ba-grid">
       <div class="ba-col ba-red">
-        <div class="ba-label" style="color:var(--red);">Without Sofia</div>
+        <div class="ba-label" style="color:var(--red);" data-i18n="ba-red-label">Without Sofia</div>
         <div class="ba-items">
-          <div>❌ Missed call goes to voicemail</div>
-          <div>❌ Customer calls the next plumber</div>
-          <div>❌ You play phone tag all day</div>
-          <div>❌ Forget to follow up on quotes</div>
-          <div>❌ No record of who called or why</div>
+          <div data-i18n="ba-i1">❌ Call goes to voicemail</div>
+          <div data-i18n="ba-i2">❌ They call the next plumber</div>
+          <div data-i18n="ba-i3">❌ You call back and forth all day</div>
+          <div data-i18n="ba-i4">❌ Forget to follow up on quotes</div>
+          <div data-i18n="ba-i5">❌ No record of who called or why</div>
         </div>
       </div>
       <div class="ba-col ba-green">
-        <div class="ba-label" style="color:var(--green);">With Sofia</div>
+        <div class="ba-label" style="color:var(--green);" data-i18n="ba-green-label">With Sofia</div>
         <div class="ba-items">
-          <div>✅ Every call answered, 24/7</div>
-          <div>✅ Lead card in your WhatsApp instantly</div>
-          <div>✅ Tap once — customer notified</div>
-          <div>✅ Quote follow-ups sent automatically</div>
-          <div>✅ Every call recorded and searchable</div>
+          <div data-i18n="ba-j1">✅ Every call answered, 24/7</div>
+          <div data-i18n="ba-j2">✅ Job info hits your phone fast</div>
+          <div data-i18n="ba-j3">✅ One tap — they get a text</div>
+          <div data-i18n="ba-j4">✅ Sofia sends follow-ups for you</div>
+          <div data-i18n="ba-j5">✅ Every call saved and recorded</div>
         </div>
       </div>
     </div>
-    <p style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:18px;">Sofia AI is designed to answer every call. Outcomes depend on call volume and forwarding configuration.</p>
+    <p style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:18px;" data-i18n="ba-disc">Sofia is designed to answer every call. Results depend on call volume and setup.</p>
   </div>
 </div>
 
@@ -1070,8 +1070,8 @@
   </div>
 
   <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.35);border-radius:12px;padding:14px 22px;text-align:center;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;">
-    <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);">⏳ Founding Customer Pricing</span>
-    <span style="color:var(--muted);font-size:0.82rem;">Prices increase next month. Lock in today's rate for life — it never goes up for founding customers.</span>
+    <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);" data-i18n="beta-label">⏳ Founding Customer Pricing</span>
+    <span style="color:var(--muted);font-size:0.82rem;" data-i18n="beta-text">Prices go up next month. Lock in today's rate for life.</span>
   </div>
 
   <div class="trial-banner">
@@ -1089,7 +1089,7 @@
   </div>
 
   <div class="vstack">
-    <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;">What's included — every plan</div>
+    <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;" data-i18n="vs-label">What's included — every plan</div>
     <div class="vstack-grid">
       <span style="color:var(--text);">24/7 AI voice receptionist</span><span class="vstack-strike">$2,500+/mo to hire</span>
       <span style="color:var(--text);">Bilingual (English &amp; Spanish)</span><span class="vstack-strike">$400/mo service</span>
@@ -1101,7 +1101,7 @@
     </div>
     <div class="vstack-total">
       <div>
-        <div style="font-size:0.78rem;color:var(--muted);">If you built this yourself:</div>
+        <div style="font-size:0.78rem;color:var(--muted);" data-i18n="vs-equiv">If you built this yourself:</div>
         <div style="font-size:1.4rem;font-weight:900;color:var(--muted);letter-spacing:-0.02em;text-decoration:line-through;">$3,550+/mo</div>
       </div>
       <div style="text-align:right;">
@@ -1244,7 +1244,7 @@
     <h2 style="font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;">Book a Free 15-Min Call</h2>
     <p style="color:#64748b;font-size:0.95rem;margin-bottom:16px;">We provision Sofia live — you'll be answering calls before we hang up.</p>
     <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:10px;padding:12px 16px;margin-bottom:28px;font-size:0.82rem;color:#f59e0b;font-weight:700;text-align:left;">
-      ⚡ Most services take days or weeks to go live. We do it in 5 minutes, on the call.
+      <span data-i18n="contact-diff">⚡ Most services take days or weeks. We go live in 5 minutes — on the call.</span>
     </div>
     <form id="contact-form" style="display:flex;flex-direction:column;gap:13px;text-align:left;">
       <div>
@@ -1419,7 +1419,49 @@
       'hiw-wa-val3': 'Leak under sink', 'hiw-wa-val4': '🔴 Emergency',
       'hiw-wa-ai': 'Active leak under sink. Water accumulating. Needs urgent attention.',
       'hiw-wa-g': '✅ On My Way', 'hiw-wa-b': '📅 Schedule', 'hiw-wa-r': '✕ Not a Client',
-      'hiw-tap-omw': '✅ On My Way', 'hiw-tap-sched': '📅 Schedule', 'hiw-tap-no': '✕ Not a Client'
+      'hiw-tap-omw': '✅ On My Way', 'hiw-tap-sched': '📅 Schedule', 'hiw-tap-no': '✕ Not a Client',
+      'demo-callout': '<strong style="color:var(--amber);">That call above is real.</strong> Sofia got the full name, address, what they need, and when — then switched to Spanish mid-call. The plumber got the WhatsApp text before the customer hung up.',
+      'waf-label': 'How WhatsApp Works',
+      'waf-h': 'Call Ends. Job Hits Your Phone.<br>You Tap Once.',
+      'waf-sub': 'No new app. No login. Sofia texts you the job on WhatsApp — the app already on your phone. Three buttons. Done.',
+      'waf-s1-title': 'Call ends — job arrives',
+      'waf-s1-body': 'Sofia talks to them. Gets their name and address. Hangs up. You get it all on WhatsApp in seconds.',
+      'waf-s2-title': 'Tap one button',
+      'waf-s2-body': '✅ On My Way · 📅 Schedule · ✕ Not a Client. One tap. Done.',
+      'waf-s3-title': 'They get a text right away',
+      'waf-s3-body': 'The second you tap, your customer gets a text. In their language. English or Spanish. You didn\'t have to call anyone.',
+      'waf-s4-title': 'Sofia does the rest',
+      'waf-s4-body': 'Follow-ups. Reminders. Review requests. Sofia sends all of it. You just do the job.',
+      'waf-p1-label': '📲 What you see in WhatsApp',
+      'waf-p2-label': '💬 What your customer gets',
+      'waf-card-service': 'Leak under sink',
+      'waf-card-urgency': '🔴 Emergency',
+      'waf-card-ai': 'Active leak under sink. Water in cabinet. Needs attention now.',
+      'waf-sms-note': 'In English if they called in English.',
+      'waf-cmds-label': 'Bonus: Text Sofia to run your jobs',
+      'waf-cmd1-r': '→ Job closed · Google review sent to customer',
+      'waf-cmd2-r': '→ Customer gets a text right away',
+      'waf-cmd3-r': '→ Quote sent · Sofia follows up Day 1, 3, 7',
+      'ba-sec-label': 'The Difference',
+      'ba-sec-h': 'Before and After Sofia',
+      'ba-red-label': 'Without Sofia',
+      'ba-i1': '❌ Call goes to voicemail',
+      'ba-i2': '❌ They call the next plumber',
+      'ba-i3': '❌ You call back and forth all day',
+      'ba-i4': '❌ Forget to follow up on quotes',
+      'ba-i5': '❌ No record of who called or why',
+      'ba-green-label': 'With Sofia',
+      'ba-j1': '✅ Every call answered, 24/7',
+      'ba-j2': '✅ Job info hits your phone fast',
+      'ba-j3': '✅ One tap — they get a text',
+      'ba-j4': '✅ Sofia sends follow-ups for you',
+      'ba-j5': '✅ Every call saved and recorded',
+      'ba-disc': 'Sofia is designed to answer every call. Results depend on call volume and setup.',
+      'beta-label': '⏳ Founding Customer Pricing',
+      'beta-text': 'Prices go up next month. Lock in today\'s rate for life.',
+      'vs-label': 'What\'s included — every plan',
+      'vs-equiv': 'If you built this yourself:',
+      'contact-diff': '⚡ Most services take days or weeks. We go live in 5 minutes — on the call.'
     },
     es: {
       'nav-cta': 'Reserva una Llamada',
@@ -1534,7 +1576,49 @@
       'hiw-wa-val3': 'Fuga bajo el fregadero', 'hiw-wa-val4': '🔴 Emergencia',
       'hiw-wa-ai': 'Fuga activa bajo fregadero. Agua acumulándose. Solicita atención urgente.',
       'hiw-wa-g': '✅ En Camino', 'hiw-wa-b': '📅 Agendar', 'hiw-wa-r': '✕ No cliente',
-      'hiw-tap-omw': '✅ En Camino', 'hiw-tap-sched': '📅 Agendar', 'hiw-tap-no': '✕ No cliente'
+      'hiw-tap-omw': '✅ En Camino', 'hiw-tap-sched': '📅 Agendar', 'hiw-tap-no': '✕ No cliente',
+      'demo-callout': '<strong style="color:var(--amber);">Esa llamada es real.</strong> Sofia consiguió el nombre, la dirección, lo que necesitan y cuándo — y cambió a español a la mitad. El plomero recibió el texto en WhatsApp antes de que colgaran.',
+      'waf-label': 'Cómo funciona en WhatsApp',
+      'waf-h': 'Se cuelga. Te llega el trabajo.<br>Das un toque.',
+      'waf-sub': 'Sin app nueva. Sin contraseña. Sofia te manda el trabajo por WhatsApp — el que ya tienes. Tres botones. Listo.',
+      'waf-s1-title': 'Se cuelga — te llega el trabajo',
+      'waf-s1-body': 'Sofia habla con ellos. Consigue el nombre y la dirección. Cuelga. En segundos ya lo tienes en WhatsApp.',
+      'waf-s2-title': 'Das un toque',
+      'waf-s2-body': '✅ En Camino · 📅 Agendar · ✕ No cliente. Un toque. Listo.',
+      'waf-s3-title': 'El cliente recibe texto al momento',
+      'waf-s3-body': 'Apenas tocas, tu cliente recibe un texto. En su idioma. Inglés o español. Tú no tuviste que llamar a nadie.',
+      'waf-s4-title': 'Sofia hace lo demás',
+      'waf-s4-body': 'Seguimiento. Recordatorios. Pedir reseñas. Sofia manda todo eso. Tú solo haz el trabajo.',
+      'waf-p1-label': '📲 Lo que tú ves en WhatsApp',
+      'waf-p2-label': '💬 Lo que recibe tu cliente',
+      'waf-card-service': 'Fuga bajo el fregadero',
+      'waf-card-urgency': '🔴 Emergencia',
+      'waf-card-ai': 'Fuga activa bajo fregadero. Agua en el gabinete. Necesita atención ahora.',
+      'waf-sms-note': 'En inglés si llamaron en inglés.',
+      'waf-cmds-label': 'Extra: Mándale texto a Sofia para todo',
+      'waf-cmd1-r': '→ Trabajo cerrado · Reseña de Google enviada',
+      'waf-cmd2-r': '→ El cliente recibe texto de inmediato',
+      'waf-cmd3-r': '→ Cotización enviada · Sofia da seguimiento Día 1, 3, 7',
+      'ba-sec-label': 'La diferencia',
+      'ba-sec-h': 'Antes y después de Sofia',
+      'ba-red-label': 'Sin Sofia',
+      'ba-i1': '❌ La llamada va al buzón de voz',
+      'ba-i2': '❌ Llaman al siguiente plomero',
+      'ba-i3': '❌ Estás todo el día regresando llamadas',
+      'ba-i4': '❌ Se te olvida dar seguimiento',
+      'ba-i5': '❌ No sabes quién llamó ni por qué',
+      'ba-green-label': 'Con Sofia',
+      'ba-j1': '✅ Todas las llamadas contestadas, 24/7',
+      'ba-j2': '✅ El trabajo llega rápido a tu teléfono',
+      'ba-j3': '✅ Un toque — el cliente recibe texto',
+      'ba-j4': '✅ Sofia manda los seguimientos por ti',
+      'ba-j5': '✅ Todas las llamadas grabadas',
+      'ba-disc': 'Sofia está diseñada para contestar cada llamada. Los resultados dependen de tu volumen de llamadas y configuración.',
+      'beta-label': '⏳ Precio de Cliente Fundador',
+      'beta-text': 'Los precios suben el próximo mes. Bloquea el precio de hoy para siempre.',
+      'vs-label': 'Qué incluye — todos los planes',
+      'vs-equiv': 'Si lo armaras tú mismo:',
+      'contact-diff': '⚡ La mayoría tarda días o semanas. Nosotros lo hacemos en 5 minutos, en la llamada.'
     }
   };
 
