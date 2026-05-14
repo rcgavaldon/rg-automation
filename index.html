@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="facebook-domain-verification" content="enehkn7pnqisw3hu5oee9peazkult9">
   <meta name="theme-color" content="#0a0a0f">
-  <title>Sofia AI — Designed to Answer Every Emergency Call</title>
-  <meta name="description" content="Sofia AI is an AI voice assistant that answers plumbing calls 24/7 in English & Spanish, sends WhatsApp lead cards, and costs 90% less than a receptionist. 7-day free trial.">
+  <title>Sofia AI — 24/7 Bilingual AI Receptionist for Plumbers</title>
+  <meta name="description" content="Sofia AI answers every plumbing call 24/7 in English & Spanish, sends WhatsApp lead cards with tap-to-respond buttons, and costs 90% less than a receptionist. 7-day free trial, live same day.">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -599,6 +599,25 @@
     .footer-links a { font-size: 0.82rem; color: var(--muted); }
     .footer-links a:hover { color: var(--white); }
     .footer-copy { font-size: 0.75rem; color: #374151; }
+
+    /* ══ BEFORE / AFTER ══════════════════════════════════════ */
+    .ba-wrap { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 5%; }
+    .ba-inner { max-width: 1040px; margin: 0 auto; }
+    .ba-grid { display: flex; flex-wrap: wrap; gap: 20px; max-width: 800px; margin: 0 auto; }
+    .ba-col { flex: 1; min-width: 240px; border-radius: 14px; padding: 24px 26px; }
+    .ba-red   { background: var(--red-dim);   border: 1px solid var(--red-border); }
+    .ba-green { background: var(--green-dim); border: 1px solid var(--green-border); }
+    .ba-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+    .ba-items { display: flex; flex-direction: column; gap: 9px; font-size: 0.87rem; color: var(--text); }
+
+    /* ══ VALUE STACK ══════════════════════════════════════════ */
+    .vstack { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin-bottom: 28px; }
+    @media (max-width: 500px) { .vstack { padding: 20px 18px; } }
+    .vstack-grid { display: grid; grid-template-columns: 1fr auto; gap: 10px 28px; font-size: 0.87rem; margin-bottom: 20px; }
+    @media (max-width: 500px) { .vstack-grid { grid-template-columns: 1fr; gap: 7px; } }
+    .vstack-strike { color: var(--muted); text-decoration: line-through; font-size: 0.8rem; text-align: right; }
+    @media (max-width: 500px) { .vstack-strike { display: none; } }
+    .vstack-total { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px; flex-wrap: wrap; gap: 12px; }
   </style>
 </head>
 <body>
@@ -645,8 +664,8 @@
 
     <div class="hero-text">
       <div class="badge" data-i18n="hero-badge">📞 AI Voice Receptionist for Plumbers</div>
-      <h1 data-i18n="hero-h1">Designed to Answer<br><span class="hl">Every Emergency Call</span></h1>
-      <p class="hero-sub" data-i18n="hero-sub">Sofia answers every call <strong>24/7 in English &amp; Spanish</strong>, sends you leads in WhatsApp with tap buttons, and costs <strong>90% less than a receptionist.</strong></p>
+      <h1 data-i18n="hero-h1">Sofia Answers Every Call.<br><span class="hl">You Keep Every Lead.</span></h1>
+      <p class="hero-sub" data-i18n="hero-sub">24/7 bilingual answering — English &amp; Spanish. Every caller becomes a WhatsApp lead with their <strong>name, address, and what they need.</strong> Tap once to respond. <strong>Live on your line same day.</strong></p>
       <div class="hero-cta-wrap">
         <a href="#contact" class="btn-hero" data-i18n="hero-cta">Start Free 7-Day Trial</a>
         <span class="hero-note" data-i18n="hero-note">No credit card &nbsp;·&nbsp; Live same day &nbsp;·&nbsp; Cancel anytime</span>
@@ -710,6 +729,10 @@
         <div style="margin-top:8px;padding:12px 14px;background:rgba(167,139,250,0.07);border-radius:8px;border:1px solid rgba(167,139,250,0.18);color:#f1f5f9;font-size:0.84rem"><strong>What happens next:</strong> The plumber gets a WhatsApp card with the lead's name, address, job type, and urgency — instantly. One tap sends an "on my way" text to the customer.</div>
       </div>
     </details>
+
+    <div style="background:var(--amber-dim);border:1px solid var(--amber-border);border-radius:12px;padding:18px 22px;margin-top:22px;">
+      <p style="font-size:0.88rem;color:var(--white);line-height:1.7;margin:0;"><strong style="color:var(--amber);">That call above is real.</strong> Sofia collected the full name, address, service type, and scheduling preference — and switched to Spanish mid-call without being asked. The plumber had a complete WhatsApp lead card before the caller hung up.</p>
+    </div>
 
     <div class="hiw-stage" id="hiw-stage" style="display:none">
       <div class="hiw-prog"><div class="hiw-prog-fill" id="hiw-fill"></div></div>
@@ -836,6 +859,39 @@
   </div>
 </div>
 
+<!-- ══ BEFORE / AFTER ═════════════════════════════════════════ -->
+<div class="ba-wrap">
+  <div class="ba-inner">
+    <div style="text-align:center;margin-bottom:32px;">
+      <div class="sec-label">The Difference</div>
+      <h2 class="sec-h">Before &amp; After Sofia</h2>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-col ba-red">
+        <div class="ba-label" style="color:var(--red);">Without Sofia</div>
+        <div class="ba-items">
+          <div>❌ Missed call goes to voicemail</div>
+          <div>❌ Customer calls the next plumber</div>
+          <div>❌ You play phone tag all day</div>
+          <div>❌ Forget to follow up on quotes</div>
+          <div>❌ No record of who called or why</div>
+        </div>
+      </div>
+      <div class="ba-col ba-green">
+        <div class="ba-label" style="color:var(--green);">With Sofia</div>
+        <div class="ba-items">
+          <div>✅ Every call answered, 24/7</div>
+          <div>✅ Lead card in your WhatsApp instantly</div>
+          <div>✅ Tap once — customer notified</div>
+          <div>✅ Quote follow-ups sent automatically</div>
+          <div>✅ Every call recorded and searchable</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:18px;">Sofia AI is designed to answer every call. Outcomes depend on call volume and forwarding configuration.</p>
+  </div>
+</div>
+
 <!-- ══ WHAT SOFIA DOES ═══════════════════════════════════════ -->
 <div class="section">
   <div class="sec-label sec-label-green" data-i18n="feat-label">What You Get</div>
@@ -907,6 +963,30 @@
     <a href="#contact" class="btn-trial" data-i18n="trial-btn">Start Free Trial →</a>
   </div>
 
+  <div class="vstack">
+    <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;">What's included — every plan</div>
+    <div class="vstack-grid">
+      <span style="color:var(--text);">24/7 AI voice receptionist</span><span class="vstack-strike">$2,500+/mo to hire</span>
+      <span style="color:var(--text);">Bilingual (English &amp; Spanish)</span><span class="vstack-strike">$400/mo service</span>
+      <span style="color:var(--text);">WhatsApp lead cards + tap buttons</span><span class="vstack-strike">$200/mo CRM tools</span>
+      <span style="color:var(--text);">Customer SMS + photo forwarding</span><span class="vstack-strike">$150/mo SMS tools</span>
+      <span style="color:var(--text);">Automatic quote follow-ups (Day 1, 3, 7)</span><span class="vstack-strike">$200/mo automation</span>
+      <span style="color:var(--text);">Call recordings + full dashboard</span><span class="vstack-strike">$100/mo call tracking</span>
+      <span style="color:var(--text);">White-glove setup — we do everything</span><span class="vstack-strike">$500 one-time setup</span>
+    </div>
+    <div class="vstack-total">
+      <div>
+        <div style="font-size:0.78rem;color:var(--muted);">If you built this yourself:</div>
+        <div style="font-size:1.4rem;font-weight:900;color:var(--muted);letter-spacing:-0.02em;text-decoration:line-through;">$3,550+/mo</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:0.78rem;color:var(--amber);font-weight:700;">Sofia Starter:</div>
+        <div style="font-size:1.4rem;font-weight:900;color:var(--white);letter-spacing:-0.02em;">$499/mo</div>
+      </div>
+    </div>
+    <p style="font-size:0.7rem;color:var(--muted);margin-top:10px;">Market rate figures are illustrative estimates for comparison purposes. Individual savings vary.</p>
+  </div>
+
   <div class="plans-grid">
     <div class="plan-card">
       <div class="plan-name" data-i18n="s-name">Starter</div>
@@ -964,7 +1044,7 @@
     </div>
   </div>
 
-  <p class="roi-note" data-i18n="roi-note">At $499/mo, Sofia pays for herself if she captures <strong>1 job per month</strong>. Average customers capture 10–15.</p>
+  <p class="roi-note" data-i18n="roi-note">At $499/mo, Sofia pays for herself the moment she captures <strong>1 job.</strong> One $600 emergency call — cost covered. Individual results vary.</p>
   <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;text-align:center;" data-i18n="call-def">A call is counted when Sofia answers. Minutes = time Sofia is on the line.</p>
 </div>
 
@@ -973,10 +1053,10 @@
   <div class="section">
     <div class="guarantee-box">
       <div class="guarantee-icon">🛡️</div>
-      <h2 data-i18n="guar-h2">Satisfaction<br>Guarantee</h2>
-      <p data-i18n="guar-p1">Not happy at any point? Cancel anytime and we'll refund your current month — no questions asked.</p>
-      <p data-i18n="guar-p2">We aim for 99.5%+ uptime. If something isn't working for your business, you shouldn't pay for it.</p>
-      <div class="guarantee-stat" data-i18n="guar-stat">Cancel anytime &nbsp;·&nbsp; Current month refunded if not satisfied</div>
+      <h2 data-i18n="guar-h2">Zero Risk.<br>100% Guaranteed.</h2>
+      <p data-i18n="guar-p1">7-day free trial — no credit card. If you start a paid plan and decide Sofia isn't right, cancel anytime and we'll refund your current month. No forms. No calls. Just text us.</p>
+      <p data-i18n="guar-p2">We aim for 99.5%+ uptime. Sofia should earn her keep every single month — or you shouldn't pay for it.</p>
+      <div class="guarantee-stat" data-i18n="guar-stat">7-day free trial &nbsp;·&nbsp; Full refund anytime &nbsp;·&nbsp; No contracts</div>
       <p style="font-size:0.75rem;color:var(--muted);margin-top:18px;">Requesting a refund permanently ends your Sofia service. <a href="https://rcgavaldon.github.io/rg-automation/terms.html" style="color:var(--muted);text-decoration:underline;">See full terms.</a></p>
     </div>
   </div>
@@ -1036,8 +1116,8 @@
 <div id="contact" style="background:#0d0d14;border-top:1px solid #1e1e2e;padding:72px 5%;">
   <div style="max-width:500px;margin:0 auto;text-align:center;">
     <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#f59e0b;margin-bottom:10px;">Get Started</div>
-    <h2 style="font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;">Request a Free Demo</h2>
-    <p style="color:#64748b;font-size:0.95rem;margin-bottom:32px;">Hear Sofia live — no commitment required.</p>
+    <h2 style="font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;">Start Your Free 7-Day Trial</h2>
+    <p style="color:#64748b;font-size:0.95rem;margin-bottom:32px;">We get you set up same day. No credit card needed.</p>
     <form id="contact-form" style="display:flex;flex-direction:column;gap:13px;text-align:left;">
       <div>
         <label style="display:block;font-size:0.78rem;color:#94a3b8;margin-bottom:5px;">Your Name *</label>
@@ -1072,7 +1152,7 @@
     <div id="contact-success" style="display:none;text-align:center;padding:24px 0;">
       <div style="font-size:2rem;margin-bottom:12px;">✅</div>
       <p style="color:#22c55e;font-weight:700;font-size:1.1rem;margin-bottom:6px;">Request received!</p>
-      <p style="color:#64748b;font-size:0.9rem;">We'll reach out within 24 hours.</p>
+      <p style="color:#64748b;font-size:0.9rem;">We'll reach out within a couple of hours to get you set up.</p>
     </div>
   </div>
 </div>
@@ -1101,8 +1181,8 @@
     en: {
       'nav-cta': 'Start Free Trial',
       'hero-badge': '📞 AI Voice Receptionist for Plumbers',
-      'hero-h1': 'Designed to Answer<br><span class="hl">Every Emergency Call</span>',
-      'hero-sub': 'Sofia answers your phone <strong>day and night.</strong> She speaks English and Spanish. You get a text for every call — tap one button and you\'re on your way.',
+      'hero-h1': 'Sofia Answers Every Call.<br><span class="hl">You Keep Every Lead.</span>',
+      'hero-sub': '24/7 bilingual answering — English and Spanish. Every caller becomes a WhatsApp lead with their name, address, and what they need. <strong>Tap once to respond. Live on your line same day.</strong>',
       'hero-cta': 'Start Free 7-Day Trial',
       'hero-note': 'Trial live in 5 min &nbsp;·&nbsp; No credit card &nbsp;·&nbsp; Cancel anytime',
       'strip': 'Sofia is an AI voice assistant &nbsp;·&nbsp; <strong>We aim for 99.5%+ uptime</strong> &nbsp;·&nbsp; Available 24/7 &nbsp;·&nbsp; English and Spanish &nbsp;·&nbsp; No app needed',
@@ -1142,11 +1222,11 @@
       'ef3': 'Sofia trained to your business', 'ef4': 'Priority support',
       'ef5': 'Dashboard with your name on it', 'ef6': 'Direct line to Robert',
       'e-best': 'Good for: <strong>5+ trucks</strong>', 'e-cta': 'Contact Us',
-      'roi-note': 'At $499/mo, Sofia pays for herself with just <strong>1 job a month.</strong> Most plumbers get 10–15.',
-      'guar-h2': 'Satisfaction<br>Guarantee',
-      'guar-p1': "Not happy at any point? Cancel anytime and we'll refund your current month — no questions asked.",
-      'guar-p2': "We aim for 99.5%+ uptime. If something isn't working for your business, you shouldn't pay for it.",
-      'guar-stat': 'Cancel anytime &nbsp;·&nbsp; Current month refunded if not satisfied',
+      'roi-note': 'At $499/mo, Sofia pays for herself the moment she captures <strong>1 job.</strong> One $600 emergency call — cost covered. Individual results vary.',
+      'guar-h2': 'Zero Risk.<br>100% Guaranteed.',
+      'guar-p1': "7-day free trial — no credit card. If you start a paid plan and decide Sofia isn't right, cancel anytime and we'll refund your current month. No forms. No calls. Just text us.",
+      'guar-p2': "We aim for 99.5%+ uptime. Sofia should earn her keep every single month — or you shouldn't pay for it.",
+      'guar-stat': '7-day free trial &nbsp;·&nbsp; Full refund anytime &nbsp;·&nbsp; No contracts',
       'faq-label': 'FAQ', 'faq-h2': 'Questions',
       'faq-q1': "Will my customers know it's AI?",
       'faq-a1': "Sofia identifies herself as an AI assistant at the start of every call. Most customers are just glad someone answered.",
@@ -1166,7 +1246,7 @@
       'faq-a8': 'Yes. Every call Sofia handles is recorded and available in your dashboard. You can replay any call anytime.',
       'faq-a5': "Yes. No contracts. Cancel whenever you want.",
       'final-h2': 'Stop Losing Leads<br>to Missed Calls',
-      'final-p': "7-day free trial. No credit card. Just forward your number — takes 5 minutes. Sofia is designed to answer your next call. Plumbers typically recover the cost within weeks. Results vary.",
+      'final-p': "7-day free trial. No credit card. Forward your number — takes 5 minutes. Sofia is designed to answer your next call. Live same day. Results vary.",
       'final-cta-btn': 'Start Free 7-Day Trial',
       'final-note': 'Trial live in 5 min &nbsp;·&nbsp; No credit card &nbsp;·&nbsp; Cancel anytime',
       'hiw-caller-flag': '🇺🇸',
@@ -1216,8 +1296,8 @@
     es: {
       'nav-cta': 'Prueba Gratis',
       'hero-badge': '📞 Recepcionista de Voz IA para Plomeros',
-      'hero-h1': 'Diseñada para Contestar<br><span class="hl">Cada Llamada de Emergencia</span>',
-      'hero-sub': 'Sofia contesta tu teléfono <strong>de día y de noche.</strong> Habla inglés y español. Te llega un texto por cada llamada — toca un botón y ya vas.',
+      'hero-h1': 'Sofia Contesta Cada Llamada.<br><span class="hl">Tú Guardas Cada Cliente.</span>',
+      'hero-sub': 'Contestación bilingüe 24/7 — inglés y español. Cada llamada se convierte en un lead de WhatsApp con el nombre, la dirección y el problema. <strong>Toca una vez para responder. En línea el mismo día.</strong>',
       'hero-cta': 'Empezar Prueba Gratis de 7 Días',
       'hero-note': 'Sin tarjeta de crédito &nbsp;·&nbsp; En línea el mismo día &nbsp;·&nbsp; Cancela cuando quieras',
       'strip': 'Sofia es un asistente de voz con IA &nbsp;·&nbsp; <strong>Apuntamos a 99.5%+ de disponibilidad</strong> &nbsp;·&nbsp; Disponible 24/7 &nbsp;·&nbsp; Inglés y Español &nbsp;·&nbsp; Sin app que descargar',
@@ -1257,11 +1337,11 @@
       'ef3': 'Sofia entrenada para tu negocio', 'ef4': 'Soporte prioritario',
       'ef5': 'Panel con tu nombre', 'ef6': 'Tu propio gerente de cuenta',
       'e-best': 'Para: <strong>5+ camiones</strong>', 'e-cta': 'Contáctanos',
-      'roi-note': 'A $499/mes, Sofia se paga sola con <strong>1 trabajo al mes.</strong> La mayoría de plomeros consiguen 10–15.',
-      'guar-h2': 'Garantía de<br>Satisfacción',
-      'guar-p1': '¿No estás satisfecho en algún momento? Cancela cuando quieras y te devolvemos el mes actual — sin preguntas.',
-      'guar-p2': 'Apuntamos a 99.5%+ de disponibilidad. Si algo no funciona para tu negocio, no deberías pagarlo.',
-      'guar-stat': 'Cancela cuando quieras &nbsp;·&nbsp; Mes actual reembolsado si no estás satisfecho',
+      'roi-note': 'A $499/mes, Sofia se paga sola con <strong>1 trabajo.</strong> Un trabajo de $600 — costo cubierto. Los resultados individuales varían.',
+      'guar-h2': 'Sin Riesgo.<br>100% Garantizado.',
+      'guar-p1': 'Prueba gratis de 7 días — sin tarjeta. Si empiezas a pagar y decides que Sofia no es para ti, cancela cuando quieras y te devolvemos el mes actual. Sin formularios. Sin llamadas. Solo escríbenos.',
+      'guar-p2': 'Apuntamos a 99.5%+ de disponibilidad. Sofia debe ganarse su costo cada mes — o no deberías pagarlo.',
+      'guar-stat': 'Prueba gratis de 7 días &nbsp;·&nbsp; Reembolso completo cuando quieras &nbsp;·&nbsp; Sin contratos',
       'faq-label': 'Preguntas', 'faq-h2': 'Preguntas',
       'faq-q1': '¿Mis clientes sabrán que es IA?',
       'faq-a1': 'Sofia se identifica como asistente de IA al inicio de cada llamada. La mayoría de los clientes solo se alegran de que alguien contestó.',
@@ -1304,7 +1384,7 @@
       'f4-3': 'Ve todas tus llamadas y trabajos en un solo lugar',
       'f4-4': 'Nosotros lo configuramos — sin nueva app',
       'final-h2': 'Deja de Perder Clientes<br>por Llamadas Sin Contestar',
-      'final-p': 'Prueba gratis de 7 días. Sin tarjeta. Solo redirige tu número — tarda 5 minutos. Sofia está diseñada para contestar tu próxima llamada. La mayoría de plomeros recuperan el costo en semanas. Los resultados varían.',
+      'final-p': 'Prueba gratis de 7 días. Sin tarjeta. Redirige tu número — tarda 5 minutos. Sofia está diseñada para contestar tu próxima llamada. En línea el mismo día. Los resultados varían.',
       'final-cta-btn': 'Empezar Prueba Gratis de 7 Días',
       'final-note': 'Prueba activa en 5 min &nbsp;·&nbsp; Sin tarjeta de crédito &nbsp;·&nbsp; Cancela cuando quieras',
       'hiw-caller-flag': '🇲🇽',
