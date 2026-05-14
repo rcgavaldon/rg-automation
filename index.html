@@ -531,7 +531,7 @@
       letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
     }
     .plan-name    { font-size: 0.74rem; font-weight: 700; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 9px; }
-    .plan-price   { font-size: 2.6rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px; }
+    .plan-price   { font-size: 2.6rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px; color: var(--amber); }
     .plan-price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
     .plan-tagline { font-size: 0.82rem; color: var(--muted); margin-bottom: 20px; }
     .plan-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 20px; }
@@ -610,6 +610,35 @@
     .ba-green { background: var(--green-dim); border: 1px solid var(--green-border); }
     .ba-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
     .ba-items { display: flex; flex-direction: column; gap: 9px; font-size: 0.87rem; color: var(--text); }
+
+    /* ══ WA FLOW SECTION ════════════════════════════════════════ */
+    .waflow-steps { display: flex; gap: 0; margin-bottom: 48px; }
+    @media (max-width: 700px) { .waflow-steps { flex-direction: column; gap: 0; } }
+    .waflow-step { display: flex; gap: 14px; align-items: flex-start; flex: 1; padding: 0 20px 0 0; position: relative; }
+    @media (max-width: 700px) { .waflow-step { padding: 0 0 28px 0; } }
+    .waflow-step:not(:last-child)::after {
+      content: '→'; position: absolute; right: -2px; top: 3px;
+      color: var(--amber); font-size: 1rem; font-weight: 700;
+    }
+    @media (max-width: 700px) { .waflow-step:not(:last-child)::after { content: '↓'; right: auto; left: 9px; top: auto; bottom: 6px; } }
+    .waflow-num {
+      width: 26px; height: 26px; background: var(--amber); color: #000;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px;
+    }
+    .waflow-title { font-size: 0.88rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .waflow-body  { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+    .waflow-panels { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-bottom: 36px; }
+    .waflow-panel { flex: 1; min-width: 240px; }
+    .waflow-panel-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .waflow-arrow { color: var(--amber); font-size: 1.6rem; align-self: center; flex-shrink: 0; }
+    @media (max-width: 600px) { .waflow-arrow { transform: rotate(90deg); align-self: center; margin: 0 auto; } }
+    .waflow-sms  { background: #111c11; border: 1px solid #1f3d1f; border-radius: 14px; padding: 16px; }
+    .waflow-bubble { background: #1a3a1a; border-radius: 12px 12px 2px 12px; padding: 11px 14px; font-size: 0.84rem; line-height: 1.65; color: #d1fae5; max-width: 260px; }
+    .waflow-cmds { display: flex; flex-direction: column; gap: 8px; margin-top: 36px; border-top: 1px solid var(--border); padding-top: 32px; }
+    .waflow-cmd  { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+    .waflow-cmd-text { font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--amber); }
+    .waflow-cmd-result { font-size: 0.8rem; color: var(--muted); }
 
     /* ══ VALUE STACK ══════════════════════════════════════════ */
     .vstack { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin-bottom: 28px; }
@@ -857,6 +886,96 @@
 
     </div><!-- /hiw-stage -->
     <div class="hiw-dots" id="hiw-dots"></div>
+  </div>
+</div>
+
+<!-- ══ WHATSAPP FLOW ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="sec-label sec-label-green">WhatsApp Lead Flow</div>
+  <h2 class="sec-h">Call Ends. Lead Arrives.<br>You Tap Once.</h2>
+  <p class="sec-sub" style="margin-bottom:44px;">No dashboard. No app. No login. Sofia sends every lead straight to your WhatsApp — the app you already have on your phone. Three buttons. Done.</p>
+
+  <div class="waflow-steps">
+    <div class="waflow-step">
+      <div class="waflow-num">1</div>
+      <div>
+        <div class="waflow-title">Call ends — card arrives</div>
+        <div class="waflow-body">Sofia qualifies the caller, collects their info, and hangs up. Your WhatsApp gets the full lead card within seconds.</div>
+      </div>
+    </div>
+    <div class="waflow-step">
+      <div class="waflow-num">2</div>
+      <div>
+        <div class="waflow-title">Tap one button</div>
+        <div class="waflow-body">✅ On My Way — 📅 Schedule — ✕ Not a Client. One tap. That's your entire response to this lead.</div>
+      </div>
+    </div>
+    <div class="waflow-step">
+      <div class="waflow-num">3</div>
+      <div>
+        <div class="waflow-title">Customer notified instantly</div>
+        <div class="waflow-body">They get a text in their language — English or Spanish — the moment you tap. No phone tag. No follow-up calls needed.</div>
+      </div>
+    </div>
+    <div class="waflow-step">
+      <div class="waflow-num">4</div>
+      <div>
+        <div class="waflow-title">Sofia handles the rest</div>
+        <div class="waflow-body">Quote follow-ups, appointment reminders, review requests — all automatic. You just do the job.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="waflow-panels">
+    <div class="waflow-panel">
+      <div class="waflow-panel-label">📲 You receive in WhatsApp</div>
+      <span class="wa-chip">WhatsApp · Sofia AI</span>
+      <div class="wa-card">
+        <div class="wa-rows">
+          <div class="wa-row"><span class="wa-lbl">Name:</span><span class="wa-val">Carlos Mendez</span></div>
+          <div class="wa-row"><span class="wa-lbl">Phone:</span><span class="wa-val">(915) 555-0142</span></div>
+          <div class="wa-row"><span class="wa-lbl">Address:</span><span class="wa-val">2847 Mesa Hills Dr</span></div>
+          <div class="wa-row"><span class="wa-lbl">Service:</span><span class="wa-val">Leak under sink</span></div>
+          <div class="wa-row"><span class="wa-lbl">Urgency:</span><span class="wa-val wa-urgency">🔴 Emergency</span></div>
+        </div>
+        <div class="wa-ai">Active leak under sink. Water accumulating in cabinet. Needs urgent attention.</div>
+        <div class="wa-btns">
+          <div class="wa-btn wa-g">✅ On My Way</div>
+          <div class="wa-btn wa-b">📅 Schedule</div>
+          <div class="wa-btn wa-r">✕ Not a Client</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="waflow-arrow">→</div>
+
+    <div class="waflow-panel">
+      <div class="waflow-panel-label">💬 Customer receives instantly</div>
+      <div class="waflow-sms">
+        <div style="font-size:0.65rem;color:#4b7a4b;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">SMS from (866) 827-6803</div>
+        <div class="waflow-bubble">
+          Hola <strong>Carlos</strong> 👋<br>
+          <strong>Juan va en camino.</strong> Llegará pronto a <strong>2847 Mesa Hills Dr</strong>. Si tienes fotos del problema puedes responder este mensaje. — Gavaldon Plomería
+        </div>
+        <div style="font-size:0.72rem;color:#4b7a4b;margin-top:10px;font-style:italic;">In English if they spoke English on the call.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="waflow-cmds">
+    <div class="sec-label" style="margin-bottom:14px;">Bonus: Run everything by text</div>
+    <div class="waflow-cmd">
+      <div class="waflow-cmd-text">"mark Carlos done"</div>
+      <div class="waflow-cmd-result">→ Job closed · Google review request sent to customer</div>
+    </div>
+    <div class="waflow-cmd">
+      <div class="waflow-cmd-text">"schedule Tuesday 2pm"</div>
+      <div class="waflow-cmd-result">→ Appointment confirmed · Customer notified instantly</div>
+    </div>
+    <div class="waflow-cmd">
+      <div class="waflow-cmd-text">"send quote $450 leak repair"</div>
+      <div class="waflow-cmd-result">→ Quote sent to customer · Follow-ups scheduled Day 1, 3, 7</div>
+    </div>
   </div>
 </div>
 
