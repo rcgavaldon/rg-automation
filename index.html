@@ -141,6 +141,17 @@
       transition: opacity 0.15s;
     }
     .btn-hero:hover { opacity: 0.9; text-decoration: none; }
+    .btn-hear {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--white);
+      font-weight: 700; font-size: 1rem;
+      padding: 14px 28px; border-radius: 8px;
+      border: 1.5px solid var(--border);
+      cursor: pointer; font-family: inherit;
+      transition: border-color 0.15s, color 0.15s;
+      text-decoration: none;
+    }
+    .btn-hear:hover { border-color: var(--white); color: var(--white); text-decoration: none; }
     .hero-note { font-size: 0.8rem; color: var(--muted); }
 
     /* Hero visual — WA card preview */
@@ -698,6 +709,7 @@
       <p class="hero-sub" data-i18n="hero-sub">24/7 bilingual answering — English &amp; Spanish. Every caller becomes a WhatsApp lead with their <strong>name, address, and what they need.</strong> Tap once to respond. <strong>Live on your line same day.</strong></p>
       <div class="hero-cta-wrap">
         <a href="#contact" class="btn-hero" data-i18n="hero-cta">Book Your Free Setup Call</a>
+        <button class="btn-hear" onclick="hearCall()" data-i18n-hear>&#9654; Hear a Live Call</button>
         <span class="hero-note" data-i18n="hero-note">15 minutes &nbsp;·&nbsp; We go live on the call &nbsp;·&nbsp; Trial starts immediately</span>
       </div>
     </div>
@@ -732,13 +744,13 @@
 <div class="strip" data-i18n="strip">Sofia is an AI voice assistant &nbsp;·&nbsp; <strong>We aim for 99.5%+ uptime</strong> &nbsp;·&nbsp; Available 24/7 &nbsp;·&nbsp; English &amp; Spanish &nbsp;·&nbsp; No app to download</div>
 
 <!-- ══ HOW IT WORKS ═══════════════════════════════════════════ -->
-<div class="hiw-bg">
+<div class="hiw-bg" id="live-call">
   <div class="section">
     <div class="sec-label" data-i18n="hiw-label">Live Demo</div>
     <h2 class="sec-h">Hear a Real Call</h2>
     <p class="sec-sub" style="margin-bottom:28px;">Sofia answers, qualifies the lead, handles pricing questions, gets the address — and switches to Spanish mid-call without missing a beat.</p>
     <div style="position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;margin-bottom:28px">
-      <iframe src="https://www.loom.com/embed/5e08a480ede747a2bde9530f7b21a2f7" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
+      <iframe id="loom-iframe" src="https://www.loom.com/embed/5e08a480ede747a2bde9530f7b21a2f7" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
     </div>
     <details style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:20px;margin-bottom:0">
       <summary style="font-weight:700;cursor:pointer;color:var(--amber,#f59e0b);font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase">Read the transcript</summary>
@@ -1755,6 +1767,21 @@
       showScene(0);
     }
   })();
+</script>
+<script>
+  // Always start at top — prevent browser scroll restoration
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
+  function hearCall() {
+    const section = document.getElementById('live-call');
+    const iframe  = document.getElementById('loom-iframe');
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Autoplay after scroll lands (~700ms)
+    setTimeout(function() {
+      iframe.src = 'https://www.loom.com/embed/5e08a480ede747a2bde9530f7b21a2f7?autoplay=1';
+    }, 700);
+  }
 </script>
 </body>
 </html>
