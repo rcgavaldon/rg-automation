@@ -6,58 +6,104 @@
   <title>Tutorials — Sofia AI</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0f;color:#f1f5f9;line-height:1.7;padding:40px 5%}
-    nav{margin-bottom:40px}
-    nav a{color:#f59e0b;font-weight:600;text-decoration:none}
-    h1{font-size:1.8rem;margin-bottom:8px;color:#f59e0b}
-    h2{font-size:1.2rem;margin:36px 0 8px;color:#f1f5f9}
-    p{color:#94a3b8;font-size:0.95rem;margin-bottom:14px}
-    .note{background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:#f59e0b;margin-top:12px}
-    .video-wrap{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;margin:16px 0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0f;color:#f1f5f9;line-height:1.7}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+        padding:14px 5%;background:rgba(10,10,15,0.96);backdrop-filter:blur(14px);
+        border-bottom:1px solid #1e1e2e}
+    .nav-back{color:#f59e0b;font-weight:700;font-size:0.9rem;text-decoration:none}
+    .lang-toggle{display:flex;background:#13131a;border:1px solid #1e1e2e;border-radius:6px;overflow:hidden}
+    .lang-btn{background:transparent;border:none;color:#64748b;font-size:0.72rem;font-weight:700;
+               letter-spacing:0.08em;padding:7px 13px;cursor:pointer;font-family:inherit;transition:color .15s}
+    .lang-btn:hover{color:#f1f5f9}
+    .lang-btn.active{background:#f59e0b;color:#000}
+
+    /* PAGE */
+    .page{max-width:720px;margin:0 auto;padding:48px 5% 80px}
+    h1{font-size:1.8rem;font-weight:900;color:#f59e0b;margin-bottom:8px}
+    .sub{color:#64748b;font-size:0.95rem;margin-bottom:32px}
+    .contact-box{background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);
+                 border-radius:10px;padding:14px 18px;font-size:0.9rem;color:#f59e0b;margin-bottom:40px}
+    h2{font-size:1.15rem;font-weight:800;color:#f1f5f9;margin-bottom:6px}
+    .desc{color:#94a3b8;font-size:0.92rem;margin-bottom:14px}
+    .video-wrap{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;margin-bottom:14px}
     .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-    .contact{margin:48px 0 8px;padding:24px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-align:center}
-    .contact p{margin:0;font-size:0.95rem}
+    .note{background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);
+          border-radius:8px;padding:12px 16px;font-size:0.87rem;color:#f59e0b;margin-bottom:40px}
+    .divider{border:none;border-top:1px solid #1e1e2e;margin:40px 0}
+    .contact-bottom{text-align:center;padding:32px;background:rgba(255,255,255,0.03);
+                    border:1px solid #1e1e2e;border-radius:12px;font-size:0.9rem;color:#94a3b8}
     a{color:#f59e0b}
-    .divider{border:none;border-top:1px solid rgba(255,255,255,0.08);margin:40px 0}
+    strong{color:#f1f5f9}
   </style>
 </head>
 <body>
-  <nav><a href="/">← Sofia AI</a></nav>
 
-  <h1>Client Tutorials</h1>
-  <p>Everything you need to get the most out of Sofia — at your own pace.</p>
+<nav>
+  <a class="nav-back" href="https://rcgavaldon.github.io/rg-automation/">← Sofia AI</a>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+  </div>
+</nav>
 
-  <div class="contact">
-    <p>Questions before you watch? Reach out anytime — <a href="mailto:rcgavaldon@rgaibiz.com">rcgavaldon@rgaibiz.com</a></p>
+<div class="page">
+
+  <h1 data-en="Client Tutorials" data-es="Tutoriales para Clientes">Client Tutorials</h1>
+  <p class="sub" data-en="Watch these once and you'll know everything you need." data-es="Mira estos una vez y sabrás todo lo que necesitas.">Watch these once and you'll know everything you need.</p>
+
+  <div class="contact-box" data-en="Questions before you watch? Reach out anytime — rcgavaldon@rgaibiz.com" data-es="¿Preguntas antes de ver? Escríbeme cuando quieras — rcgavaldon@rgaibiz.com">
+    Questions before you watch? Reach out anytime — <a href="mailto:rcgavaldon@rgaibiz.com">rcgavaldon@rgaibiz.com</a>
   </div>
 
-  <hr class="divider">
-
-  <h2>1 · How to Use Sofia on WhatsApp</h2>
-  <p>Your lead cards, the three tap buttons, and how to run everything by text — On My Way, Schedule, Done, and more.</p>
+  <!-- VIDEO 1 -->
+  <h2 data-en="1 · How to Use Sofia on WhatsApp" data-es="1 · Cómo Usar Sofia en WhatsApp">1 · How to Use Sofia on WhatsApp</h2>
+  <p class="desc" data-en="Your lead cards, the three tap buttons, and how to text Sofia commands — Done, Schedule, Quote, and more." data-es="Tus tarjetas de lead, los tres botones, y cómo mandarle comandos a Sofia por texto — Listo, Agendar, Cotización y más.">Your lead cards, the three tap buttons, and how to text Sofia commands — Done, Schedule, Quote, and more.</p>
   <div class="video-wrap">
     <iframe src="https://www.loom.com/embed/7684687afc0b4fc9a46f95e6dfdaf9c6" frameborder="0" allowfullscreen></iframe>
   </div>
   <div class="note">
-    🌐 <strong>Spanish captions available.</strong> Click the CC button inside the video player, then select Spanish from the language menu.
+    <div data-en="🌐 <strong>Spanish captions:</strong> Click the CC button in the video player → select Spanish. &nbsp;|&nbsp; 🗣 <strong>Switch Sofia's language:</strong> Text her &quot;switch to Spanish&quot; and she'll reply in Spanish from then on." data-es="🌐 <strong>Subtítulos en español:</strong> Haz clic en CC dentro del video → selecciona Español. &nbsp;|&nbsp; 🗣 <strong>Cambiar idioma de Sofia:</strong> Escríbele &quot;cambiar a español&quot; y ella te responderá en español de ahí en adelante.">
+      🌐 <strong>Spanish captions:</strong> Click the CC button in the video player → select Spanish. &nbsp;|&nbsp; 🗣 <strong>Switch Sofia's language:</strong> Text her "switch to Spanish" and she'll reply in Spanish from then on.
+    </div>
   </div>
 
   <hr class="divider">
 
-  <h2>2 · How to Use Your Dashboard</h2>
-  <p>See all your leads, update job status, schedule follow-ups, and manage your pipeline — all from your phone.</p>
+  <!-- VIDEO 2 -->
+  <h2 data-en="2 · How to Use Your Dashboard" data-es="2 · Cómo Usar Tu Dashboard">2 · How to Use Your Dashboard</h2>
+  <p class="desc" data-en="See all your leads, update job status, schedule follow-ups, and manage your pipeline from your phone." data-es="Ve todos tus leads, cambia el estado de los trabajos, agenda seguimientos y maneja tu pipeline desde el celular.">See all your leads, update job status, schedule follow-ups, and manage your pipeline from your phone.</p>
   <div class="video-wrap">
     <iframe src="https://www.loom.com/embed/1b5b3b1a1013436bb29ba40dd22e484f" frameborder="0" allowfullscreen></iframe>
   </div>
   <div class="note">
-    🌐 <strong>Spanish captions available.</strong> Click the CC button inside the video player, then select Spanish from the language menu.
+    <div data-en="🌐 <strong>Spanish captions:</strong> Click the CC button in the video player → select Spanish. &nbsp;|&nbsp; 🗣 <strong>Switch Sofia's language:</strong> Text her &quot;switch to Spanish&quot; anytime." data-es="🌐 <strong>Subtítulos en español:</strong> Haz clic en CC dentro del video → selecciona Español. &nbsp;|&nbsp; 🗣 <strong>Cambiar idioma de Sofia:</strong> Escríbele &quot;cambiar a español&quot; en cualquier momento.">
+      🌐 <strong>Spanish captions:</strong> Click the CC button in the video player → select Spanish. &nbsp;|&nbsp; 🗣 <strong>Switch Sofia's language:</strong> Text her "switch to Spanish" anytime.
+    </div>
   </div>
 
   <hr class="divider">
 
-  <div class="contact">
-    <p>Still have questions? Text or email anytime — <a href="mailto:rcgavaldon@rgaibiz.com">rcgavaldon@rgaibiz.com</a></p>
+  <div class="contact-bottom">
+    <p data-en="Still have questions? Text or email anytime — <a href='mailto:rcgavaldon@rgaibiz.com'>rcgavaldon@rgaibiz.com</a>" data-es="¿Sigues con dudas? Escríbeme por texto o correo cuando quieras — <a href='mailto:rcgavaldon@rgaibiz.com'>rcgavaldon@rgaibiz.com</a>">
+      Still have questions? Text or email anytime — <a href="mailto:rcgavaldon@rgaibiz.com">rcgavaldon@rgaibiz.com</a>
+    </p>
   </div>
 
+</div>
+
+<script>
+function setLang(lang) {
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.querySelectorAll('[data-en]').forEach(function(el) {
+    el.innerHTML = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+  });
+  localStorage.setItem('sofia-lang', lang);
+}
+var saved = localStorage.getItem('sofia-lang');
+if (saved) setLang(saved);
+</script>
 </body>
 </html>
