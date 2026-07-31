@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="facebook-domain-verification" content="enehkn7pnqisw3hu5oee9peazkult9">
   <meta name="theme-color" content="#0a0a0f">
-  <title>Sofia AI — 24/7 Bilingual AI Receptionist for Plumbers</title>
-  <meta name="description" content="Sofia AI answers every plumbing call 24/7 in English & Spanish, sends WhatsApp lead cards with tap-to-respond buttons, and costs 90% less than a receptionist. 2-week free trial, live same day.">
+  <title>Sofia AI — 24/7 Bilingual AI Receptionist for HVAC Shops</title>
+  <meta name="description" content="Sofia AI answers every HVAC call 24/7 in English & Spanish, sends every caller to your phone as a text with name, address, and the problem, and costs about a tenth of a receptionist. Live on your line same day.">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -659,6 +659,36 @@
     .vstack-strike { color: var(--muted); text-decoration: line-through; font-size: 0.8rem; text-align: right; }
     @media (max-width: 500px) { .vstack-strike { display: none; } }
     .vstack-total { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px; flex-wrap: wrap; gap: 12px; }
+
+    /* ══ SOFIA vs HUMAN COMPARISON ═══════════════════════════════ */
+    .cmp-list { max-width: 760px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 12px; }
+    .cmp-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 20px;
+    }
+    .cmp-dim {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--amber); margin-bottom: 12px;
+    }
+    .cmp-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 520px) { .cmp-pair { grid-template-columns: 1fr; gap: 9px; } }
+    .cmp-side { font-size: 0.86rem; line-height: 1.5; display: flex; gap: 9px; align-items: flex-start; }
+    .cmp-human { color: var(--muted); }
+    .cmp-sofia { color: var(--text); }
+    .cmp-mark { flex-shrink: 0; font-weight: 800; margin-top: 1px; }
+    .cmp-human .cmp-mark { color: var(--red); }
+    .cmp-sofia .cmp-mark { color: var(--green); }
+    .cmp-sofia strong { color: var(--white); }
+    .cmp-heads { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 760px; margin: 40px auto 0; }
+    @media (max-width: 520px) { .cmp-heads { display: none; } }
+    .cmp-heads > div {
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 10px 20px;
+    }
+    .cmp-head-human { color: var(--muted); }
+    .cmp-head-sofia { color: var(--amber); }
+    .cmp-bottom { max-width: 720px; margin: 26px auto 0; text-align: center; font-size: 0.98rem; line-height: 1.7; color: var(--text); }
+    .cmp-bottom strong { color: var(--amber); }
   </style>
 </head>
 <body>
@@ -678,7 +708,7 @@
   <div class="section">
     <div class="sec-label sec-label-red" data-i18n="prob-label">The Problem</div>
     <h2 class="sec-h" data-i18n="prob-h2">You're Losing <span style="color:var(--red)">$31,200/Year</span><br>in Missed Calls</h2>
-    <p class="sec-sub" data-i18n="prob-body">Every time your phone goes to voicemail, that's $300–$1,500 walking out the door. The customer doesn't wait — they call the next plumber who answers.</p>
+    <p class="sec-sub" data-i18n="prob-body">Every time your phone goes to voicemail, that's a service call — or a full system replacement — walking out the door. The customer doesn't wait — they call the next HVAC shop that answers.</p>
     <div class="loss-box">
       <div>
         <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px;" data-i18n="loss-label">Lost revenue per year</div>
@@ -686,14 +716,14 @@
       </div>
       <div class="loss-detail">
         <h3 data-i18n="loss-h3">Here's the math</h3>
-        <p data-i18n="loss-p">Most 1–2 truck companies miss 3–5 calls per week. At $600 average, that's money earned but never collected.</p>
+        <p data-i18n="loss-p">Most 1–5 truck HVAC shops miss 3–5 calls per week. At a $600 average service call that's money earned but never collected — and one missed replacement job runs $5,000–$12,000.</p>
         <div class="loss-chips">
           <span class="chip-red" data-i18n="mc1">1 missed call/week</span>
-          <span class="chip-red" data-i18n="mc2">× $600 avg job</span>
+          <span class="chip-red" data-i18n="mc2">× $600 avg service call</span>
           <span class="chip-red">× 52 weeks</span>
           <span class="chip-red" data-i18n="mc4">= $31,200/year</span>
         </div>
-        <p style="font-size:0.72rem;color:var(--muted);margin-top:10px;" data-i18n="mc-disclaimer">Example calculation based on industry averages. Individual results vary.</p>
+        <p style="font-size:0.72rem;color:var(--muted);margin-top:10px;" data-i18n="mc-disclaimer">Example calculation based on industry averages — and a single missed AC replacement can dwarf it. Individual results vary.</p>
       </div>
     </div>
     <div style="text-align:center;margin-top:36px;">
@@ -707,9 +737,9 @@
   <div class="hero-inner">
 
     <div class="hero-text">
-      <div class="badge" data-i18n="hero-badge">🚀 Introducing · The Always-On Plumber Stack</div>
-      <h1 data-i18n="hero-h1">Sofia Answers Every Call.<br><span class="hl">You Keep Every Lead.</span></h1>
-      <p class="hero-sub" data-i18n="hero-sub">24/7 bilingual answering — English &amp; Spanish. Every caller becomes a WhatsApp lead with their <strong>name, address, and what they need.</strong> Tap once to respond. <strong>Live on your line same day.</strong></p>
+      <div class="badge" data-i18n="hero-badge">❄️ The 24/7 Bilingual Receptionist for HVAC</div>
+      <h1 data-i18n="hero-h1">Sofia Answers Every Call.<br><span class="hl">You Keep Every Job.</span></h1>
+      <p class="hero-sub" data-i18n="hero-sub">24/7 bilingual answering for HVAC shops — English &amp; Spanish. Every caller becomes a text with their <strong>name, address, and the problem</strong> — so you never lose a job to a missed call. <strong>Live on your line same day.</strong></p>
       <div class="hero-cta-wrap">
         <a href="#contact" class="btn-hero" data-i18n="hero-cta">Book Your Free Setup Call</a>
         <span class="hero-note" data-i18n="hero-note">15 minutes &nbsp;·&nbsp; We go live on the call &nbsp;·&nbsp; Trial starts immediately</span>
@@ -727,10 +757,10 @@
           <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl1">Name:</span><span class="wa-val">Carlos Mendez</span></div>
           <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl2">Phone:</span><span class="wa-val">(915) 555-0142</span></div>
           <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl3">Address:</span><span class="wa-val">2847 Mesa Hills Dr</span></div>
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl4">Service:</span><span class="wa-val" data-i18n="wa-val4">Leak under sink</span></div>
+          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl4">Service:</span><span class="wa-val" data-i18n="wa-val4">AC not cooling</span></div>
           <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl5">Urgency:</span><span class="wa-val wa-urgency" data-i18n="wa-val5">🔴 Emergency</span></div>
         </div>
-        <div class="wa-ai" data-i18n="wa-ai-hero">Active leak under sink. Water accumulating in cabinet. Needs urgent attention.</div>
+        <div class="wa-ai" data-i18n="wa-ai-hero">No cooling, house at 85°F, elderly resident. Needs urgent service.</div>
         <div class="wa-btns">
           <div class="wa-btn wa-g" data-i18n="wa-btn-g">✅ On My Way</div>
           <div class="wa-btn wa-b" data-i18n="wa-btn-b">📅 Schedule</div>
@@ -749,33 +779,37 @@
 <div class="hiw-bg" id="live-call">
   <div class="section">
     <div class="sec-label" data-i18n="hiw-label">Live Demo</div>
-    <h2 class="sec-h">Hear a Real Call</h2>
-    <p class="sec-sub" style="margin-bottom:28px;">Sofia answers, qualifies the lead, handles pricing questions, gets the address — and switches to Spanish mid-call without missing a beat.</p>
+    <h2 class="sec-h" data-i18n="hiw-live-h">Hear a Real Call</h2>
+    <p class="sec-sub" style="margin-bottom:20px;" data-i18n="hiw-live-sub">Sofia answers, qualifies the lead, handles pricing questions, gets the address — and switches to Spanish mid-call without missing a beat.</p>
+    <div style="background:var(--amber-dim);border:1px solid var(--amber-border);border-radius:12px;padding:14px 20px;margin-bottom:24px;text-align:center;">
+      <p style="font-size:0.95rem;color:var(--white);line-height:1.6;margin:0;" data-i18n="hiw-live-call"><strong style="color:var(--amber);">Or call her live right now</strong> — talk to Sofia yourself in 60 seconds: <a href="tel:+19152867434" style="font-weight:800;white-space:nowrap;">(915) 286-7434</a></p>
+    </div>
+    <!-- TODO: replace Loom video with an HVAC call recording -->
     <div style="position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;margin-bottom:28px">
       <iframe id="loom-iframe" src="https://www.loom.com/embed/5e08a480ede747a2bde9530f7b21a2f7" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
     </div>
     <details style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:20px;margin-bottom:0">
       <summary style="font-weight:700;cursor:pointer;color:var(--amber,#f59e0b);font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase">Read the transcript</summary>
       <div style="margin-top:16px;font-size:0.87rem;color:#94a3b8;line-height:1.9;display:grid;gap:8px">
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Hi, thank you for calling Gavaldon Plumbing. This is Sofia. How can I help you today?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> Hi Sofia. I had an issue with my plumbing and wanted to see if you could get somebody out here.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Glad you called. Can I get your full name — first and last?</div>
+        <div><strong style="color:#f1f5f9">Sofia:</strong> Hi, thank you for calling Gavaldon HVAC. This is Sofia. How can I help you today?</div>
+        <div><strong style="color:#f59e0b">Caller:</strong> Hi Sofia. My AC stopped cooling and I was hoping to get someone out here.</div>
+        <div><strong style="color:#f1f5f9">Sofia:</strong> Sorry to hear that — let's get you taken care of. Can I get your full name, first and last?</div>
         <div><strong style="color:#f59e0b">Caller:</strong> Robert Gavaldon. G-A-V-A-L-D-O-N.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Got it. What's going on with your plumbing?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> A couple restrooms don't flush. Do you know how much you charge for that?</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Honestly I don't have exact pricing — it depends on the situation. Just so you know, there's a $77 diagnostic fee. We accept cash, card with 2% fee, and checks. Does that work?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> Perfect. When can someone come out?</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Once I get your address and time preference, someone will reach out to confirm. What's your full address?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> 741 Mesa Street, 79925. This coming Monday afternoon.</div>
+        <div><strong style="color:#f1f5f9">Sofia:</strong> Got it. And is it blowing warm air, or not turning on at all?</div>
+        <div><strong style="color:#f59e0b">Caller:</strong> It's running but only blowing warm air. Do you know how much you charge?</div>
+        <div><strong style="color:#f1f5f9">Sofia:</strong> It depends on what the tech finds, so I can't quote an exact repair price. There is a $89 diagnostic fee, and that gets applied toward the repair. We take cash, card, and checks. Does that work?</div>
+        <div><strong style="color:#f59e0b">Caller:</strong> That works. When can someone come out?</div>
+        <div><strong style="color:#f1f5f9">Sofia:</strong> Once I have your address and a time that works for you, the team will reach out to confirm. What's your full address?</div>
+        <div><strong style="color:#f59e0b">Caller:</strong> 741 Mesa Street, 79925. Tomorrow afternoon if you have it.</div>
         <div><strong style="color:#f59e0b">Caller:</strong> Actually — I'll speak Spanish from here.</div>
-        <div><strong style="color:#a78bfa">Sofia switches to Spanish instantly:</strong> Perfecto, continuemos en español. ¿Está bien si le mandamos confirmación al número desde el que llama? Si tiene fotos del problema puede responder ese mensaje para que el técnico llegue preparado.</div>
+        <div><strong style="color:#a78bfa">Sofia switches to Spanish instantly:</strong> Perfecto, continuemos en español. ¿Está bien si le mandamos la confirmación al número desde el que llama? Si tiene fotos del sistema puede responder ese mensaje para que el técnico llegue preparado.</div>
         <div><strong style="color:#f59e0b">Caller:</strong> Sí, me parece perfecto.</div>
-        <div style="margin-top:8px;padding:12px 14px;background:rgba(167,139,250,0.07);border-radius:8px;border:1px solid rgba(167,139,250,0.18);color:#f1f5f9;font-size:0.84rem"><strong>What happens next:</strong> The plumber gets a WhatsApp card with the lead's name, address, job type, and urgency — instantly. One tap sends an "on my way" text to the customer.</div>
+        <div style="margin-top:8px;padding:12px 14px;background:rgba(167,139,250,0.07);border-radius:8px;border:1px solid rgba(167,139,250,0.18);color:#f1f5f9;font-size:0.84rem"><strong>What happens next:</strong> The HVAC shop gets a WhatsApp card with the lead's name, address, job type, and urgency — instantly. One tap sends an "on my way" text to the customer.</div>
       </div>
     </details>
 
     <div style="background:var(--amber-dim);border:1px solid var(--amber-border);border-radius:12px;padding:18px 22px;margin-top:22px;">
-      <p style="font-size:0.88rem;color:var(--white);line-height:1.7;margin:0;" data-i18n="demo-callout"><strong style="color:var(--amber);">That call above is real.</strong> Sofia got the full name, address, what they need, and when — then switched to Spanish mid-call. The plumber got the WhatsApp text before the customer hung up.</p>
+      <p style="font-size:0.88rem;color:var(--white);line-height:1.7;margin:0;" data-i18n="demo-callout"><strong style="color:var(--amber);">That call above is real.</strong> Sofia got the full name, address, what the AC was doing, and when — then switched to Spanish mid-call. The HVAC shop got the WhatsApp text before the customer hung up.</p>
     </div>
 
     <div class="hiw-stage" id="hiw-stage" style="display:none">
@@ -796,7 +830,7 @@
           </div>
           <div class="hiw-caller">
             <div class="hiw-caller-name">María García</div>
-            <div class="hiw-caller-issue">💧 Burst pipe — water flooding</div>
+            <div class="hiw-caller-issue">❄️ AC not cooling — 85°F inside</div>
           </div>
           <div class="hiw-urg">Urgent</div>
         </div>
@@ -835,10 +869,10 @@
             <div class="wa-rows">
               <div class="wa-row"><span class="wa-lbl" id="hiw-wa-lbl1">Name:</span><span class="wa-val">Carlos Mendez</span></div>
               <div class="wa-row"><span class="wa-lbl" id="hiw-wa-lbl2">Address:</span><span class="wa-val">2847 Mesa Hills Dr</span></div>
-              <div class="wa-row"><span class="wa-lbl" id="hiw-wa-lbl3">Service:</span><span class="wa-val" id="hiw-wa-val3">Leak under sink</span></div>
+              <div class="wa-row"><span class="wa-lbl" id="hiw-wa-lbl3">Service:</span><span class="wa-val" id="hiw-wa-val3">AC not cooling</span></div>
               <div class="wa-row"><span class="wa-lbl" id="hiw-wa-lbl4">Urgency:</span><span class="wa-val wa-urgency" id="hiw-wa-val4">🔴 Emergency</span></div>
             </div>
-            <div class="wa-ai" id="hiw-wa-ai">Active leak under sink. Water accumulating. Needs urgent attention.</div>
+            <div class="wa-ai" id="hiw-wa-ai">No cooling, house at 85°F, elderly resident. Needs urgent service.</div>
             <div class="wa-btns">
               <div class="wa-btn wa-g" id="hiw-wa-g">✅ On My Way</div>
               <div class="wa-btn wa-b" id="hiw-wa-b">📅 Schedule</div>
@@ -957,10 +991,10 @@
           <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl1">Name:</span><span class="wa-val">Carlos Mendez</span></div>
           <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl2">Phone:</span><span class="wa-val">(915) 555-0142</span></div>
           <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl3">Address:</span><span class="wa-val">2847 Mesa Hills Dr</span></div>
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl4">Service:</span><span class="wa-val" data-i18n="waf-card-service">Leak under sink</span></div>
+          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl4">Service:</span><span class="wa-val" data-i18n="waf-card-service">AC not cooling</span></div>
           <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl5">Urgency:</span><span class="wa-val wa-urgency" data-i18n="waf-card-urgency">🔴 Emergency</span></div>
         </div>
-        <div class="wa-ai" data-i18n="waf-card-ai">Active leak under sink. Water in cabinet. Needs attention now.</div>
+        <div class="wa-ai" data-i18n="waf-card-ai">No cooling, house at 85°F, elderly resident. Needs service now.</div>
         <div class="wa-btns">
           <div class="wa-btn wa-g" data-i18n="wa-btn-g">✅ On My Way</div>
           <div class="wa-btn wa-b" data-i18n="wa-btn-b">📅 Schedule</div>
@@ -977,7 +1011,7 @@
         <div style="font-size:0.65rem;color:#4b7a4b;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">SMS · (866) 827-6803</div>
         <div class="waflow-bubble">
           Hola <strong>Carlos</strong> 👋<br>
-          <strong>Juan va en camino.</strong> Llegará pronto a <strong>2847 Mesa Hills Dr</strong>. Si tienes fotos puedes responder este mensaje. — Gavaldon Plomería
+          <strong>Juan va en camino.</strong> Llegará pronto a <strong>2847 Mesa Hills Dr</strong>. Si tienes fotos puedes responder este mensaje. — Gavaldon HVAC
         </div>
         <div style="font-size:0.72rem;color:#4b7a4b;margin-top:10px;font-style:italic;" data-i18n="waf-sms-note">In English if they called in English.</div>
       </div>
@@ -995,7 +1029,7 @@
       <div class="waflow-cmd-result" data-i18n="waf-cmd2-r">→ Customer gets a text right away</div>
     </div>
     <div class="waflow-cmd">
-      <div class="waflow-cmd-text">"send quote $450 leak repair"</div>
+      <div class="waflow-cmd-text">"send quote $450 AC repair"</div>
       <div class="waflow-cmd-result" data-i18n="waf-cmd3-r">→ Quote sent · Sofia follows up Day 1, 3, 7</div>
     </div>
   </div>
@@ -1019,31 +1053,106 @@
   </div>
 </div>
 
+<!-- ══ SOFIA vs HUMAN RECEPTIONIST ═════════════════════════════ -->
+<div class="hiw-bg">
+  <div class="section">
+    <div class="sec-label" data-i18n="cmp-label">Sofia vs. Hiring</div>
+    <h2 class="sec-h" data-i18n="cmp-h">Sofia vs. a Human Receptionist</h2>
+    <p class="sec-sub" data-i18n="cmp-sub">Same job — answer the phone and capture the lead. One costs $40,000 a year and goes home at 5. The other is $399 a month and never sleeps.</p>
+
+    <div class="cmp-heads">
+      <div class="cmp-head-human" data-i18n="cmp-head-human">Human receptionist</div>
+      <div class="cmp-head-sofia" data-i18n="cmp-head-sofia">Sofia AI</div>
+    </div>
+
+    <div class="cmp-list">
+      <div class="cmp-item">
+        <div class="cmp-dim" data-i18n="cmp-d1">Cost</div>
+        <div class="cmp-pair">
+          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu1">~$40,000/year + payroll taxes &amp; benefits</span></div>
+          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so1"><strong>$399/month</strong> (~$4,200/year)</span></div>
+        </div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-dim" data-i18n="cmp-d2">Hours</div>
+        <div class="cmp-pair">
+          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu2">40 hrs/week, business hours only</span></div>
+          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so2"><strong>24/7 / 365</strong> — nights, weekends, holidays</span></div>
+        </div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-dim" data-i18n="cmp-d3">Languages</div>
+        <div class="cmp-pair">
+          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu3">Usually one</span></div>
+          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so3"><strong>English + Spanish</strong> on every call</span></div>
+        </div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-dim" data-i18n="cmp-d4">Two calls at once</div>
+        <div class="cmp-pair">
+          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu4">Second caller goes to voicemail</span></div>
+          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so4"><strong>Answers unlimited calls</strong> at once</span></div>
+        </div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-dim" data-i18n="cmp-d5">Sick days / lunch / vacation</div>
+        <div class="cmp-pair">
+          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu5">Calls get missed</span></div>
+          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so5"><strong>Never off</strong>, never a break</span></div>
+        </div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-dim" data-i18n="cmp-d6">Ramp-up</div>
+        <div class="cmp-pair">
+          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu6">Weeks of hiring &amp; training</span></div>
+          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so6"><strong>Live on your line</strong> the same day</span></div>
+        </div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-dim" data-i18n="cmp-d7">Turnover</div>
+        <div class="cmp-pair">
+          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu7">Quits → re-hire, re-train</span></div>
+          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so7"><strong>Never quits</strong></span></div>
+        </div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-dim" data-i18n="cmp-d8">Every lead logged to your phone</div>
+        <div class="cmp-pair">
+          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu8">Manual / sticky notes</span></div>
+          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so8"><strong>Automatic text</strong> with name, address, job</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="cmp-bottom" data-i18n="cmp-bottom">A front-desk hire costs <strong>~$40,000 a year</strong> and still goes home at 5. Sofia is about a tenth of the cost and never misses a call.</p>
+  </div>
+</div>
+
 <!-- ══ PRICING ════════════════════════════════════════════════ -->
 <div class="section" style="border-top:1px solid var(--border); padding-top:88px;">
   <div class="pricing-intro">
     <div class="sec-label" data-i18n="price-label">Pricing</div>
     <h2 class="sec-h" data-i18n="price-h2">Choose Your Plan</h2>
-    <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;" data-i18n="price-sub">Sofia pays for itself the moment she captures one job. Most customers capture 10–15 per month.</p>
+    <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;" data-i18n="price-sub">One simple plan. About a tenth of what a front-desk hire costs — and Sofia never goes home at 5.</p>
   </div>
 
   <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.35);border-radius:12px;padding:14px 22px;text-align:center;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;">
-    <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);" data-i18n="beta-label">⏳ Founding Customer Pricing</span>
-    <span style="color:var(--muted);font-size:0.82rem;" data-i18n="beta-text">Prices go up next month. Lock in today's rate for 1 year — cancel and it's gone.</span>
+    <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);" data-i18n="beta-label">⏳ Founding Rate</span>
+    <span style="color:var(--muted);font-size:0.82rem;" data-i18n="beta-text">First 5 El Paso HVAC shops lock in $399/mo for a full year. The rate goes up after that.</span>
   </div>
 
   <div class="trial-banner">
     <div class="trial-left">
-      <h3 data-i18n="trial-h3">Founding Customer Offer — 14 Days Free, Rate Locked 1 Year</h3>
-      <p data-i18n="trial-p">Full Starter features. Keep every lead Sofia captures. No credit card required.</p>
+      <h3 data-i18n="trial-h3">Founding Rate — First 5 El Paso HVAC Shops</h3>
+      <p data-i18n="trial-p">$399/month plus a one-time $200 setup. Live on your line the same day — backed by a 14-day money-back guarantee.</p>
       <div class="trial-bullets">
-        <span class="tb" data-i18n="tb1">✓ Full Starter features</span>
-        <span class="tb" data-i18n="tb2">✓ No credit card</span>
-        <span class="tb" data-i18n="tb3">✓ Keep all leads captured</span>
-        <span class="tb" data-i18n="tb4">✓ Live same day</span>
+        <span class="tb" data-i18n="tb1">✓ 14-day money-back</span>
+        <span class="tb" data-i18n="tb2">✓ Never-Miss Guarantee</span>
+        <span class="tb" data-i18n="tb3">✓ Live same day</span>
+        <span class="tb" data-i18n="tb4">✓ Keep your number</span>
       </div>
     </div>
-    <a href="#contact" class="btn-trial" data-i18n="trial-btn">Start Free Trial →</a>
+    <a href="#contact" class="btn-trial" data-i18n="trial-btn">Book Your Free Setup Call →</a>
   </div>
 
   <div class="vstack">
@@ -1063,72 +1172,53 @@
         <div style="font-size:1.4rem;font-weight:900;color:var(--muted);letter-spacing:-0.02em;text-decoration:line-through;">$3,550+/mo</div>
       </div>
       <div style="text-align:right;">
-        <div style="font-size:0.78rem;color:var(--amber);font-weight:700;">Sofia Starter:</div>
-        <div style="font-size:1.4rem;font-weight:900;color:var(--white);letter-spacing:-0.02em;">$297/mo</div>
+        <div style="font-size:0.78rem;color:var(--amber);font-weight:700;">Sofia:</div>
+        <div style="font-size:1.4rem;font-weight:900;color:var(--white);letter-spacing:-0.02em;">$399/mo</div>
       </div>
     </div>
     <p style="font-size:0.7rem;color:var(--muted);margin-top:10px;">Market rate figures are illustrative estimates for comparison purposes. Individual savings vary.</p>
   </div>
 
-  <div class="plans-grid">
-    <div class="plan-card">
-      <div class="plan-name" data-i18n="s-name">Starter</div>
-      <div class="plan-price"><span style="font-size:1.5rem;color:#64748b;text-decoration:line-through;font-weight:800;vertical-align:middle;">$499</span> $297<span>/mo</span></div>
-      <div class="plan-tagline" data-i18n="s-tagline">~150 calls/month</div>
-      <hr class="plan-divider">
-      <ul class="plan-features">
-        <li data-i18n="sf1">450 AI minutes</li>
-        <li data-i18n="sf2">24/7 bilingual answering</li>
-        <li data-i18n="sf3">WhatsApp lead cards + tap buttons</li>
-        <li data-i18n="sf4">Customer SMS confirmations</li>
-        <li data-i18n="sf5">Two-way SMS + photo forwarding</li>
-        <li data-i18n="sf6">Daily job board summaries</li>
-        <li data-i18n="sf7">Full dashboard access</li>
-        <li data-i18n="sf8">Live during your onboarding call</li>
-      </ul>
-      <p class="plan-best" data-i18n="s-best">Best for: <strong>1–2 truck operations</strong></p>
-      <a href="#contact" class="btn-plan btn-outline" data-i18n="s-cta">Start Trial</a>
-    </div>
-
+  <div class="plans-grid" style="max-width:760px;margin:0 auto;">
     <div class="plan-card featured">
       <div class="popular-badge" data-i18n="popular">Most Popular</div>
-      <div class="plan-name" data-i18n="p-name">Pro</div>
-      <div class="plan-price">$799<span>/mo</span></div>
-      <div class="plan-tagline" data-i18n="p-tagline">~250 calls/month</div>
+      <div class="plan-name" data-i18n="pm-name">Monthly</div>
+      <div class="plan-price">$399<span>/mo</span></div>
+      <div class="plan-tagline" data-i18n="pm-tagline">$599 to begin — $399 first month + $200 one-time setup</div>
       <hr class="plan-divider">
       <ul class="plan-features">
-        <li data-i18n="pf1">750 AI minutes</li>
-        <li data-i18n="pf2">Everything in Starter</li>
-        <li data-i18n="pf3">Live during your onboarding call</li>
-        <li data-i18n="pf4">Google review automation</li>
-        <li data-i18n="pf5">Quote follow-ups (Day 1 / 3 / 7)</li>
-        <li data-i18n="pf6">Appointment reminders</li>
-        <li data-i18n="pf7">Smart call qualification</li>
+        <li data-i18n="pmf1">24/7 bilingual answering — English &amp; Spanish</li>
+        <li data-i18n="pmf2">Every caller texted to your phone — name, address, problem</li>
+        <li data-i18n="pmf3">WhatsApp lead cards + tap-to-respond buttons</li>
+        <li data-i18n="pmf4">Customer SMS confirmations &amp; photo forwarding</li>
+        <li data-i18n="pmf5">Full call recordings + dashboard</li>
+        <li data-i18n="pmf6">White-glove setup — live on your line same day</li>
+        <li data-i18n="pmf7">14-day full money-back guarantee</li>
+        <li data-i18n="pmf8">Never-Miss Guarantee — a missed call means that month is free</li>
       </ul>
-      <p class="plan-best" data-i18n="p-best">Best for: <strong>3–5 truck operations</strong></p>
-      <a href="#contact" class="btn-plan btn-amber" data-i18n="p-cta">Start Trial</a>
+      <p class="plan-best" data-i18n="pm-best">Best for: <strong>most HVAC shops</strong></p>
+      <a href="#contact" class="btn-plan btn-amber" data-i18n="pm-cta">Book Your Free Setup Call</a>
     </div>
 
     <div class="plan-card">
-      <div class="plan-name" data-i18n="e-name">Enterprise</div>
-      <div class="plan-price">$1,099<span>/mo</span></div>
-      <div class="plan-tagline" data-i18n="e-tagline">1,200 AI minutes/month</div>
+      <div class="plan-name" data-i18n="pa-name">Annual</div>
+      <div class="plan-price">$4,200<span>/yr</span></div>
+      <div class="plan-tagline" data-i18n="pa-tagline">No setup fee — save about $788 in year one</div>
       <hr class="plan-divider">
       <ul class="plan-features">
-        <li data-i18n="ef1">1,200 AI minutes</li>
-        <li data-i18n="ef2">Everything in Pro</li>
-        <li data-i18n="ef3">Custom voice training</li>
-        <li data-i18n="ef4">Priority support</li>
-        <li data-i18n="ef5">White-label dashboard</li>
-        <li data-i18n="ef6">Direct line to Robert</li>
+        <li data-i18n="paf1">Everything in the monthly plan</li>
+        <li data-i18n="paf2">No $200 setup fee</li>
+        <li data-i18n="paf3">Nearly 2 months free vs. paying monthly</li>
+        <li data-i18n="paf4">Rate locked for the full year</li>
+        <li data-i18n="paf5">14-day full money-back guarantee</li>
       </ul>
-      <p class="plan-best" data-i18n="e-best">Best for: <strong>5+ trucks, high volume</strong></p>
-      <a href="mailto:rcgavaldon@rgaibiz.com" class="btn-plan btn-outline" data-i18n="e-cta" aria-label="Contact Sales">Contact Sales</a>
+      <p class="plan-best" data-i18n="pa-best">Best for: <strong>shops ready to commit</strong></p>
+      <a href="#contact" class="btn-plan btn-outline" data-i18n="pa-cta">Book Your Free Setup Call</a>
     </div>
   </div>
 
-  <p class="roi-note" data-i18n="roi-note">At $297/mo, Sofia pays for herself the moment she captures <strong>1 job.</strong> One $600 emergency call — cost covered. Individual results vary.</p>
-  <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;text-align:center;" data-i18n="call-def">A call is counted when Sofia answers. Minutes = time Sofia is on the line.</p>
+  <p class="roi-note" data-i18n="roi-note">A front-desk hire runs <strong>~$40,000/year.</strong> Sofia is $399/month — about a tenth of the cost — and she never misses a call. Individual results vary.</p>
+  <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;text-align:center;" data-i18n="call-def">Setup is a one-time $200. Monthly plans billed monthly, cancel anytime. The Never-Miss Guarantee applies during your business hours.</p>
 </div>
 
 <!-- ══ GUARANTEE ══════════════════════════════════════════════ -->
@@ -1136,11 +1226,11 @@
   <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
     <div style="font-size:2rem;flex-shrink:0;">🛡️</div>
     <div style="flex:1;min-width:220px;">
-      <div style="font-size:1.05rem;font-weight:800;color:var(--white);margin-bottom:5px;" data-i18n="guar-h2">Zero Risk. 100% Guaranteed.</div>
-      <div style="font-size:0.88rem;color:var(--text);line-height:1.65;" data-i18n="guar-p1">2-week free trial — no credit card. If you pay and it's not right, cancel anytime and we'll refund your month. No forms. Just text us.</div>
+      <div style="font-size:1.05rem;font-weight:800;color:var(--white);margin-bottom:5px;" data-i18n="guar-h2">Two Guarantees. Zero Risk.</div>
+      <div style="font-size:0.88rem;color:var(--text);line-height:1.65;" data-i18n="guar-p1">14-day full money-back guarantee — if Sofia isn't right for your shop in the first two weeks, we refund every dollar, setup included. And the Never-Miss Guarantee: if Sofia ever misses a call during your business hours, that month is free.</div>
     </div>
     <div style="font-size:0.75rem;color:var(--muted);flex-shrink:0;text-align:right;">
-      <div data-i18n="guar-stat" style="margin-bottom:4px;">2-week free trial · Full refund anytime · No contracts</div>
+      <div data-i18n="guar-stat" style="margin-bottom:4px;">14-day money-back · Never-Miss Guarantee · No contracts</div>
       <a href="https://rcgavaldon.github.io/rg-automation/terms.html" style="color:var(--muted);text-decoration:underline;">See full terms</a>
     </div>
   </div>
@@ -1152,12 +1242,24 @@
   <h2 class="sec-h" style="margin-bottom:36px;" data-i18n="faq-h2">Common Questions</h2>
   <div class="faq-list">
     <div class="faq-item">
-      <div class="faq-q" data-i18n="faq-q1">Will my customers know it's AI?</div>
-      <div class="faq-a" data-i18n="faq-a1">Sofia answers with your business name and asks how she can help — she doesn't announce she's AI upfront. If a caller asks directly whether she's a real person, she'll honestly tell them she's an AI assistant your business uses to take calls. Most callers are just glad someone answered.</div>
+      <div class="faq-q" data-i18n="faq-q1">Is it really AI? Will my customers know?</div>
+      <div class="faq-a" data-i18n="faq-a1">Yes, Sofia is AI. She answers with your business name and asks how she can help — she doesn't lead with it. If a caller asks directly whether she's a real person, she honestly tells them she's an AI assistant your shop uses to take calls. She speaks fluent English and Spanish and switches automatically. Most callers are just glad someone answered.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" data-i18n="faq-q2">What about my existing phone number?</div>
-      <div class="faq-a" data-i18n="faq-a2">You keep it. We just forward calls to Sofia. Takes about 5 minutes to set up and you can disable it anytime.</div>
+      <div class="faq-q" data-i18n="faq-q2">Do I have to change my phone number?</div>
+      <div class="faq-a" data-i18n="faq-a2">No. You keep your number — you just forward your line to Sofia. It takes about 10 minutes to set up and you can turn it off anytime.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq-q9">What does it cost?</div>
+      <div class="faq-a" data-i18n="faq-a9">$399/month plus a one-time $200 setup — so $599 to begin, then $399/month. Prefer annual? It's $4,200/year with no setup fee. Every plan includes a 14-day full money-back guarantee.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq-q10">What if Sofia misses a call?</div>
+      <div class="faq-a" data-i18n="faq-a10">That's the Never-Miss Guarantee: if Sofia ever misses a call during your business hours, that month is free. She answers unlimited calls at once, so a second or third caller never lands in voicemail.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq-q11">How fast can I go live?</div>
+      <div class="faq-a" data-i18n="faq-a11">Same day. We do the white-glove setup on your onboarding call — you're answering calls before we hang up.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" data-i18n="faq-q3">I'm not good with technology.</div>
@@ -1165,7 +1267,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q" data-i18n="faq-q5">Can I cancel anytime?</div>
-      <div class="faq-a" data-i18n="faq-a5">Yes. Monthly billing, no contracts, cancel anytime. With the free trial you'll see results before you pay a dollar.</div>
+      <div class="faq-a" data-i18n="faq-a5">Yes. Monthly billing, no contracts, cancel anytime — plus the 14-day money-back guarantee if it's not a fit.</div>
     </div>
   </div>
 </div>
@@ -1173,10 +1275,10 @@
 <!-- ══ FINAL CTA ═══════════════════════════════════════════════ -->
 <div class="final-cta-bg">
   <div class="final-cta">
-    <h2 data-i18n="final-h2">Stop Losing Leads<br>to Missed Calls</h2>
-    <p data-i18n="final-p">Book a free 15-min call. We provision Sofia live — you're answering calls before we hang up. 2-week free trial starts immediately. No credit card. Results vary.</p>
+    <h2 data-i18n="final-h2">Stop Losing Jobs<br>to Missed Calls</h2>
+    <p data-i18n="final-p">Book a free 15-min call. We provision Sofia live — you're answering calls before we hang up. $399/month, live same day, backed by a 14-day money-back guarantee. Results vary.</p>
     <a href="#contact" class="btn-hero" data-i18n="final-cta-btn">Book Your Free Setup Call</a>
-    <p class="final-note" data-i18n="final-note">15-min call &nbsp;·&nbsp; Live before we hang up &nbsp;·&nbsp; Rate locked 1 year</p>
+    <p class="final-note" data-i18n="final-note">15-min call &nbsp;·&nbsp; Live before we hang up &nbsp;·&nbsp; 14-day money-back guarantee</p>
   </div>
 </div>
 
@@ -1186,8 +1288,11 @@
     <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#f59e0b;margin-bottom:10px;" data-i18n="contact-label">Get Started</div>
     <h2 style="font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;" data-i18n="contact-h2">Book a Free 15-Min Call</h2>
     <p style="color:#64748b;font-size:0.95rem;margin-bottom:16px;" data-i18n="contact-sub">We provision Sofia live — you'll be answering calls before we hang up.</p>
-    <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:10px;padding:12px 16px;margin-bottom:28px;font-size:0.82rem;color:#f59e0b;font-weight:700;text-align:left;">
+    <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:0.82rem;color:#f59e0b;font-weight:700;text-align:left;">
       <span data-i18n="contact-diff">⚡ Most services take days or weeks. We go live in 5 minutes — on the call.</span>
+    </div>
+    <div style="font-size:0.85rem;color:#94a3b8;line-height:1.6;margin-bottom:24px;">
+      <span data-i18n="contact-alt">Prefer to pick a time yourself? <a href="https://calendly.com/rcgavaldon-rgaibiz/sofia-2-week-trial-demo-free" style="color:#f59e0b;font-weight:700;">Book on Calendly</a>. Or call Sofia live right now: <a href="tel:+19152867434" style="color:#f59e0b;font-weight:700;white-space:nowrap;">(915) 286-7434</a>.</span>
     </div>
     <form id="contact-form" style="display:flex;flex-direction:column;gap:13px;text-align:left;">
       <div>
@@ -1197,7 +1302,7 @@
       </div>
       <div>
         <label style="display:block;font-size:0.78rem;color:#94a3b8;margin-bottom:5px;">Business Name *</label>
-        <input type="text" name="business" required placeholder="ABC Plumbing"
+        <input type="text" name="business" required placeholder="ABC Air Conditioning"
                style="width:100%;background:#13131a;border:1px solid #1e1e2e;color:#f1f5f9;padding:12px 14px;border-radius:8px;font-size:0.95rem;outline:none;font-family:inherit;"/>
       </div>
       <div>
@@ -1244,7 +1349,7 @@
     <a href="https://rcgavaldon.github.io/rg-automation/sms-opt-in.html">SMS Opt-In</a>
     <a href="mailto:rcgavaldon@rgaibiz.com">Contact</a>
   </div>
-  <p class="footer-copy">&copy; 2026 Sofia AI &nbsp;·&nbsp; All rights reserved</p>
+  <p class="footer-copy">&copy; 2026 RG Automations LLC &nbsp;·&nbsp; Sofia AI &nbsp;·&nbsp; El Paso, TX &nbsp;·&nbsp; All rights reserved</p>
 </footer>
 
 <script>
@@ -1252,75 +1357,82 @@
   var T = {
     en: {
       'nav-cta': 'Book a Free Call',
-      'hero-badge': '🚀 Introducing · The Always-On Plumber Stack',
-      'hero-h1': 'Sofia Answers Every Call.<br><span class="hl">You Keep Every Lead.</span>',
-      'hero-sub': '24/7 bilingual answering — English and Spanish. Every caller becomes a WhatsApp lead with their name, address, and what they need. <strong>Tap once to respond. Live on your line same day.</strong>',
+      'hero-badge': '❄️ The 24/7 Bilingual Receptionist for HVAC',
+      'hero-h1': 'Sofia Answers Every Call.<br><span class="hl">You Keep Every Job.</span>',
+      'hero-sub': '24/7 bilingual answering for HVAC shops — English and Spanish. Every caller becomes a text with their <strong>name, address, and the problem</strong> — so you never lose a job to a missed call. <strong>Live on your line same day.</strong>',
       'hero-cta': 'Book Your Free Setup Call',
-      'hero-note': '15 minutes &nbsp;·&nbsp; We go live on the call &nbsp;·&nbsp; Trial starts immediately',
+      'hero-note': '15 minutes &nbsp;·&nbsp; We go live on the call &nbsp;·&nbsp; Live on your line same day',
       'strip': 'Sofia is an AI voice assistant &nbsp;·&nbsp; <strong>We aim for 99.5%+ uptime</strong> &nbsp;·&nbsp; Available 24/7 &nbsp;·&nbsp; English and Spanish &nbsp;·&nbsp; No app needed',
       'prob-label': 'The Problem',
       'prob-h2': "You're Losing <span style=\"color:var(--red)\">$31,200/Year</span><br>to Missed Calls",
-      'prob-body': "When you miss a call, that customer calls the next plumber. They don't wait. That job is gone.",
+      'prob-body': "When you miss a call, that customer calls the next HVAC shop. They don't wait. That job is gone.",
       'loss-label': 'Lost every year',
       'loss-h3': "Do the math",
-      'loss-p': "Most plumbers miss 3 to 5 calls a week. At $600 a job, that adds up fast.",
-      'mc1': '1 missed call/week', 'mc2': '× $600 avg job', 'mc4': '= $31,200/year',
-      'mc-disclaimer': 'Example calculation based on industry averages. Individual results vary.',
-      'hiw-label': 'How It Works',
+      'loss-p': "Most HVAC shops miss 3 to 5 calls a week. At $600 a service call that adds up fast — and one missed AC replacement runs $5,000 to $12,000.",
+      'mc1': '1 missed call/week', 'mc2': '× $600 avg service call', 'mc4': '= $31,200/year',
+      'mc-disclaimer': 'Example calculation based on industry averages — and a single missed AC replacement can dwarf it. Individual results vary.',
+      'hiw-label': 'Live Demo',
+      'hiw-live-h': 'Hear a Real Call',
+      'hiw-live-sub': 'Sofia answers, qualifies the lead, handles pricing questions, gets the address — and switches to Spanish mid-call without missing a beat.',
+      'hiw-live-call': '<strong style="color:var(--amber);">Or call her live right now</strong> — talk to Sofia yourself in 60 seconds: <a href="tel:+19152867434" style="font-weight:800;white-space:nowrap;">(915) 286-7434</a>',
       'hiw-h2': 'Sofia Answers. You Get a Text.<br>You Tap One Button.',
       'hiw-sub': 'Fewer missed calls. Less phone tag. No more voicemails.',
-      'price-label': 'Pricing', 'price-h2': 'Choose Your Plan',
-      'price-sub': 'Sofia pays for herself with just one job a month. Most plumbers get 10–15.',
-      'trial-h3': 'Founding Customer Offer — 14 Days Free, Rate Locked 1 Year',
-      'trial-p': 'All features included. No credit card. Keep every job Sofia answers.',
-      'tb1': '✓ All features included', 'tb2': '✓ No credit card',
-      'tb3': '✓ Keep every job she answers', 'tb4': '✓ Up and running same day',
-      'trial-btn': 'Start Free Trial →',
+      'price-label': 'Pricing', 'price-h2': 'Simple Pricing',
+      'price-sub': 'One simple plan. About a tenth of what a front-desk hire costs — and Sofia never goes home at 5.',
+      'trial-h3': 'Founding Rate — First 5 El Paso HVAC Shops',
+      'trial-p': '$399/month plus a one-time $200 setup. Live on your line the same day — backed by a 14-day money-back guarantee.',
+      'tb1': '✓ 14-day money-back', 'tb2': '✓ Never-Miss Guarantee',
+      'tb3': '✓ Live same day', 'tb4': '✓ Keep your number',
+      'trial-btn': 'Book Your Free Setup Call →',
       'popular': 'Most Popular',
-      's-name': 'Starter', 's-tagline': '~150 calls/month',
-      'sf1': '450 minutes of Sofia', 'sf2': 'Answers in English and Spanish, 24/7',
-      'sf3': 'Job info in WhatsApp — tap to respond', 'sf4': 'Customer gets a text when you say yes',
-      'sf5': 'Customer can text you and send photos', 'sf6': 'Your job list every morning and night',
-      'sf7': 'See all your calls in one place', 'sf8': 'Live during your onboarding call',
-      's-best': 'Good for: <strong>1–2 trucks</strong>', 's-cta': 'Start Trial',
-      'p-name': 'Pro', 'p-tagline': '~250 calls/month',
-      'pf1': '750 minutes of Sofia', 'pf2': 'Everything in Starter',
-      'pf3': 'Live during your onboarding call', 'pf4': 'Google reviews sent automatically',
-      'pf5': 'Follows up on quotes — Day 1, 3, and 7', 'pf6': 'Reminds customers the day before',
-      'pf7': 'Sofia knows if the call is urgent',
-      'p-best': 'Good for: <strong>3–5 trucks</strong>', 'p-cta': 'Start Trial',
-      'e-name': 'Enterprise', 'e-tagline': '1,200 minutes/month',
-      'ef1': '1,200 minutes of Sofia', 'ef2': 'Everything in Pro',
-      'ef3': 'Sofia trained to your business', 'ef4': 'Priority support',
-      'ef5': 'Dashboard with your name on it', 'ef6': 'Direct line to Robert',
-      'e-best': 'Good for: <strong>5+ trucks</strong>', 'e-cta': 'Contact Us',
-      'roi-note': 'At $297/mo, Sofia pays for herself the moment she captures <strong>1 job.</strong> One $600 emergency call — cost covered. Individual results vary.',
-      'guar-h2': 'Zero Risk. 100% Guaranteed.',
-      'guar-p1': "2-week free trial — no credit card. If you start a paid plan and decide Sofia isn't right, cancel anytime and we'll refund your current month. No forms. No calls. Just text us.",
+      'pm-name': 'Monthly', 'pm-tagline': '$599 to begin — $399 first month + $200 one-time setup',
+      'pmf1': '24/7 bilingual answering — English and Spanish',
+      'pmf2': 'Every caller texted to your phone — name, address, problem',
+      'pmf3': 'WhatsApp lead cards + tap-to-respond buttons',
+      'pmf4': 'Customer SMS confirmations and photo forwarding',
+      'pmf5': 'Full call recordings + dashboard',
+      'pmf6': 'White-glove setup — live on your line same day',
+      'pmf7': '14-day full money-back guarantee',
+      'pmf8': 'Never-Miss Guarantee — a missed call means that month is free',
+      'pm-best': 'Best for: <strong>most HVAC shops</strong>', 'pm-cta': 'Book Your Free Setup Call',
+      'pa-name': 'Annual', 'pa-tagline': 'No setup fee — save about $788 in year one',
+      'paf1': 'Everything in the monthly plan', 'paf2': 'No $200 setup fee',
+      'paf3': 'Nearly 2 months free vs. paying monthly', 'paf4': 'Rate locked for the full year',
+      'paf5': '14-day full money-back guarantee',
+      'pa-best': 'Best for: <strong>shops ready to commit</strong>', 'pa-cta': 'Book Your Free Setup Call',
+      'roi-note': 'A front-desk hire runs <strong>~$40,000/year.</strong> Sofia is $399/month — about a tenth of the cost — and she never misses a call. Individual results vary.',
+      'guar-h2': 'Two Guarantees. Zero Risk.',
+      'guar-p1': "14-day full money-back guarantee — if Sofia isn't right for your shop in the first two weeks, we refund every dollar, setup included. And the Never-Miss Guarantee: if Sofia ever misses a call during your business hours, that month is free.",
       'guar-p2': "We aim for 99.5%+ uptime. Sofia should earn her keep every single month — or you shouldn't pay for it.",
-      'guar-stat': '2-week free trial &nbsp;·&nbsp; Full refund anytime &nbsp;·&nbsp; No contracts',
+      'guar-stat': '14-day money-back &nbsp;·&nbsp; Never-Miss Guarantee &nbsp;·&nbsp; No contracts',
       'faq-label': 'FAQ', 'faq-h2': 'Questions',
-      'faq-q1': "Will my customers know it's AI?",
-      'faq-a1': "Sofia answers with your business name and asks how she can help — she doesn't announce she's AI upfront. If a caller asks directly whether she's a real person, she'll honestly tell them she's an AI assistant your business uses to take calls. Most callers are just glad someone answered.",
-      'faq-q2': 'What happens to my phone number?',
-      'faq-a2': 'You keep it. We just send calls to Sofia. Takes about 5 minutes to set up. You can turn it off anytime.',
+      'faq-q1': "Is it really AI? Will my customers know?",
+      'faq-a1': "Yes, Sofia is AI. She answers with your business name and asks how she can help — she doesn't lead with it. If a caller asks directly whether she's a real person, she honestly tells them she's an AI assistant your shop uses to take calls. She speaks fluent English and Spanish and switches automatically. Most callers are just glad someone answered.",
+      'faq-q2': 'Do I have to change my phone number?',
+      'faq-a2': 'No. You keep your number — you just forward your line to Sofia. It takes about 10 minutes to set up and you can turn it off anytime.',
+      'faq-q9': 'What does it cost?',
+      'faq-a9': '$399/month plus a one-time $200 setup — so $599 to begin, then $399/month. Prefer annual? It\'s $4,200/year with no setup fee. Every plan includes a 14-day full money-back guarantee.',
+      'faq-q10': 'What if Sofia misses a call?',
+      'faq-a10': "That's the Never-Miss Guarantee: if Sofia ever misses a call during your business hours, that month is free. She answers unlimited calls at once, so a second or third caller never lands in voicemail.",
+      'faq-q11': 'How fast can I go live?',
+      'faq-a11': "Same day. We do the white-glove setup on your onboarding call — you're answering calls before we hang up.",
       'faq-q3': "I'm not good with technology.",
-      'faq-a3': "We set it all up for you. You don't touch anything. All you do is tap buttons in WhatsApp.",
+      'faq-a3': "We do white-glove setup. You don't touch any technology. We configure everything — you just tap buttons in WhatsApp. If you can text, you can use Sofia.",
       'faq-q4': 'What if something goes wrong?',
       'faq-a4': "Text us directly and we'll get it handled. If you're ever not satisfied, cancel anytime for a refund of your current month.",
-      'faq-q5': 'Can I cancel?',
-      'call-def': 'A call is counted when Sofia answers. Minutes = time Sofia is on the line.',
+      'faq-q5': 'Can I cancel anytime?',
+      'call-def': 'Setup is a one-time $200. Monthly plans billed monthly, cancel anytime. The Never-Miss Guarantee applies during your business hours.',
       'faq-q6': 'What does Sofia say when she picks up?',
       'faq-a6': "She greets the caller with your business name, identifies herself as an AI assistant, and asks how she can help. From there she collects their name, address, and what the issue is — in whatever language they speak.",
       'faq-q7': 'What if a caller wants to speak to a real person?',
       'faq-a7': "Sofia lets them know you'll be in touch and takes their info so you can call back. You'll get the lead card immediately — it's up to you whether to call or text first.",
       'faq-q8': 'Can I hear the calls?',
       'faq-a8': 'Yes. Every call Sofia handles is recorded and available in your dashboard. You can replay any call anytime.',
-      'faq-a5': "Yes. No contracts. Cancel whenever you want.",
-      'final-h2': 'Stop Losing Leads<br>to Missed Calls',
-      'final-p': "Book a free 15-min call. We provision Sofia live — you're answering calls before we hang up. 2-week free trial starts immediately. No credit card. Results vary.",
+      'faq-a5': "Yes. Monthly billing, no contracts, cancel anytime — plus the 14-day money-back guarantee if it's not a fit.",
+      'final-h2': 'Stop Losing Jobs<br>to Missed Calls',
+      'final-p': "Book a free 15-min call. We provision Sofia live — you're answering calls before we hang up. $399/month, live same day, backed by a 14-day money-back guarantee. Results vary.",
       'final-cta-btn': 'Book Your Free Setup Call',
-      'final-note': '15-min call &nbsp;·&nbsp; Live before we hang up &nbsp;·&nbsp; Rate locked 1 year',
+      'final-note': '15-min call &nbsp;·&nbsp; Live before we hang up &nbsp;·&nbsp; 14-day money-back guarantee',
       'hiw-caller-flag': '🇺🇸',
       'hiw-lang-active': 'en',
       'hiw-speech-main': '"What is your address?"',
@@ -1356,15 +1468,15 @@
       'hiw-c4': 'You tap one button. <strong>They get a text right away.</strong>',
       'hiw-c5': '<strong>Sofia does the follow-up.</strong> You just do the job.',
       'wa-lbl1': 'Name:', 'wa-lbl2': 'Phone:', 'wa-lbl3': 'Address:', 'wa-lbl4': 'Service:', 'wa-lbl5': 'Urgency:',
-      'wa-val4': 'Leak under sink', 'wa-val5': '🔴 Emergency',
-      'wa-ai-hero': 'Active leak under sink. Water accumulating in cabinet. Needs urgent attention.',
+      'wa-val4': 'AC not cooling', 'wa-val5': '🔴 Emergency',
+      'wa-ai-hero': 'No cooling, house at 85°F, elderly resident. Needs urgent service.',
       'wa-btn-g': '✅ On My Way', 'wa-btn-b': '📅 Schedule', 'wa-btn-r': '✕ Not a Client',
       'hiw-wa-lbl1': 'Name:', 'hiw-wa-lbl2': 'Address:', 'hiw-wa-lbl3': 'Service:', 'hiw-wa-lbl4': 'Urgency:',
-      'hiw-wa-val3': 'Leak under sink', 'hiw-wa-val4': '🔴 Emergency',
-      'hiw-wa-ai': 'Active leak under sink. Water accumulating. Needs urgent attention.',
+      'hiw-wa-val3': 'AC not cooling', 'hiw-wa-val4': '🔴 Emergency',
+      'hiw-wa-ai': 'No cooling, house at 85°F, elderly resident. Needs urgent service.',
       'hiw-wa-g': '✅ On My Way', 'hiw-wa-b': '📅 Schedule', 'hiw-wa-r': '✕ Not a Client',
       'hiw-tap-omw': '✅ On My Way', 'hiw-tap-sched': '📅 Schedule', 'hiw-tap-no': '✕ Not a Client',
-      'demo-callout': '<strong style="color:var(--amber);">That call above is real.</strong> Sofia got the full name, address, what they need, and when — then switched to Spanish mid-call. The plumber got the WhatsApp text before the customer hung up.',
+      'demo-callout': '<strong style="color:var(--amber);">That call above is real.</strong> Sofia got the full name, address, what the AC was doing, and when — then switched to Spanish mid-call. The HVAC shop got the WhatsApp text before the customer hung up.',
       'waf-label': 'How WhatsApp Works',
       'waf-h': 'Call Ends. Job Hits Your Phone.<br>You Tap Once.',
       'waf-sub': 'No new app. No login. Sofia texts you the job on WhatsApp — the app already on your phone. Three buttons. Done.',
@@ -1378,9 +1490,9 @@
       'waf-s4-body': 'Follow-ups. Reminders. Review requests. Sofia sends all of it. You just do the job.',
       'waf-p1-label': '📲 What you see in WhatsApp',
       'waf-p2-label': '💬 What your customer gets',
-      'waf-card-service': 'Leak under sink',
+      'waf-card-service': 'AC not cooling',
       'waf-card-urgency': '🔴 Emergency',
-      'waf-card-ai': 'Active leak under sink. Water in cabinet. Needs attention now.',
+      'waf-card-ai': 'No cooling, house at 85°F, elderly resident. Needs service now.',
       'waf-sms-note': 'In English if they called in English.',
       'waf-cmds-label': 'Bonus: Text Sofia to run your jobs',
       'waf-cmd1-r': '→ Job closed · Google review sent to customer',
@@ -1390,7 +1502,7 @@
       'ba-sec-h': 'Before and After Sofia',
       'ba-red-label': 'Without Sofia',
       'ba-i1': '❌ Call goes to voicemail',
-      'ba-i2': '❌ They call the next plumber',
+      'ba-i2': '❌ They call the next HVAC shop',
       'ba-i3': '❌ You call back and forth all day',
       'ba-i4': '❌ Forget to follow up on quotes',
       'ba-i5': '❌ No record of who called or why',
@@ -1408,75 +1520,113 @@
       'contact-label': 'Get Started',
       'contact-h2': 'Book a Free 15-Min Call',
       'contact-sub': 'We set Sofia up live — you\'re answering calls before we hang up.',
-      'contact-diff': '⚡ Most services take days or weeks. We go live in 5 minutes — on the call.'
+      'contact-diff': '⚡ Most services take days or weeks. We go live in 5 minutes — on the call.',
+      'contact-alt': 'Prefer to pick a time yourself? <a href="https://calendly.com/rcgavaldon-rgaibiz/sofia-2-week-trial-demo-free" style="color:#f59e0b;font-weight:700;">Book on Calendly</a>. Or call Sofia live right now: <a href="tel:+19152867434" style="color:#f59e0b;font-weight:700;white-space:nowrap;">(915) 286-7434</a>.',
+      'cmp-label': 'Sofia vs. Hiring',
+      'cmp-h': 'Sofia vs. a Human Receptionist',
+      'cmp-sub': 'Same job — answer the phone and capture the lead. One costs $40,000 a year and goes home at 5. The other is $399 a month and never sleeps.',
+      'cmp-head-human': 'Human receptionist',
+      'cmp-head-sofia': 'Sofia AI',
+      'cmp-d1': 'Cost',
+      'cmp-hu1': '~$40,000/year + payroll taxes and benefits',
+      'cmp-so1': '<strong>$399/month</strong> (~$4,200/year)',
+      'cmp-d2': 'Hours',
+      'cmp-hu2': '40 hrs/week, business hours only',
+      'cmp-so2': '<strong>24/7 / 365</strong> — nights, weekends, holidays',
+      'cmp-d3': 'Languages',
+      'cmp-hu3': 'Usually one',
+      'cmp-so3': '<strong>English + Spanish</strong> on every call',
+      'cmp-d4': 'Two calls at once',
+      'cmp-hu4': 'Second caller goes to voicemail',
+      'cmp-so4': '<strong>Answers unlimited calls</strong> at once',
+      'cmp-d5': 'Sick days / lunch / vacation',
+      'cmp-hu5': 'Calls get missed',
+      'cmp-so5': '<strong>Never off</strong>, never a break',
+      'cmp-d6': 'Ramp-up',
+      'cmp-hu6': 'Weeks of hiring and training',
+      'cmp-so6': '<strong>Live on your line</strong> the same day',
+      'cmp-d7': 'Turnover',
+      'cmp-hu7': 'Quits → re-hire, re-train',
+      'cmp-so7': '<strong>Never quits</strong>',
+      'cmp-d8': 'Every lead logged to your phone',
+      'cmp-hu8': 'Manual / sticky notes',
+      'cmp-so8': '<strong>Automatic text</strong> with name, address, job',
+      'cmp-bottom': 'A front-desk hire costs <strong>~$40,000 a year</strong> and still goes home at 5. Sofia is about a tenth of the cost and never misses a call.'
     },
     es: {
       'nav-cta': 'Reserva una Llamada',
-      'hero-badge': '🚀 Presentando · The Always-On Plumber Stack',
-      'hero-h1': 'Sofia Contesta Cada Llamada.<br><span class="hl">Tú Guardas Cada Cliente.</span>',
-      'hero-sub': 'Contestación bilingüe 24/7 — inglés y español. Cada llamada se convierte en un lead de WhatsApp con el nombre, la dirección y el problema. <strong>Toca una vez para responder. En línea el mismo día.</strong>',
+      'hero-badge': '❄️ La Recepcionista Bilingüe 24/7 para HVAC',
+      'hero-h1': 'Sofia Contesta Cada Llamada.<br><span class="hl">Tú Te Quedas Cada Trabajo.</span>',
+      'hero-sub': 'Contestación bilingüe 24/7 para negocios de HVAC — inglés y español. Cada llamada se convierte en un texto con el <strong>nombre, la dirección y el problema</strong> — para que nunca pierdas un trabajo por una llamada sin contestar. <strong>En línea el mismo día.</strong>',
       'hero-cta': 'Reserva Tu Llamada de Configuración',
-      'hero-note': '15 minutos &nbsp;·&nbsp; En línea durante la llamada &nbsp;·&nbsp; Prueba empieza de inmediato',
+      'hero-note': '15 minutos &nbsp;·&nbsp; En línea durante la llamada &nbsp;·&nbsp; En tu línea el mismo día',
       'strip': 'Sofia es un asistente de voz con IA &nbsp;·&nbsp; <strong>Apuntamos a 99.5%+ de disponibilidad</strong> &nbsp;·&nbsp; Disponible 24/7 &nbsp;·&nbsp; Inglés y Español &nbsp;·&nbsp; Sin app que descargar',
       'prob-label': 'El Problema',
       'prob-h2': 'Estás Perdiendo <span style="color:var(--red)">$31,200/Año</span><br>en Llamadas Perdidas',
-      'prob-body': 'Cuando pierdes una llamada, ese cliente llama al siguiente plomero. No espera. Ese trabajo se fue.',
+      'prob-body': 'Cuando pierdes una llamada, ese cliente llama al siguiente negocio de HVAC. No espera. Ese trabajo se fue.',
       'loss-label': 'Perdido cada año',
       'loss-h3': 'Haz las cuentas',
-      'loss-p': 'La mayoría de los plomeros pierden 3 a 5 llamadas por semana. A $600 por trabajo, eso suma rápido.',
-      'mc1': '1 llamada perdida/semana', 'mc2': '× $600 trabajo promedio', 'mc4': '= $31,200/año',
-      'mc-disclaimer': 'Cálculo de ejemplo basado en promedios de la industria. Los resultados individuales varían.',
-      'hiw-label': 'Cómo Funciona',
+      'loss-p': 'La mayoría de los negocios de HVAC pierden 3 a 5 llamadas por semana. A $600 por visita eso suma rápido — y un reemplazo de aire perdido cuesta de $5,000 a $12,000.',
+      'mc1': '1 llamada perdida/semana', 'mc2': '× $600 visita promedio', 'mc4': '= $31,200/año',
+      'mc-disclaimer': 'Cálculo de ejemplo basado en promedios de la industria — y un solo reemplazo de aire perdido puede superarlo. Los resultados individuales varían.',
+      'hiw-label': 'Demo en Vivo',
+      'hiw-live-h': 'Escucha una Llamada Real',
+      'hiw-live-sub': 'Sofia contesta, califica al cliente, maneja preguntas de precio, consigue la dirección — y cambia a español a mitad de la llamada sin perder el ritmo.',
+      'hiw-live-call': '<strong style="color:var(--amber);">O háblale en vivo ahora mismo</strong> — habla con Sofia tú mismo en 60 segundos: <a href="tel:+19152867434" style="font-weight:800;white-space:nowrap;">(915) 286-7434</a>',
       'hiw-h2': 'Sofia Contesta. Te Llega un Texto.<br>Tocas un Botón.',
       'hiw-sub': 'Menos llamadas perdidas. Menos enredos. Sin más buzones de voz.',
-      'price-label': 'Precios', 'price-h2': 'Elige Tu Plan',
-      'price-sub': 'Sofia se paga sola con un solo trabajo al mes. La mayoría de plomeros consiguen 10–15.',
-      'trial-h3': 'Oferta de Cliente Fundador — 14 Días Gratis, Precio Bloqueado 1 Año',
-      'trial-p': 'Todo incluido. Sin tarjeta de crédito. Quédate con cada trabajo que Sofia te consiga.',
-      'tb1': '✓ Todo incluido', 'tb2': '✓ Sin tarjeta de crédito',
-      'tb3': '✓ Conserva cada trabajo que consiga', 'tb4': '✓ Listo el mismo día',
-      'trial-btn': 'Empezar Prueba Gratis →',
+      'price-label': 'Precios', 'price-h2': 'Precios Simples',
+      'price-sub': 'Un solo plan simple. Como una décima parte de lo que cuesta contratar recepcionista — y Sofia nunca se va a las 5.',
+      'trial-h3': 'Precio de Fundador — Primeros 5 Negocios de HVAC en El Paso',
+      'trial-p': '$399/mes más una configuración única de $200. En tu línea el mismo día — con garantía de reembolso de 14 días.',
+      'tb1': '✓ Reembolso de 14 días', 'tb2': '✓ Garantía Nunca-Falla',
+      'tb3': '✓ Listo el mismo día', 'tb4': '✓ Conserva tu número',
+      'trial-btn': 'Reserva Tu Llamada de Configuración →',
       'popular': 'Más Popular',
-      's-name': 'Starter', 's-tagline': '~150 llamadas/mes',
-      'sf1': '450 minutos de Sofia', 'sf2': 'Contesta en inglés y español, 24/7',
-      'sf3': 'Info del trabajo en WhatsApp — toca para responder', 'sf4': 'El cliente recibe un texto cuando dices que sí',
-      'sf5': 'El cliente puede mandarte textos y fotos', 'sf6': 'Tu lista de trabajos cada mañana y noche',
-      'sf7': 'Ve todas tus llamadas en un solo lugar', 'sf8': 'En línea durante tu llamada de configuración',
-      's-best': 'Para: <strong>1–2 camiones</strong>', 's-cta': 'Empezar Prueba',
-      'p-name': 'Pro', 'p-tagline': '~250 llamadas/mes',
-      'pf1': '750 minutos de Sofia', 'pf2': 'Todo lo de Starter',
-      'pf3': 'En línea durante tu llamada de configuración', 'pf4': 'Reseñas de Google enviadas automáticamente',
-      'pf5': 'Da seguimiento a cotizaciones — Día 1, 3 y 7', 'pf6': 'Le recuerda al cliente el día anterior',
-      'pf7': 'Sofia sabe si la llamada es urgente',
-      'p-best': 'Para: <strong>3–5 camiones</strong>', 'p-cta': 'Empezar Prueba',
-      'e-name': 'Enterprise', 'e-tagline': '1,200 minutos/mes',
-      'ef1': '1,200 minutos de Sofia', 'ef2': 'Todo lo de Pro',
-      'ef3': 'Sofia entrenada para tu negocio', 'ef4': 'Soporte prioritario',
-      'ef5': 'Panel con tu nombre', 'ef6': 'Tu propio gerente de cuenta',
-      'e-best': 'Para: <strong>5+ camiones</strong>', 'e-cta': 'Contáctanos',
-      'roi-note': 'A $297/mes, Sofia se paga sola con <strong>1 trabajo.</strong> Un trabajo de $600 — costo cubierto. Los resultados individuales varían.',
-      'guar-h2': 'Sin Riesgo. 100% Garantizado.',
-      'guar-p1': 'Prueba gratis de 2 semanas — sin tarjeta. Si empiezas a pagar y decides que Sofia no es para ti, cancela cuando quieras y te devolvemos el mes actual. Sin formularios. Sin llamadas. Solo escríbenos.',
+      'pm-name': 'Mensual', 'pm-tagline': '$599 para empezar — $399 el primer mes + $200 de configuración única',
+      'pmf1': 'Contestación bilingüe 24/7 — inglés y español',
+      'pmf2': 'Cada llamada como texto a tu teléfono — nombre, dirección, problema',
+      'pmf3': 'Tarjetas de cliente en WhatsApp + botones para responder',
+      'pmf4': 'Confirmaciones por SMS al cliente y reenvío de fotos',
+      'pmf5': 'Grabaciones completas de llamadas + panel',
+      'pmf6': 'Configuración completa — en tu línea el mismo día',
+      'pmf7': 'Garantía de reembolso total de 14 días',
+      'pmf8': 'Garantía Nunca-Falla — si pierde una llamada, ese mes es gratis',
+      'pm-best': 'Para: <strong>la mayoría de negocios de HVAC</strong>', 'pm-cta': 'Reserva Tu Llamada de Configuración',
+      'pa-name': 'Anual', 'pa-tagline': 'Sin cargo de configuración — ahorra unos $788 el primer año',
+      'paf1': 'Todo lo del plan mensual', 'paf2': 'Sin el cargo de configuración de $200',
+      'paf3': 'Casi 2 meses gratis vs. pagar mensual', 'paf4': 'Precio bloqueado todo el año',
+      'paf5': 'Garantía de reembolso total de 14 días',
+      'pa-best': 'Para: <strong>negocios listos para comprometerse</strong>', 'pa-cta': 'Reserva Tu Llamada de Configuración',
+      'roi-note': 'Un recepcionista cuesta <strong>~$40,000/año.</strong> Sofia cuesta $399/mes — como una décima parte — y nunca pierde una llamada. Los resultados individuales varían.',
+      'guar-h2': 'Dos Garantías. Cero Riesgo.',
+      'guar-p1': 'Garantía de reembolso total de 14 días — si Sofia no es lo ideal para tu negocio en las primeras dos semanas, te devolvemos cada dólar, incluida la configuración. Y la Garantía Nunca-Falla: si Sofia alguna vez pierde una llamada durante tu horario, ese mes es gratis.',
       'guar-p2': 'Apuntamos a 99.5%+ de disponibilidad. Sofia debe ganarse su costo cada mes — o no deberías pagarlo.',
-      'guar-stat': 'Prueba gratis de 2 semanas &nbsp;·&nbsp; Reembolso completo cuando quieras &nbsp;·&nbsp; Sin contratos',
+      'guar-stat': 'Reembolso de 14 días &nbsp;·&nbsp; Garantía Nunca-Falla &nbsp;·&nbsp; Sin contratos',
       'faq-label': 'Preguntas', 'faq-h2': 'Preguntas',
-      'faq-q1': '¿Mis clientes sabrán que es IA?',
-      'faq-a1': 'Sofia contesta con el nombre de tu negocio y pregunta en qué puede ayudar — no anuncia que es IA al inicio. Si el cliente pregunta directamente si es una persona real, ella responde honestamente que es un asistente de IA que tu negocio usa para atender llamadas. La mayoría solo se alegran de que alguien contestó.',
-      'faq-q2': '¿Qué pasa con mi número de teléfono?',
-      'faq-a2': 'Lo conservas. Solo enviamos las llamadas a Sofia. Tarda unos 5 minutos en configurar. Lo puedes apagar cuando quieras.',
+      'faq-q1': '¿De verdad es IA? ¿Se darán cuenta mis clientes?',
+      'faq-a1': 'Sí, Sofia es IA. Contesta con el nombre de tu negocio y pregunta en qué puede ayudar — no lo anuncia de entrada. Si el cliente pregunta directamente si es una persona real, responde honestamente que es un asistente de IA que tu negocio usa para atender llamadas. Habla inglés y español con fluidez y cambia automáticamente. La mayoría solo se alegran de que alguien contestó.',
+      'faq-q2': '¿Tengo que cambiar mi número de teléfono?',
+      'faq-a2': 'No. Conservas tu número — solo reenvías tu línea a Sofia. Tarda unos 10 minutos en configurar y lo puedes apagar cuando quieras.',
+      'faq-q9': '¿Cuánto cuesta?',
+      'faq-a9': '$399/mes más una configuración única de $200 — o sea $599 para empezar, luego $399/mes. ¿Prefieres anual? Son $4,200/año sin cargo de configuración. Cada plan incluye garantía de reembolso total de 14 días.',
+      'faq-q10': '¿Qué pasa si Sofia pierde una llamada?',
+      'faq-a10': 'Ahí entra la Garantía Nunca-Falla: si Sofia alguna vez pierde una llamada durante tu horario, ese mes es gratis. Contesta llamadas ilimitadas a la vez, así que un segundo o tercer cliente nunca cae al buzón de voz.',
+      'faq-q11': '¿Qué tan rápido puedo estar en línea?',
+      'faq-a11': 'El mismo día. Hacemos toda la configuración en tu llamada de arranque — estarás contestando llamadas antes de que colgamos.',
       'faq-q3': 'No me manejo bien con la tecnología.',
-      'faq-a3': 'Nosotros lo configuramos todo por ti. Solo tocas botones en WhatsApp.',
+      'faq-a3': 'Nosotros lo configuramos todo por ti. No tocas nada de tecnología. Configuramos todo — tú solo tocas botones en WhatsApp. Si sabes mandar textos, sabes usar Sofia.',
       'faq-q4': '¿Qué pasa si algo sale mal?',
       'faq-a4': 'Escríbenos directamente y lo resolvemos. Si en algún momento no estás satisfecho, cancela cuando quieras y te reembolsamos el mes actual.',
-      'faq-q5': '¿Puedo cancelar?',
-      'call-def': 'Una llamada se cuenta cuando Sofia contesta. Minutos = tiempo que Sofia está en la línea.',
+      'faq-q5': '¿Puedo cancelar cuando quiera?',
+      'call-def': 'La configuración es un pago único de $200. Los planes mensuales se cobran cada mes, cancela cuando quieras. La Garantía Nunca-Falla aplica durante tu horario laboral.',
       'faq-q6': '¿Qué dice Sofia cuando contesta?',
       'faq-a6': 'Saluda al cliente con el nombre de tu negocio, se identifica como asistente de IA y pregunta en qué puede ayudar. Luego recopila su nombre, dirección y cuál es el problema — en el idioma que hablen.',
       'faq-q7': '¿Qué pasa si el cliente quiere hablar con una persona real?',
       'faq-a7': 'Sofia les informa que estarás en contacto y toma sus datos para que puedas llamar. Recibes la tarjeta de cliente de inmediato — tú decides si llamas o mandas un texto primero.',
       'faq-q8': '¿Puedo escuchar las llamadas?',
       'faq-a8': 'Sí. Cada llamada que maneja Sofia queda grabada y disponible en tu panel. Puedes reproducir cualquier llamada cuando quieras.',
-      'faq-a5': 'Sí. Sin contratos. Cancela cuando quieras.',
+      'faq-a5': 'Sí. Facturación mensual, sin contratos, cancela cuando quieras — más la garantía de reembolso de 14 días si no es lo ideal.',
       'feat-label': 'Lo Que Recibes',
       'feat-title': 'Todo incluido.<br>Sin configurar nada.',
       'feat-sub': '',
@@ -1500,10 +1650,10 @@
       'f4-2': 'Escribe "agendar martes 2pm" — cliente notificado',
       'f4-3': 'Ve todas tus llamadas y trabajos en un solo lugar',
       'f4-4': 'Nosotros lo configuramos — sin nueva app',
-      'final-h2': 'Deja de Perder Clientes<br>por Llamadas Sin Contestar',
-      'final-p': 'Agenda una llamada gratis de 15 minutos. Configuramos Sofia en vivo — estarás contestando llamadas antes de que colgamos. Prueba de 2 semanas empieza de inmediato. Sin tarjeta. Los resultados varían.',
+      'final-h2': 'Deja de Perder Trabajos<br>por Llamadas Sin Contestar',
+      'final-p': 'Agenda una llamada gratis de 15 minutos. Configuramos Sofia en vivo — estarás contestando llamadas antes de que colgamos. $399/mes, en línea el mismo día, con garantía de reembolso de 14 días. Los resultados varían.',
       'final-cta-btn': 'Reserva Tu Llamada de Configuración',
-      'final-note': 'Llamada de 15 min &nbsp;·&nbsp; En línea antes de colgar &nbsp;·&nbsp; Precio bloqueado 1 año',
+      'final-note': 'Llamada de 15 min &nbsp;·&nbsp; En línea antes de colgar &nbsp;·&nbsp; Garantía de reembolso de 14 días',
       'hiw-caller-flag': '🇲🇽',
       'hiw-lang-active': 'es',
       'hiw-speech-main': '"¿Cuál es su dirección?"',
@@ -1516,15 +1666,15 @@
       'hiw-c4': 'Tocas un botón. <strong>El cliente recibe un texto de inmediato.</strong>',
       'hiw-c5': '<strong>Sofia hace el seguimiento.</strong> Tú solo haz el trabajo.',
       'wa-lbl1': 'Nombre:', 'wa-lbl2': 'Teléfono:', 'wa-lbl3': 'Dirección:', 'wa-lbl4': 'Servicio:', 'wa-lbl5': 'Urgencia:',
-      'wa-val4': 'Fuga bajo el fregadero', 'wa-val5': '🔴 Emergencia',
-      'wa-ai-hero': 'Fuga activa bajo fregadero. Agua acumulándose en gabinete. Atención urgente.',
+      'wa-val4': 'El aire no enfría', 'wa-val5': '🔴 Emergencia',
+      'wa-ai-hero': 'No enfría, casa a 85°F, residente mayor. Requiere servicio urgente.',
       'wa-btn-g': '✅ En Camino', 'wa-btn-b': '📅 Agendar', 'wa-btn-r': '✕ No cliente',
       'hiw-wa-lbl1': 'Nombre:', 'hiw-wa-lbl2': 'Dirección:', 'hiw-wa-lbl3': 'Servicio:', 'hiw-wa-lbl4': 'Urgencia:',
-      'hiw-wa-val3': 'Fuga bajo el fregadero', 'hiw-wa-val4': '🔴 Emergencia',
-      'hiw-wa-ai': 'Fuga activa bajo fregadero. Agua acumulándose. Solicita atención urgente.',
+      'hiw-wa-val3': 'El aire no enfría', 'hiw-wa-val4': '🔴 Emergencia',
+      'hiw-wa-ai': 'No enfría, casa a 85°F, residente mayor. Requiere servicio urgente.',
       'hiw-wa-g': '✅ En Camino', 'hiw-wa-b': '📅 Agendar', 'hiw-wa-r': '✕ No cliente',
       'hiw-tap-omw': '✅ En Camino', 'hiw-tap-sched': '📅 Agendar', 'hiw-tap-no': '✕ No cliente',
-      'demo-callout': '<strong style="color:var(--amber);">Esa llamada es real.</strong> Sofia consiguió el nombre, la dirección, lo que necesitan y cuándo — y cambió a español a la mitad. El plomero recibió el texto en WhatsApp antes de que colgaran.',
+      'demo-callout': '<strong style="color:var(--amber);">Esa llamada es real.</strong> Sofia consiguió el nombre, la dirección, qué le pasaba al aire y cuándo — y cambió a español a la mitad. El negocio de HVAC recibió el texto en WhatsApp antes de que colgaran.',
       'waf-label': 'Cómo funciona en WhatsApp',
       'waf-h': 'Se cuelga. Te llega el trabajo.<br>Das un toque.',
       'waf-sub': 'Sin app nueva. Sin contraseña. Sofia te manda el trabajo por WhatsApp — el que ya tienes. Tres botones. Listo.',
@@ -1538,9 +1688,9 @@
       'waf-s4-body': 'Seguimiento. Recordatorios. Pedir reseñas. Sofia manda todo eso. Tú solo haz el trabajo.',
       'waf-p1-label': '📲 Lo que tú ves en WhatsApp',
       'waf-p2-label': '💬 Lo que recibe tu cliente',
-      'waf-card-service': 'Fuga bajo el fregadero',
+      'waf-card-service': 'El aire no enfría',
       'waf-card-urgency': '🔴 Emergencia',
-      'waf-card-ai': 'Fuga activa bajo fregadero. Agua en el gabinete. Necesita atención ahora.',
+      'waf-card-ai': 'No enfría, casa a 85°F, residente mayor. Necesita servicio ahora.',
       'waf-sms-note': 'En inglés si llamaron en inglés.',
       'waf-cmds-label': 'Extra: Mándale texto a Sofia para todo',
       'waf-cmd1-r': '→ Trabajo cerrado · Reseña de Google enviada',
@@ -1550,7 +1700,7 @@
       'ba-sec-h': 'Antes y después de Sofia',
       'ba-red-label': 'Sin Sofia',
       'ba-i1': '❌ La llamada va al buzón de voz',
-      'ba-i2': '❌ Llaman al siguiente plomero',
+      'ba-i2': '❌ Llaman al siguiente negocio de HVAC',
       'ba-i3': '❌ Estás todo el día regresando llamadas',
       'ba-i4': '❌ Se te olvida dar seguimiento',
       'ba-i5': '❌ No sabes quién llamó ni por qué',
@@ -1568,7 +1718,38 @@
       'contact-label': 'Empieza Aquí',
       'contact-h2': 'Reserva una Llamada Gratis de 15 Min',
       'contact-sub': 'Configuramos Sofia en vivo — estarás contestando llamadas antes de que colgamos.',
-      'contact-diff': '⚡ La mayoría tarda días o semanas. Nosotros lo hacemos en 5 minutos, en la llamada.'
+      'contact-diff': '⚡ La mayoría tarda días o semanas. Nosotros lo hacemos en 5 minutos, en la llamada.',
+      'contact-alt': '¿Prefieres elegir tu horario? <a href="https://calendly.com/rcgavaldon-rgaibiz/sofia-2-week-trial-demo-free" style="color:#f59e0b;font-weight:700;">Reserva en Calendly</a>. O háblale a Sofia en vivo ahora mismo: <a href="tel:+19152867434" style="color:#f59e0b;font-weight:700;white-space:nowrap;">(915) 286-7434</a>.',
+      'cmp-label': 'Sofia vs. Contratar',
+      'cmp-h': 'Sofia vs. una Recepcionista',
+      'cmp-sub': 'El mismo trabajo — contestar el teléfono y capturar al cliente. Una cuesta $40,000 al año y se va a las 5. La otra cuesta $399 al mes y nunca duerme.',
+      'cmp-head-human': 'Recepcionista',
+      'cmp-head-sofia': 'Sofia IA',
+      'cmp-d1': 'Costo',
+      'cmp-hu1': '~$40,000/año + impuestos y prestaciones',
+      'cmp-so1': '<strong>$399/mes</strong> (~$4,200/año)',
+      'cmp-d2': 'Horario',
+      'cmp-hu2': '40 hrs/semana, solo horario laboral',
+      'cmp-so2': '<strong>24/7 / 365</strong> — noches, fines de semana, festivos',
+      'cmp-d3': 'Idiomas',
+      'cmp-hu3': 'Normalmente uno',
+      'cmp-so3': '<strong>Inglés + español</strong> en cada llamada',
+      'cmp-d4': 'Dos llamadas a la vez',
+      'cmp-hu4': 'La segunda llamada va al buzón',
+      'cmp-so4': '<strong>Contesta llamadas ilimitadas</strong> a la vez',
+      'cmp-d5': 'Enfermedad / almuerzo / vacaciones',
+      'cmp-hu5': 'Se pierden llamadas',
+      'cmp-so5': '<strong>Nunca descansa</strong>, nunca para',
+      'cmp-d6': 'Arranque',
+      'cmp-hu6': 'Semanas de contratar y capacitar',
+      'cmp-so6': '<strong>En tu línea</strong> el mismo día',
+      'cmp-d7': 'Rotación',
+      'cmp-hu7': 'Renuncia → contratar y capacitar de nuevo',
+      'cmp-so7': '<strong>Nunca renuncia</strong>',
+      'cmp-d8': 'Cada cliente registrado en tu teléfono',
+      'cmp-hu8': 'Manual / notas en papel',
+      'cmp-so8': '<strong>Texto automático</strong> con nombre, dirección y trabajo',
+      'cmp-bottom': 'Un recepcionista cuesta <strong>~$40,000 al año</strong> y aun así se va a las 5. Sofia cuesta como una décima parte y nunca pierde una llamada.'
     }
   };
 
