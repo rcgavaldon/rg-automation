@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!--
   SOFIA — "Win 6 Months Free" giveaway entry page.
   BEFORE GOING LIVE, replace these 3 placeholders (search for THEM in this file):
@@ -82,7 +83,7 @@ form .btn{margin-top:6px;text-align:center}
 .orbook{margin-top:14px;text-align:center;color:#bfe6e1;font-size:15px}
 .orbook a{color:var(--amber);font-weight:700}
 
-.win .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.win .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px;max-width:560px;margin-left:auto;margin-right:auto}
 @media(max-width:620px){.win .grid{grid-template-columns:1fr}}
 .prize{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center;box-shadow:var(--shadow)}
 .prize .rank{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);font-weight:600}
@@ -108,9 +109,9 @@ footer a{color:#9fc3be}
   <div class="wrap">
     <div class="eyebrow">HVAC Founding Giveaway</div>
     <h1>Win 6 Months of Sofia <span class="free">Free</span></h1>
-    <p class="sub">Your phone doesn't stop &mdash; now it doesn't have to go to voicemail. Sofia is the bilingual AI receptionist that answers every call, in English and Spanish, 24/7.</p>
+    <p class="sub">Your phone doesn't stop &mdash; now it doesn't have to go to voicemail. Sofia is the bilingual AI receptionist that answers every call, in English and Spanish, 24/7. Drawing closes September 12.</p>
     <div class="prizeline"><b>Grand Prize: 6 months of Sofia, free</b> ($2,600 value). Every shop that enters also unlocks a <b>2-week free trial</b>. No credit card.</div>
-    <a href="#enter" class="btn big">Enter to Win &mdash; Free</a>
+    <a href="#enter" class="btn big">Enter Before Sept 12 &mdash; Free</a>
     <div class="note">Takes 30 seconds &middot; No card &middot; U.S. HVAC shops</div>
   </div>
 </header>
@@ -150,16 +151,16 @@ footer a{color:#9fc3be}
     <form id="entryForm" action="https://docs.google.com/forms/d/e/1FAIpQLSf8ZG3T2Ko62TpjNijiMWyga7T6F4Pp-FM4CsjVy-TZbibvOg/formResponse" method="POST" target="gform_target">
       <div>
         <label for="email">Email</label>
-        <input id="email" type="email" name="emailAddress" required placeholder="you@yourshop.com">
+        <input id="email" type="email" name="emailAddress" autocomplete="email" inputmode="email" required placeholder="you@yourshop.com">
       </div>
       <div>
         <label for="shop">Shop name</label>
-        <input id="shop" type="text" name="entry.1421315115" required placeholder="e.g. Ace Air Conditioning">
+        <input id="shop" type="text" name="entry.1421315115" autocomplete="organization" required placeholder="e.g. Ace Air Conditioning">
       </div>
       <div class="row">
         <div>
           <label for="phone">Phone number</label>
-          <input id="phone" type="tel" name="entry.1263279572" required placeholder="(915) 555-1234">
+          <input id="phone" type="tel" name="entry.1263279572" autocomplete="tel" inputmode="tel" required placeholder="(915) 555-1234">
         </div>
         <div>
           <label for="trucks">How many trucks?</label>
@@ -183,7 +184,7 @@ footer a{color:#9fc3be}
           <option>20+ / no idea</option>
         </select>
       </div>
-      <button type="submit" class="btn">Enter to Win &mdash; Free</button>
+      <button type="submit" class="btn">Enter Before Sept 12 &mdash; Free</button>
     </form>
     <div id="thanks" style="display:none;text-align:center;padding:20px 0">
       <h3 style="color:var(--amber);margin:0 0 8px">You're in! 🎉</h3>
@@ -212,7 +213,7 @@ footer a{color:#9fc3be}
     <h2>What you win</h2>
     <div class="grid">
       <div class="prize"><div class="rank">Grand Prize</div><div class="p">6 Months Free</div><small>$2,600 value</small></div>
-      <div class="prize"><div class="rank">Runner-Up</div><div class="p">1 Month Free</div><small>&nbsp;</small></div>
+      <div class="prize"><div class="rank">Runner-Up</div><div class="p">1 Month Free</div><small>$433 value</small></div>
     </div>
     <div class="everybody"><b>Everybody wins:</b> every entrant unlocks a <b>2-week free trial</b>. Book your setup call and Sofia's answering your line this week.</div>
   </div>
@@ -237,7 +238,7 @@ footer a{color:#9fc3be}
 <section class="finalcta">
   <div class="wrap">
     <h2>One shop wins six months. Every shop gets 2 weeks.</h2>
-    <a href="#enter" class="btn big">Enter to Win &mdash; Free</a>
+    <a href="#enter" class="btn big">Enter Before Sept 12 &mdash; Free</a>
   </div>
 </section>
 
