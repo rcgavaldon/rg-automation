@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Slow-Season Pass — Sofia AI</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0a0a0f; --surface: #13131a; --border: #1e1e2e;
+      --amber: #f59e0b; --amber-dim: rgba(245,158,11,0.10); --amber-border: rgba(245,158,11,0.25);
+      --white: #f1f5f9; --text: #cbd5e1; --muted: #64748b; --green: #22c55e;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica Neue, sans-serif;
+           background: var(--bg); color: var(--white); line-height: 1.6; font-size: 18px; -webkit-font-smoothing: antialiased; }
+    a { color: var(--amber); }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 5%; border-bottom: 1px solid var(--border); }
+    .logo { font-weight: 800; letter-spacing: -0.02em; }
+    .logo span { color: var(--amber); }
+    .lang { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .lang button { background: transparent; border: 0; color: var(--muted); font: 700 0.72rem inherit; font-family: inherit; letter-spacing: .08em; padding: 7px 13px; cursor: pointer; }
+    .lang button.on { background: var(--amber); color: #000; }
+    main { max-width: 680px; margin: 0 auto; padding: 0 20px 64px; }
+    section { padding: 36px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: 0; }
+    h1 { font-size: clamp(2.1rem, 7vw, 3rem); line-height: 1.1; letter-spacing: -0.03em; margin: 44px 0 16px; }
+    h2 { font-size: 1.5rem; letter-spacing: -0.02em; margin-bottom: 12px; }
+    p { color: var(--text); margin-bottom: 12px; }
+    .sub { font-size: 1.1rem; }
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .btn { display: inline-block; padding: 14px 22px; border-radius: 10px; font-weight: 800; text-decoration: none; text-align: center; }
+    .btn.primary { background: var(--amber); color: #000; }
+    .btn.ghost { border: 1px solid var(--amber-border); color: var(--white); background: var(--amber-dim); }
+    .why { background: var(--surface); border-left: 3px solid var(--amber); border-radius: 8px; padding: 18px 20px; }
+    .why p { margin: 0; color: var(--white); }
+    .offer { background: var(--surface); border: 1px solid var(--amber-border); border-radius: 14px; padding: 26px 24px; }
+    .tag { display: inline-block; font-size: 0.75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+    .price { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 6px 0 4px; }
+    .price s { color: var(--muted); font-size: 1.2rem; }
+    .price b { font-size: 2.6rem; letter-spacing: -0.03em; }
+    .price small { color: var(--text); font-size: 1rem; }
+    ul { list-style: none; margin: 16px 0 4px; }
+    li { padding: 6px 0 6px 28px; position: relative; color: var(--text); }
+    li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 800; }
+    .deadline { text-align: center; }
+    .clock { display: flex; justify-content: center; gap: 10px; margin: 14px 0 10px; }
+    .clock div { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; min-width: 70px; }
+    .clock b { display: block; font-size: 1.7rem; letter-spacing: -0.02em; }
+    .clock span { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+    .faq h3 { font-size: 1rem; margin: 16px 0 4px; }
+    .faq p { font-size: 0.95rem; }
+    footer { text-align: center; color: var(--muted); font-size: 0.8rem; padding: 24px 20px 40px; }
+    [data-es] { }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Sofia <span>AI</span></div>
+    <div class="lang"><button id="bEn" class="on" onclick="setLang('en')">EN</button><button id="bEs" onclick="setLang('es')">ES</button></div>
+  </nav>
+
+  <main>
+    <section>
+      <h1 data-t="h1">Take your Sundays back.</h1>
+      <p class="sub" data-t="sub">Sofia answers your line in English and Spanish when you can't, and texts you every job: name, address, and what's wrong. Built only for HVAC.</p>
+      <div class="btns">
+        <a class="btn primary" href="tel:+19152867434" data-t="demo">Hear her: (915) 286-7434</a>
+        <a class="btn ghost" href="sms:+19156132915?&body=PASS" data-t="text1">Text Robert "PASS"</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="why"><p data-t="why">It's the slow season. You're not getting July call volume right now, so I'm not charging July prices.</p></div>
+    </section>
+
+    <section>
+      <div class="offer">
+        <div class="tag" data-t="tag">The Slow-Season Pass</div>
+        <div class="price"><s>$4,987</s><b>$3,000</b><small data-t="per">for the whole year</small></div>
+        <p data-t="seven">Pay for 7 months. The other 5 are free. And you try her free for 3 weeks first.</p>
+        <ul>
+          <li data-t="l1">Answers 24/7 in English and Spanish</li>
+          <li data-t="l2">Every call texted to you with the name, address, and the problem</li>
+          <li data-t="l3">Your phone rings first. She only picks up when you can't</li>
+          <li data-t="l4">Live on your line the same day. I set it up with you on the phone</li>
+          <li data-t="l5">Setup included. No per-call fees</li>
+        </ul>
+        <p style="font-size:.85rem;color:var(--muted);margin-top:10px" data-t="strike">$4,987 = a year at the regular $399/month plus the $199 setup.</p>
+      </div>
+    </section>
+
+    <section class="deadline">
+      <h2 data-t="dh">Only 10 shops. Ends October 31.</h2>
+      <div class="clock" id="clock">
+        <div><b id="cd">–</b><span data-t="d">days</span></div>
+        <div><b id="ch">–</b><span data-t="h">hours</span></div>
+        <div><b id="cm">–</b><span data-t="m">min</span></div>
+      </div>
+      <p id="ended" hidden data-t="ended">This offer has ended.</p>
+    </section>
+
+    <section class="faq">
+      <h2 data-t="fh">Straight answers</h2>
+      <h3 data-t="q1">What happens after the 3 free weeks?</h3>
+      <p data-t="a1">If you keep her, the year is $3,000. If you don't, turn off the forwarding and you owe nothing.</p>
+      <h3 data-t="q2">What if I change my mind after I pay?</h3>
+      <p data-t="a2">Cancel in the first 30 days and you pay for one month. I refund the rest.</p>
+      <h3 data-t="q3">Do I keep my number?</h3>
+      <p data-t="a3">Yes. Your calls still ring you first. Sofia only answers the ones you can't grab.</p>
+      <h3 data-t="q4">What if summer gets crazy?</h3>
+      <p data-t="a4">No per-call fees. The price is the price for the year.</p>
+    </section>
+
+    <section style="text-align:center">
+      <h2 data-t="ch2">Want in?</h2>
+      <p data-t="cp">Text me "PASS" and I'll call you to set her up. Or call Sofia first and hear her yourself.</p>
+      <div class="btns" style="justify-content:center">
+        <a class="btn primary" href="sms:+19156132915?&body=PASS" data-t="text2">Text Robert "PASS"</a>
+        <a class="btn ghost" href="tel:+19152867434" data-t="demo2">Call the demo</a>
+      </div>
+      <p style="margin-top:16px;font-size:.9rem" data-t="rob">Robert Gavaldon · RG Automations · <a href="tel:+19156132915">(915) 613-2915</a></p>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 RG Automations LLC · El Paso, TX · <a href="privacy-policy.html">Privacy</a></footer>
+
+  <script>
+    const ES = {
+      h1: 'Recupere sus domingos.',
+      sub: 'Sofia contesta su línea en inglés y español cuando usted no puede, y le manda cada trabajo por texto: nombre, dirección y qué tiene el equipo. Hecha solo para HVAC.',
+      demo: 'Escúchela: (915) 286-7434', text1: 'Mándele "PASS" a Robert',
+      why: 'Es temporada baja. Ahorita no le entran las llamadas de julio, así que no le voy a cobrar precios de julio.',
+      tag: 'El Pase de Temporada Baja', per: 'por todo el año',
+      seven: 'Paga 7 meses. Los otros 5 son gratis. Y antes la prueba gratis por 3 semanas.',
+      l1: 'Contesta 24/7 en inglés y español', l2: 'Cada llamada le llega por texto con el nombre, la dirección y el problema',
+      l3: 'Su teléfono suena primero. Ella solo contesta cuando usted no puede', l4: 'En su línea el mismo día. Yo se la dejo lista con usted por teléfono',
+      l5: 'Configuración incluida. Sin cobros por llamada', strike: '$4,987 = un año a $399/mes más la configuración de $199.',
+      dh: 'Solo 10 talleres. Termina el 31 de octubre.', d: 'días', h: 'horas', m: 'min', ended: 'Esta oferta ya terminó.',
+      fh: 'Respuestas directas',
+      q1: '¿Qué pasa después de las 3 semanas gratis?', a1: 'Si se queda con ella, el año son $3,000. Si no, quita el desvío y no debe nada.',
+      q2: '¿Y si cambio de opinión después de pagar?', a2: 'Cancele en los primeros 30 días y paga un solo mes. Le devuelvo el resto.',
+      q3: '¿Me quedo con mi número?', a3: 'Sí. Las llamadas le suenan a usted primero. Sofia solo contesta las que usted no alcanza.',
+      q4: '¿Y si el verano se pone pesado?', a4: 'Sin cobros por llamada. El precio es el precio por todo el año.',
+      ch2: '¿Le interesa?', cp: 'Mándeme "PASS" por texto y le llamo para dejarla lista. O háblele a Sofia primero y escúchela usted mismo.',
+      text2: 'Mándele "PASS" a Robert', demo2: 'Llame a la demo', rob: null
+    };
+    const EN = {};
+    document.querySelectorAll('[data-t]').forEach(el => { EN[el.dataset.t] = el.innerHTML; });
+    function setLang(l) {
+      const map = l === 'es' ? ES : EN;
+      document.querySelectorAll('[data-t]').forEach(el => { const v = map[el.dataset.t]; if (v) el.innerHTML = v; });
+      document.documentElement.lang = l;
+      document.getElementById('bEn').classList.toggle('on', l === 'en');
+      document.getElementById('bEs').classList.toggle('on', l === 'es');
+      try { localStorage.setItem('sofia-lang', l); } catch (e) {}
+    }
+    try { const q = new URLSearchParams(location.search).get('lang'); const s = q || localStorage.getItem('sofia-lang'); if (s === 'es') setLang('es'); } catch (e) {}
+
+    // Real, fixed deadline: Oct 31, 2026, 11:59 PM Mountain (MDT, UTC-6). Never resets.
+    const END = new Date('2026-10-31T23:59:00-06:00').getTime();
+    function tick() {
+      const left = END - Date.now();
+      if (left <= 0) { document.getElementById('clock').hidden = true; document.getElementById('ended').hidden = false; return; }
+      document.getElementById('cd').textContent = Math.floor(left / 864e5);
+      document.getElementById('ch').textContent = Math.floor(left % 864e5 / 36e5);
+      document.getElementById('cm').textContent = Math.floor(left % 36e5 / 6e4);
+    }
+    tick(); setInterval(tick, 30000);
+  </script>
+</body>
+</html>
