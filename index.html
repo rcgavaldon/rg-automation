@@ -103,6 +103,11 @@
     .proof { margin-top: 26px; font-size: .95rem; color: var(--muted); }
     .proof b { color: var(--white); }
 
+    /* real call */
+    .realvid { display: block; width: 100%; max-width: 560px; margin: 0 auto; border-radius: 14px; background: #000;
+               border: 1px solid var(--border); }
+    .privacy { font-size: .8rem; color: var(--muted); max-width: 560px; margin: 12px auto 0; }
+
     /* why */
     .why { background: var(--surface); border-left: 3px solid var(--amber); border-radius: 10px; padding: 22px 24px; margin-bottom: 36px; }
     .why p { font-size: clamp(1.1rem, 2.6vw, 1.3rem); color: var(--white); font-weight: 600; line-height: 1.45; }
@@ -242,6 +247,16 @@
   </div>
 </section>
 
+<section>
+  <div class="wrap narrow" style="text-align:center">
+    <div class="label" data-t="rl">Real call</div>
+    <h2 data-t="rh">Hear her on a real call.</h2>
+    <p class="lead" style="margin:0 auto 24px" data-t="rp">Don't take my word for it. This is Sofia on a real customer call.</p>
+    <video class="realvid" controls playsinline preload="metadata" src="sofia-real-call.mp4"></video>
+    <p class="privacy" data-t="rpriv">Real call. The customer's voice is AI-altered and their name and address are removed for privacy. Sofia's audio is unedited.</p>
+  </div>
+</section>
+
 <section id="offer">
   <div class="wrap">
     <div class="narrow">
@@ -373,6 +388,9 @@
     s2h: 'Sofia contesta.', s2p: 'Toma el nombre, la dirección, el problema y los datos del equipo. Le dice su cargo por visita y consigue una hora más una de respaldo.',
     s3h: 'El trabajo le llega por WhatsApp.', s3p: 'En segundos. El cliente recibe un texto de confirmación. Usted decide cuándo le regresa la llamada.',
     proof: 'Ya contesta las llamadas de <b>2 talleres de HVAC en Albuquerque.</b>',
+    rl: 'Llamada real', rh: 'Escúchela en una llamada real.',
+    rp: 'No me crea a mí. Así atiende Sofia la llamada real de un cliente.',
+    rpriv: 'Llamada real. La voz del cliente fue alterada con IA y se quitaron su nombre y su dirección por privacidad. El audio de Sofia no está editado.',
     why: '"Es temporada baja. Ahorita no le entran las llamadas de julio, así que no le voy a cobrar precios de julio."',
     whocite: 'Robert Gavaldon, RG Automations',
     ol: 'Precios', oh: 'Elija cómo pagar.', olead: 'Los dos empiezan con 3 semanas gratis en su propia línea. Sin tarjeta.',
