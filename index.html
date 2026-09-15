@@ -5,2048 +5,477 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="facebook-domain-verification" content="enehkn7pnqisw3hu5oee9peazkult9">
   <meta name="theme-color" content="#0a0a0f">
-  <title>Sofia AI — 24/7 Bilingual AI Receptionist for HVAC Shops</title>
-  <meta name="description" content="Sofia AI answers every HVAC call 24/7 in English & Spanish, sends every caller to your phone as a text with name, address, and the problem, and costs about a tenth of a receptionist. Live on your line same day.">
+  <title>Sofia AI — Bilingual AI Receptionist for HVAC Shops</title>
+  <meta name="description" content="Sofia answers your HVAC calls in English and Spanish when you can't, and texts you every job: name, address, and the problem. Live on your line the same day. Try her free for 3 weeks.">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-      --bg:           #0a0a0f;
-      --surface:      #13131a;
-      --surface2:     #18181f;
-      --border:       #1e1e2e;
-      --amber:        #f59e0b;
-      --amber-dim:    rgba(245,158,11,0.10);
-      --amber-border: rgba(245,158,11,0.25);
-      --white:        #f1f5f9;
-      --text:         #cbd5e1;
-      --muted:        #64748b;
-      --red:          #ef4444;
-      --red-dim:      rgba(239,68,68,0.07);
-      --red-border:   rgba(239,68,68,0.20);
-      --green:        #22c55e;
-      --green-dim:    rgba(34,197,94,0.07);
-      --green-border: rgba(34,197,94,0.20);
+      --bg: #0a0a0f; --surface: #13131a; --surface2: #18181f; --border: #23232f;
+      --amber: #f59e0b; --amber-dim: rgba(245,158,11,0.10); --amber-border: rgba(245,158,11,0.30);
+      --white: #f1f5f9; --text: #cbd5e1; --muted: #8b97ab;
+      --green: #22c55e; --green-dim: rgba(34,197,94,0.08); --green-border: rgba(34,197,94,0.24);
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica Neue, sans-serif;
-      background: var(--bg);
-      color: var(--white);
-      line-height: 1.7;
-      font-size: 18px;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: var(--amber); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    img { display: block; max-width: 100%; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+           background: var(--bg); color: var(--white); line-height: 1.6; font-size: 18px; -webkit-font-smoothing: antialiased; }
+    a { color: var(--amber); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 5%; }
+    .narrow { max-width: 720px; margin: 0 auto; }
 
-    /* ══ NAV ════════════════════════════════════════════════ */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 5%;
-      background: rgba(10,10,15,0.96);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-      gap: 12px;
-    }
-    .logo { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; flex-shrink: 0; }
+    /* nav */
+    nav { position: sticky; top: 0; z-index: 50; background: rgba(10,10,15,0.94); backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; padding-bottom: 12px; }
+    .logo { font-weight: 800; letter-spacing: -0.02em; font-size: 1.1rem; }
     .logo span { color: var(--amber); }
-    .lang-toggle {
-      display: flex; background: var(--surface);
-      border: 1px solid var(--border); border-radius: 6px; overflow: hidden; flex-shrink: 0;
-    }
-    .lang-btn {
-      background: transparent; border: none;
-      color: var(--muted); font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.08em; padding: 7px 13px;
-      cursor: pointer; font-family: inherit;
-      transition: color 0.15s;
-    }
-    .lang-btn:hover { color: var(--white); }
-    .lang-btn.active { background: var(--amber); color: #000; }
-    .nav-cta {
-      background: var(--amber); color: #000;
-      font-weight: 800; font-size: 0.82rem;
-      padding: 9px 20px; border-radius: 6px;
-      text-decoration: none; flex-shrink: 0; white-space: nowrap;
-      transition: opacity 0.15s;
-    }
-    .nav-cta:hover { opacity: 0.9; text-decoration: none; }
-    @media (max-width: 480px) {
-      .nav-cta { font-size: 0.72rem; padding: 8px 12px; }
-      .logo { font-size: 1rem; }
-    }
-    @media (max-width: 360px) {
-      .nav-cta-text { display: none; }
-      .nav-cta::after { content: 'Trial →'; }
-    }
+    .nav-r { display: flex; align-items: center; gap: 10px; }
+    .lang { display: flex; border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
+    .lang button { background: transparent; border: 0; color: var(--muted); font-family: inherit; font-weight: 700; font-size: .72rem;
+                   letter-spacing: .08em; padding: 8px 12px; cursor: pointer; }
+    .lang button.on { background: var(--amber); color: #000; }
+    .nav-cta { background: var(--amber); color: #000; font-weight: 800; font-size: .8rem; padding: 9px 14px; border-radius: 7px;
+               text-decoration: none; white-space: nowrap; }
+    @media (max-width: 440px) { .nav-cta { display: none; } }
 
-    /* ══ HERO ════════════════════════════════════════════════ */
-    .hero {
-      position: relative;
-      padding: 80px 5% 80px;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(245,158,11,0.11) 0%, transparent 58%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: ''; position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.022) 1px, transparent 1px);
-      background-size: 28px 28px; pointer-events: none;
-    }
-    .hero-inner {
-      position: relative; z-index: 1;
-      max-width: 1040px; margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-    }
-    @media (max-width: 820px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 0; text-align: center; }
-      .hero-cta-wrap { align-items: center; }
-      .hero-visual { display: none; }
-    }
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--amber-dim); border: 1px solid var(--amber-border);
-      color: var(--amber); padding: 6px 16px; border-radius: 100px;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 22px;
-    }
-    .hero h1 {
-      font-size: clamp(2.8rem, 6vw, 4.2rem);
-      font-weight: 900; line-height: 1.06;
-      letter-spacing: -0.04em; margin-bottom: 20px;
-    }
-    .hero h1 .hl { color: var(--amber); }
-    .hero-sub {
-      font-size: clamp(1.05rem, 2vw, 1.15rem);
-      color: var(--text); line-height: 1.75;
-      margin-bottom: 36px; max-width: 480px;
-    }
-    .hero-sub strong { color: var(--white); }
-    .hero-cta-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
-    .btn-hero {
-      display: inline-block; background: var(--amber); color: #000;
-      font-weight: 800; font-size: 1.12rem;
-      padding: 18px 46px; border-radius: 8px;
-      text-decoration: none; letter-spacing: -0.01em;
-      transition: opacity 0.15s;
-    }
-    .btn-hero:hover { opacity: 0.9; text-decoration: none; }
-    .btn-hear {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--white);
-      font-weight: 700; font-size: 1rem;
-      padding: 14px 28px; border-radius: 8px;
-      border: 1.5px solid var(--border);
-      cursor: pointer; font-family: inherit;
-      transition: border-color 0.15s, color 0.15s;
-      text-decoration: none;
-    }
-    .btn-hear:hover { border-color: var(--white); color: var(--white); text-decoration: none; }
-    .hero-note { font-size: 0.8rem; color: var(--muted); }
+    /* buttons */
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 24px; border-radius: 10px;
+           font-family: inherit; font-weight: 800; font-size: 1rem; text-decoration: none; text-align: center; cursor: pointer;
+           border: 0; line-height: 1.25; }
+    .btn.primary { background: var(--amber); color: #000; }
+    .btn.primary:hover { opacity: .92; }
+    .btn.ghost { background: var(--amber-dim); color: var(--white); border: 1px solid var(--amber-border); }
+    .btn.ghost:hover { border-color: var(--amber); }
+    .btn:disabled { opacity: .6; cursor: wait; }
 
-    /* Hero visual — WA card preview */
-    .hero-visual {
-      display: flex; flex-direction: column; align-items: flex-start;
-      position: relative;
-    }
-    .hero-notif {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 8px; padding: 7px 13px;
-      font-size: 0.72rem; color: var(--muted);
-      margin-bottom: 10px;
-    }
-    .notif-dot {
-      width: 7px; height: 7px;
-      background: var(--green); border-radius: 50%;
-      flex-shrink: 0;
-      animation: blink 1.8s ease infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; } 50% { opacity: 0.25; }
-    }
+    /* hero */
+    .hero { position: relative; padding: 72px 0 64px; border-bottom: 1px solid var(--border); overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+                    background: radial-gradient(ellipse at 30% 0%, rgba(245,158,11,0.12) 0%, transparent 60%); }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+    @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } .hero { padding: 48px 0 48px; } }
+    .badge { display: inline-block; background: var(--amber-dim); border: 1px solid var(--amber-border); color: var(--amber);
+             padding: 6px 14px; border-radius: 100px; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 20px; }
+    h1 { font-size: clamp(2.6rem, 7vw, 4.1rem); line-height: 1.04; letter-spacing: -0.04em; font-weight: 900; margin-bottom: 18px; }
+    h1 .hl { color: var(--amber); }
+    .sub { font-size: clamp(1.05rem, 2.2vw, 1.2rem); color: var(--text); margin-bottom: 28px; max-width: 540px; }
+    .sub strong { color: var(--white); }
+    .or-call { font-size: .92rem; color: var(--muted); margin-top: 14px; }
+    .or-call a { font-weight: 700; white-space: nowrap; }
+    #talk-status { font-size: .88rem; color: var(--text); margin-top: 10px; min-height: 1.2em; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .chip { font-size: .78rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); padding: 5px 12px; border-radius: 100px; }
+    .chip b { color: var(--green); }
 
-    /* ══ STRIP ═══════════════════════════════════════════════ */
-    .strip {
-      background: var(--surface);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      padding: 13px 5%; text-align: center;
-      font-size: 0.82rem; color: var(--muted);
-    }
-    .strip strong { color: var(--white); }
+    /* whatsapp card */
+    .card-label { display: flex; align-items: center; gap: 8px; font-size: .74rem; color: var(--muted); margin-bottom: 10px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: blink 1.8s ease infinite; }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+    .wa { background: #0f1a10; border: 1px solid #1f3d1f; border-radius: 14px; padding: 16px; max-width: 360px; }
+    .wa-top { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #4ade80; margin-bottom: 10px; }
+    .wa-row { display: flex; gap: 10px; font-size: .84rem; margin-bottom: 5px; }
+    .wa-row span:first-child { color: #6b7f6b; min-width: 78px; flex-shrink: 0; }
+    .wa-row span:last-child { color: #d1fae5; }
+    .wa-btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 12px; }
+    .wa-btns div { text-align: center; font-size: .72rem; font-weight: 700; padding: 8px 4px; border-radius: 8px; line-height: 1.25; }
+    .wg { background: rgba(74,222,128,.12); color: #4ade80; border: 1px solid rgba(74,222,128,.25); }
+    .wb { background: rgba(96,165,250,.12); color: #60a5fa; border: 1px solid rgba(96,165,250,.25); }
+    .wr { background: rgba(248,113,113,.12); color: #f87171; border: 1px solid rgba(248,113,113,.25); }
+    .sms { margin-top: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; max-width: 360px; }
+    .sms-top { font-size: .66rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .sms p { font-size: .84rem; color: var(--text); }
 
-    /* ══ SECTION BASE ════════════════════════════════════════ */
-    .section { padding: 88px 5%; max-width: 1040px; margin: 0 auto; }
-    .sec-label {
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--amber); margin-bottom: 10px;
-    }
-    .sec-label-red   { color: var(--red); }
-    .sec-label-green { color: var(--green); }
-    .sec-h {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800; letter-spacing: -0.03em;
-      line-height: 1.12; margin-bottom: 14px;
-    }
-    .sec-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.8; max-width: 580px; }
+    /* sections */
+    section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+    @media (max-width: 600px) { section { padding: 52px 0; } }
+    .label { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
+    h2 { font-size: clamp(1.8rem, 4.2vw, 2.6rem); line-height: 1.12; letter-spacing: -0.03em; font-weight: 850; margin-bottom: 14px; }
+    .lead { color: var(--text); font-size: 1.05rem; max-width: 620px; }
 
-    /* ══ PROBLEM ═════════════════════════════════════════════ */
-    .problem-bg {
-      background: linear-gradient(180deg, var(--bg) 0%, rgba(239,68,68,0.04) 50%, var(--bg) 100%);
-    }
-    .loss-box {
-      display: flex; flex-direction: column; gap: 24px;
-      background: var(--red-dim); border: 1px solid var(--red-border);
-      border-radius: 16px; padding: 36px; margin: 40px 0;
-    }
-    @media (min-width: 640px) { .loss-box { flex-direction: row; align-items: center; } }
-    .loss-num {
-      font-size: clamp(3.5rem, 10vw, 5.5rem);
-      font-weight: 900; color: var(--red);
-      line-height: 1; letter-spacing: -0.04em; white-space: nowrap;
-    }
-    .loss-detail { flex: 1; }
-    .loss-detail h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
-    .loss-detail p  { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
-    .loss-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
-    .chip-red {
-      background: rgba(239,68,68,0.12); border: 1px solid var(--red-border);
-      color: #fca5a5; padding: 4px 10px; border-radius: 6px;
-      font-size: 0.76rem; font-weight: 600;
-    }
+    /* steps */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+    @media (max-width: 820px) { .steps { grid-template-columns: 1fr; } }
+    .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px 24px; }
+    .num { width: 30px; height: 30px; border-radius: 50%; background: var(--amber); color: #000; font-weight: 900; font-size: .85rem;
+           display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .step h3 { font-size: 1.08rem; margin-bottom: 6px; }
+    .step p { font-size: .92rem; color: var(--text); }
+    .proof { margin-top: 26px; font-size: .95rem; color: var(--muted); }
+    .proof b { color: var(--white); }
 
-    /* ══ FEATURE GRID ════════════════════════════════════════ */
-    .feat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 44px;
-    }
-    @media (max-width: 600px) { .feat-grid { grid-template-columns: 1fr; } }
-    .feat-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px 28px 26px;
-    }
-    .feat-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
-    .feat-card h3 {
-      font-size: 1rem; font-weight: 800;
-      color: var(--white); margin-bottom: 14px;
-    }
-    .feat-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .feat-list li {
-      font-size: 0.85rem; color: var(--text);
-      display: flex; align-items: flex-start; gap: 8px; line-height: 1.45;
-    }
-    .feat-list li::before { content: '→'; color: var(--amber); flex-shrink: 0; font-weight: 700; }
+    /* why */
+    .why { background: var(--surface); border-left: 3px solid var(--amber); border-radius: 10px; padding: 22px 24px; margin-bottom: 36px; }
+    .why p { font-size: clamp(1.1rem, 2.6vw, 1.3rem); color: var(--white); font-weight: 600; line-height: 1.45; }
+    .why cite { display: block; margin-top: 10px; font-style: normal; font-size: .85rem; color: var(--muted); }
 
-    /* ══ HOW IT WORKS ════════════════════════════════════════ */
-    .hiw-bg {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
+    /* plans */
+    .plans { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; align-items: stretch; }
+    @media (max-width: 820px) { .plans { grid-template-columns: 1fr; } }
+    .plan { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 30px 28px;
+            display: flex; flex-direction: column; }
+    .plan.featured { border-color: var(--amber); background: linear-gradient(160deg, rgba(245,158,11,0.08) 0%, var(--surface) 55%); }
+    .ribbon { position: absolute; top: -13px; left: 28px; background: var(--amber); color: #000; font-size: .7rem; font-weight: 900;
+              letter-spacing: .08em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; }
+    .plan-name { font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .plan.featured .plan-name { color: var(--amber); }
+    .price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 12px; margin-bottom: 6px; }
+    .price s { color: var(--muted); font-size: 1.2rem; }
+    .price b { font-size: clamp(2.6rem, 6vw, 3.2rem); letter-spacing: -0.04em; line-height: 1; }
+    .price small { color: var(--text); font-size: 1rem; }
+    .deal { color: var(--white); font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+    .save { color: var(--green); font-size: .88rem; font-weight: 700; margin-bottom: 4px; }
+    .plan .fine { font-size: .8rem; color: var(--muted); }
+    .plan ul { list-style: none; margin: 18px 0 24px; flex: 1; }
+    .plan li { position: relative; padding: 6px 0 6px 28px; font-size: .93rem; color: var(--text); }
+    .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
+    .plan .btn { width: 100%; }
+    .plans-note { margin-top: 20px; font-size: .88rem; color: var(--muted); text-align: center; }
 
-    /* ── Stage ── */
-    .hiw-stage {
-      position: relative;
-      height: clamp(500px, 62vh, 600px);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--bg);
-    }
-    @media (max-width: 480px) { .hiw-stage { height: clamp(520px, 80vw, 560px); border-radius: 12px; } }
+    /* guarantee */
+    .guar { display: flex; gap: 18px; align-items: flex-start; background: var(--green-dim); border: 1px solid var(--green-border);
+            border-radius: 16px; padding: 24px 26px; margin-top: 28px; }
+    .guar-icon { font-size: 1.9rem; line-height: 1; flex-shrink: 0; }
+    .guar h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .guar p { font-size: .93rem; color: var(--text); }
 
-    .hiw-prog {
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 3px; background: rgba(245,158,11,0.12); z-index: 10;
-    }
-    .hiw-prog-fill { height: 100%; background: var(--amber); width: 0%; }
+    /* faq */
+    details { border-bottom: 1px solid var(--border); }
+    details:first-of-type { border-top: 1px solid var(--border); }
+    summary { list-style: none; cursor: pointer; padding: 20px 36px 20px 0; font-weight: 700; font-size: 1.02rem; position: relative; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 4px; top: 16px; color: var(--amber); font-size: 1.5rem; font-weight: 400; }
+    details[open] summary::after { content: "−"; }
+    details p { color: var(--text); font-size: .95rem; padding: 0 0 20px; }
 
-    .hiw-scene {
-      position: absolute; inset: 0;
-      padding: 52px 32px 28px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: flex-start;
-      gap: 20px;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.6s ease;
-    }
-    @media (max-width: 480px) { .hiw-scene { padding: 52px 20px 20px; gap: 16px; } }
-    .hiw-scene.active { opacity: 1; pointer-events: auto; }
+    /* final */
+    .final { text-align: center; }
+    .final .lead { margin: 0 auto 26px; }
+    .final .btns { justify-content: center; }
+    .signoff { margin-top: 22px; font-size: .9rem; color: var(--muted); }
 
-    .hiw-tag {
-      position: absolute; top: 16px; left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.6rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--muted); background: transparent;
-      white-space: nowrap;
-    }
-    .hiw-callout {
-      font-size: clamp(1.15rem, 3.5vw, 1.4rem);
-      font-weight: 800;
-      color: var(--white);
-      text-align: center;
-      line-height: 1.3;
-      max-width: 380px;
-      flex-shrink: 0;
-    }
-    .hiw-callout strong { color: var(--amber); }
-
-    /* Scene 1 */
-    .hiw-time { text-align: center; margin-bottom: 24px; }
-    .hiw-time-digits {
-      font-size: clamp(3rem, 9vw, 4.2rem);
-      font-weight: 200; letter-spacing: -3px;
-      color: var(--white); line-height: 1;
-    }
-    .hiw-time-digits strong { font-weight: 800; }
-    .hiw-time-label {
-      font-size: 0.62rem; letter-spacing: 0.2em;
-      color: var(--muted); margin-top: 6px; text-transform: uppercase;
-    }
-    .hiw-call-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 18px 20px;
-      width: 100%; max-width: min(360px, 100%);
-      display: flex; align-items: center; gap: 16px;
-    }
-    .hiw-av {
-      width: 54px; height: 54px; flex-shrink: 0;
-      background: var(--amber-dim); border: 2px solid var(--amber-border);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; position: relative;
-    }
-    .hiw-flag {
-      position: absolute; bottom: -3px; right: -3px;
-      font-size: 0.75rem; background: var(--surface);
-      border-radius: 50%; width: 20px; height: 20px;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid var(--border);
-    }
-    @keyframes hiw-ring {
-      0%, 100% { box-shadow: 0 0 0 0px rgba(245,158,11,0.5); }
-      60%       { box-shadow: 0 0 0 16px rgba(245,158,11,0); }
-    }
-    .hiw-scene.active .hiw-av { animation: hiw-ring 1.5s ease infinite; }
-    .hiw-caller { flex: 1; }
-    .hiw-caller-name  { font-size: 1rem; font-weight: 700; color: var(--white); }
-    .hiw-caller-issue { font-size: 0.83rem; color: var(--muted); margin-top: 4px; }
-    .hiw-urg {
-      background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25);
-      color: var(--red); font-size: 0.6rem; font-weight: 700;
-      padding: 4px 9px; border-radius: 5px;
-      text-transform: uppercase; letter-spacing: 0.06em; flex-shrink: 0;
-    }
-
-    /* Scene 2 */
-    .hiw-sofia-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 22px;
-      width: 100%; max-width: min(360px, 100%);
-    }
-    .hiw-sofia-hd { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
-    .hiw-sofia-av {
-      width: 48px; height: 48px; flex-shrink: 0;
-      background: var(--amber-dim); border: 2px solid var(--amber);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.35rem;
-    }
-    .hiw-sofia-name { font-size: 0.95rem; font-weight: 800; color: var(--white); }
-    .hiw-sofia-st   { font-size: 0.72rem; color: var(--green); font-weight: 600; margin-top: 2px; }
-    .hiw-lang-tog {
-      display: flex; border: 1px solid var(--border);
-      border-radius: 6px; overflow: hidden; margin-left: auto;
-    }
-    .hiw-lang-opt { padding: 5px 10px; font-size: 0.7rem; font-weight: 700; color: var(--muted); }
-    .hiw-lang-opt.on { background: var(--amber); color: #000; }
-    .hiw-speech {
-      background: rgba(245,158,11,0.05);
-      border-left: 2px solid var(--amber);
-      border-radius: 0 10px 10px 0;
-      padding: 12px 16px;
-    }
-    .hiw-speech-main { font-size: clamp(1.05rem, 3vw, 1.25rem); font-style: italic; color: var(--white); margin-bottom: 6px; }
-    .hiw-speech-sub  { font-size: 0.75rem; color: var(--muted); }
-
-    /* Scene 3 — WA card (reuses site's .wa-* classes) */
-    .hiw-wa-wrap { width: 100%; max-width: min(320px, 100%); }
-
-    /* Scene 4 — Tap + SMS */
-    .hiw-tap-row {
-      display: flex; gap: 7px;
-      width: 100%; max-width: min(320px, 100%); margin-bottom: 20px;
-    }
-    .hiw-tap-btn {
-      flex: 1; padding: 10px 6px;
-      border-radius: 8px; font-size: 0.76rem;
-      font-weight: 700; text-align: center;
-      border: 1px solid; transition: all 0.35s ease;
-      line-height: 1.3;
-    }
-    .hiw-tap-btn.tapped {
-      background: rgba(74,222,128,0.2)  !important;
-      border-color: rgba(74,222,128,0.5) !important;
-      color: #4ade80 !important;
-      transform: scale(0.95);
-    }
-    .hiw-sms-preview {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 14px; padding: 16px 18px;
-      width: 100%; max-width: min(320px, 100%);
-      opacity: 0; transform: translateY(10px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .hiw-sms-preview.show { opacity: 1; transform: translateY(0); }
-    .hiw-sms-label {
-      font-size: 0.63rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--muted); margin-bottom: 9px;
-    }
-    .hiw-sms-text { font-size: 0.92rem; color: var(--text); line-height: 1.6; }
-    .hiw-sms-text strong { color: var(--white); }
-
-    /* Scene 5 — Automations */
-    .hiw-auto-list { width: 100%; max-width: min(360px, 100%); display: flex; flex-direction: column; gap: 10px; }
-    .hiw-auto-row {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 13px 16px;
-      display: flex; align-items: center; gap: 14px;
-      opacity: 0; transform: translateX(-14px);
-      transition: opacity 0.45s ease, transform 0.45s ease;
-    }
-    .hiw-auto-row.show { opacity: 1; transform: translateX(0); }
-    .hiw-auto-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .hiw-auto-info { flex: 1; }
-    .hiw-auto-name { font-size: 0.88rem; font-weight: 700; color: var(--white); }
-    .hiw-auto-sub  { font-size: 0.74rem; color: var(--muted); margin-top: 2px; }
-    .hiw-auto-badge {
-      font-size: 0.65rem; font-weight: 700;
-      padding: 3px 10px; border-radius: 6px; white-space: nowrap;
-      background: var(--amber-dim); border: 1px solid var(--amber-border); color: var(--amber);
-    }
-    .hiw-auto-badge.grn {
-      background: rgba(74,222,128,0.08);
-      border-color: rgba(74,222,128,0.22); color: #4ade80;
-    }
-
-    /* Mobile animation overrides */
-    @media (max-width: 540px) {
-      .hiw-caller-name  { font-size: 1.05rem; }
-      .hiw-caller-issue { font-size: 0.88rem; }
-      .hiw-sofia-name   { font-size: 1rem; }
-      .hiw-sofia-st     { font-size: 0.78rem; }
-      .hiw-auto-name    { font-size: 0.92rem; }
-      .hiw-auto-sub     { font-size: 0.78rem; }
-      .hiw-sms-text     { font-size: 0.95rem; }
-      .hiw-callout      { font-size: 0.95rem; }
-      .wa-lbl, .wa-val  { font-size: 0.8rem; }
-      .wa-ai            { font-size: 0.8rem; }
-      .wa-btn           { font-size: 0.72rem; padding: 9px 4px; }
-      .hiw-auto-row     { padding: 12px 14px; }
-      .hiw-tap-btn      { font-size: 0.8rem; padding: 11px 6px; }
-    }
-
-    /* Dots */
-    .hiw-dots { display: flex; justify-content: center; gap: 9px; margin-top: 18px; }
-    .hiw-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%; background: var(--border);
-      transition: background 0.3s, transform 0.3s;
-      cursor: pointer;
-    }
-    .hiw-dot.on { background: var(--amber); transform: scale(1.5); }
-
-    /* ══ WA CARD (hero + animation scene 3) ═════════════════ */
-    .wa-wrap { margin-top: 18px; max-width: 296px; }
-    .wa-chip {
-      display: inline-block; font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: #4ade80; background: rgba(74,222,128,0.08);
-      border: 1px solid rgba(74,222,128,0.2);
-      padding: 3px 10px; border-radius: 100px; margin-bottom: 6px;
-    }
-    .wa-card { background: #111c11; border: 1px solid #1f3d1f; border-radius: 12px; padding: 15px; }
-    .wa-rows { margin-bottom: 10px; }
-    .wa-row { display: flex; gap: 8px; margin-bottom: 5px; }
-    .wa-lbl { color: #4b5563; min-width: 76px; font-size: 0.76rem; flex-shrink: 0; }
-    .wa-val { color: #d1fae5; font-size: 0.76rem; }
-    .wa-urgency { color: #f87171; font-weight: 700; }
-    .wa-ai {
-      background: rgba(74,222,128,0.07); border-left: 2px solid #4ade80;
-      padding: 8px 10px; border-radius: 0 6px 6px 0;
-      color: #a7f3d0; font-size: 0.76rem; line-height: 1.65; margin-bottom: 12px;
-    }
-    .wa-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; }
-    .wa-btn { text-align: center; padding: 8px 4px; border-radius: 7px; font-size: 0.68rem; font-weight: 700; line-height: 1.3; transition: opacity 0.2s; }
-    .wa-g { background: rgba(74,222,128,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.25); }
-    .wa-b { background: rgba(96,165,250,0.12); color: #60a5fa; border: 1px solid rgba(96,165,250,0.25); }
-    .wa-r { background: rgba(248,113,113,0.12); color: #f87171; border: 1px solid rgba(248,113,113,0.25); }
-
-    /* ══ PRICING ════════════════════════════════════════════ */
-    .pricing-intro { text-align: center; max-width: 540px; margin: 0 auto 44px; }
-    .trial-banner {
-      background: linear-gradient(135deg, rgba(245,158,11,0.09), rgba(245,158,11,0.03));
-      border: 1px solid var(--amber-border); border-radius: 16px;
-      padding: 28px 32px;
-      display: flex; flex-wrap: wrap; align-items: center;
-      justify-content: space-between; gap: 20px;
-      margin-bottom: 28px;
-    }
-    .trial-left h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 5px; }
-    .trial-left p  { font-size: 0.87rem; color: var(--muted); }
-    .trial-bullets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .tb {
-      background: var(--amber-dim); border: 1px solid var(--amber-border);
-      color: var(--text); font-size: 0.78rem; padding: 3px 10px; border-radius: 100px;
-    }
-    .btn-trial {
-      background: var(--amber); color: #000;
-      font-weight: 800; font-size: 1rem;
-      padding: 14px 28px; border-radius: 8px;
-      text-decoration: none; white-space: nowrap;
-      transition: opacity 0.15s;
-    }
-    .btn-trial:hover { opacity: 0.9; text-decoration: none; }
-    .plans-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media (min-width: 620px) { .plans-grid { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 940px) { .plans-grid { grid-template-columns: 1fr 1fr 1fr; } }
-    .plan-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 30px;
-      display: flex; flex-direction: column; position: relative;
-    }
-    .plan-card.featured {
-      border-color: var(--amber);
-      background: linear-gradient(160deg, rgba(245,158,11,0.07) 0%, var(--surface) 55%);
-    }
-    .popular-badge {
-      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-      background: var(--amber); color: #000;
-      font-size: 0.67rem; font-weight: 800;
-      padding: 3px 14px; border-radius: 100px;
-      letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
-    }
-    .plan-name    { font-size: 0.74rem; font-weight: 700; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 9px; }
-    .plan-price   { font-size: 3rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px; color: var(--amber); }
-    .plan-price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
-    .plan-tagline { font-size: 0.82rem; color: var(--muted); margin-bottom: 20px; }
-    .plan-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 20px; }
-    .plan-features { flex: 1; list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-    .plan-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; color: var(--text); }
-    .plan-features li::before { content: '✓'; color: var(--amber); font-weight: 700; flex-shrink: 0; }
-    .plan-best  { font-size: 0.75rem; color: var(--muted); margin-bottom: 18px; }
-    .plan-best strong { color: var(--text); }
-    .btn-plan { display: block; text-align: center; padding: 13px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: opacity 0.15s; }
-    .btn-amber   { background: var(--amber); color: #000; }
-    .btn-amber:hover  { opacity: 0.9; text-decoration: none; }
-    .btn-outline { background: transparent; color: var(--white); border: 1px solid var(--border); }
-    .btn-outline:hover { border-color: var(--amber); color: var(--amber); text-decoration: none; }
-    .roi-note { text-align: center; margin-top: 20px; font-size: 0.82rem; color: var(--muted); }
-    .roi-note strong { color: var(--amber); }
-
-    /* ══ GUARANTEE ══════════════════════════════════════════ */
-    .guarantee-bg { background: linear-gradient(180deg, var(--bg) 0%, rgba(34,197,94,0.04) 50%, var(--bg) 100%); }
-    .guarantee-box {
-      max-width: 680px; margin: 0 auto;
-      background: var(--green-dim); border: 1px solid var(--green-border);
-      border-radius: 20px; padding: 52px 40px; text-align: center;
-    }
-    @media (max-width: 480px) { .guarantee-box { padding: 36px 24px; } }
-    .guarantee-icon { font-size: 3rem; margin-bottom: 20px; }
-    .guarantee-box h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 18px; }
-    .guarantee-box p  { color: var(--text); font-size: 0.95rem; line-height: 1.8; max-width: 520px; margin: 0 auto 14px; }
-    .guarantee-stat { font-size: 1.1rem; font-weight: 700; color: var(--green); margin-top: 8px; }
-
-    /* ══ FAQ ════════════════════════════════════════════════ */
-    .faq-list { display: flex; flex-direction: column; }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-q {
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 1rem; font-weight: 700;
-      padding: 22px 0; cursor: pointer;
-      gap: 16px; user-select: none;
-    }
-    .faq-q::after {
-      content: '+'; color: var(--amber);
-      font-size: 1.4rem; flex-shrink: 0; line-height: 1;
-      transition: transform 0.25s ease;
-    }
-    .faq-item.open .faq-q::after { content: '−'; }
-    .faq-a {
-      font-size: 0.9rem; color: var(--muted); line-height: 1.8;
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-      padding-bottom: 0;
-    }
-    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 22px; }
-
-    /* ══ FINAL CTA ══════════════════════════════════════════ */
-    .final-cta-bg { background: var(--surface); border-top: 1px solid var(--border); }
-    .final-cta { text-align: center; max-width: 580px; margin: 0 auto; padding: 88px 5%; }
-    .final-cta h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 16px; }
-    .final-cta h2 .red { color: var(--red); }
-    .final-cta p  { color: var(--muted); font-size: 1rem; margin-bottom: 32px; line-height: 1.75; }
-    .final-note   { font-size: 0.8rem; color: var(--muted); margin-top: 14px; }
-
-    /* ══ FOOTER ══════════════════════════════════════════════ */
-    footer { border-top: 1px solid var(--border); padding: 28px 5%; text-align: center; }
-    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }
-    .footer-links a { font-size: 0.82rem; color: var(--muted); }
-    .footer-links a:hover { color: var(--white); }
-    .footer-copy { font-size: 0.75rem; color: #374151; }
-
-    /* ══ BEFORE / AFTER ══════════════════════════════════════ */
-    .ba-wrap { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 5%; }
-    @media (max-width: 640px) { .ba-wrap { padding: 44px 5%; } }
-    .ba-inner { max-width: 1040px; margin: 0 auto; }
-    .ba-grid { display: flex; flex-wrap: wrap; gap: 20px; max-width: 800px; margin: 0 auto; }
-    .ba-col { flex: 1; min-width: 240px; border-radius: 14px; padding: 24px 26px; }
-    .ba-red   { background: var(--red-dim);   border: 1px solid var(--red-border); }
-    .ba-green { background: var(--green-dim); border: 1px solid var(--green-border); }
-    .ba-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
-    .ba-items { display: flex; flex-direction: column; gap: 9px; font-size: 0.87rem; color: var(--text); }
-
-    /* ══ WA FLOW SECTION ════════════════════════════════════════ */
-    .waflow-steps { display: flex; gap: 0; margin-bottom: 48px; }
-    @media (max-width: 700px) { .waflow-steps { flex-direction: column; gap: 0; } }
-    .waflow-step { display: flex; gap: 14px; align-items: flex-start; flex: 1; padding: 0 20px 0 0; position: relative; }
-    @media (max-width: 700px) { .waflow-step { padding: 0 0 28px 0; } }
-    .waflow-step:not(:last-child)::after {
-      content: '→'; position: absolute; right: -2px; top: 3px;
-      color: var(--amber); font-size: 1rem; font-weight: 700;
-    }
-    @media (max-width: 700px) { .waflow-step:not(:last-child)::after { content: '↓'; right: auto; left: 9px; top: auto; bottom: 6px; } }
-    .waflow-num {
-      width: 26px; height: 26px; background: var(--amber); color: #000;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px;
-    }
-    .waflow-title { font-size: 0.88rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-    .waflow-body  { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
-    .waflow-panels { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-bottom: 36px; }
-    .waflow-panel { flex: 1; min-width: 240px; }
-    .waflow-panel-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-    .waflow-arrow { color: var(--amber); font-size: 1.6rem; align-self: center; flex-shrink: 0; }
-    @media (max-width: 600px) { .waflow-arrow { transform: rotate(90deg); align-self: center; margin: 0 auto; } }
-    .waflow-sms  { background: #111c11; border: 1px solid #1f3d1f; border-radius: 14px; padding: 16px; }
-    .waflow-bubble { background: #1a3a1a; border-radius: 12px 12px 2px 12px; padding: 11px 14px; font-size: 0.84rem; line-height: 1.65; color: #d1fae5; max-width: 260px; }
-    .waflow-cmds { display: flex; flex-direction: column; gap: 8px; margin-top: 36px; border-top: 1px solid var(--border); padding-top: 32px; }
-    .waflow-cmd  { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
-    .waflow-cmd-text { font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--amber); }
-    .waflow-cmd-result { font-size: 0.8rem; color: var(--muted); }
-
-    /* ══ VALUE STACK ══════════════════════════════════════════ */
-    .vstack { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin-bottom: 28px; }
-    @media (max-width: 500px) { .vstack { padding: 20px 18px; } }
-    .vstack-grid { display: grid; grid-template-columns: 1fr auto; gap: 10px 28px; font-size: 0.87rem; margin-bottom: 20px; }
-    @media (max-width: 500px) { .vstack-grid { grid-template-columns: 1fr; gap: 7px; } }
-    .vstack-strike { color: var(--muted); text-decoration: line-through; font-size: 0.8rem; text-align: right; }
-    @media (max-width: 500px) { .vstack-strike { display: none; } }
-    .vstack-total { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px; flex-wrap: wrap; gap: 12px; }
-
-    /* ══ SOFIA vs HUMAN COMPARISON ═══════════════════════════════ */
-    .cmp-list { max-width: 760px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 12px; }
-    .cmp-item {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 14px; padding: 16px 20px;
-    }
-    .cmp-dim {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--amber); margin-bottom: 12px;
-    }
-    .cmp-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    @media (max-width: 520px) { .cmp-pair { grid-template-columns: 1fr; gap: 9px; } }
-    .cmp-side { font-size: 0.86rem; line-height: 1.5; display: flex; gap: 9px; align-items: flex-start; }
-    .cmp-human { color: var(--muted); }
-    .cmp-sofia { color: var(--text); }
-    .cmp-mark { flex-shrink: 0; font-weight: 800; margin-top: 1px; }
-    .cmp-human .cmp-mark { color: var(--red); }
-    .cmp-sofia .cmp-mark { color: var(--green); }
-    .cmp-sofia strong { color: var(--white); }
-    .cmp-heads { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 760px; margin: 40px auto 0; }
-    @media (max-width: 520px) { .cmp-heads { display: none; } }
-    .cmp-heads > div {
-      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 10px 20px;
-    }
-    .cmp-head-human { color: var(--muted); }
-    .cmp-head-sofia { color: var(--amber); }
-    .cmp-bottom { max-width: 720px; margin: 26px auto 0; text-align: center; font-size: 0.98rem; line-height: 1.7; color: var(--text); }
-    .cmp-bottom strong { color: var(--amber); }
+    footer { padding: 30px 5% 44px; text-align: center; }
+    .legal { font-size: .76rem; color: #6b778a; max-width: 720px; margin: 0 auto 16px; line-height: 1.7; }
+    .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-bottom: 12px; }
+    .links a { font-size: .82rem; color: var(--muted); text-decoration: none; }
+    .links a:hover { color: var(--white); }
+    .copy { font-size: .76rem; color: #4b5563; }
   </style>
 </head>
 <body>
 
-<!-- ══ NAV ══════════════════════════════════════════════════ -->
 <nav>
-  <div class="logo">Sofia <span>AI</span></div>
-  <div class="lang-toggle">
-    <button class="lang-btn active" data-lang="en">EN</button>
-    <button class="lang-btn" data-lang="es">ES</button>
+  <div class="wrap">
+    <div class="logo">Sofia <span>AI</span></div>
+    <div class="nav-r">
+      <div class="lang" role="group" aria-label="Language">
+        <button id="bEn" class="on" type="button" onclick="setLang('en')">EN</button>
+        <button id="bEs" type="button" onclick="setLang('es')">ES</button>
+      </div>
+      <a class="nav-cta" href="#offer" data-t="navcta">3 weeks free</a>
+    </div>
   </div>
-  <a class="nav-cta" data-i18n="nav-cta" href="#contact">Book a Free Call</a>
 </nav>
 
-<!-- ══ HERO ══════════════════════════════════════════════════ -->
-<div class="hero">
-  <div class="hero-inner">
-
-    <div class="hero-text">
-      <div class="badge" data-i18n="hero-badge">❄️ The 24/7 Bilingual Receptionist for HVAC</div>
-      <h1 data-i18n="hero-h1">Sofia Answers Every Call.<br><span class="hl">You Keep Every Job.</span></h1>
-      <p class="hero-sub" data-i18n="hero-sub">24/7 bilingual answering for HVAC shops — English &amp; Spanish. Every caller becomes a text with their <strong>name, address, and the problem</strong> — so you never lose a job to a missed call. <strong>Live on your line same day.</strong></p>
-      <div class="hero-cta-wrap">
-        <a href="#contact" class="btn-hero" data-i18n="hero-cta">Book Your Free Setup Call</a>
-        <span class="hero-note" data-i18n="hero-note">15 minutes &nbsp;·&nbsp; We go live on the call &nbsp;·&nbsp; Trial starts immediately</span>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge" data-t="badge">Built only for HVAC · English &amp; Spanish</div>
+      <h1 data-t="h1">Take your <span class="hl">Sundays</span> back.</h1>
+      <p class="sub" data-t="sub">Your phone rings first. When you can't pick up, Sofia answers in English or Spanish and texts you the job: <strong>name, address, and what's wrong.</strong></p>
+      <div class="btns">
+        <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="cta1">Try her free for 3 weeks</a>
+        <button class="btn ghost" id="talk-btn" type="button">🎙️ Talk to Sofia now</button>
+      </div>
+      <div id="talk-status" aria-live="polite"></div>
+      <p class="or-call" data-t="orcall">Or call her like a customer: <a href="tel:+19152867434">(915) 286-7434</a></p>
+      <div class="chips">
+        <span class="chip" data-t="c1"><b>✓</b> 3 weeks free on your own line</span>
+        <span class="chip" data-t="c2"><b>✓</b> No card</span>
+        <span class="chip" data-t="c3"><b>✓</b> Live the same day</span>
       </div>
     </div>
-
-    <div class="hero-visual">
-      <div class="hero-notif">
-        <div class="notif-dot"></div>
-        New call · just now
-      </div>
-      <span class="wa-chip">WhatsApp · Sofia AI</span>
-      <div class="wa-card">
-        <div class="wa-rows">
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl1">Name:</span><span class="wa-val">Carlos Mendez</span></div>
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl2">Phone:</span><span class="wa-val">(915) 555-0142</span></div>
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl3">Address:</span><span class="wa-val">2847 Mesa Hills Dr</span></div>
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl4">Service:</span><span class="wa-val" data-i18n="wa-val4">AC not cooling</span></div>
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl5">Urgency:</span><span class="wa-val wa-urgency" data-i18n="wa-val5">🔴 Emergency</span></div>
-        </div>
-        <div class="wa-ai" data-i18n="wa-ai-hero">No cooling, house at 85°F, elderly resident. Needs urgent service.</div>
+    <div aria-hidden="true">
+      <div class="card-label"><span class="dot"></span><span data-t="newcall">New call · just now</span></div>
+      <div class="wa">
+        <div class="wa-top">WhatsApp · Sofia AI</div>
+        <div class="wa-row"><span data-t="wl1">Name</span><span>Carlos Mendez</span></div>
+        <div class="wa-row"><span data-t="wl2">Phone</span><span>(915) 555-0142</span></div>
+        <div class="wa-row"><span data-t="wl3">Address</span><span>2847 Mesa Hills Dr</span></div>
+        <div class="wa-row"><span data-t="wl4">Problem</span><span data-t="wv4">AC not cooling · unit on the roof</span></div>
+        <div class="wa-row"><span data-t="wl5">Wants</span><span data-t="wv5">Tomorrow 8–10 AM · backup 2–4 PM</span></div>
         <div class="wa-btns">
-          <div class="wa-btn wa-g" data-i18n="wa-btn-g">✅ On My Way</div>
-          <div class="wa-btn wa-b" data-i18n="wa-btn-b">📅 Schedule</div>
-          <div class="wa-btn wa-r" data-i18n="wa-btn-r">✕ Not a Client</div>
+          <div class="wg" data-t="wb1">✅ On My Way</div>
+          <div class="wb" data-t="wb2">📅 Schedule</div>
+          <div class="wr" data-t="wb3">✕ Not a Client</div>
         </div>
       </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ══ PRICE ANCHOR ═══════════════════════════════════════════ -->
-<div style="background:linear-gradient(180deg,var(--bg),rgba(245,158,11,0.05));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px 5%;">
-  <div style="max-width:1040px;margin:0 auto;text-align:center;">
-    <div class="sec-label" data-i18n="anchor-label">The Math That Matters</div>
-    <h2 style="font-size:clamp(1.55rem,3.6vw,2.3rem);font-weight:800;letter-spacing:-0.03em;line-height:1.2;margin:6px 0 30px;" data-i18n="anchor-h">The receptionist you can't afford — at a tenth of the price.</h2>
-    <div style="display:flex;align-items:center;justify-content:center;gap:clamp(18px,5vw,52px);flex-wrap:wrap;">
-      <div style="text-align:center;">
-        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;" data-i18n="anchor-rec-l">Human receptionist</div>
-        <div style="font-size:clamp(1.9rem,5vw,2.7rem);font-weight:900;color:var(--muted);text-decoration:line-through;letter-spacing:-0.03em;line-height:1;">$40,000<span style="font-size:0.95rem;font-weight:400;">/yr</span></div>
-        <div style="font-size:0.75rem;color:var(--muted);margin-top:8px;" data-i18n="anchor-rec-s">9–5 · one language · one call at a time</div>
-      </div>
-      <div style="font-size:1.7rem;color:var(--amber);font-weight:800;">→</div>
-      <div style="text-align:center;">
-        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">Sofia AI</div>
-        <div style="font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:900;color:var(--white);letter-spacing:-0.03em;line-height:1;">$399<span style="font-size:1.05rem;font-weight:400;color:var(--muted);">/mo</span></div>
-        <div style="font-size:0.78rem;color:var(--text);margin-top:8px;" data-i18n="anchor-sof-s">or $4,200/yr ($350/mo) · 24/7 · EN + ES · never misses</div>
+      <div class="sms">
+        <div class="sms-top" data-t="smstop">Your customer gets</div>
+        <p data-t="smsp">Thanks for calling! We got your info, and the team will reach out to confirm your time.</p>
       </div>
     </div>
-    <p style="font-size:0.98rem;color:var(--text);max-width:620px;margin:26px auto 0;line-height:1.7;" data-i18n="anchor-line">Same job — answer every call and capture the lead. Sofia does it for <strong style="color:var(--white);">about a tenth of the cost</strong>, in two languages, and she never sleeps, never quits, and never sends a caller to voicemail.</p>
-    <a href="#contact" class="btn-hero" style="margin-top:28px;font-size:1rem;padding:15px 40px;" data-i18n="anchor-cta">Book Your Free Setup Call</a>
   </div>
-</div>
+</header>
 
-<!-- ══ STRIP ══════════════════════════════════════════════════ -->
-<div class="strip" data-i18n="strip">Sofia is an AI voice assistant &nbsp;·&nbsp; <strong>We aim for 99.5%+ uptime</strong> &nbsp;·&nbsp; Available 24/7 &nbsp;·&nbsp; English &amp; Spanish &nbsp;·&nbsp; No app to download</div>
-
-<!-- ══ HOW IT WORKS ═══════════════════════════════════════════ -->
-<!-- ══ PROOF / REAL USAGE ══════════════════════════════════════ -->
-<div class="section">
-  <div class="sec-label" style="text-align:center" data-i18n="proof-label">Real Usage</div>
-  <h2 class="sec-h" style="text-align:center;max-width:740px;margin:0 auto 10px;" data-i18n="proof-h">Already answering the calls a 9‑to‑5 receptionist would miss.</h2>
-  <p class="sec-sub" style="text-align:center;margin:0 auto 40px;" data-i18n="proof-sub">Live across 2 Albuquerque HVAC shops. Here's what actually came in — June–July 2026.</p>
-  <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;max-width:840px;margin:0 auto;">
-    <div class="feat-card" style="flex:1;min-width:200px;text-align:center;">
-      <div style="font-size:2.7rem;font-weight:900;color:var(--amber);letter-spacing:-0.03em;line-height:1;" data-i18n="proof-n1">254</div>
-      <div style="font-size:0.85rem;color:var(--text);margin-top:8px;line-height:1.4;" data-i18n="proof-s1">calls answered in ~6 weeks</div>
-    </div>
-    <div class="feat-card" style="flex:1;min-width:200px;text-align:center;">
-      <div style="font-size:2.7rem;font-weight:900;color:var(--amber);letter-spacing:-0.03em;line-height:1;" data-i18n="proof-n2">1 in 3</div>
-      <div style="font-size:0.85rem;color:var(--text);margin-top:8px;line-height:1.4;" data-i18n="proof-s2">came in outside 9–5 on weekdays — when a front desk is gone</div>
-    </div>
-    <div class="feat-card" style="flex:1;min-width:200px;text-align:center;">
-      <div style="font-size:2.7rem;font-weight:900;color:var(--amber);letter-spacing:-0.03em;line-height:1;" data-i18n="proof-n3">1 in 5</div>
-      <div style="font-size:0.85rem;color:var(--text);margin-top:8px;line-height:1.4;" data-i18n="proof-s3">came in nights or weekends</div>
-    </div>
-  </div>
-  <p style="font-size:1.05rem;color:var(--white);text-align:center;max-width:600px;margin:28px auto 0;font-style:italic;line-height:1.6;" data-i18n="proof-quote">Both Albuquerque shops asked to keep her — and one offered to refer other shops.</p>
-  <p style="font-size:0.72rem;color:var(--muted);text-align:center;max-width:660px;margin:16px auto 0;line-height:1.6;" data-i18n="proof-note">Actual inbound calls Sofia answered across 2 live Albuquerque HVAC shops, Jun–Jul 2026. Every after-hours call is one that would otherwise hit voicemail. Individual results vary.</p>
-</div>
-
-<div class="hiw-bg" id="live-call">
-  <div class="section">
-    <div class="sec-label" data-i18n="hiw-label">Live Demo</div>
-    <h2 class="sec-h" data-i18n="hiw-live-h">Hear a Real Call</h2>
-    <p class="sec-sub" style="margin-bottom:20px;" data-i18n="hiw-live-sub">Sofia answers, qualifies the lead, handles pricing questions, gets the address — and switches to Spanish mid-call without missing a beat.</p>
-    <div style="background:var(--amber-dim);border:1px solid var(--amber-border);border-radius:14px;padding:22px 20px;margin-bottom:24px;text-align:center;">
-      <button id="talk-btn" onclick="startSofiaCall()" style="background:var(--amber);color:#000;font-weight:800;font-size:1.08rem;padding:15px 30px;border:none;border-radius:10px;cursor:pointer;font-family:inherit;line-height:1.3;">🎙️ Talk to Sofia now — in your browser</button>
-      <div id="talk-status" style="font-size:0.82rem;color:var(--muted);margin-top:12px;min-height:1.1em;"></div>
-      <p style="font-size:0.85rem;color:var(--muted);margin:12px 0 0;" data-i18n="hiw-live-call">Prefer to dial? Call <a href="tel:+19152867434" style="font-weight:700;white-space:nowrap;color:var(--amber);">(915) 286-7434</a> — the exact HVAC Sofia these 2 Albuquerque shops use.</p>
-    </div>
-    <details style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:20px;margin-bottom:0">
-      <summary style="font-weight:700;cursor:pointer;color:var(--amber,#f59e0b);font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase">Read a real call — name &amp; address redacted</summary>
-      <div style="margin-top:16px;font-size:0.87rem;color:#94a3b8;line-height:1.9;display:grid;gap:8px">
-        <div style="font-size:0.72rem;color:#64748b;">Real inbound call to Tech Air (Albuquerque). Caller name and address redacted for privacy.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> This call may be recorded for quality and training. Thank you for calling Tech Air Heating and Cooling — this is Sofia. How can I help you today?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> You guys did some work for me before, and I need someone to come out again — one of my tenants' AC isn't working.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Thanks for calling in. Can you spell your last name for me, just to make sure I have it right?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> <span style="color:#64748b">[name redacted]</span></div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Got it, thanks. What's going on with the system this time?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> I'm an apartment manager — one of my tenants says the AC isn't cooling. I've been out of town, nobody's been out there in about a week.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Okay, just not cooling — no other symptoms. Is it a swamp cooler or a refrigerated AC?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> It's on the roof, whichever that is.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Got it. About how many square feet is the apartment, and do you know how old the unit is?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> About nine fifty. Not sure how old — we turned the unit over around the end of April.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> No problem. Can you confirm the full address, including the ZIP code?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> <span style="color:#64748b">[address redacted]</span>, Albuquerque, New Mexico.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Do you need someone out right away, or do you have some flexibility on timing?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> Right away, please. Mornings are better.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Okay — 8 to 10 in the morning. And if that doesn't work out, is there a second time that would work too?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> Twelve to two.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> Got it, a backup of 12 to 2. Just so you know, the service-call fee on weekdays is $109 plus tax. Is that okay?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> Yes.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> I can send a quick confirmation text to the number you're calling from — and if you have photos of the issue, reply to that text so the tech comes prepared. Is that okay?</div>
-        <div><strong style="color:#f59e0b">Caller:</strong> That's fine.</div>
-        <div><strong style="color:#f1f5f9">Sofia:</strong> You're down for tomorrow morning, 8 to 10, with a backup of 12 to 2 — but those are tentative, not a confirmed appointment yet. Our team will review and reach back out to confirm. Thanks for calling, and have a great day.</div>
-        <div style="margin-top:8px;padding:12px 14px;background:rgba(167,139,250,0.07);border-radius:8px;border:1px solid rgba(167,139,250,0.18);color:#f1f5f9;font-size:0.84rem"><strong>What happens next:</strong> The shop gets a WhatsApp card with the caller's name, address, the job, and urgency — instantly. One tap sends an "on my way" text back to the customer.</div>
+<section>
+  <div class="wrap">
+    <div class="label" data-t="hl">How it works</div>
+    <h2 data-t="hh">You do the work. She takes the calls.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3 data-t="s1h">You can't grab the phone.</h3>
+        <p data-t="s1p">A customer calls at 9 PM, on a Sunday, or while you're on a roof. It rings you first.</p>
       </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3 data-t="s2h">Sofia picks up.</h3>
+        <p data-t="s2p">She gets the name, address, the problem, and the unit details. She gives your visit fee and gets a time plus a backup.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3 data-t="s3h">The job hits your WhatsApp.</h3>
+        <p data-t="s3p">In seconds. The customer gets a confirmation text. You decide when to call them back.</p>
+      </div>
+    </div>
+    <p class="proof" data-t="proof">Answering calls today for <b>2 Albuquerque HVAC shops.</b></p>
+  </div>
+</section>
+
+<section id="offer">
+  <div class="wrap">
+    <div class="narrow">
+      <div class="why">
+        <p data-t="why">"It's the slow season. You're not getting July call volume right now, so I'm not charging July prices."</p>
+        <cite data-t="whocite">Robert Gavaldon, RG Automations</cite>
+      </div>
+    </div>
+    <div class="label" data-t="ol">Pricing</div>
+    <h2 data-t="oh">Pick how you pay.</h2>
+    <p class="lead" style="margin-bottom:34px" data-t="olead">Both start with 3 weeks free on your own line. No card.</p>
+
+    <div class="plans">
+      <div class="plan featured">
+        <div class="ribbon" data-t="ribbon">5 months on me</div>
+        <div class="plan-name" data-t="p1n">The Slow-Season Pass</div>
+        <div class="price"><s>$4,987</s><b>$2,793</b><small data-t="p1per">for the whole year</small></div>
+        <p class="deal" data-t="p1deal">Pay 7 months at $399. The other 5 are on me. Setup waived.</p>
+        <p class="save" data-t="p1save">You save $2,194 vs. paying monthly.</p>
+        <ul>
+          <li data-t="p1l1">No $199 setup fee</li>
+          <li data-t="p1l2">450 minutes a month, about 150 calls</li>
+          <li data-t="p1l3">Never-Miss Guarantee</li>
+          <li data-t="p1l4">Change your mind in the first 30 days after paying? You pay for one month and I refund the rest.</li>
+        </ul>
+        <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p1cta">Start with 3 free weeks</a>
+        <p class="fine" style="margin-top:12px" data-t="p1fine">$4,987 = a year at $399/month plus the $199 setup.</p>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name" data-t="p2n">Monthly</div>
+        <div class="price"><b>$399</b><small data-t="p2per">/month</small></div>
+        <p class="deal" data-t="p2deal">Plus a one-time $199 setup. Cancel anytime.</p>
+        <ul>
+          <li data-t="p2l1">The same Sofia, everything included</li>
+          <li data-t="p2l2">450 minutes a month, about 150 calls</li>
+          <li data-t="p2l3">Never-Miss Guarantee</li>
+          <li data-t="p2l4">No contract</li>
+        </ul>
+        <a class="btn ghost" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p2cta">Start with 3 free weeks</a>
+      </div>
+    </div>
+
+    <p class="plans-note" data-t="pnote">Busy month past 450 minutes? You pay for the extra minutes or move up a plan.</p>
+
+    <div class="guar">
+      <div class="guar-icon" aria-hidden="true">🛡️</div>
+      <div>
+        <h3 data-t="gh">The Never-Miss Guarantee</h3>
+        <p data-t="gp">If Sofia misses a call during your business hours, that month is free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <div class="label" data-t="fl">Straight answers</div>
+    <h2 style="margin-bottom:26px" data-t="fh">Questions owners ask</h2>
+    <details>
+      <summary data-t="q1">Is she really AI? Will my customers know?</summary>
+      <p data-t="a1">Yes. She tells callers up front that she's the AI assistant for your shop, taking calls while the team is out on jobs. She speaks English and Spanish and switches on her own.</p>
     </details>
-
-    <div style="background:var(--amber-dim);border:1px solid var(--amber-border);border-radius:12px;padding:18px 22px;margin-top:22px;">
-      <p style="font-size:0.88rem;color:var(--white);line-height:1.7;margin:0;" data-i18n="demo-callout"><strong style="color:var(--amber);">That call above is real.</strong> Sofia got the full name, address, what the AC was doing, and when — then switched to Spanish mid-call. The HVAC shop got the WhatsApp text before the customer hung up.</p>
-    </div>
-
-    <div class="hiw-stage" id="hiw-stage" style="display:none">
-      <div class="hiw-prog"><div class="hiw-prog-fill" id="hiw-fill"></div></div>
-
-      <!-- S1: Incoming call -->
-      <div class="hiw-scene" id="hiw-s1">
-        <div class="hiw-tag">Incoming Call</div>
-        <div class="hiw-callout" id="hiw-c1">You're unavailable. <strong>Sofia picks up instantly.</strong></div>
-        <div class="hiw-time">
-          <div class="hiw-time-digits"><strong>11:47</strong> PM</div>
-          <div class="hiw-time-label">Incoming call</div>
-        </div>
-        <div class="hiw-call-card">
-          <div class="hiw-av">
-            👤
-            <div class="hiw-flag" id="hiw-caller-flag">🇲🇽</div>
-          </div>
-          <div class="hiw-caller">
-            <div class="hiw-caller-name">María García</div>
-            <div class="hiw-caller-issue">❄️ AC not cooling — 85°F inside</div>
-          </div>
-          <div class="hiw-urg">Urgent</div>
-        </div>
-      </div>
-
-      <!-- S2: Sofia answers bilingual -->
-      <div class="hiw-scene" id="hiw-s2">
-        <div class="hiw-tag">Sofia Answers</div>
-        <div class="hiw-callout" id="hiw-c2">Answers <strong>24/7 in English or Spanish</strong> — automatically</div>
-        <div class="hiw-sofia-card">
-          <div class="hiw-sofia-hd">
-            <div class="hiw-sofia-av">🤖</div>
-            <div>
-              <div class="hiw-sofia-name">Sofia AI</div>
-              <div class="hiw-sofia-st">● Live — answering call</div>
-            </div>
-            <div class="hiw-lang-tog">
-              <div class="hiw-lang-opt" id="hiw-lang-en">EN</div>
-              <div class="hiw-lang-opt on" id="hiw-lang-es">ES</div>
-            </div>
-          </div>
-          <div class="hiw-speech">
-            <div class="hiw-speech-main" id="hiw-speech-main">"¿Cuál es su dirección?"</div>
-            <div class="hiw-speech-sub" id="hiw-speech-sub">Detected Spanish → switched automatically</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- S3: WhatsApp card -->
-      <div class="hiw-scene" id="hiw-s3">
-        <div class="hiw-tag">WhatsApp Lead Card</div>
-        <div class="hiw-callout" id="hiw-c3">Full details. <strong>Three tap buttons.</strong> Respond in seconds.</div>
-        <div class="hiw-wa-wrap">
-          <span class="wa-chip">WhatsApp · Sofia AI</span>
-          <div class="wa-card">
-            <div class="wa-rows">
-              <div class="wa-row"><span class="wa-lbl" id="hiw-wa-lbl1">Name:</span><span class="wa-val">Carlos Mendez</span></div>
-              <div class="wa-row"><span class="wa-lbl" id="hiw-wa-lbl2">Address:</span><span class="wa-val">2847 Mesa Hills Dr</span></div>
-              <div class="wa-row"><span class="wa-lbl" id="hiw-wa-lbl3">Service:</span><span class="wa-val" id="hiw-wa-val3">AC not cooling</span></div>
-              <div class="wa-row"><span class="wa-lbl" id="hiw-wa-lbl4">Urgency:</span><span class="wa-val wa-urgency" id="hiw-wa-val4">🔴 Emergency</span></div>
-            </div>
-            <div class="wa-ai" id="hiw-wa-ai">No cooling, house at 85°F, elderly resident. Needs urgent service.</div>
-            <div class="wa-btns">
-              <div class="wa-btn wa-g" id="hiw-wa-g">✅ On My Way</div>
-              <div class="wa-btn wa-b" id="hiw-wa-b">📅 Schedule</div>
-              <div class="wa-btn wa-r" id="hiw-wa-r">✕ Not a Client</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- S4: Tap + customer SMS -->
-      <div class="hiw-scene" id="hiw-s4">
-        <div class="hiw-tag">One Tap — Customer Notified</div>
-        <div class="hiw-callout" id="hiw-c4">Tap once. Customer <strong>auto-notified in their language.</strong></div>
-        <div class="hiw-tap-row">
-          <div class="hiw-tap-btn" id="hiw-tap-omw" style="background:rgba(74,222,128,0.12);border-color:rgba(74,222,128,0.25);color:#4ade80;">✅ On My Way</div>
-          <div class="hiw-tap-btn" id="hiw-tap-sched" style="background:rgba(96,165,250,0.12);border-color:rgba(96,165,250,0.25);color:#60a5fa;">📅 Schedule</div>
-          <div class="hiw-tap-btn" id="hiw-tap-no" style="background:rgba(248,113,113,0.12);border-color:rgba(248,113,113,0.25);color:#f87171;">✕ Not a Client</div>
-        </div>
-        <div class="hiw-sms-preview" id="hiw-sms">
-          <div class="hiw-sms-label" id="hiw-sms-label">🇲🇽 &nbsp; Customer receives instantly:</div>
-          <div class="hiw-sms-text" id="hiw-sms-text">
-            Hola <strong>María</strong> 👋<br>
-            <strong>Juan va en camino.</strong>
-          </div>
-        </div>
-      </div>
-
-      <!-- S5: Automations -->
-      <div class="hiw-scene" id="hiw-s5">
-        <div class="hiw-tag">Automatic Follow-Ups</div>
-        <div class="hiw-callout" id="hiw-c5"><strong>Sofia handles the rest.</strong> You just do the work.</div>
-        <div class="hiw-auto-list">
-          <div class="hiw-auto-row" id="hiw-a1">
-            <div class="hiw-auto-icon">💲</div>
-            <div class="hiw-auto-info">
-              <div class="hiw-auto-name">Quote Follow-Up</div>
-              <div class="hiw-auto-sub">Sent automatically — Day 1, 3, and 7</div>
-            </div>
-            <div class="hiw-auto-badge">Auto</div>
-          </div>
-          <div class="hiw-auto-row" id="hiw-a2">
-            <div class="hiw-auto-icon">⭐</div>
-            <div class="hiw-auto-info">
-              <div class="hiw-auto-name">Google Review Request</div>
-              <div class="hiw-auto-sub">Sent when you close the job</div>
-            </div>
-            <div class="hiw-auto-badge">Auto</div>
-          </div>
-          <div class="hiw-auto-row" id="hiw-a3">
-            <div class="hiw-auto-icon">💬</div>
-            <div class="hiw-auto-info">
-              <div class="hiw-auto-name">"mark Carlos done"</div>
-              <div class="hiw-auto-sub">Text Sofia — she handles everything else</div>
-            </div>
-            <div class="hiw-auto-badge grn">Done ✓</div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /hiw-stage -->
-    <div class="hiw-dots" id="hiw-dots"></div>
+    <details>
+      <summary data-t="q2">Do I keep my number?</summary>
+      <p data-t="a2">Yes. Your phone rings first. Only the calls you can't grab forward to Sofia, and you can turn that off anytime with one code.</p>
+    </details>
+    <details>
+      <summary data-t="q3">What happens after the 3 free weeks?</summary>
+      <p data-t="a3">Pick the year or monthly. If she's not for you, turn off the forwarding and you owe nothing.</p>
+    </details>
+    <details>
+      <summary data-t="q4">What if I change my mind after paying for the year?</summary>
+      <p data-t="a4">Cancel in the first 30 days after paying. You pay for one month and I refund the rest.</p>
+    </details>
+    <details>
+      <summary data-t="q5">What if summer gets crazy?</summary>
+      <p data-t="a5">450 minutes a month are included, about 150 calls. That covers most shops even in July. If you go past it, you pay for the extra minutes or move up a plan.</p>
+    </details>
+    <details>
+      <summary data-t="q6">How fast can I go live?</summary>
+      <p data-t="a6">The same day. I set her up with you on the phone, and she's answering before we hang up.</p>
+    </details>
   </div>
-</div>
+</section>
 
-<!-- ══ WHATSAPP WALKTHROUGH ════════════════════════════════════ -->
-<div class="hiw-bg">
-<div class="section">
-  <div class="sec-label sec-label-green" data-i18n="waf-label">WhatsApp Walkthrough</div>
-  <h2 class="sec-h" data-i18n="waf-h">See It Working on a Real Phone</h2>
-  <p class="sec-sub" style="margin-bottom:28px;" data-i18n="waf-sub">Watch how a lead card arrives in WhatsApp after a call, what you tap, and what your customer gets — in real time.</p>
-  <div style="position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;margin-bottom:0;">
-    <iframe src="https://www.loom.com/embed/1a851885c92c4fcf876d2f3673668a6e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
+<section class="final" style="border-bottom:0">
+  <div class="wrap narrow">
+    <h2 data-t="endh">Want to hear her first?</h2>
+    <p class="lead" data-t="endp">Call Sofia like a customer with a dead AC. One minute and you'll know if she fits your shop.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="end1">Book a 15-minute call</a>
+      <a class="btn ghost" id="sms-link" href="sms:+19156132915?&amp;body=Hi%20Robert%2C%20I%27d%20like%20to%20try%20Sofia." data-t="end2">Text Robert</a>
+      <a class="btn ghost" href="tel:+19152867434" data-t="end3">Call the demo</a>
+    </div>
+    <p class="signoff">Robert Gavaldon · RG Automations · <a href="tel:+19156132915">(915) 613-2915</a></p>
   </div>
-</div>
-</div>
+</section>
 
-<div style="display:none"><!-- WA flow data preserved for i18n -->
-
-  <div class="waflow-steps">
-    <div class="waflow-step">
-      <div class="waflow-num">1</div>
-      <div>
-        <div class="waflow-title" data-i18n="waf-s1-title">Call ends — job arrives</div>
-        <div class="waflow-body" data-i18n="waf-s1-body">Sofia talks to them. Gets their name and address. Hangs up. You get it all on WhatsApp in seconds.</div>
-      </div>
-    </div>
-    <div class="waflow-step">
-      <div class="waflow-num">2</div>
-      <div>
-        <div class="waflow-title" data-i18n="waf-s2-title">Tap one button</div>
-        <div class="waflow-body" data-i18n="waf-s2-body">✅ On My Way · 📅 Schedule · ✕ Not a Client. One tap. Done.</div>
-      </div>
-    </div>
-    <div class="waflow-step">
-      <div class="waflow-num">3</div>
-      <div>
-        <div class="waflow-title" data-i18n="waf-s3-title">They get a text right away</div>
-        <div class="waflow-body" data-i18n="waf-s3-body">The second you tap, your customer gets a text. In their language. English or Spanish. You didn't have to call anyone.</div>
-      </div>
-    </div>
-    <div class="waflow-step">
-      <div class="waflow-num">4</div>
-      <div>
-        <div class="waflow-title" data-i18n="waf-s4-title">Sofia does the rest</div>
-        <div class="waflow-body" data-i18n="waf-s4-body">Follow-ups. Reminders. Review requests. Sofia sends all of it. You just do the job.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="waflow-panels">
-    <div class="waflow-panel">
-      <div class="waflow-panel-label" data-i18n="waf-p1-label">📲 What you see in WhatsApp</div>
-      <span class="wa-chip">WhatsApp · Sofia AI</span>
-      <div class="wa-card">
-        <div class="wa-rows">
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl1">Name:</span><span class="wa-val">Carlos Mendez</span></div>
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl2">Phone:</span><span class="wa-val">(915) 555-0142</span></div>
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl3">Address:</span><span class="wa-val">2847 Mesa Hills Dr</span></div>
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl4">Service:</span><span class="wa-val" data-i18n="waf-card-service">AC not cooling</span></div>
-          <div class="wa-row"><span class="wa-lbl" data-i18n="wa-lbl5">Urgency:</span><span class="wa-val wa-urgency" data-i18n="waf-card-urgency">🔴 Emergency</span></div>
-        </div>
-        <div class="wa-ai" data-i18n="waf-card-ai">No cooling, house at 85°F, elderly resident. Needs service now.</div>
-        <div class="wa-btns">
-          <div class="wa-btn wa-g" data-i18n="wa-btn-g">✅ On My Way</div>
-          <div class="wa-btn wa-b" data-i18n="wa-btn-b">📅 Schedule</div>
-          <div class="wa-btn wa-r" data-i18n="wa-btn-r">✕ Not a Client</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="waflow-arrow">→</div>
-
-    <div class="waflow-panel">
-      <div class="waflow-panel-label" data-i18n="waf-p2-label">💬 What your customer gets</div>
-      <div class="waflow-sms">
-        <div style="font-size:0.65rem;color:#4b7a4b;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">SMS · (866) 827-6803</div>
-        <div class="waflow-bubble">
-          Hola <strong>Carlos</strong> 👋<br>
-          <strong>Juan va en camino.</strong> Llegará pronto a <strong>2847 Mesa Hills Dr</strong>. Si tienes fotos puedes responder este mensaje. — Gavaldon HVAC
-        </div>
-        <div style="font-size:0.72rem;color:#4b7a4b;margin-top:10px;font-style:italic;" data-i18n="waf-sms-note">In English if they called in English.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="waflow-cmds">
-    <div class="sec-label" style="margin-bottom:14px;" data-i18n="waf-cmds-label">Bonus: Text Sofia to run your jobs</div>
-    <div class="waflow-cmd">
-      <div class="waflow-cmd-text">"mark Carlos done"</div>
-      <div class="waflow-cmd-result" data-i18n="waf-cmd1-r">→ Job closed · Google review sent to customer</div>
-    </div>
-    <div class="waflow-cmd">
-      <div class="waflow-cmd-text">"schedule Tuesday 2pm"</div>
-      <div class="waflow-cmd-result" data-i18n="waf-cmd2-r">→ Customer gets a text right away</div>
-    </div>
-    <div class="waflow-cmd">
-      <div class="waflow-cmd-text">"send quote $450 AC repair"</div>
-      <div class="waflow-cmd-result" data-i18n="waf-cmd3-r">→ Quote sent · Sofia follows up Day 1, 3, 7</div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ WHAT SOFIA DOES ═══════════════════════════════════════ -->
-<div class="section" style="padding-top:60px;padding-bottom:60px;">
-  <div class="sec-label sec-label-green" data-i18n="feat-label">What You Get</div>
-  <h2 class="sec-h" data-i18n="feat-title">Everything Included.<br>Nothing to Set Up.</h2>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 32px;margin-top:28px;max-width:700px;">
-    <div style="display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--text);line-height:1.5;"><span style="color:var(--amber);font-weight:700;flex-shrink:0;">→</span><span data-i18n="f1-1">Answers every call — day or night</span></div>
-    <div style="display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--text);line-height:1.5;"><span style="color:var(--amber);font-weight:700;flex-shrink:0;">→</span><span data-i18n="f3-1">Follows up on quotes — Day 1, 3, and 7</span></div>
-    <div style="display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--text);line-height:1.5;"><span style="color:var(--amber);font-weight:700;flex-shrink:0;">→</span><span data-i18n="f1-2">Speaks English and Spanish — automatically</span></div>
-    <div style="display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--text);line-height:1.5;"><span style="color:var(--amber);font-weight:700;flex-shrink:0;">→</span><span data-i18n="f3-2">Asks for a Google review after each job</span></div>
-    <div style="display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--text);line-height:1.5;"><span style="color:var(--amber);font-weight:700;flex-shrink:0;">→</span><span data-i18n="f2-1">Sends you the name, address, and problem</span></div>
-    <div style="display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--text);line-height:1.5;"><span style="color:var(--amber);font-weight:700;flex-shrink:0;">→</span><span data-i18n="f3-3">Reminds the customer the day before</span></div>
-    <div style="display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--text);line-height:1.5;"><span style="color:var(--amber);font-weight:700;flex-shrink:0;">→</span><span data-i18n="f2-2">Three tap buttons — Go · Schedule · Skip</span></div>
-    <div style="display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--text);line-height:1.5;"><span style="color:var(--amber);font-weight:700;flex-shrink:0;">→</span><span data-i18n="f4-1">Text "mark Juan done" — it's done</span></div>
-    <div style="display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--text);line-height:1.5;"><span style="color:var(--amber);font-weight:700;flex-shrink:0;">→</span><span data-i18n="f2-3">Customer gets a text when you're coming</span></div>
-    <div style="display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--text);line-height:1.5;"><span style="color:var(--amber);font-weight:700;flex-shrink:0;">→</span><span data-i18n="f4-4">We set it all up — no new app</span></div>
-  </div>
-</div>
-
-<!-- ══ SOFIA vs HUMAN RECEPTIONIST ═════════════════════════════ -->
-<div class="hiw-bg">
-  <div class="section">
-    <div class="sec-label" data-i18n="cmp-label">Sofia vs. Hiring</div>
-    <h2 class="sec-h" data-i18n="cmp-h">Sofia vs. a Human Receptionist</h2>
-    <p class="sec-sub" data-i18n="cmp-sub">Same job — answer the phone and capture the lead. One costs $40,000 a year and goes home at 5. The other is $399 a month and never sleeps.</p>
-
-    <div class="cmp-heads">
-      <div class="cmp-head-human" data-i18n="cmp-head-human">Human receptionist</div>
-      <div class="cmp-head-sofia" data-i18n="cmp-head-sofia">Sofia AI</div>
-    </div>
-
-    <div class="cmp-list">
-      <div class="cmp-item">
-        <div class="cmp-dim" data-i18n="cmp-d1">Cost</div>
-        <div class="cmp-pair">
-          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu1">~$40,000/year + payroll taxes &amp; benefits</span></div>
-          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so1"><strong>$399/month</strong> — or $4,200/yr ($350/mo)</span></div>
-        </div>
-      </div>
-      <div class="cmp-item">
-        <div class="cmp-dim" data-i18n="cmp-d2">Hours</div>
-        <div class="cmp-pair">
-          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu2">40 hrs/week, business hours only</span></div>
-          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so2"><strong>24/7 / 365</strong> — nights, weekends, holidays</span></div>
-        </div>
-      </div>
-      <div class="cmp-item">
-        <div class="cmp-dim" data-i18n="cmp-d3">Languages</div>
-        <div class="cmp-pair">
-          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu3">Usually one</span></div>
-          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so3"><strong>English + Spanish</strong> on every call</span></div>
-        </div>
-      </div>
-      <div class="cmp-item">
-        <div class="cmp-dim" data-i18n="cmp-d4">Two calls at once</div>
-        <div class="cmp-pair">
-          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu4">Second caller goes to voicemail</span></div>
-          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so4"><strong>Answers unlimited calls</strong> at once</span></div>
-        </div>
-      </div>
-      <div class="cmp-item">
-        <div class="cmp-dim" data-i18n="cmp-d5">Sick days / lunch / vacation</div>
-        <div class="cmp-pair">
-          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu5">Calls get missed</span></div>
-          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so5"><strong>Never off</strong>, never a break</span></div>
-        </div>
-      </div>
-      <div class="cmp-item">
-        <div class="cmp-dim" data-i18n="cmp-d6">Ramp-up</div>
-        <div class="cmp-pair">
-          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu6">Weeks of hiring &amp; training</span></div>
-          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so6"><strong>Live on your line</strong> the same day</span></div>
-        </div>
-      </div>
-      <div class="cmp-item">
-        <div class="cmp-dim" data-i18n="cmp-d7">Turnover</div>
-        <div class="cmp-pair">
-          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu7">Quits → re-hire, re-train</span></div>
-          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so7"><strong>Never quits</strong></span></div>
-        </div>
-      </div>
-      <div class="cmp-item">
-        <div class="cmp-dim" data-i18n="cmp-d8">Every lead logged to your phone</div>
-        <div class="cmp-pair">
-          <div class="cmp-side cmp-human"><span class="cmp-mark">✕</span><span data-i18n="cmp-hu8">Manual / sticky notes</span></div>
-          <div class="cmp-side cmp-sofia"><span class="cmp-mark">✓</span><span data-i18n="cmp-so8"><strong>Automatic text</strong> with name, address, job</span></div>
-        </div>
-      </div>
-    </div>
-
-    <p class="cmp-bottom" data-i18n="cmp-bottom">A front-desk hire costs <strong>~$40,000 a year</strong> and still goes home at 5. Sofia is about a tenth of the cost and never misses a call.</p>
-  </div>
-</div>
-
-<!-- ══ PRICING ════════════════════════════════════════════════ -->
-<div class="section" style="border-top:1px solid var(--border); padding-top:88px;">
-  <div class="pricing-intro">
-    <div class="sec-label" data-i18n="price-label">Pricing</div>
-    <h2 class="sec-h" data-i18n="price-h2">Choose Your Plan</h2>
-    <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;" data-i18n="price-sub">One simple plan. About a tenth of what a front-desk hire costs — and Sofia never goes home at 5.</p>
-  </div>
-
-  <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.35);border-radius:12px;padding:14px 22px;text-align:center;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;">
-    <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);" data-i18n="beta-label">✓ 3 Weeks Free</span>
-    <span style="color:var(--muted);font-size:0.82rem;" data-i18n="beta-text">Try Sofia free for 3 weeks on your own line. $399/month after that, cancel anytime.</span>
-  </div>
-
-  <div class="trial-banner">
-    <div class="trial-left">
-      <h3 data-i18n="trial-h3">3 Weeks Free, On Your Own Line</h3>
-      <p data-i18n="trial-p">Free for 3 weeks, then $399/month plus a one-time $199 setup. Live on your line the same day. No contract, cancel anytime.</p>
-      <div class="trial-bullets">
-        <span class="tb" data-i18n="tb1">✓ 3 weeks free</span>
-        <span class="tb" data-i18n="tb2">✓ Never-Miss Guarantee</span>
-        <span class="tb" data-i18n="tb3">✓ Live same day</span>
-        <span class="tb" data-i18n="tb4">✓ Keep your number</span>
-      </div>
-    </div>
-    <a href="#contact" class="btn-trial" data-i18n="trial-btn">Book Your Free Setup Call →</a>
-  </div>
-
-  <div class="vstack">
-    <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;" data-i18n="vs-label">What's included — every plan</div>
-    <div class="vstack-grid">
-      <span style="color:var(--text);">24/7 AI voice receptionist</span><span class="vstack-strike">$2,500+/mo to hire</span>
-      <span style="color:var(--text);">Bilingual (English &amp; Spanish)</span><span class="vstack-strike">$400/mo service</span>
-      <span style="color:var(--text);">WhatsApp lead cards + tap buttons</span><span class="vstack-strike">$200/mo CRM tools</span>
-      <span style="color:var(--text);">Customer SMS + photo forwarding</span><span class="vstack-strike">$150/mo SMS tools</span>
-      <span style="color:var(--text);">Automatic quote follow-ups (Day 1, 3, 7)</span><span class="vstack-strike">$200/mo automation</span>
-      <span style="color:var(--text);">Full call transcripts + dashboard</span><span class="vstack-strike">$100/mo call tracking</span>
-      <span style="color:var(--text);">White-glove setup — we do everything</span><span class="vstack-strike">$500 one-time setup</span>
-    </div>
-    <div class="vstack-total">
-      <div>
-        <div style="font-size:0.78rem;color:var(--muted);" data-i18n="vs-equiv">If you built this yourself:</div>
-        <div style="font-size:1.4rem;font-weight:900;color:var(--muted);letter-spacing:-0.02em;text-decoration:line-through;">$3,550+/mo</div>
-      </div>
-      <div style="text-align:right;">
-        <div style="font-size:0.78rem;color:var(--amber);font-weight:700;">Sofia:</div>
-        <div style="font-size:1.4rem;font-weight:900;color:var(--white);letter-spacing:-0.02em;">$399/mo</div>
-      </div>
-    </div>
-    <p style="font-size:0.7rem;color:var(--muted);margin-top:10px;">Market rate figures are illustrative estimates for comparison purposes. Individual savings vary.</p>
-  </div>
-
-  <div class="plans-grid" style="max-width:760px;margin:0 auto;">
-    <div class="plan-card featured">
-      <div class="popular-badge" data-i18n="popular">Most Popular</div>
-      <div class="plan-name" data-i18n="pm-name">Monthly</div>
-      <div class="plan-price">$399<span>/mo</span></div>
-      <div class="plan-tagline" data-i18n="pm-tagline">$598 to begin — $399 first month + $199 one-time setup</div>
-      <hr class="plan-divider">
-      <ul class="plan-features">
-        <li data-i18n="pmf1">24/7 bilingual answering — English &amp; Spanish</li>
-        <li data-i18n="pmf2">Every caller texted to your phone — name, address, problem</li>
-        <li data-i18n="pmf3">WhatsApp lead cards + tap-to-respond buttons</li>
-        <li data-i18n="pmf4">Customer SMS confirmations &amp; photo forwarding</li>
-        <li data-i18n="pmf5">Full call recordings + dashboard</li>
-        <li data-i18n="pmf6">White-glove setup — live on your line same day</li>
-        <li data-i18n="pmf7">3 weeks free on your own line</li>
-        <li data-i18n="pmf8">Never-Miss Guarantee — a missed call means that month is free</li>
-      </ul>
-      <p class="plan-best" data-i18n="pm-best">Best for: <strong>most HVAC shops</strong></p>
-      <a href="#contact" class="btn-plan btn-amber" data-i18n="pm-cta">Book Your Free Setup Call</a>
-    </div>
-
-    <div class="plan-card">
-      <div class="plan-name" data-i18n="pa-name">Annual</div>
-      <div class="plan-price">$4,200<span>/yr</span></div>
-      <div class="plan-tagline" data-i18n="pa-tagline">No setup fee — save about $788 in year one</div>
-      <hr class="plan-divider">
-      <ul class="plan-features">
-        <li data-i18n="paf1">Everything in the monthly plan</li>
-        <li data-i18n="paf2">No $199 setup fee</li>
-        <li data-i18n="paf3">Nearly 2 months free vs. paying monthly</li>
-        <li data-i18n="paf4">Rate locked for the full year</li>
-        <li data-i18n="paf5">3 weeks free on your own line</li>
-      </ul>
-      <p class="plan-best" data-i18n="pa-best">Best for: <strong>shops ready to commit</strong></p>
-      <a href="#contact" class="btn-plan btn-outline" data-i18n="pa-cta">Book Your Free Setup Call</a>
-    </div>
-  </div>
-
-  <p class="roi-note" data-i18n="roi-note">A front-desk hire runs <strong>~$40,000/year.</strong> Sofia is $399/month — about a tenth of the cost — and she never misses a call. Individual results vary.</p>
-  <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;text-align:center;" data-i18n="call-def">Setup is a one-time $199. Monthly plans billed monthly, cancel anytime. The Never-Miss Guarantee applies during your business hours.</p>
-</div>
-
-<!-- ══ GUARANTEE ══════════════════════════════════════════════ -->
-<div style="background:var(--green-dim);border-top:1px solid var(--green-border);border-bottom:1px solid var(--green-border);padding:28px 5%;">
-  <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-    <div style="font-size:2rem;flex-shrink:0;">🛡️</div>
-    <div style="flex:1;min-width:220px;">
-      <div style="font-size:1.05rem;font-weight:800;color:var(--white);margin-bottom:5px;" data-i18n="guar-h2">Two Guarantees. Zero Risk.</div>
-      <div style="font-size:0.88rem;color:var(--text);line-height:1.65;" data-i18n="guar-p1">Try her free for 3 weeks on your own line — you don't pay a dollar until the trial ends. And the Never-Miss Guarantee: if Sofia ever misses a call during your business hours, that month is free.</div>
-    </div>
-    <div style="font-size:0.75rem;color:var(--muted);flex-shrink:0;text-align:right;">
-      <div data-i18n="guar-stat" style="margin-bottom:4px;">3 weeks free · Never-Miss Guarantee · No contracts</div>
-      <a href="https://rcgavaldon.github.io/rg-automation/terms.html" style="color:var(--muted);text-decoration:underline;">See full terms</a>
-    </div>
-  </div>
-</div>
-
-<!-- ══ FAQ ════════════════════════════════════════════════════ -->
-<div class="section">
-  <div class="sec-label" data-i18n="faq-label">FAQ</div>
-  <h2 class="sec-h" style="margin-bottom:36px;" data-i18n="faq-h2">Common Questions</h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <div class="faq-q" data-i18n="faq-q1">Is it really AI? Will my customers know?</div>
-      <div class="faq-a" data-i18n="faq-a1">Yes, Sofia is AI. She answers with your business name and asks how she can help — she doesn't lead with it. If a caller asks directly whether she's a real person, she honestly tells them she's an AI assistant your shop uses to take calls. She speaks fluent English and Spanish and switches automatically. Most callers are just glad someone answered.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" data-i18n="faq-q2">Do I have to change my phone number?</div>
-      <div class="faq-a" data-i18n="faq-a2">No. You keep your number — you just forward your line to Sofia. It takes about 10 minutes to set up and you can turn it off anytime.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" data-i18n="faq-q9">What does it cost?</div>
-      <div class="faq-a" data-i18n="faq-a9">$399/month plus a one-time $199 setup — so $598 to begin, then $399/month. Prefer annual? It's $4,200/year with no setup fee. Every plan starts with 3 weeks free.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" data-i18n="faq-q10">What if Sofia misses a call?</div>
-      <div class="faq-a" data-i18n="faq-a10">That's the Never-Miss Guarantee: if Sofia ever misses a call during your business hours, that month is free. She answers unlimited calls at once, so a second or third caller never lands in voicemail.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" data-i18n="faq-q11">How fast can I go live?</div>
-      <div class="faq-a" data-i18n="faq-a11">Same day. We do the white-glove setup on your onboarding call — you're answering calls before we hang up.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" data-i18n="faq-q3">I'm not good with technology.</div>
-      <div class="faq-a" data-i18n="faq-a3">We do white-glove setup. You don't touch any technology. We configure everything — you just tap buttons in WhatsApp. If you can text, you can use Sofia.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" data-i18n="faq-q5">Can I cancel anytime?</div>
-      <div class="faq-a" data-i18n="faq-a5">Yes. Monthly billing, no contracts, cancel anytime — and the first 3 weeks are free.</div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ FINAL CTA ═══════════════════════════════════════════════ -->
-<div class="final-cta-bg">
-  <div class="final-cta">
-    <h2 data-i18n="final-h2">Stop Losing Jobs<br>to Missed Calls</h2>
-    <p data-i18n="final-p">Book a free 15-min call. We provision Sofia live — you're answering calls before we hang up. $399/month after 3 free weeks, live same day. Results vary.</p>
-    <a href="#contact" class="btn-hero" data-i18n="final-cta-btn">Book Your Free Setup Call</a>
-    <p class="final-note" data-i18n="final-note">15-min call &nbsp;·&nbsp; Live before we hang up &nbsp;·&nbsp; 3 weeks free</p>
-  </div>
-</div>
-
-<!-- ══ CONTACT FORM ════════════════════════════════════════════ -->
-<div id="contact" style="background:#0d0d14;border-top:1px solid #1e1e2e;padding:72px 5%;">
-  <div style="max-width:500px;margin:0 auto;text-align:center;">
-    <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#f59e0b;margin-bottom:10px;" data-i18n="contact-label">Get Started</div>
-    <h2 style="font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;" data-i18n="contact-h2">Book a Free 15-Min Call</h2>
-    <p style="color:#64748b;font-size:0.95rem;margin-bottom:16px;" data-i18n="contact-sub">We provision Sofia live — you'll be answering calls before we hang up.</p>
-    <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:0.82rem;color:#f59e0b;font-weight:700;text-align:left;">
-      <span data-i18n="contact-diff">⚡ Most services take days or weeks. We go live in 5 minutes — on the call.</span>
-    </div>
-    <div style="font-size:0.85rem;color:#94a3b8;line-height:1.6;margin-bottom:24px;">
-      <span data-i18n="contact-alt">Prefer to pick a time yourself? <a href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" style="color:#f59e0b;font-weight:700;">Book on Calendly</a>. Or call Sofia live right now: <a href="tel:+19152867434" style="color:#f59e0b;font-weight:700;white-space:nowrap;">(915) 286-7434</a>.</span>
-    </div>
-    <form id="contact-form" style="display:flex;flex-direction:column;gap:13px;text-align:left;">
-      <div>
-        <label style="display:block;font-size:0.78rem;color:#94a3b8;margin-bottom:5px;">Your Name *</label>
-        <input type="text" name="name" required placeholder="John Smith"
-               style="width:100%;background:#13131a;border:1px solid #1e1e2e;color:#f1f5f9;padding:12px 14px;border-radius:8px;font-size:0.95rem;outline:none;font-family:inherit;"/>
-      </div>
-      <div>
-        <label style="display:block;font-size:0.78rem;color:#94a3b8;margin-bottom:5px;">Business Name *</label>
-        <input type="text" name="business" required placeholder="ABC Air Conditioning"
-               style="width:100%;background:#13131a;border:1px solid #1e1e2e;color:#f1f5f9;padding:12px 14px;border-radius:8px;font-size:0.95rem;outline:none;font-family:inherit;"/>
-      </div>
-      <div>
-        <label style="display:block;font-size:0.78rem;color:#94a3b8;margin-bottom:5px;">Mobile Phone Number *</label>
-        <input type="tel" name="phone" required placeholder="+1 (555) 000-0000"
-               style="width:100%;background:#13131a;border:1px solid #1e1e2e;color:#f1f5f9;padding:12px 14px;border-radius:8px;font-size:0.95rem;outline:none;font-family:inherit;"/>
-      </div>
-      <div style="background:#13131a;border:1px solid #1e1e2e;border-radius:8px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;">
-        <input type="checkbox" id="sms-consent" name="sms_consent" required
-               style="margin-top:3px;accent-color:#f59e0b;width:16px;height:16px;flex-shrink:0;cursor:pointer;"/>
-        <label for="sms-consent" style="font-size:0.8rem;color:#94a3b8;line-height:1.55;cursor:pointer;">
-          I agree to receive SMS messages from Sofia AI at the number provided regarding my demo request and service info. Msg &amp; data rates may apply. Reply <strong style="color:#f1f5f9;">STOP</strong> to unsubscribe. See our <a href="https://rcgavaldon.github.io/rg-automation/privacy-policy.html" style="color:#f59e0b;">Privacy Policy</a> and <a href="https://rcgavaldon.github.io/rg-automation/sms-opt-in.html" style="color:#f59e0b;">SMS Terms</a>.
-        </label>
-      </div>
-      <button type="submit" id="contact-submit"
-              style="background:#f59e0b;color:#000;font-weight:800;font-size:1rem;padding:14px;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">
-        Request My Free Demo →
-      </button>
-      <p style="font-size:0.74rem;color:#475569;text-align:center;margin-top:2px;">
-        Messages from <strong style="color:#94a3b8;">+1 (866) 827-6803</strong>. Reply STOP to opt out.
-      </p>
-    </form>
-    <div id="contact-success" style="display:none;text-align:center;padding:24px 0;">
-      <div style="font-size:2rem;margin-bottom:12px;">✅</div>
-      <p style="color:#22c55e;font-weight:700;font-size:1.1rem;margin-bottom:6px;">Request received!</p>
-      <p style="color:#64748b;font-size:0.9rem;">We'll reach out within a couple of hours to get you set up.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ══ LEGAL FINE PRINT ════════════════════════════════════════ -->
-<div style="background:#0a0a0f;border-top:1px solid #1e1e2e;padding:20px 5%;text-align:center;">
-  <p style="font-size:0.72rem;color:#475569;line-height:1.7;max-width:720px;margin:0 auto;">
-    Sofia AI is an AI voice assistant. Performance depends on your call forwarding configuration and third-party carrier availability. Dollar figures shown are example calculations based on industry averages — individual results vary. All plans billed monthly. Cancel anytime.
-  </p>
-</div>
-
-<!-- ══ FOOTER ═════════════════════════════════════════════════ -->
 <footer>
-  <div class="footer-links">
-    <a href="https://rcgavaldon.github.io/rg-automation/tutorials.html">Tutorials</a>
-    <a href="https://rcgavaldon.github.io/rg-automation/terms.html">Terms &amp; Conditions</a>
-    <a href="https://rcgavaldon.github.io/rg-automation/privacy-policy.html">Privacy Policy</a>
-    <a href="https://rcgavaldon.github.io/rg-automation/sms-opt-in.html">SMS Opt-In</a>
-    <a href="mailto:rcgavaldon@rgaibiz.com">Contact</a>
+  <p class="legal" data-t="legal">Sofia AI is an AI voice assistant. Performance depends on your call forwarding setup and your carrier's availability. The Never-Miss Guarantee applies during your business hours. Messages to your customers come from +1 (866) 827-6803; they can reply STOP to opt out.</p>
+  <div class="links">
+    <a href="terms.html" data-t="lk1">Terms &amp; Conditions</a>
+    <a href="privacy-policy.html" data-t="lk2">Privacy Policy</a>
+    <a href="sms-opt-in.html" data-t="lk3">SMS Opt-In</a>
+    <a href="tutorials.html" data-t="lk4">Tutorials</a>
+    <a href="mailto:rcgavaldon@rgaibiz.com" data-t="lk5">Contact</a>
   </div>
-  <p class="footer-copy">&copy; 2026 RG Automations LLC &nbsp;·&nbsp; Sofia AI &nbsp;·&nbsp; El Paso, TX &nbsp;·&nbsp; All rights reserved</p>
+  <p class="copy">&copy; 2026 RG Automations LLC · Sofia AI · El Paso, TX</p>
 </footer>
 
 <script>
-  /* ══ i18n ══════════════════════════════════════════════════ */
-  var T = {
-    en: {
-      'nav-cta': 'Book a Free Call',
-      'hero-badge': '❄️ The 24/7 Bilingual Receptionist for HVAC',
-      'hero-h1': 'Sofia Answers Every Call.<br><span class="hl">You Keep Every Job.</span>',
-      'hero-sub': '24/7 bilingual answering for HVAC shops — English and Spanish. Every caller becomes a text with their <strong>name, address, and the problem</strong> — so you never lose a job to a missed call. <strong>Live on your line same day.</strong>',
-      'hero-cta': 'Book Your Free Setup Call',
-      'hero-note': '15 minutes &nbsp;·&nbsp; We go live on the call &nbsp;·&nbsp; Live on your line same day',
-      'strip': 'Already answering calls for <strong>2 Albuquerque HVAC shops</strong> &nbsp;·&nbsp; 24/7 — nights &amp; weekends &nbsp;·&nbsp; English &amp; Spanish &nbsp;·&nbsp; Live same day',
-      'proof-label': 'Real Usage',
-      'proof-h': 'Already answering the calls a 9‑to‑5 receptionist would miss.',
-      'proof-sub': "Live across 2 Albuquerque HVAC shops. Here's what actually came in — June–July 2026.",
-      'proof-n1': '254', 'proof-s1': 'calls answered in ~6 weeks',
-      'proof-n2': '1 in 3', 'proof-s2': 'came in outside 9–5 on weekdays — when a front desk is gone',
-      'proof-n3': '1 in 5', 'proof-s3': 'came in nights or weekends',
-      'proof-quote': 'Both Albuquerque shops asked to keep her — and one offered to refer other shops.',
-      'proof-note': 'Actual inbound calls Sofia answered across 2 live Albuquerque HVAC shops, Jun–Jul 2026. Every after-hours call is one that would otherwise hit voicemail. Individual results vary.',
-      'prob-label': 'The Problem',
-      'prob-h2': "You're Losing <span style=\"color:var(--red)\">$31,200/Year</span><br>to Missed Calls",
-      'prob-body': "When you miss a call, that customer calls the next HVAC shop. They don't wait. That job is gone.",
-      'loss-label': 'Lost every year',
-      'loss-h3': "Do the math",
-      'loss-p': "Most HVAC shops miss 3 to 5 calls a week. At $600 a service call that adds up fast — and one missed AC replacement runs $5,000 to $12,000.",
-      'mc1': '1 missed call/week', 'mc2': '× $600 avg service call', 'mc4': '= $31,200/year',
-      'mc-disclaimer': 'Example calculation based on industry averages — and a single missed AC replacement can dwarf it. Individual results vary.',
-      'hiw-label': 'Live Demo',
-      'hiw-live-h': 'Hear Sofia for Yourself',
-      'hiw-live-sub': 'Sofia answers, qualifies the lead, handles pricing questions, gets the address — and switches to Spanish mid-call without missing a beat.',
-      'hiw-live-call': 'Prefer to dial? Call <a href="tel:+19152867434" style="font-weight:700;white-space:nowrap;color:var(--amber);">(915) 286-7434</a> — the exact HVAC Sofia these 2 Albuquerque shops use.',
-      'hiw-h2': 'Sofia Answers. You Get a Text.<br>You Tap One Button.',
-      'hiw-sub': 'Fewer missed calls. Less phone tag. No more voicemails.',
-      'price-label': 'Pricing', 'price-h2': 'The Never-Miss Receptionist',
-      'price-sub': 'One simple plan. About a tenth of what a front-desk hire costs — and Sofia never goes home at 5.',
-      'trial-h3': '3 Weeks Free, On Your Own Line',
-      'trial-p': 'Free for 3 weeks, then $399/month plus a one-time $199 setup. Live on your line the same day. No contract, cancel anytime.',
-      'tb1': '✓ 3 weeks free', 'tb2': '✓ Never-Miss Guarantee',
-      'tb3': '✓ Live same day', 'tb4': '✓ Keep your number',
-      'trial-btn': 'Book Your Free Setup Call →',
-      'popular': 'Most Popular',
-      'pm-name': 'Monthly', 'pm-tagline': '$598 to begin — $399 first month + $199 one-time setup',
-      'pmf1': '24/7 bilingual answering — English and Spanish',
-      'pmf2': 'Every caller texted to your phone — name, address, problem',
-      'pmf3': 'WhatsApp lead cards + tap-to-respond buttons',
-      'pmf4': 'Customer SMS confirmations and photo forwarding',
-      'pmf5': 'Full call recordings + dashboard',
-      'pmf6': 'White-glove setup — live on your line same day',
-      'pmf7': '3 weeks free on your own line',
-      'pmf8': 'Never-Miss Guarantee — a missed call means that month is free',
-      'pm-best': 'Best for: <strong>most HVAC shops</strong>', 'pm-cta': 'Book Your Free Setup Call',
-      'pa-name': 'Annual', 'pa-tagline': 'No setup fee — save about $788 in year one',
-      'paf1': 'Everything in the monthly plan', 'paf2': 'No $199 setup fee',
-      'paf3': 'Nearly 2 months free vs. paying monthly', 'paf4': 'Rate locked for the full year',
-      'paf5': '3 weeks free on your own line',
-      'pa-best': 'Best for: <strong>shops ready to commit</strong>', 'pa-cta': 'Book Your Free Setup Call',
-      'roi-note': 'A front-desk hire runs <strong>~$40,000/year.</strong> Sofia is $399/month — about a tenth of the cost — and she never misses a call. Individual results vary.',
-      'guar-h2': 'The Never-Miss Guarantee',
-      'guar-p1': "If Sofia ever misses a call during your business hours, that month is on us — every dollar back. And you try her free for 3 weeks first — you don't pay a dollar until the trial ends. No contracts, cancel anytime.",
-      'guar-p2': "We aim for 99.5%+ uptime. Sofia should earn her keep every single month — or you shouldn't pay for it.",
-      'guar-stat': '3 weeks free &nbsp;·&nbsp; Never-Miss Guarantee &nbsp;·&nbsp; No contracts',
-      'faq-label': 'FAQ', 'faq-h2': 'Questions',
-      'faq-q1': "Is it really AI? Will my customers know?",
-      'faq-a1': "Yes, Sofia is AI. She answers with your business name and asks how she can help — she doesn't lead with it. If a caller asks directly whether she's a real person, she honestly tells them she's an AI assistant your shop uses to take calls. She speaks fluent English and Spanish and switches automatically. Most callers are just glad someone answered.",
-      'faq-q2': 'Do I have to change my phone number?',
-      'faq-a2': 'No. You keep your number — you just forward your line to Sofia. It takes about 10 minutes to set up and you can turn it off anytime.',
-      'faq-q9': 'What does it cost?',
-      'faq-a9': '$399/month plus a one-time $199 setup — so $598 to begin, then $399/month. Prefer annual? It\'s $4,200/year with no setup fee. Every plan starts with 3 weeks free.',
-      'faq-q10': 'What if Sofia misses a call?',
-      'faq-a10': "That's the Never-Miss Guarantee: if Sofia ever misses a call during your business hours, that month is free. She answers unlimited calls at once, so a second or third caller never lands in voicemail.",
-      'faq-q11': 'How fast can I go live?',
-      'faq-a11': "Same day. We do the white-glove setup on your onboarding call — you're answering calls before we hang up.",
-      'faq-q3': "I'm not good with technology.",
-      'faq-a3': "We do white-glove setup. You don't touch any technology. We configure everything — you just tap buttons in WhatsApp. If you can text, you can use Sofia.",
-      'faq-q4': 'What if something goes wrong?',
-      'faq-a4': "Text us directly and we'll get it handled. If you're ever not satisfied, cancel anytime for a refund of your current month.",
-      'faq-q5': 'Can I cancel anytime?',
-      'call-def': 'Setup is a one-time $199. Monthly plans billed monthly, cancel anytime. The Never-Miss Guarantee applies during your business hours.',
-      'faq-q6': 'What does Sofia say when she picks up?',
-      'faq-a6': "She greets the caller with your business name, identifies herself as an AI assistant, and asks how she can help. From there she collects their name, address, and what the issue is — in whatever language they speak.",
-      'faq-q7': 'What if a caller wants to speak to a real person?',
-      'faq-a7': "Sofia lets them know you'll be in touch and takes their info so you can call back. You'll get the lead card immediately — it's up to you whether to call or text first.",
-      'faq-q8': 'Can I hear the calls?',
-      'faq-a8': 'Yes. Every call Sofia handles is recorded and available in your dashboard. You can replay any call anytime.',
-      'faq-a5': "Yes. Monthly billing, no contracts, cancel anytime — and the first 3 weeks are free.",
-      'final-h2': 'Stop Losing Jobs<br>to Missed Calls',
-      'final-p': "Book a free 15-min call. We provision Sofia live — you're answering calls before we hang up. $399/month after 3 free weeks, live same day. Results vary.",
-      'final-cta-btn': 'Book Your Free Setup Call',
-      'final-note': '15-min call &nbsp;·&nbsp; Live before we hang up &nbsp;·&nbsp; 3 weeks free',
-      'hiw-caller-flag': '🇺🇸',
-      'hiw-lang-active': 'en',
-      'hiw-speech-main': '"What is your address?"',
-      'hiw-speech-sub': 'Detected English → switched automatically',
-      'hiw-sms-label': '🇺🇸 &nbsp; Customer receives instantly:',
-      'hiw-sms-text': 'Hi <strong>María</strong> 👋<br><strong>Juan is on his way.</strong>',
-      'feat-label': 'What You Get',
-      'feat-title': 'Everything Included.<br>Nothing to Set Up.',
-      'feat-sub': '',
-      'f1-h': 'Available 24/7',
-      'f1-1': 'Every call answered — so no job slips to voicemail',
-      'f1-2': 'Your Spanish-speaking callers get served and booked, not lost',
-      'f1-3': 'Urgent jobs flagged so you hit the emergencies first',
-      'f1-4': 'Every call recorded — no more he-said-she-said',
-      'f2-h': 'Texts You the Job',
-      'f2-1': 'Every lead hits your phone ready to work — name, address, problem',
-      'f2-2': 'Handle a lead in one tap — no typing, no callback tag',
-      'f2-3': 'Customers know you\'re on the way — you look buttoned-up',
-      'f2-4': 'Customers text you photos so you arrive with the right parts',
-      'f3-h': 'Follows Up For You',
-      'f3-1': 'Cold quotes get chased for you until they turn into jobs',
-      'f3-2': 'Fresh 5-star reviews roll in on autopilot after every job',
-      'f3-3': 'Fewer no-shows — customers get reminded the day before',
-      'f3-4': 'Your whole day lined up for you, morning and night',
-      'f4-h': 'Easy to Manage',
-      'f4-1': 'Run your whole day by text — no software to learn',
-      'f4-2': 'Reschedule by text and the customer is notified for you',
-      'f4-3': 'Every call and job in one place — nothing falls through',
-      'f4-4': 'We set the whole thing up — you install nothing',
-      'hiw-c1': "Customer calls. You can\'t answer. <strong>Sofia picks up.</strong>",
-      'hiw-c2': 'Sofia talks to them <strong>in their language.</strong>',
-      'hiw-c3': 'You get a text <strong>with all the details.</strong>',
-      'hiw-c4': 'You tap one button. <strong>They get a text right away.</strong>',
-      'hiw-c5': '<strong>Sofia does the follow-up.</strong> You just do the job.',
-      'wa-lbl1': 'Name:', 'wa-lbl2': 'Phone:', 'wa-lbl3': 'Address:', 'wa-lbl4': 'Service:', 'wa-lbl5': 'Urgency:',
-      'wa-val4': 'AC not cooling', 'wa-val5': '🔴 Emergency',
-      'wa-ai-hero': 'No cooling, house at 85°F, elderly resident. Needs urgent service.',
-      'wa-btn-g': '✅ On My Way', 'wa-btn-b': '📅 Schedule', 'wa-btn-r': '✕ Not a Client',
-      'hiw-wa-lbl1': 'Name:', 'hiw-wa-lbl2': 'Address:', 'hiw-wa-lbl3': 'Service:', 'hiw-wa-lbl4': 'Urgency:',
-      'hiw-wa-val3': 'AC not cooling', 'hiw-wa-val4': '🔴 Emergency',
-      'hiw-wa-ai': 'No cooling, house at 85°F, elderly resident. Needs urgent service.',
-      'hiw-wa-g': '✅ On My Way', 'hiw-wa-b': '📅 Schedule', 'hiw-wa-r': '✕ Not a Client',
-      'hiw-tap-omw': '✅ On My Way', 'hiw-tap-sched': '📅 Schedule', 'hiw-tap-no': '✕ Not a Client',
-      'demo-callout': '<strong style="color:var(--amber);">That\'s a real Tech Air call</strong> — name &amp; address redacted. Sofia gets the details, discloses the fee, and books it with a backup time. Want to hear her? Tap the button above and talk to her yourself.',
-      'waf-label': 'How WhatsApp Works',
-      'waf-h': 'Call Ends. Job Hits Your Phone.<br>You Tap Once.',
-      'waf-sub': 'No new app. No login. Sofia texts you the job on WhatsApp — the app already on your phone. Three buttons. Done.',
-      'waf-s1-title': 'Call ends — job arrives',
-      'waf-s1-body': 'Sofia talks to them. Gets their name and address. Hangs up. You get it all on WhatsApp in seconds.',
-      'waf-s2-title': 'Tap one button',
-      'waf-s2-body': '✅ On My Way · 📅 Schedule · ✕ Not a Client. One tap. Done.',
-      'waf-s3-title': 'They get a text right away',
-      'waf-s3-body': 'The second you tap, your customer gets a text. In their language. English or Spanish. You didn\'t have to call anyone.',
-      'waf-s4-title': 'Sofia does the rest',
-      'waf-s4-body': 'Follow-ups. Reminders. Review requests. Sofia sends all of it. You just do the job.',
-      'waf-p1-label': '📲 What you see in WhatsApp',
-      'waf-p2-label': '💬 What your customer gets',
-      'waf-card-service': 'AC not cooling',
-      'waf-card-urgency': '🔴 Emergency',
-      'waf-card-ai': 'No cooling, house at 85°F, elderly resident. Needs service now.',
-      'waf-sms-note': 'In English if they called in English.',
-      'waf-cmds-label': 'Bonus: Text Sofia to run your jobs',
-      'waf-cmd1-r': '→ Job closed · Google review sent to customer',
-      'waf-cmd2-r': '→ Customer gets a text right away',
-      'waf-cmd3-r': '→ Quote sent · Sofia follows up Day 1, 3, 7',
-      'ba-sec-label': 'The Difference',
-      'ba-sec-h': 'Before and After Sofia',
-      'ba-red-label': 'Without Sofia',
-      'ba-i1': '❌ Call goes to voicemail',
-      'ba-i2': '❌ They call the next HVAC shop',
-      'ba-i3': '❌ You call back and forth all day',
-      'ba-i4': '❌ Forget to follow up on quotes',
-      'ba-i5': '❌ No record of who called or why',
-      'ba-green-label': 'With Sofia',
-      'ba-j1': '✅ Every call answered, 24/7',
-      'ba-j2': '✅ Job info hits your phone fast',
-      'ba-j3': '✅ One tap — they get a text',
-      'ba-j4': '✅ Sofia sends follow-ups for you',
-      'ba-j5': '✅ Every call saved and recorded',
-      'ba-disc': 'Sofia is designed to answer every call. Results depend on call volume and setup.',
-      'beta-label': '✓ 3 Weeks Free',
-      'beta-text': '2 Albuquerque HVAC shops are already live. Try Sofia free for 3 weeks on your own line — $399/month after that, cancel anytime.',
-      'vs-label': 'Everything you\'d otherwise pay for — included free',
-      'vs-equiv': 'Buy it all separately:',
-      'contact-label': 'Get Started',
-      'contact-h2': 'Book a Free 15-Min Call',
-      'contact-sub': 'We set Sofia up live — you\'re answering calls before we hang up.',
-      'contact-diff': '⚡ Most services take days or weeks. We go live in 5 minutes — on the call.',
-      'contact-alt': 'Prefer to pick a time yourself? <a href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" style="color:#f59e0b;font-weight:700;">Book on Calendly</a>. Or call Sofia live right now: <a href="tel:+19152867434" style="color:#f59e0b;font-weight:700;white-space:nowrap;">(915) 286-7434</a>.',
-      'anchor-label': 'The Math That Matters',
-      'anchor-h': 'The receptionist you can\'t afford — at a tenth of the price.',
-      'anchor-rec-l': 'Human receptionist',
-      'anchor-rec-s': '9–5 · one language · one call at a time',
-      'anchor-sof-s': 'or $4,200/yr ($350/mo) · 24/7 · EN + ES · never misses',
-      'anchor-line': 'Same job — answer every call and capture the lead. Sofia does it for <strong>about a tenth of the cost</strong>, in two languages, and never sends a caller to voicemail — so you book more jobs without adding a single hire.',
-      'anchor-cta': 'Book Your Free Setup Call',
-      'cmp-label': 'Sofia vs. Hiring',
-      'cmp-h': 'Sofia vs. a Human Receptionist',
-      'cmp-sub': 'Same job — answer the phone and capture the lead. One costs $40,000 a year and goes home at 5. The other is $399 a month and never sleeps.',
-      'cmp-head-human': 'Human receptionist',
-      'cmp-head-sofia': 'Sofia AI',
-      'cmp-d1': 'Cost',
-      'cmp-hu1': '~$40,000/year + payroll taxes and benefits',
-      'cmp-so1': '<strong>$399/month</strong> — or $4,200/yr ($350/mo)',
-      'cmp-d2': 'Hours',
-      'cmp-hu2': '40 hrs/week, business hours only',
-      'cmp-so2': '<strong>24/7 / 365</strong> — nights, weekends, holidays',
-      'cmp-d3': 'Languages',
-      'cmp-hu3': 'Usually one',
-      'cmp-so3': '<strong>English + Spanish</strong> on every call',
-      'cmp-d4': 'Two calls at once',
-      'cmp-hu4': 'Second caller goes to voicemail',
-      'cmp-so4': '<strong>Answers unlimited calls</strong> at once',
-      'cmp-d5': 'Sick days / lunch / vacation',
-      'cmp-hu5': 'Calls get missed',
-      'cmp-so5': '<strong>Never off</strong>, never a break',
-      'cmp-d6': 'Ramp-up',
-      'cmp-hu6': 'Weeks of hiring and training',
-      'cmp-so6': '<strong>Live on your line</strong> the same day',
-      'cmp-d7': 'Turnover',
-      'cmp-hu7': 'Quits → re-hire, re-train',
-      'cmp-so7': '<strong>Never quits</strong>',
-      'cmp-d8': 'Every lead logged to your phone',
-      'cmp-hu8': 'Manual / sticky notes',
-      'cmp-so8': '<strong>Automatic text</strong> with name, address, job',
-      'cmp-bottom': 'A front-desk hire costs <strong>~$40,000 a year</strong> and still goes home at 5. Sofia is about a tenth of the cost and never misses a call.'
-    },
-    es: {
-      'nav-cta': 'Reserva una Llamada',
-      'hero-badge': '❄️ La Recepcionista Bilingüe 24/7 para HVAC',
-      'hero-h1': 'Sofia Contesta Cada Llamada.<br><span class="hl">Tú Te Quedas Cada Trabajo.</span>',
-      'hero-sub': 'Contestación bilingüe 24/7 para negocios de HVAC — inglés y español. Cada llamada se convierte en un texto con el <strong>nombre, la dirección y el problema</strong> — para que nunca pierdas un trabajo por una llamada sin contestar. <strong>En línea el mismo día.</strong>',
-      'hero-cta': 'Reserva Tu Llamada de Configuración',
-      'hero-note': '15 minutos &nbsp;·&nbsp; En línea durante la llamada &nbsp;·&nbsp; En tu línea el mismo día',
-      'strip': 'Ya contestando llamadas para <strong>2 negocios de HVAC en Albuquerque</strong> &nbsp;·&nbsp; 24/7 — noches y fines de semana &nbsp;·&nbsp; Inglés y Español &nbsp;·&nbsp; En tu línea el mismo día',
-      'proof-label': 'Uso Real',
-      'proof-h': 'Ya contestando las llamadas que una recepcionista de 9 a 5 perdería.',
-      'proof-sub': 'Activo en 2 negocios de HVAC en Albuquerque. Esto fue lo que realmente entró — junio–julio 2026.',
-      'proof-n1': '254', 'proof-s1': 'llamadas contestadas en ~6 semanas',
-      'proof-n2': '1 de cada 3', 'proof-s2': 'entró fuera de 9 a 5 entre semana — cuando no hay recepción',
-      'proof-n3': '1 de cada 5', 'proof-s3': 'entró de noche o en fin de semana',
-      'proof-quote': 'Los dos negocios en Albuquerque pidieron quedársela — y uno se ofreció a recomendar a otros negocios.',
-      'proof-note': 'Llamadas reales que Sofia contestó en 2 negocios de HVAC en Albuquerque, jun–jul 2026. Cada llamada fuera de horario es una que de otro modo iría al buzón. Los resultados individuales varían.',
-      'prob-label': 'El Problema',
-      'prob-h2': 'Estás Perdiendo <span style="color:var(--red)">$31,200/Año</span><br>en Llamadas Perdidas',
-      'prob-body': 'Cuando pierdes una llamada, ese cliente llama al siguiente negocio de HVAC. No espera. Ese trabajo se fue.',
-      'loss-label': 'Perdido cada año',
-      'loss-h3': 'Haz las cuentas',
-      'loss-p': 'La mayoría de los negocios de HVAC pierden 3 a 5 llamadas por semana. A $600 por visita eso suma rápido — y un reemplazo de aire perdido cuesta de $5,000 a $12,000.',
-      'mc1': '1 llamada perdida/semana', 'mc2': '× $600 visita promedio', 'mc4': '= $31,200/año',
-      'mc-disclaimer': 'Cálculo de ejemplo basado en promedios de la industria — y un solo reemplazo de aire perdido puede superarlo. Los resultados individuales varían.',
-      'hiw-label': 'Demo en Vivo',
-      'hiw-live-h': 'Escucha a Sofia Tú Mismo',
-      'hiw-live-sub': 'Sofia contesta, califica al cliente, maneja preguntas de precio, consigue la dirección — y cambia a español a mitad de la llamada sin perder el ritmo.',
-      'hiw-live-call': '¿Prefieres llamar? Marca <a href="tel:+19152867434" style="font-weight:700;white-space:nowrap;color:var(--amber);">(915) 286-7434</a> — la misma Sofia de HVAC que usan estos 2 negocios en Albuquerque.',
-      'hiw-h2': 'Sofia Contesta. Te Llega un Texto.<br>Tocas un Botón.',
-      'hiw-sub': 'Menos llamadas perdidas. Menos enredos. Sin más buzones de voz.',
-      'price-label': 'Precios', 'price-h2': 'La Recepcionista Que Nunca Falla',
-      'price-sub': 'Un solo plan simple. Como una décima parte de lo que cuesta contratar recepcionista — y Sofia nunca se va a las 5.',
-      'trial-h3': '3 Semanas Gratis, En Tu Propia Línea',
-      'trial-p': 'Gratis por 3 semanas, luego $399/mes más una configuración única de $199. En tu línea el mismo día. Sin contrato, cancela cuando quieras.',
-      'tb1': '✓ 3 semanas gratis', 'tb2': '✓ Garantía Nunca-Falla',
-      'tb3': '✓ Listo el mismo día', 'tb4': '✓ Conserva tu número',
-      'trial-btn': 'Reserva Tu Llamada de Configuración →',
-      'popular': 'Más Popular',
-      'pm-name': 'Mensual', 'pm-tagline': '$598 para empezar — $399 el primer mes + $199 de configuración única',
-      'pmf1': 'Contestación bilingüe 24/7 — inglés y español',
-      'pmf2': 'Cada llamada como texto a tu teléfono — nombre, dirección, problema',
-      'pmf3': 'Tarjetas de cliente en WhatsApp + botones para responder',
-      'pmf4': 'Confirmaciones por SMS al cliente y reenvío de fotos',
-      'pmf5': 'Grabaciones completas de llamadas + panel',
-      'pmf6': 'Configuración completa — en tu línea el mismo día',
-      'pmf7': '3 semanas gratis en tu propia línea',
-      'pmf8': 'Garantía Nunca-Falla — si pierde una llamada, ese mes es gratis',
-      'pm-best': 'Para: <strong>la mayoría de negocios de HVAC</strong>', 'pm-cta': 'Reserva Tu Llamada de Configuración',
-      'pa-name': 'Anual', 'pa-tagline': 'Sin cargo de configuración — ahorra unos $788 el primer año',
-      'paf1': 'Todo lo del plan mensual', 'paf2': 'Sin el cargo de configuración de $199',
-      'paf3': 'Casi 2 meses gratis vs. pagar mensual', 'paf4': 'Precio bloqueado todo el año',
-      'paf5': '3 semanas gratis en tu propia línea',
-      'pa-best': 'Para: <strong>negocios listos para comprometerse</strong>', 'pa-cta': 'Reserva Tu Llamada de Configuración',
-      'roi-note': 'Un recepcionista cuesta <strong>~$40,000/año.</strong> Sofia cuesta $399/mes — como una décima parte — y nunca pierde una llamada. Los resultados individuales varían.',
-      'guar-h2': 'La Garantía Nunca-Falla',
-      'guar-p1': 'Si Sofia alguna vez pierde una llamada durante tu horario, ese mes corre por nuestra cuenta — cada dólar de vuelta. Y además la pruebas gratis por 3 semanas: no pagas nada hasta que termine la prueba. Sin contratos, cancela cuando quieras.',
-      'guar-p2': 'Apuntamos a 99.5%+ de disponibilidad. Sofia debe ganarse su costo cada mes — o no deberías pagarlo.',
-      'guar-stat': '3 semanas gratis &nbsp;·&nbsp; Garantía Nunca-Falla &nbsp;·&nbsp; Sin contratos',
-      'faq-label': 'Preguntas', 'faq-h2': 'Preguntas',
-      'faq-q1': '¿De verdad es IA? ¿Se darán cuenta mis clientes?',
-      'faq-a1': 'Sí, Sofia es IA. Contesta con el nombre de tu negocio y pregunta en qué puede ayudar — no lo anuncia de entrada. Si el cliente pregunta directamente si es una persona real, responde honestamente que es un asistente de IA que tu negocio usa para atender llamadas. Habla inglés y español con fluidez y cambia automáticamente. La mayoría solo se alegran de que alguien contestó.',
-      'faq-q2': '¿Tengo que cambiar mi número de teléfono?',
-      'faq-a2': 'No. Conservas tu número — solo reenvías tu línea a Sofia. Tarda unos 10 minutos en configurar y lo puedes apagar cuando quieras.',
-      'faq-q9': '¿Cuánto cuesta?',
-      'faq-a9': '$399/mes más una configuración única de $199 — o sea $598 para empezar, luego $399/mes. ¿Prefieres anual? Son $4,200/año sin cargo de configuración. Cada plan empieza con 3 semanas gratis.',
-      'faq-q10': '¿Qué pasa si Sofia pierde una llamada?',
-      'faq-a10': 'Ahí entra la Garantía Nunca-Falla: si Sofia alguna vez pierde una llamada durante tu horario, ese mes es gratis. Contesta llamadas ilimitadas a la vez, así que un segundo o tercer cliente nunca cae al buzón de voz.',
-      'faq-q11': '¿Qué tan rápido puedo estar en línea?',
-      'faq-a11': 'El mismo día. Hacemos toda la configuración en tu llamada de arranque — estarás contestando llamadas antes de que colgamos.',
-      'faq-q3': 'No me manejo bien con la tecnología.',
-      'faq-a3': 'Nosotros lo configuramos todo por ti. No tocas nada de tecnología. Configuramos todo — tú solo tocas botones en WhatsApp. Si sabes mandar textos, sabes usar Sofia.',
-      'faq-q4': '¿Qué pasa si algo sale mal?',
-      'faq-a4': 'Escríbenos directamente y lo resolvemos. Si en algún momento no estás satisfecho, cancela cuando quieras y te reembolsamos el mes actual.',
-      'faq-q5': '¿Puedo cancelar cuando quiera?',
-      'call-def': 'La configuración es un pago único de $199. Los planes mensuales se cobran cada mes, cancela cuando quieras. La Garantía Nunca-Falla aplica durante tu horario laboral.',
-      'faq-q6': '¿Qué dice Sofia cuando contesta?',
-      'faq-a6': 'Saluda al cliente con el nombre de tu negocio, se identifica como asistente de IA y pregunta en qué puede ayudar. Luego recopila su nombre, dirección y cuál es el problema — en el idioma que hablen.',
-      'faq-q7': '¿Qué pasa si el cliente quiere hablar con una persona real?',
-      'faq-a7': 'Sofia les informa que estarás en contacto y toma sus datos para que puedas llamar. Recibes la tarjeta de cliente de inmediato — tú decides si llamas o mandas un texto primero.',
-      'faq-q8': '¿Puedo escuchar las llamadas?',
-      'faq-a8': 'Sí. Cada llamada que maneja Sofia queda grabada y disponible en tu panel. Puedes reproducir cualquier llamada cuando quieras.',
-      'faq-a5': 'Sí. Facturación mensual, sin contratos, cancela cuando quieras — y las primeras 3 semanas son gratis.',
-      'feat-label': 'Lo Que Recibes',
-      'feat-title': 'Todo incluido.<br>Sin configurar nada.',
-      'feat-sub': '',
-      'f1-h': 'Disponible 24/7',
-      'f1-1': 'Cada llamada contestada — para que ningún trabajo se vaya al buzón',
-      'f1-2': 'Tus clientes que hablan español quedan atendidos y agendados, no perdidos',
-      'f1-3': 'Los trabajos urgentes se marcan para que atiendas las emergencias primero',
-      'f1-4': 'Cada llamada grabada — se acabó el "yo dije, tú dijiste"',
-      'f2-h': 'Te Manda el Trabajo',
-      'f2-1': 'Cada cliente llega listo a tu teléfono — nombre, dirección, problema',
-      'f2-2': 'Atiende un cliente con un toque — sin escribir, sin devolver llamada',
-      'f2-3': 'El cliente sabe que vas en camino — te ves profesional',
-      'f2-4': 'El cliente te manda fotos para que llegues con las piezas correctas',
-      'f3-h': 'Hace el Seguimiento',
-      'f3-1': 'Perseguimos las cotizaciones frías por ti hasta que se vuelven trabajos',
-      'f3-2': 'Llegan reseñas de 5 estrellas solas después de cada trabajo',
-      'f3-3': 'Menos ausencias — al cliente se le recuerda el día anterior',
-      'f3-4': 'Todo tu día ordenado por ti, mañana y noche',
-      'f4-h': 'Fácil de Manejar',
-      'f4-1': 'Maneja todo tu día por texto — sin software que aprender',
-      'f4-2': 'Reagenda por texto y al cliente se le notifica por ti',
-      'f4-3': 'Cada llamada y trabajo en un solo lugar — nada se pierde',
-      'f4-4': 'Nosotros lo configuramos todo — tú no instalas nada',
-      'final-h2': 'Deja de Perder Trabajos<br>por Llamadas Sin Contestar',
-      'final-p': 'Agenda una llamada gratis de 15 minutos. Configuramos Sofia en vivo — estarás contestando llamadas antes de que colgamos. $399/mes después de 3 semanas gratis, en línea el mismo día. Los resultados varían.',
-      'final-cta-btn': 'Reserva Tu Llamada de Configuración',
-      'final-note': 'Llamada de 15 min &nbsp;·&nbsp; En línea antes de colgar &nbsp;·&nbsp; 3 semanas gratis',
-      'hiw-caller-flag': '🇲🇽',
-      'hiw-lang-active': 'es',
-      'hiw-speech-main': '"¿Cuál es su dirección?"',
-      'hiw-speech-sub': 'Detectó español → cambió automáticamente',
-      'hiw-sms-label': '🇲🇽 &nbsp; El cliente recibe al instante:',
-      'hiw-sms-text': 'Hola <strong>María</strong> 👋<br><strong>Juan va en camino.</strong>',
-      'hiw-c1': 'El cliente llama. No puedes contestar. <strong>Sofia contesta.</strong>',
-      'hiw-c2': 'Sofia habla con ellos <strong>en su idioma.</strong>',
-      'hiw-c3': 'Te llega un texto <strong>con todos los detalles.</strong>',
-      'hiw-c4': 'Tocas un botón. <strong>El cliente recibe un texto de inmediato.</strong>',
-      'hiw-c5': '<strong>Sofia hace el seguimiento.</strong> Tú solo haz el trabajo.',
-      'wa-lbl1': 'Nombre:', 'wa-lbl2': 'Teléfono:', 'wa-lbl3': 'Dirección:', 'wa-lbl4': 'Servicio:', 'wa-lbl5': 'Urgencia:',
-      'wa-val4': 'El aire no enfría', 'wa-val5': '🔴 Emergencia',
-      'wa-ai-hero': 'No enfría, casa a 85°F, residente mayor. Requiere servicio urgente.',
-      'wa-btn-g': '✅ En Camino', 'wa-btn-b': '📅 Agendar', 'wa-btn-r': '✕ No cliente',
-      'hiw-wa-lbl1': 'Nombre:', 'hiw-wa-lbl2': 'Dirección:', 'hiw-wa-lbl3': 'Servicio:', 'hiw-wa-lbl4': 'Urgencia:',
-      'hiw-wa-val3': 'El aire no enfría', 'hiw-wa-val4': '🔴 Emergencia',
-      'hiw-wa-ai': 'No enfría, casa a 85°F, residente mayor. Requiere servicio urgente.',
-      'hiw-wa-g': '✅ En Camino', 'hiw-wa-b': '📅 Agendar', 'hiw-wa-r': '✕ No cliente',
-      'hiw-tap-omw': '✅ En Camino', 'hiw-tap-sched': '📅 Agendar', 'hiw-tap-no': '✕ No cliente',
-      'demo-callout': '<strong style="color:var(--amber);">Es una llamada real de Tech Air</strong> — nombre y dirección ocultos. Sofia toma los datos, informa la tarifa y agenda con una hora de respaldo. ¿Quieres oírla? Toca el botón de arriba y habla con ella tú mismo.',
-      'waf-label': 'Cómo funciona en WhatsApp',
-      'waf-h': 'Se cuelga. Te llega el trabajo.<br>Das un toque.',
-      'waf-sub': 'Sin app nueva. Sin contraseña. Sofia te manda el trabajo por WhatsApp — el que ya tienes. Tres botones. Listo.',
-      'waf-s1-title': 'Se cuelga — te llega el trabajo',
-      'waf-s1-body': 'Sofia habla con ellos. Consigue el nombre y la dirección. Cuelga. En segundos ya lo tienes en WhatsApp.',
-      'waf-s2-title': 'Das un toque',
-      'waf-s2-body': '✅ En Camino · 📅 Agendar · ✕ No cliente. Un toque. Listo.',
-      'waf-s3-title': 'El cliente recibe texto al momento',
-      'waf-s3-body': 'Apenas tocas, tu cliente recibe un texto. En su idioma. Inglés o español. Tú no tuviste que llamar a nadie.',
-      'waf-s4-title': 'Sofia hace lo demás',
-      'waf-s4-body': 'Seguimiento. Recordatorios. Pedir reseñas. Sofia manda todo eso. Tú solo haz el trabajo.',
-      'waf-p1-label': '📲 Lo que tú ves en WhatsApp',
-      'waf-p2-label': '💬 Lo que recibe tu cliente',
-      'waf-card-service': 'El aire no enfría',
-      'waf-card-urgency': '🔴 Emergencia',
-      'waf-card-ai': 'No enfría, casa a 85°F, residente mayor. Necesita servicio ahora.',
-      'waf-sms-note': 'En inglés si llamaron en inglés.',
-      'waf-cmds-label': 'Extra: Mándale texto a Sofia para todo',
-      'waf-cmd1-r': '→ Trabajo cerrado · Reseña de Google enviada',
-      'waf-cmd2-r': '→ El cliente recibe texto de inmediato',
-      'waf-cmd3-r': '→ Cotización enviada · Sofia da seguimiento Día 1, 3, 7',
-      'ba-sec-label': 'La diferencia',
-      'ba-sec-h': 'Antes y después de Sofia',
-      'ba-red-label': 'Sin Sofia',
-      'ba-i1': '❌ La llamada va al buzón de voz',
-      'ba-i2': '❌ Llaman al siguiente negocio de HVAC',
-      'ba-i3': '❌ Estás todo el día regresando llamadas',
-      'ba-i4': '❌ Se te olvida dar seguimiento',
-      'ba-i5': '❌ No sabes quién llamó ni por qué',
-      'ba-green-label': 'Con Sofia',
-      'ba-j1': '✅ Todas las llamadas contestadas, 24/7',
-      'ba-j2': '✅ El trabajo llega rápido a tu teléfono',
-      'ba-j3': '✅ Un toque — el cliente recibe texto',
-      'ba-j4': '✅ Sofia manda los seguimientos por ti',
-      'ba-j5': '✅ Todas las llamadas grabadas',
-      'ba-disc': 'Sofia está diseñada para contestar cada llamada. Los resultados dependen de tu volumen de llamadas y configuración.',
-      'beta-label': '✓ 3 Semanas Gratis',
-      'beta-text': '2 negocios de HVAC en Albuquerque ya están activos. Prueba a Sofia gratis por 3 semanas en tu propia línea — después $399/mes, cancela cuando quieras.',
-      'vs-label': 'Todo lo que pagarías por separado — incluido gratis',
-      'vs-equiv': 'Cómpralo por separado:',
-      'contact-label': 'Empieza Aquí',
-      'contact-h2': 'Reserva una Llamada Gratis de 15 Min',
-      'contact-sub': 'Configuramos Sofia en vivo — estarás contestando llamadas antes de que colgamos.',
-      'contact-diff': '⚡ La mayoría tarda días o semanas. Nosotros lo hacemos en 5 minutos, en la llamada.',
-      'contact-alt': '¿Prefieres elegir tu horario? <a href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" style="color:#f59e0b;font-weight:700;">Reserva en Calendly</a>. O háblale a Sofia en vivo ahora mismo: <a href="tel:+19152867434" style="color:#f59e0b;font-weight:700;white-space:nowrap;">(915) 286-7434</a>.',
-      'anchor-label': 'La Cuenta Que Importa',
-      'anchor-h': 'La recepcionista que no puedes pagar — por una décima parte del costo.',
-      'anchor-rec-l': 'Recepcionista',
-      'anchor-rec-s': '9–5 · un idioma · una llamada a la vez',
-      'anchor-sof-s': 'o $4,200/año ($350/mes) · 24/7 · EN + ES · nunca falla',
-      'anchor-line': 'El mismo trabajo — contestar cada llamada y capturar al cliente. Sofia lo hace por <strong>como una décima parte del costo</strong>, en dos idiomas, y nunca manda una llamada al buzón — así agendas más trabajos sin contratar a nadie.',
-      'anchor-cta': 'Reserva Tu Llamada de Configuración',
-      'cmp-label': 'Sofia vs. Contratar',
-      'cmp-h': 'Sofia vs. una Recepcionista',
-      'cmp-sub': 'El mismo trabajo — contestar el teléfono y capturar al cliente. Una cuesta $40,000 al año y se va a las 5. La otra cuesta $399 al mes y nunca duerme.',
-      'cmp-head-human': 'Recepcionista',
-      'cmp-head-sofia': 'Sofia IA',
-      'cmp-d1': 'Costo',
-      'cmp-hu1': '~$40,000/año + impuestos y prestaciones',
-      'cmp-so1': '<strong>$399/mes</strong> — o $4,200/año ($350/mes)',
-      'cmp-d2': 'Horario',
-      'cmp-hu2': '40 hrs/semana, solo horario laboral',
-      'cmp-so2': '<strong>24/7 / 365</strong> — noches, fines de semana, festivos',
-      'cmp-d3': 'Idiomas',
-      'cmp-hu3': 'Normalmente uno',
-      'cmp-so3': '<strong>Inglés + español</strong> en cada llamada',
-      'cmp-d4': 'Dos llamadas a la vez',
-      'cmp-hu4': 'La segunda llamada va al buzón',
-      'cmp-so4': '<strong>Contesta llamadas ilimitadas</strong> a la vez',
-      'cmp-d5': 'Enfermedad / almuerzo / vacaciones',
-      'cmp-hu5': 'Se pierden llamadas',
-      'cmp-so5': '<strong>Nunca descansa</strong>, nunca para',
-      'cmp-d6': 'Arranque',
-      'cmp-hu6': 'Semanas de contratar y capacitar',
-      'cmp-so6': '<strong>En tu línea</strong> el mismo día',
-      'cmp-d7': 'Rotación',
-      'cmp-hu7': 'Renuncia → contratar y capacitar de nuevo',
-      'cmp-so7': '<strong>Nunca renuncia</strong>',
-      'cmp-d8': 'Cada cliente registrado en tu teléfono',
-      'cmp-hu8': 'Manual / notas en papel',
-      'cmp-so8': '<strong>Texto automático</strong> con nombre, dirección y trabajo',
-      'cmp-bottom': 'Un recepcionista cuesta <strong>~$40,000 al año</strong> y aun así se va a las 5. Sofia cuesta como una décima parte y nunca pierde una llamada.'
-    }
+  var ES = {
+    navcta: '3 semanas gratis',
+    badge: 'Hecha solo para HVAC · Inglés y español',
+    h1: 'Recupere sus <span class="hl">domingos</span>.',
+    sub: 'Su teléfono suena primero. Cuando usted no puede contestar, Sofia contesta en inglés o español y le manda el trabajo por texto: <strong>nombre, dirección y qué tiene el equipo.</strong>',
+    cta1: 'Pruébela gratis 3 semanas',
+    orcall: 'O llámele como si fuera un cliente: <a href="tel:+19152867434">(915) 286-7434</a>',
+    c1: '<b>✓</b> 3 semanas gratis en su propia línea', c2: '<b>✓</b> Sin tarjeta', c3: '<b>✓</b> Lista el mismo día',
+    newcall: 'Llamada nueva · ahorita',
+    wl1: 'Nombre', wl2: 'Teléfono', wl3: 'Dirección', wl4: 'Problema', wl5: 'Quiere',
+    wv4: 'El aire no enfría · unidad en el techo', wv5: 'Mañana 8–10 AM · respaldo 2–4 PM',
+    wb1: '✅ En Camino', wb2: '📅 Agendar', wb3: '✕ No cliente',
+    smstop: 'Su cliente recibe',
+    smsp: '¡Gracias por llamar! Ya tenemos sus datos y el equipo se comunicará para confirmar su hora.',
+    hl: 'Cómo funciona', hh: 'Usted hace el trabajo. Ella toma las llamadas.',
+    s1h: 'No alcanza a contestar.', s1p: 'Un cliente llama a las 9 de la noche, un domingo, o mientras usted está en un techo. Primero le suena a usted.',
+    s2h: 'Sofia contesta.', s2p: 'Toma el nombre, la dirección, el problema y los datos del equipo. Le dice su cargo por visita y consigue una hora más una de respaldo.',
+    s3h: 'El trabajo le llega por WhatsApp.', s3p: 'En segundos. El cliente recibe un texto de confirmación. Usted decide cuándo le regresa la llamada.',
+    proof: 'Ya contesta las llamadas de <b>2 talleres de HVAC en Albuquerque.</b>',
+    why: '"Es temporada baja. Ahorita no le entran las llamadas de julio, así que no le voy a cobrar precios de julio."',
+    whocite: 'Robert Gavaldon, RG Automations',
+    ol: 'Precios', oh: 'Elija cómo pagar.', olead: 'Los dos empiezan con 3 semanas gratis en su propia línea. Sin tarjeta.',
+    ribbon: '5 meses por mi cuenta', p1n: 'El Pase de Temporada Baja', p1per: 'por todo el año',
+    p1deal: 'Paga 7 meses a $399. Los otros 5 corren por mi cuenta. Sin cargo de configuración.',
+    p1save: 'Se ahorra $2,194 contra pagar mes a mes.',
+    p1l1: 'Sin el cargo de configuración de $199', p1l2: '450 minutos al mes, unas 150 llamadas', p1l3: 'Garantía Nunca-Falla',
+    p1l4: '¿Cambia de opinión en los primeros 30 días después de pagar? Paga un mes y le devuelvo el resto.',
+    p1cta: 'Empiece con 3 semanas gratis', p1fine: '$4,987 = un año a $399/mes más la configuración de $199.',
+    p2n: 'Mensual', p2per: '/mes', p2deal: 'Más una configuración única de $199. Cancele cuando quiera.',
+    p2l1: 'La misma Sofia, todo incluido', p2l2: '450 minutos al mes, unas 150 llamadas', p2l3: 'Garantía Nunca-Falla', p2l4: 'Sin contrato',
+    p2cta: 'Empiece con 3 semanas gratis',
+    pnote: '¿Un mes pesado de más de 450 minutos? Paga los minutos extra o sube de plan.',
+    gh: 'La Garantía Nunca-Falla', gp: 'Si Sofia pierde una llamada en su horario de trabajo, ese mes es gratis.',
+    fl: 'Respuestas directas', fh: 'Lo que preguntan los dueños',
+    q1: '¿De verdad es IA? ¿Se dan cuenta mis clientes?',
+    a1: 'Sí. Desde el saludo les dice que es la asistente de IA de su taller y que contesta mientras el equipo está en trabajos. Habla inglés y español y cambia sola.',
+    q2: '¿Me quedo con mi número?',
+    a2: 'Sí. Su teléfono suena primero. Solo las llamadas que no alcanza se desvían a Sofia, y lo puede apagar cuando quiera con un código.',
+    q3: '¿Qué pasa después de las 3 semanas gratis?',
+    a3: 'Escoge el año o mensual. Si no es para usted, quita el desvío y no debe nada.',
+    q4: '¿Y si cambio de opinión después de pagar el año?',
+    a4: 'Cancele en los primeros 30 días después de pagar. Paga un mes y le devuelvo el resto.',
+    q5: '¿Y si el verano se pone pesado?',
+    a5: 'Incluye 450 minutos al mes, unas 150 llamadas. Alcanza para la mayoría de los talleres aun en julio. Si se pasa, paga los minutos extra o sube de plan.',
+    q6: '¿Qué tan rápido queda lista?',
+    a6: 'El mismo día. Yo la configuro con usted por teléfono y queda contestando antes de colgar.',
+    endh: '¿Quiere oírla primero?',
+    endp: 'Háblele a Sofia como si fuera un cliente con el aire descompuesto. En un minuto sabe si le sirve a su taller.',
+    end1: 'Agende una llamada de 15 minutos', end2: 'Mándele texto a Robert', end3: 'Llame a la demo',
+    legal: 'Sofia AI es una asistente de voz con inteligencia artificial. El servicio depende de su desvío de llamadas y de la disponibilidad de su compañía telefónica. La Garantía Nunca-Falla aplica en su horario de trabajo. Los mensajes a sus clientes salen del +1 (866) 827-6803; pueden responder STOP para dejar de recibirlos.',
+    lk1: 'Términos y Condiciones', lk2: 'Política de Privacidad', lk3: 'Consentimiento SMS', lk4: 'Tutoriales', lk5: 'Contacto'
   };
+  var SMS_BODY = { en: "Hi Robert, I'd like to try Sofia.", es: 'Hola Robert, quiero probar a Sofia.' };
+  var TITLE = { en: 'Sofia AI — Bilingual AI Receptionist for HVAC Shops', es: 'Sofia AI — Recepcionista bilingüe con IA para talleres de HVAC' };
+  window.TALK_IDLE = { en: '🎙️ Talk to Sofia now', es: '🎙️ Hable con Sofia ahora' };
+  var EN = {};
+  document.querySelectorAll('[data-t]').forEach(function (el) { EN[el.getAttribute('data-t')] = el.innerHTML; });
 
-  function updateAnimLang(lang) {
-    var t = T[lang];
-    var ids = {
-      'hiw-caller-flag': 'textContent',
-      'hiw-speech-main': 'textContent',
-      'hiw-speech-sub':  'textContent',
-      'hiw-sms-label':   'innerHTML',
-      'hiw-sms-text':    'innerHTML',
-      'hiw-c1': 'innerHTML', 'hiw-c2': 'innerHTML',
-      'hiw-c3': 'innerHTML', 'hiw-c4': 'innerHTML', 'hiw-c5': 'innerHTML',
-      'hiw-wa-lbl1': 'textContent', 'hiw-wa-lbl2': 'textContent',
-      'hiw-wa-lbl3': 'textContent', 'hiw-wa-lbl4': 'textContent',
-      'hiw-wa-val3': 'textContent', 'hiw-wa-val4': 'textContent',
-      'hiw-wa-ai':   'textContent',
-      'hiw-wa-g': 'textContent', 'hiw-wa-b': 'textContent', 'hiw-wa-r': 'textContent',
-      'hiw-tap-omw': 'textContent', 'hiw-tap-sched': 'textContent', 'hiw-tap-no': 'textContent'
-    };
-    Object.keys(ids).forEach(function(id) {
-      var el = document.getElementById(id);
-      if (el && t[id] !== undefined) el[ids[id]] = t[id];
+  function setLang(l) {
+    if (l !== 'es') l = 'en';
+    var map = l === 'es' ? ES : EN;
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var v = map[el.getAttribute('data-t')];
+      if (v !== undefined && v !== null) el.innerHTML = v;
     });
-    var enOpt = document.getElementById('hiw-lang-en');
-    var esOpt = document.getElementById('hiw-lang-es');
-    if (enOpt && esOpt) {
-      enOpt.classList.toggle('on', lang === 'en');
-      esOpt.classList.toggle('on', lang === 'es');
-    }
+    document.documentElement.lang = l;
+    document.title = TITLE[l];
+    document.getElementById('bEn').classList.toggle('on', l === 'en');
+    document.getElementById('bEs').classList.toggle('on', l === 'es');
+    var sms = document.getElementById('sms-link');
+    if (sms) sms.setAttribute('href', 'sms:+19156132915?&body=' + encodeURIComponent(SMS_BODY[l]));
+    var tb = document.getElementById('talk-btn');
+    if (tb && !tb.dataset.live) tb.textContent = window.TALK_IDLE[l];
+    try { localStorage.setItem('sofia-lang', l); } catch (e) {}
   }
-
-  function setLang(lang) {
-    localStorage.setItem('sofia-lang', lang);
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(function(el) {
-      var key = el.getAttribute('data-i18n');
-      if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
-    });
-    document.querySelectorAll('.lang-btn').forEach(function(btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-    });
-    updateAnimLang(lang);
-  }
-  document.querySelectorAll('.lang-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() { setLang(btn.getAttribute('data-lang')); });
-  });
-  setLang(localStorage.getItem('sofia-lang') || 'en');
-
-  /* ══ CONTACT FORM ══════════════════════════════════════════ */
-  var CONTACT_API = 'https://rcgavaldon3--sofia-ai-voice-web.modal.run/api/contact';
-  var contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = document.getElementById('contact-submit');
-      var name = contactForm.querySelector('[name="name"]').value.trim();
-      var business = contactForm.querySelector('[name="business"]').value.trim();
-      var phone = contactForm.querySelector('[name="phone"]').value.trim();
-      if (!name || !phone) return;
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-      fetch(CONTACT_API, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({name: name, business: business, phone: phone, sms_consent: true})
-      }).then(function(r) { return r.json(); }).then(function(data) {
-        if (data.ok) {
-          contactForm.style.display = 'none';
-          document.getElementById('contact-success').style.display = 'block';
-        } else {
-          btn.textContent = 'Request My Free Demo →';
-          btn.disabled = false;
-        }
-      }).catch(function() {
-        // API unreachable — fall back to mailto
-        var subj = encodeURIComponent('Demo Request - ' + business);
-        var body = encodeURIComponent('Name: ' + name + '\nBusiness: ' + business + '\nPhone: ' + phone);
-        window.open('mailto:rcgavaldon@rgaibiz.com?subject=' + subj + '&body=' + body);
-        btn.textContent = 'Request My Free Demo →';
-        btn.disabled = false;
-      });
-    });
-  }
-
-  /* ══ FAQ ACCORDION ═════════════════════════════════════════ */
-  document.querySelectorAll('.faq-q').forEach(function(q) {
-    q.addEventListener('click', function() {
-      var item = this.parentElement;
-      var wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-      if (!wasOpen) item.classList.add('open');
-    });
-  });
-
-  /* ══ HOW IT WORKS ANIMATION ════════════════════════════════ */
   (function () {
-    var SCENES = [
-      { id: 'hiw-s1', dur: 7000 },
-      { id: 'hiw-s2', dur: 7000 },
-      { id: 'hiw-s3', dur: 8000 },
-      { id: 'hiw-s4', dur: 7500 },
-      { id: 'hiw-s5', dur: 7500 },
-    ];
-
-    var dotsEl = document.getElementById('hiw-dots');
-    SCENES.forEach(function(_, i) {
-      var d = document.createElement('div');
-      d.className = 'hiw-dot';
-      d.id = 'hiw-dot-' + i;
-      d.addEventListener('click', function() { jumpTo(i); });
-      dotsEl.appendChild(d);
-    });
-
-    var cur = 0, timer = null, started = false;
-
-    function reset() {
-      var g = document.getElementById('hiw-wa-g');
-      if (g) { g.style.background = ''; g.style.borderColor = ''; g.style.transform = ''; }
-      var tap = document.getElementById('hiw-tap-omw');
-      if (tap) tap.classList.remove('tapped');
-      var sms = document.getElementById('hiw-sms');
-      if (sms) sms.classList.remove('show');
-      ['hiw-a1','hiw-a2','hiw-a3'].forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.classList.remove('show');
-      });
-    }
-
-    function showScene(idx) {
-      reset();
-      SCENES.forEach(function(s) { document.getElementById(s.id).classList.remove('active'); });
-      document.getElementById(SCENES[idx].id).classList.add('active');
-      document.querySelectorAll('.hiw-dot').forEach(function(d, i) { d.classList.toggle('on', i === idx); });
-
-      var fill = document.getElementById('hiw-fill');
-      fill.style.transition = 'none';
-      fill.style.width = '0%';
-      fill.offsetWidth;
-      fill.style.transition = 'width ' + SCENES[idx].dur + 'ms linear';
-      fill.style.width = '100%';
-
-      var dur = SCENES[idx].dur;
-      if (SCENES[idx].id === 'hiw-s3') { animWA(dur); }
-      if (SCENES[idx].id === 'hiw-s4') { animTap(); }
-      if (SCENES[idx].id === 'hiw-s5') { animAuto(); }
-
-      clearTimeout(timer);
-      timer = setTimeout(function() {
-        cur = (cur + 1) % SCENES.length;
-        showScene(cur);
-      }, dur);
-    }
-
-    function jumpTo(idx) {
-      cur = idx;
-      showScene(cur);
-    }
-
-    function animWA(dur) {
-      var btn = document.getElementById('hiw-wa-g');
-      if (!btn) return;
-      setTimeout(function() {
-        btn.style.background = 'rgba(74,222,128,0.25)';
-        btn.style.borderColor = 'rgba(74,222,128,0.55)';
-        btn.style.transform = 'scale(0.96)';
-        setTimeout(function() { btn.style.transform = ''; }, 250);
-      }, dur * 0.6);
-    }
-
-    function animTap() {
-      var tap = document.getElementById('hiw-tap-omw');
-      var sms = document.getElementById('hiw-sms');
-      setTimeout(function() {
-        if (tap) tap.classList.add('tapped');
-        setTimeout(function() { if (sms) sms.classList.add('show'); }, 500);
-      }, 800);
-    }
-
-    function animAuto() {
-      ['hiw-a1','hiw-a2','hiw-a3'].forEach(function(id, i) {
-        var el = document.getElementById(id);
-        if (el) setTimeout(function() { el.classList.add('show'); }, 250 + i * 650);
-      });
-    }
-
-    if ('IntersectionObserver' in window) {
-      var stage = document.getElementById('hiw-stage');
-      new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting && !started) { started = true; showScene(0); }
-        });
-      }, { threshold: 0.3 }).observe(stage);
-    } else {
-      showScene(0);
-    }
+    var l = 'en';
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      l = q || localStorage.getItem('sofia-lang') || 'en';
+    } catch (e) {}
+    setLang(l);
   })();
 </script>
-<script>
-  // Always start at top — prevent browser scroll restoration
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  window.scrollTo(0, 0);
-
-  function hearCall() {
-    const section = document.getElementById('live-call');
-    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-</script>
 <script type="module">
-  // In-browser "Talk to Sofia" — mints a Retell web-call token from the backend and starts a live call.
+  // "Talk to Sofia now": mints a Retell web-call token from the backend and starts a live call in the browser.
   const SOFIA_API = "https://roberto-gavaldon3--sofia-ai-voice-serve.modal.run";
-  let _retell = null, _live = false;
-  const _es = () => (localStorage.getItem('sofia-lang') || 'en') === 'es';
-  const _status = (en, es) => { const el = document.getElementById('talk-status'); if (el) el.textContent = _es() ? es : en; };
-  const _btn = (en, es) => { const b = document.getElementById('talk-btn'); if (b) b.innerHTML = _es() ? es : en; };
-  const IDLE_EN = '🎙️ Talk to Sofia now — in your browser', IDLE_ES = '🎙️ Habla con Sofia ahora — en tu navegador';
+  const btn = document.getElementById('talk-btn');
+  const es = () => document.documentElement.lang === 'es';
+  const status = (en, esText) => { const el = document.getElementById('talk-status'); if (el) el.textContent = es() ? esText : en; };
+  const idle = () => { delete btn.dataset.live; btn.disabled = false; btn.textContent = window.TALK_IDLE[es() ? 'es' : 'en']; };
+  let retell = null, live = false;
 
-  _btn(IDLE_EN, IDLE_ES);
-
-  window.startSofiaCall = async function () {
-    const btn = document.getElementById('talk-btn');
-    if (_live && _retell) { try { _retell.stopCall(); } catch (e) {} return; }
-    _status('Connecting… allow your microphone when asked.', 'Conectando… permite tu micrófono cuando te lo pida.');
-    if (btn) btn.disabled = true;
+  btn.addEventListener('click', async () => {
+    if (live && retell) { try { retell.stopCall(); } catch (e) {} return; }
+    status('Connecting… allow your microphone when asked.', 'Conectando… permita el micrófono cuando se lo pida.');
+    btn.disabled = true;
     try {
-      if (!_retell) {
+      if (!retell) {
         const mod = await import('https://esm.sh/retell-client-js-sdk@2');
         const RetellWebClient = mod.RetellWebClient || (mod.default && mod.default.RetellWebClient);
-        _retell = new RetellWebClient();
-        _retell.on('call_started', () => { _live = true; if (btn) btn.disabled = false; _btn('🔴 Live — tap to end', '🔴 En vivo — toca para terminar'); _status("You're talking to Sofia. Try: “My AC isn't cooling.”", 'Estás hablando con Sofia. Prueba: “Mi aire no enfría.”'); });
-        _retell.on('call_ended', () => { _live = false; if (btn) btn.disabled = false; _btn(IDLE_EN, IDLE_ES); _status('Call ended. Tap to talk again.', 'Llamada terminada. Toca para hablar de nuevo.'); });
-        _retell.on('error', () => { _live = false; if (btn) btn.disabled = false; try { _retell.stopCall(); } catch (e) {} _btn(IDLE_EN, IDLE_ES); _status('Something went wrong — please call (915) 286-7434 instead.', 'Algo falló — mejor llama al (915) 286-7434.'); });
+        retell = new RetellWebClient();
+        retell.on('call_started', () => {
+          live = true; btn.dataset.live = '1'; btn.disabled = false;
+          btn.textContent = es() ? '🔴 En vivo · toque para terminar' : '🔴 Live · tap to end';
+          status("You're talking to Sofia. Try: “My AC isn't cooling.”", 'Está hablando con Sofia. Pruebe: “Mi aire no enfría.”');
+        });
+        retell.on('call_ended', () => { live = false; idle(); status('Call ended. Tap to talk again.', 'Llamada terminada. Toque para hablar de nuevo.'); });
+        retell.on('error', () => {
+          live = false; try { retell.stopCall(); } catch (e) {} idle();
+          status('Something went wrong. Please call (915) 286-7434 instead.', 'Algo falló. Mejor llame al (915) 286-7434.');
+        });
       }
       const res = await fetch(SOFIA_API + '/demo/web-call');
       const data = await res.json();
       if (!data || !data.access_token) throw new Error('no token');
-      await _retell.startCall({ accessToken: data.access_token });
+      await retell.startCall({ accessToken: data.access_token });
     } catch (err) {
-      if (btn) btn.disabled = false;
-      _btn(IDLE_EN, IDLE_ES);
-      _status('Couldn\'t start the browser call — please call (915) 286-7434 instead.', 'No se pudo iniciar la llamada — mejor llama al (915) 286-7434.');
+      live = false; idle();
+      status("Couldn't start the browser call. Please call (915) 286-7434 instead.", 'No se pudo iniciar la llamada. Mejor llame al (915) 286-7434.');
     }
-  };
+  });
 </script>
 </body>
 </html>
