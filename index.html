@@ -132,6 +132,7 @@
     .price small { color: var(--text); font-size: 1rem; }
     .deal { color: var(--white); font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
     .save { color: var(--green); font-size: .88rem; font-weight: 700; }
+    .split { color: var(--text); font-size: .92rem; margin: -2px 0 8px; }
     .ends { color: var(--amber); font-size: .88rem; font-weight: 800; margin-top: 2px; }
     .plan .fine { font-size: .78rem; color: var(--muted); }
     .plan ul { list-style: none; margin: 14px 0 20px; flex: 1; }
@@ -263,17 +264,22 @@
     <div class="plans" id="plans">
       <div class="plan featured" id="pass">
         <div class="ribbon" data-t="ribbon">Save $1,987</div>
-        <div class="plan-name" data-t="p1n">The Slow-Season Pass</div>
+        <div class="plan-name" data-t="p1n">The Slow-Season Never-Miss Pass</div>
         <div class="price"><s>$4,987</s><b>$3,000</b><small data-t="p1per">for the whole year</small></div>
+        <p class="split" data-t="split">Or 3 monthly payments of $1,000.</p>
         <p class="deal" data-t="p1deal">7 busy months at $399. The 5 slow months are $207 total, about $41 a month; the rest is on me. No setup fee.</p>
         <p class="save" data-t="p1save">You save $1,987 vs. paying monthly.</p>
         <p class="ends" data-t="ends">10 Passes this season, ends October 31. I set up every shop myself.</p>
         <ul>
+          <li data-t="p1f1">Answers 24/7 in English and Spanish</li>
+          <li data-t="p1f2">Quotes your visit fee, gets a time plus a backup</li>
+          <li data-t="p1f3">The job on your WhatsApp in seconds</li>
           <li data-t="p1l1">450 minutes a month, about 150 calls</li>
           <li data-t="p1l2">Change your mind in the first 30 days after paying? You pay for one month and I refund the rest.</li>
         </ul>
         <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p1cta">Start my 3 free weeks</a>
         <p class="fine" style="margin-top:12px" data-t="p1fine">$4,987 = a year at $399/month plus the $199 setup.</p>
+        <p class="fine" data-t="p1fine2">The 3-payment plan charges your card automatically each month.</p>
       </div>
 
       <div class="plan">
@@ -377,13 +383,16 @@
     whocite: 'Robert Gavaldon, RG Automations',
     ol: 'Precios', oh: 'Elija cómo pagar.',
     olead: 'Los dos empiezan con 3 semanas gratis en su propia línea. Sin tarjeta. <b>Una sola instalación de una llamada que se le iba a ir paga todo el año.</b>',
-    ribbon: 'Ahorre $1,987', p1n: 'El Pase de Temporada Baja', p1per: 'por todo el año',
+    ribbon: 'Ahorre $1,987', p1n: 'El Pase Nunca-Falla de Temporada Baja', p1per: 'por todo el año',
     p1deal: '7 meses de temporada alta a $399. Los 5 meses de temporada baja son $207 en total, unos $41 al mes; el resto corre por mi cuenta. Sin cargo de activación.',
     p1save: 'Se ahorra $1,987 contra pagar mes a mes.',
     ends: '10 Pases esta temporada, termina el 31 de octubre. Yo dejo lista cada línea personalmente.',
+    split: 'O 3 pagos mensuales de $1,000.',
+    p1f1: 'Contesta 24/7 en inglés y español', p1f2: 'Le dice al cliente su cargo por visita y consigue una hora más otra de reserva',
+    p1f3: 'El trabajo en su WhatsApp en segundos',
     p1l1: '450 minutos al mes, unas 150 llamadas',
     p1l2: '¿Cambia de opinión en los primeros 30 días después de pagar? Paga un mes y le devuelvo el resto.',
-    p1cta: 'Empezar mis 3 semanas gratis', p1fine: '$4,987 = un año a $399/mes más la activación de $199.',
+    p1cta: 'Empezar mis 3 semanas gratis', p1fine: '$4,987 = un año a $399/mes más la activación de $199.', p1fine2: 'El plan de 3 pagos se cobra automáticamente a su tarjeta cada mes.',
     p2n: 'Mensual', p2per: '/mes', p2deal: 'Más una activación única de $199. Cancele cuando quiera.',
     p2l1: '450 minutos al mes, unas 150 llamadas', p2cta: 'Empezar mis 3 semanas gratis',
     pnote: 'Aun en julio, el negocio más ocupado de Albuquerque usó menos de 250 minutos al mes. Si pasa de 450, paga los minutos extra o sube de plan.',
