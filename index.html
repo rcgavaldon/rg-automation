@@ -6,11 +6,11 @@
   <meta name="facebook-domain-verification" content="enehkn7pnqisw3hu5oee9peazkult9">
   <meta name="theme-color" content="#0a0a0f">
   <title>Sofia AI — Bilingual AI Receptionist for HVAC Shops</title>
-  <meta name="description" content="Sofia answers your HVAC calls in English and Spanish when you can't, and texts you every job: name, address, and the problem. Live on your line the same day. Try her free for 3 weeks.">
+  <meta name="description" content="You're on the roof, Sofia's on the phone. She answers the HVAC calls you can't, in English or Spanish, and sends the job to your WhatsApp. 507 calls answered in 90 days for 2 Albuquerque shops. 3 weeks free.">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #0a0a0f; --surface: #13131a; --surface2: #18181f; --border: #23232f;
+      --bg: #0a0a0f; --surface: #13131a; --border: #23232f;
       --amber: #f59e0b; --amber-dim: rgba(245,158,11,0.10); --amber-border: rgba(245,158,11,0.30);
       --white: #f1f5f9; --text: #cbd5e1; --muted: #8b97ab;
       --green: #22c55e; --green-dim: rgba(34,197,94,0.08); --green-border: rgba(34,197,94,0.24);
@@ -21,21 +21,22 @@
     a { color: var(--amber); }
     .wrap { max-width: 1040px; margin: 0 auto; padding: 0 5%; }
     .narrow { max-width: 720px; margin: 0 auto; }
+    .only-phone { display: none !important; }
+    @media (max-width: 600px) { .only-phone { display: inline-flex !important; } .only-desk { display: none !important; } }
 
-    /* nav */
+    /* nav: sticky, with a button that stays visible on phones */
     nav { position: sticky; top: 0; z-index: 50; background: rgba(10,10,15,0.94); backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; padding-bottom: 12px; }
-    .logo { font-weight: 800; letter-spacing: -0.02em; font-size: 1.1rem; }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 11px; padding-bottom: 11px; }
+    .logo { font-weight: 800; letter-spacing: -0.02em; font-size: 1.1rem; white-space: nowrap; }
     .logo span { color: var(--amber); }
-    .nav-r { display: flex; align-items: center; gap: 10px; }
+    .nav-r { display: flex; align-items: center; gap: 8px; }
     .lang { display: flex; border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
     .lang button { background: transparent; border: 0; color: var(--muted); font-family: inherit; font-weight: 700; font-size: .72rem;
-                   letter-spacing: .08em; padding: 8px 12px; cursor: pointer; }
+                   letter-spacing: .08em; padding: 8px 11px; cursor: pointer; }
     .lang button.on { background: var(--amber); color: #000; }
-    .nav-cta { background: var(--amber); color: #000; font-weight: 800; font-size: .8rem; padding: 9px 14px; border-radius: 7px;
+    .nav-cta { background: var(--amber); color: #000; font-weight: 800; font-size: .8rem; padding: 9px 13px; border-radius: 7px;
                text-decoration: none; white-space: nowrap; }
-    @media (max-width: 440px) { .nav-cta { display: none; } }
 
     /* buttons */
     .btns { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -47,30 +48,30 @@
     .btn.ghost { background: var(--amber-dim); color: var(--white); border: 1px solid var(--amber-border); }
     .btn.ghost:hover { border-color: var(--amber); }
     .btn:disabled { opacity: .6; cursor: wait; }
+    @media (max-width: 600px) { .hero .btns .btn { width: 100%; } }
 
     /* hero */
-    .hero { position: relative; padding: 72px 0 64px; border-bottom: 1px solid var(--border); overflow: hidden; }
+    .hero { position: relative; padding: 60px 0 56px; border-bottom: 1px solid var(--border); overflow: hidden; }
     .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
                     background: radial-gradient(ellipse at 30% 0%, rgba(245,158,11,0.12) 0%, transparent 60%); }
     .hero-grid { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
-    @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } .hero { padding: 48px 0 48px; } }
+    @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } .hero { padding: 36px 0 44px; } }
     .badge { display: inline-block; background: var(--amber-dim); border: 1px solid var(--amber-border); color: var(--amber);
-             padding: 6px 14px; border-radius: 100px; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 20px; }
-    h1 { font-size: clamp(2.6rem, 7vw, 4.1rem); line-height: 1.04; letter-spacing: -0.04em; font-weight: 900; margin-bottom: 18px; }
+             padding: 5px 13px; border-radius: 100px; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
+    h1 { font-size: clamp(2.4rem, 6.6vw, 3.9rem); line-height: 1.05; letter-spacing: -0.04em; font-weight: 900; margin-bottom: 16px; }
     h1 .hl { color: var(--amber); }
-    .sub { font-size: clamp(1.05rem, 2.2vw, 1.2rem); color: var(--text); margin-bottom: 28px; max-width: 540px; }
+    .sub { font-size: clamp(1.02rem, 2.2vw, 1.18rem); color: var(--text); margin-bottom: 24px; max-width: 540px; }
     .sub strong { color: var(--white); }
-    .or-call { font-size: .92rem; color: var(--muted); margin-top: 14px; }
+    .micro { font-size: .85rem; color: var(--muted); margin-top: 10px; }
+    .or-call { font-size: .92rem; color: var(--muted); margin-top: 6px; }
     .or-call a { font-weight: 700; white-space: nowrap; }
-    #talk-status { font-size: .88rem; color: var(--text); margin-top: 10px; min-height: 1.2em; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-    .chip { font-size: .78rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); padding: 5px 12px; border-radius: 100px; }
-    .chip b { color: var(--green); }
+    #talk-status { font-size: .88rem; color: var(--text); margin-top: 8px; min-height: 1.2em; }
+    .proofline { margin-top: 14px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--amber);
+                 border-radius: 8px; font-size: .98rem; color: var(--white); max-width: 540px; }
+    .proofline b { color: var(--amber); }
 
     /* whatsapp card */
-    .card-label { display: flex; align-items: center; gap: 8px; font-size: .74rem; color: var(--muted); margin-bottom: 10px; }
-    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: blink 1.8s ease infinite; }
-    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+    .card-label { font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
     .wa { background: #0f1a10; border: 1px solid #1f3d1f; border-radius: 14px; padding: 16px; max-width: 360px; }
     .wa-top { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #4ade80; margin-bottom: 10px; }
     .wa-row { display: flex; gap: 10px; font-size: .84rem; margin-bottom: 5px; }
@@ -86,27 +87,24 @@
     .sms p { font-size: .84rem; color: var(--text); }
 
     /* sections */
-    section { padding: 72px 0; border-bottom: 1px solid var(--border); }
-    @media (max-width: 600px) { section { padding: 52px 0; } }
+    section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+    @media (max-width: 600px) { section { padding: 48px 0; } }
     .label { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
     h2 { font-size: clamp(1.8rem, 4.2vw, 2.6rem); line-height: 1.12; letter-spacing: -0.03em; font-weight: 850; margin-bottom: 14px; }
     .lead { color: var(--text); font-size: 1.05rem; max-width: 620px; }
 
-    /* steps */
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
-    @media (max-width: 820px) { .steps { grid-template-columns: 1fr; } }
-    .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px 24px; }
-    .num { width: 30px; height: 30px; border-radius: 50%; background: var(--amber); color: #000; font-weight: 900; font-size: .85rem;
-           display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-    .step h3 { font-size: 1.08rem; margin-bottom: 6px; }
-    .step p { font-size: .92rem; color: var(--text); }
-    .proof { margin-top: 26px; font-size: .95rem; color: var(--muted); }
-    .proof b { color: var(--white); }
+    /* proof tiles */
+    .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+    @media (max-width: 820px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+    .tile { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px 18px; }
+    .tile b { display: block; font-size: clamp(1.9rem, 5vw, 2.5rem); line-height: 1; letter-spacing: -0.03em; color: var(--amber); font-weight: 900; margin-bottom: 8px; }
+    .tile span { font-size: .88rem; color: var(--text); line-height: 1.4; display: block; }
+    .proof-more { margin-top: 20px; color: var(--text); font-size: 1rem; }
+    .source { margin-top: 8px; font-size: .78rem; color: var(--muted); }
 
     /* real call */
-    .realvid { display: block; width: 100%; max-width: 560px; margin: 0 auto; border-radius: 14px; background: #000;
-               border: 1px solid var(--border); }
-    .privacy { font-size: .8rem; color: var(--muted); max-width: 560px; margin: 12px auto 0; }
+    .realvid { display: block; width: 100%; max-width: 480px; margin: 0 auto; border-radius: 14px; background: #000; border: 1px solid var(--border); }
+    .privacy { font-size: .8rem; color: var(--muted); max-width: 480px; margin: 12px auto 0; }
 
     /* why */
     .why { background: var(--surface); border-left: 3px solid var(--amber); border-radius: 10px; padding: 22px 24px; margin-bottom: 36px; }
@@ -130,15 +128,15 @@
     .deal { color: var(--white); font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
     .save { color: var(--green); font-size: .88rem; font-weight: 700; margin-bottom: 4px; }
     .plan .fine { font-size: .8rem; color: var(--muted); }
-    .plan ul { list-style: none; margin: 18px 0 24px; flex: 1; }
+    .plan ul { list-style: none; margin: 16px 0 22px; flex: 1; }
     .plan li { position: relative; padding: 6px 0 6px 28px; font-size: .93rem; color: var(--text); }
     .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
     .plan .btn { width: 100%; }
-    .plans-note { margin-top: 20px; font-size: .88rem; color: var(--muted); text-align: center; }
+    .plans-note { margin-top: 20px; font-size: .9rem; color: var(--muted); text-align: center; }
 
     /* guarantee */
     .guar { display: flex; gap: 18px; align-items: flex-start; background: var(--green-dim); border: 1px solid var(--green-border);
-            border-radius: 16px; padding: 24px 26px; margin-top: 28px; }
+            border-radius: 16px; padding: 22px 24px; margin-top: 26px; }
     .guar-icon { font-size: 1.9rem; line-height: 1; flex-shrink: 0; }
     .guar h3 { font-size: 1.05rem; margin-bottom: 4px; }
     .guar p { font-size: .93rem; color: var(--text); }
@@ -154,9 +152,9 @@
 
     /* final */
     .final { text-align: center; }
-    .final .lead { margin: 0 auto 26px; }
+    .final .lead { margin: 0 auto 24px; }
     .final .btns { justify-content: center; }
-    .signoff { margin-top: 22px; font-size: .9rem; color: var(--muted); }
+    .signoff { margin-top: 18px; font-size: .9rem; color: var(--muted); }
 
     footer { padding: 30px 5% 44px; text-align: center; }
     .legal { font-size: .76rem; color: #6b778a; max-width: 720px; margin: 0 auto 16px; line-height: 1.7; }
@@ -176,7 +174,7 @@
         <button id="bEn" class="on" type="button" onclick="setLang('en')">EN</button>
         <button id="bEs" type="button" onclick="setLang('es')">ES</button>
       </div>
-      <a class="nav-cta" href="#offer" data-t="navcta">3 weeks free</a>
+      <a class="nav-cta" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="navcta">Try free</a>
     </div>
   </div>
 </nav>
@@ -184,23 +182,21 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="badge" data-t="badge">Built only for HVAC · English &amp; Spanish</div>
-      <h1 data-t="h1">Take your <span class="hl">Sundays</span> back.</h1>
-      <p class="sub" data-t="sub">Your phone rings first. When you can't pick up, Sofia answers in English or Spanish and texts you the job: <strong>name, address, and what's wrong.</strong></p>
+      <div class="badge" data-t="badge">Built only for HVAC</div>
+      <h1 data-t="h1">You're on the roof. <span class="hl">Sofia's on the phone.</span></h1>
+      <p class="sub" data-t="sub">Your phone still rings first. Can't grab it? Sofia answers in English or Spanish and sends the job to your WhatsApp: <strong>name, address, what's broken.</strong></p>
       <div class="btns">
-        <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="cta1">Try her free for 3 weeks</a>
-        <button class="btn ghost" id="talk-btn" type="button">🎙️ Talk to Sofia now</button>
+        <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="cta">Start my 3 free weeks</a>
+        <button class="btn ghost only-desk" id="talk-btn" type="button">🎙️ Talk to Sofia now</button>
+        <a class="btn ghost only-phone" href="tel:+19152867434" data-t="demobtn">Call the demo: (915) 286-7434</a>
       </div>
-      <div id="talk-status" aria-live="polite"></div>
-      <p class="or-call" data-t="orcall">Or call her like a customer: <a href="tel:+19152867434">(915) 286-7434</a></p>
-      <div class="chips">
-        <span class="chip" data-t="c1"><b>✓</b> 3 weeks free on your own line</span>
-        <span class="chip" data-t="c2"><b>✓</b> No card</span>
-        <span class="chip" data-t="c3"><b>✓</b> Live the same day</span>
-      </div>
+      <p class="micro" data-t="micro">Books a 15-minute setup call. No card. Live on your line the same day.</p>
+      <div id="talk-status" class="only-desk" aria-live="polite"></div>
+      <p class="or-call only-desk" data-t="orcall">Or call her like a customer: <a href="tel:+19152867434">(915) 286-7434</a></p>
+      <p class="proofline" data-t="proofline"><b>507 calls answered</b> in 90 days for 2 Albuquerque HVAC shops.</p>
     </div>
     <div aria-hidden="true">
-      <div class="card-label"><span class="dot"></span><span data-t="newcall">New call · just now</span></div>
+      <div class="card-label" data-t="cardlabel">What lands on your WhatsApp</div>
       <div class="wa">
         <div class="wa-top">WhatsApp · Sofia AI</div>
         <div class="wa-row"><span data-t="wl1">Name</span><span>Carlos Mendez</span></div>
@@ -224,36 +220,24 @@
 
 <section>
   <div class="wrap">
-    <div class="label" data-t="hl">How it works</div>
-    <h2 data-t="hh">You do the work. She takes the calls.</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="num">1</div>
-        <h3 data-t="s1h">You can't grab the phone.</h3>
-        <p data-t="s1p">A customer calls at 9 PM, on a Sunday, or while you're on a roof. It rings you first.</p>
-      </div>
-      <div class="step">
-        <div class="num">2</div>
-        <h3 data-t="s2h">Sofia picks up.</h3>
-        <p data-t="s2p">She gets the name, address, the problem, and the unit details. She gives your visit fee and gets a time plus a backup.</p>
-      </div>
-      <div class="step">
-        <div class="num">3</div>
-        <h3 data-t="s3h">The job hits your WhatsApp.</h3>
-        <p data-t="s3p">In seconds. The customer gets a confirmation text. You decide when to call them back.</p>
-      </div>
+    <div class="label" data-t="pl">Last 90 days · 2 Albuquerque shops</div>
+    <h2 data-t="ph">Most calls come while you're working.</h2>
+    <div class="tiles">
+      <div class="tile"><b>507</b><span data-t="t1">calls answered</span></div>
+      <div class="tile"><b>186</b><span data-t="t2">leads and messages sent to the owner</span></div>
+      <div class="tile"><b data-t="t3n">Nearly 1 in 4</b><span data-t="t3">came before 8, after 5, or on a weekend</span></div>
+      <div class="tile"><b>10 AM</b><span data-t="t4">busiest hour, when you're on a job</span></div>
     </div>
-    <p class="proof" data-t="proof">Answering calls today for <b>2 Albuquerque HVAC shops.</b></p>
+    <p class="proof-more" data-t="pmore">Busiest days: Thursday and Friday. About 1 in 7 calls came at night or on a weekend. On every call she quotes your visit fee and gets a time plus a backup.</p>
+    <p class="source" data-t="psrc">Jun 16 – Sep 15, 2026. Owner test calls excluded.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap narrow" style="text-align:center">
-    <div class="label" data-t="rl">Real call</div>
-    <h2 data-t="rh">Hear her on a real call.</h2>
-    <p class="lead" style="margin:0 auto 24px" data-t="rp">Don't take my word for it. This is Sofia on a real customer call.</p>
-    <video class="realvid" controls playsinline preload="metadata" src="sofia-real-call.mp4"></video>
-    <p class="privacy" data-t="rpriv">Real call. The customer's voice is AI-altered and their name and address are removed for privacy. Sofia's audio is unedited.</p>
+    <h2 data-t="rh">Hear her handle a real customer. 58 seconds.</h2>
+    <video class="realvid" controls playsinline preload="metadata" src="sofia-real-call.mp4#t=0.5" style="margin-top:22px"></video>
+    <p class="privacy" data-t="rpriv">The customer's voice is AI-altered and their name and address are removed for privacy. Sofia's audio is unedited.</p>
   </div>
 </section>
 
@@ -267,7 +251,7 @@
     </div>
     <div class="label" data-t="ol">Pricing</div>
     <h2 data-t="oh">Pick how you pay.</h2>
-    <p class="lead" style="margin-bottom:34px" data-t="olead">Both start with 3 weeks free on your own line. No card.</p>
+    <p class="lead" style="margin-bottom:34px" data-t="olead">Both start with 3 free weeks on your own line. No card.</p>
 
     <div class="plans">
       <div class="plan featured">
@@ -277,12 +261,10 @@
         <p class="deal" data-t="p1deal">Pay 7 months at $399. The other 5 are on me. Setup waived.</p>
         <p class="save" data-t="p1save">You save $2,194 vs. paying monthly.</p>
         <ul>
-          <li data-t="p1l1">No $199 setup fee</li>
-          <li data-t="p1l2">450 minutes a month, about 150 calls</li>
-          <li data-t="p1l3">Never-Miss Guarantee</li>
-          <li data-t="p1l4">Change your mind in the first 30 days after paying? You pay for one month and I refund the rest.</li>
+          <li data-t="p1l1">450 minutes a month, about 150 calls</li>
+          <li data-t="p1l2">Change your mind in the first 30 days after paying? You pay for one month and I refund the rest.</li>
         </ul>
-        <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p1cta">Start with 3 free weeks</a>
+        <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p1cta">Start my 3 free weeks</a>
         <p class="fine" style="margin-top:12px" data-t="p1fine">$4,987 = a year at $399/month plus the $199 setup.</p>
       </div>
 
@@ -291,16 +273,13 @@
         <div class="price"><b>$399</b><small data-t="p2per">/month</small></div>
         <p class="deal" data-t="p2deal">Plus a one-time $199 setup. Cancel anytime.</p>
         <ul>
-          <li data-t="p2l1">The same Sofia, everything included</li>
-          <li data-t="p2l2">450 minutes a month, about 150 calls</li>
-          <li data-t="p2l3">Never-Miss Guarantee</li>
-          <li data-t="p2l4">No contract</li>
+          <li data-t="p2l1">450 minutes a month, about 150 calls</li>
         </ul>
-        <a class="btn ghost" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p2cta">Start with 3 free weeks</a>
+        <a class="btn ghost" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p2cta">Start my 3 free weeks</a>
       </div>
     </div>
 
-    <p class="plans-note" data-t="pnote">Busy month past 450 minutes? You pay for the extra minutes or move up a plan.</p>
+    <p class="plans-note" data-t="pnote">Even in July, the busier Albuquerque shop used under 250 minutes a month. Go past 450 and you pay for the extra minutes or move up a plan.</p>
 
     <div class="guar">
       <div class="guar-icon" aria-hidden="true">🛡️</div>
@@ -314,8 +293,7 @@
 
 <section>
   <div class="wrap narrow">
-    <div class="label" data-t="fl">Straight answers</div>
-    <h2 style="margin-bottom:26px" data-t="fh">Questions owners ask</h2>
+    <h2 style="margin-bottom:24px" data-t="fh">Questions owners ask</h2>
     <details>
       <summary data-t="q1">Is she really AI? Will my customers know?</summary>
       <p data-t="a1">Yes. She tells callers up front that she's the AI assistant for your shop, taking calls while the team is out on jobs. She speaks English and Spanish and switches on her own.</p>
@@ -329,30 +307,22 @@
       <p data-t="a3">Pick the year or monthly. If she's not for you, turn off the forwarding and you owe nothing.</p>
     </details>
     <details>
-      <summary data-t="q4">What if I change my mind after paying for the year?</summary>
-      <p data-t="a4">Cancel in the first 30 days after paying. You pay for one month and I refund the rest.</p>
-    </details>
-    <details>
-      <summary data-t="q5">What if summer gets crazy?</summary>
-      <p data-t="a5">450 minutes a month are included, about 150 calls. That covers most shops even in July. If you go past it, you pay for the extra minutes or move up a plan.</p>
-    </details>
-    <details>
-      <summary data-t="q6">How fast can I go live?</summary>
-      <p data-t="a6">The same day. I set her up with you on the phone, and she's answering before we hang up.</p>
+      <summary data-t="q4">How fast can I go live?</summary>
+      <p data-t="a4">The same day. I set her up with you on the phone.</p>
     </details>
   </div>
 </section>
 
 <section class="final" style="border-bottom:0">
   <div class="wrap narrow">
-    <h2 data-t="endh">Want to hear her first?</h2>
-    <p class="lead" data-t="endp">Call Sofia like a customer with a dead AC. One minute and you'll know if she fits your shop.</p>
+    <h2 data-t="endh">Try her on your own line for 3 weeks.</h2>
+    <p class="lead" data-t="endp">No card. Pick a 15-minute setup call and she's live the same day.</p>
     <div class="btns">
-      <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="end1">Book a 15-minute call</a>
+      <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="end1">Start my 3 free weeks</a>
       <a class="btn ghost" id="sms-link" href="sms:+19156132915?&amp;body=Hi%20Robert%2C%20I%27d%20like%20to%20try%20Sofia." data-t="end2">Text Robert</a>
-      <a class="btn ghost" href="tel:+19152867434" data-t="end3">Call the demo</a>
     </div>
-    <p class="signoff">Robert Gavaldon · RG Automations · <a href="tel:+19156132915">(915) 613-2915</a></p>
+    <p class="signoff" data-t="enddemo">Or call the demo like a customer: <a href="tel:+19152867434">(915) 286-7434</a></p>
+    <p class="signoff" style="margin-top:6px">Robert Gavaldon · RG Automations · <a href="tel:+19156132915">(915) 613-2915</a></p>
   </div>
 </section>
 
@@ -369,63 +339,63 @@
 </footer>
 
 <script>
+  var CAL = 'https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free';
   var ES = {
-    navcta: '3 semanas gratis',
-    badge: 'Hecha solo para HVAC · Inglés y español',
-    h1: 'Recupere sus <span class="hl">domingos</span>.',
-    sub: 'Su teléfono suena primero. Cuando usted no puede contestar, Sofia contesta en inglés o español y le manda el trabajo por texto: <strong>nombre, dirección y qué tiene el equipo.</strong>',
-    cta1: 'Pruébela gratis 3 semanas',
+    navcta: 'Prueba gratis',
+    badge: 'Hecha solo para HVAC',
+    h1: 'Usted en el techo. <span class="hl">Sofia en el teléfono.</span>',
+    sub: 'Su teléfono sigue sonando primero. ¿No alcanza a contestar? Sofia contesta en inglés o español y le manda el trabajo a su WhatsApp: <strong>nombre, dirección y qué tiene el aire.</strong>',
+    cta: 'Empezar mis 3 semanas gratis',
+    demobtn: 'Llame a la demo: (915) 286-7434',
+    micro: 'Agenda una llamada de 15 minutos. Sin tarjeta. Lista en su línea el mismo día.',
     orcall: 'O llámele como si fuera un cliente: <a href="tel:+19152867434">(915) 286-7434</a>',
-    c1: '<b>✓</b> 3 semanas gratis en su propia línea', c2: '<b>✓</b> Sin tarjeta', c3: '<b>✓</b> Lista el mismo día',
-    newcall: 'Llamada nueva · ahorita',
+    proofline: '<b>507 llamadas contestadas</b> en 90 días para 2 negocios de HVAC en Albuquerque.',
+    cardlabel: 'Lo que le llega a su WhatsApp',
     wl1: 'Nombre', wl2: 'Teléfono', wl3: 'Dirección', wl4: 'Problema', wl5: 'Quiere',
-    wv4: 'El aire no enfría · unidad en el techo', wv5: 'Mañana 8–10 AM · respaldo 2–4 PM',
-    wb1: '✅ En Camino', wb2: '📅 Agendar', wb3: '✕ No cliente',
+    wv4: 'El aire no enfría · unidad en el techo', wv5: 'Mañana 8–10 AM · de reserva 2–4 PM',
+    wb1: '✅ En Camino', wb2: '📅 Agendar', wb3: '✕ No es cliente',
     smstop: 'Su cliente recibe',
     smsp: '¡Gracias por llamar! Ya tenemos sus datos y el equipo se comunicará para confirmar su hora.',
-    hl: 'Cómo funciona', hh: 'Usted hace el trabajo. Ella toma las llamadas.',
-    s1h: 'No alcanza a contestar.', s1p: 'Un cliente llama a las 9 de la noche, un domingo, o mientras usted está en un techo. Primero le suena a usted.',
-    s2h: 'Sofia contesta.', s2p: 'Toma el nombre, la dirección, el problema y los datos del equipo. Le dice su cargo por visita y consigue una hora más una de respaldo.',
-    s3h: 'El trabajo le llega por WhatsApp.', s3p: 'En segundos. El cliente recibe un texto de confirmación. Usted decide cuándo le regresa la llamada.',
-    proof: 'Ya contesta las llamadas de <b>2 talleres de HVAC en Albuquerque.</b>',
-    rl: 'Llamada real', rh: 'Escúchela en una llamada real.',
-    rp: 'No me crea a mí. Así atiende Sofia la llamada real de un cliente.',
-    rpriv: 'Llamada real. La voz del cliente fue alterada con IA y se quitaron su nombre y su dirección por privacidad. El audio de Sofia no está editado.',
+    pl: 'Últimos 90 días · 2 negocios en Albuquerque',
+    ph: 'La mayoría de las llamadas entran mientras usted trabaja.',
+    t1: 'llamadas contestadas', t2: 'clientes y mensajes enviados al dueño',
+    t3n: 'Casi 1 de cada 4', t3: 'entró antes de las 8, después de las 5 o en fin de semana',
+    t4: 'la hora más ocupada, cuando usted anda en un trabajo',
+    pmore: 'Los días más ocupados: jueves y viernes. Como 1 de cada 7 llamadas entró de noche o en fin de semana. En cada llamada ella le dice al cliente su cargo por visita y consigue una hora más otra de reserva.',
+    psrc: '16 de junio al 15 de septiembre de 2026. Sin contar las llamadas de prueba del dueño.',
+    rh: 'Escúchela atender a un cliente real. 58 segundos.',
+    rpriv: 'La voz del cliente fue alterada con IA y se quitaron su nombre y su dirección por privacidad. El audio de Sofia no está editado.',
     why: '"Es temporada baja. Ahorita no le entran las llamadas de julio, así que no le voy a cobrar precios de julio."',
     whocite: 'Robert Gavaldon, RG Automations',
     ol: 'Precios', oh: 'Elija cómo pagar.', olead: 'Los dos empiezan con 3 semanas gratis en su propia línea. Sin tarjeta.',
     ribbon: '5 meses por mi cuenta', p1n: 'El Pase de Temporada Baja', p1per: 'por todo el año',
-    p1deal: 'Paga 7 meses a $399. Los otros 5 corren por mi cuenta. Sin cargo de configuración.',
+    p1deal: 'Paga 7 meses a $399. Los otros 5 corren por mi cuenta. Sin cargo de activación.',
     p1save: 'Se ahorra $2,194 contra pagar mes a mes.',
-    p1l1: 'Sin el cargo de configuración de $199', p1l2: '450 minutos al mes, unas 150 llamadas', p1l3: 'Garantía Nunca-Falla',
-    p1l4: '¿Cambia de opinión en los primeros 30 días después de pagar? Paga un mes y le devuelvo el resto.',
-    p1cta: 'Empiece con 3 semanas gratis', p1fine: '$4,987 = un año a $399/mes más la configuración de $199.',
-    p2n: 'Mensual', p2per: '/mes', p2deal: 'Más una configuración única de $199. Cancele cuando quiera.',
-    p2l1: 'La misma Sofia, todo incluido', p2l2: '450 minutos al mes, unas 150 llamadas', p2l3: 'Garantía Nunca-Falla', p2l4: 'Sin contrato',
-    p2cta: 'Empiece con 3 semanas gratis',
-    pnote: '¿Un mes pesado de más de 450 minutos? Paga los minutos extra o sube de plan.',
-    gh: 'La Garantía Nunca-Falla', gp: 'Si Sofia pierde una llamada en su horario de trabajo, ese mes es gratis.',
-    fl: 'Respuestas directas', fh: 'Lo que preguntan los dueños',
+    p1l1: '450 minutos al mes, unas 150 llamadas',
+    p1l2: '¿Cambia de opinión en los primeros 30 días después de pagar? Paga un mes y le devuelvo el resto.',
+    p1cta: 'Empezar mis 3 semanas gratis', p1fine: '$4,987 = un año a $399/mes más la activación de $199.',
+    p2n: 'Mensual', p2per: '/mes', p2deal: 'Más una activación única de $199. Cancele cuando quiera.',
+    p2l1: '450 minutos al mes, unas 150 llamadas', p2cta: 'Empezar mis 3 semanas gratis',
+    pnote: 'Aun en julio, el negocio más ocupado de Albuquerque usó menos de 250 minutos al mes. Si pasa de 450, paga los minutos extra o sube de plan.',
+    gh: 'La Garantía Nunca-Falla', gp: 'Si Sofia no contesta una llamada en su horario de trabajo, ese mes es gratis.',
+    fh: 'Lo que preguntan los dueños',
     q1: '¿De verdad es IA? ¿Se dan cuenta mis clientes?',
-    a1: 'Sí. Desde el saludo les dice que es la asistente de IA de su taller y que contesta mientras el equipo está en trabajos. Habla inglés y español y cambia sola.',
+    a1: 'Sí. Desde el saludo les dice que es la asistente de IA de su negocio y que contesta mientras el equipo anda en un trabajo. Habla inglés y español y cambia sola.',
     q2: '¿Me quedo con mi número?',
-    a2: 'Sí. Su teléfono suena primero. Solo las llamadas que no alcanza se desvían a Sofia, y lo puede apagar cuando quiera con un código.',
+    a2: 'Sí. Su teléfono suena primero. Solo las llamadas que no alcanza a contestar se desvían a Sofia, y lo puede apagar cuando quiera con un código.',
     q3: '¿Qué pasa después de las 3 semanas gratis?',
-    a3: 'Escoge el año o mensual. Si no es para usted, quita el desvío y no debe nada.',
-    q4: '¿Y si cambio de opinión después de pagar el año?',
-    a4: 'Cancele en los primeros 30 días después de pagar. Paga un mes y le devuelvo el resto.',
-    q5: '¿Y si el verano se pone pesado?',
-    a5: 'Incluye 450 minutos al mes, unas 150 llamadas. Alcanza para la mayoría de los talleres aun en julio. Si se pasa, paga los minutos extra o sube de plan.',
-    q6: '¿Qué tan rápido queda lista?',
-    a6: 'El mismo día. Yo la configuro con usted por teléfono y queda contestando antes de colgar.',
-    endh: '¿Quiere oírla primero?',
-    endp: 'Háblele a Sofia como si fuera un cliente con el aire descompuesto. En un minuto sabe si le sirve a su taller.',
-    end1: 'Agende una llamada de 15 minutos', end2: 'Mándele texto a Robert', end3: 'Llame a la demo',
+    a3: 'Escoja el plan anual o el mensual. Si no es para usted, quite el desvío y no debe nada.',
+    q4: '¿Qué tan rápido queda lista?',
+    a4: 'El mismo día. Yo la dejo lista con usted por teléfono.',
+    endh: 'Pruébela en su propia línea por 3 semanas.',
+    endp: 'Sin tarjeta. Agende una llamada de 15 minutos y queda lista el mismo día.',
+    end1: 'Empezar mis 3 semanas gratis', end2: 'Mándele texto a Robert',
+    enddemo: 'O llame a la demo como si fuera un cliente: <a href="tel:+19152867434">(915) 286-7434</a>',
     legal: 'Sofia AI es una asistente de voz con inteligencia artificial. El servicio depende de su desvío de llamadas y de la disponibilidad de su compañía telefónica. La Garantía Nunca-Falla aplica en su horario de trabajo. Los mensajes a sus clientes salen del +1 (866) 827-6803; pueden responder STOP para dejar de recibirlos.',
     lk1: 'Términos y Condiciones', lk2: 'Política de Privacidad', lk3: 'Consentimiento SMS', lk4: 'Tutoriales', lk5: 'Contacto'
   };
   var SMS_BODY = { en: "Hi Robert, I'd like to try Sofia.", es: 'Hola Robert, quiero probar a Sofia.' };
-  var TITLE = { en: 'Sofia AI — Bilingual AI Receptionist for HVAC Shops', es: 'Sofia AI — Recepcionista bilingüe con IA para talleres de HVAC' };
+  var TITLE = { en: 'Sofia AI — Bilingual AI Receptionist for HVAC Shops', es: 'Sofia AI — Recepcionista bilingüe con IA para negocios de HVAC' };
   window.TALK_IDLE = { en: '🎙️ Talk to Sofia now', es: '🎙️ Hable con Sofia ahora' };
   var EN = {};
   document.querySelectorAll('[data-t]').forEach(function (el) { EN[el.getAttribute('data-t')] = el.innerHTML; });
@@ -457,11 +427,12 @@
   })();
 </script>
 <script type="module">
-  // "Talk to Sofia now": mints a Retell web-call token from the backend and starts a live call in the browser.
+  // "Talk to Sofia now" (desktop): mints a Retell web-call token from the backend and starts a live call in the browser.
   const SOFIA_API = "https://roberto-gavaldon3--sofia-ai-voice-serve.modal.run";
   const btn = document.getElementById('talk-btn');
   const es = () => document.documentElement.lang === 'es';
-  const status = (en, esText) => { const el = document.getElementById('talk-status'); if (el) el.textContent = es() ? esText : en; };
+  const statusEl = document.getElementById('talk-status');
+  const status = (en, esText) => { if (statusEl) statusEl.textContent = es() ? esText : en; };
   const idle = () => { delete btn.dataset.live; btn.disabled = false; btn.textContent = window.TALK_IDLE[es() ? 'es' : 'en']; };
   let retell = null, live = false;
 
@@ -479,7 +450,12 @@
           btn.textContent = es() ? '🔴 En vivo · toque para terminar' : '🔴 Live · tap to end';
           status("You're talking to Sofia. Try: “My AC isn't cooling.”", 'Está hablando con Sofia. Pruebe: “Mi aire no enfría.”');
         });
-        retell.on('call_ended', () => { live = false; idle(); status('Call ended. Tap to talk again.', 'Llamada terminada. Toque para hablar de nuevo.'); });
+        retell.on('call_ended', () => {
+          live = false; idle();
+          if (statusEl) statusEl.innerHTML = es()
+            ? '¿Le gustó? <a href="' + window.CAL + '">Empezar mis 3 semanas gratis</a>'
+            : 'Like her? <a href="' + window.CAL + '">Start my 3 free weeks</a>';
+        });
         retell.on('error', () => {
           live = false; try { retell.stopCall(); } catch (e) {} idle();
           status('Something went wrong. Please call (915) 286-7434 instead.', 'Algo falló. Mejor llame al (915) 286-7434.');
