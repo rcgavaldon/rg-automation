@@ -140,6 +140,11 @@
     .plan .btn { width: 100%; }
     .plans-note { margin-top: 18px; font-size: .88rem; color: var(--muted); text-align: center; }
 
+    /* guarantee stack on each price */
+    .plan ul.stack { list-style: none; margin: 12px 0 18px; flex: 0 0 auto; }
+    .plan ul.stack li { padding: 5px 0 5px 28px; font-size: .9rem; color: var(--text); }
+    .plan ul.stack li::before { content: "🛡️"; font-size: .85rem; top: 5px; }
+    .plan ul.stack li b { color: var(--white); }
     /* every plan includes (one list for both plans; the guarantee is the last line) */
     .incl { background: var(--green-dim); border: 1px solid var(--green-border); border-radius: 16px; padding: 18px 22px; margin-top: 18px; }
     .incl h3 { font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
@@ -262,7 +267,11 @@
         <div class="price"><s>$4,987</s><b>$3,000</b><small data-t="p1per">for the whole year</small></div>
         <p class="deal" data-t="p1deal">7 busy months at $399. The 5 slow months are on me for $207 total. No setup fee.</p>
         <p class="ends" data-t="ends">10 Passes this season, ends October 31. I set up every shop myself.</p>
-        <p class="fine" style="margin:8px 0 16px" data-t="p1l2">Change your mind in the first 30 days after paying? You pay for one month and I refund the rest.</p>
+        <ul class="stack">
+          <li data-t="s1">3 free weeks first. No card.</li>
+          <li data-t="s2"><b>Never-Miss Guarantee:</b> if she ever misses a job, that month is free.</li>
+          <li data-t="p1l2"><b>30-day refund:</b> change your mind after paying, you pay for one month and I refund the rest.</li>
+        </ul>
         <a class="btn primary" style="margin-top:auto" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p1cta">Start my 3 free weeks</a>
         <p class="fine" style="margin-top:12px" data-t="p1fine">$4,987 = a year at $399/month plus the $199 setup.</p>
         <p class="fine" data-t="split">Can pay in 3 payments of $1,000 over 3 months.</p>
@@ -271,7 +280,12 @@
       <div class="plan">
         <div class="plan-name" data-t="p2n">Monthly</div>
         <div class="price"><b>$399</b><small data-t="p2per">/month</small></div>
-        <p class="deal" style="margin-bottom:16px" data-t="p2deal">Plus a one-time $199 setup. Cancel anytime.</p>
+        <p class="deal" data-t="p2deal">Plus a one-time $199 setup.</p>
+        <ul class="stack">
+          <li data-t="s1b">3 free weeks first. No card.</li>
+          <li data-t="s2b"><b>Never-Miss Guarantee:</b> if she ever misses a job, that month is free.</li>
+          <li data-t="s3b">Cancel anytime.</li>
+        </ul>
         <a class="btn ghost" style="margin-top:auto" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p2cta">Start my 3 free weeks</a>
       </div>
     </div>
@@ -283,7 +297,6 @@
         <li data-t="i2">Quotes your visit fee, gets a time plus a backup</li>
         <li data-t="i3">The job on your WhatsApp in seconds</li>
         <li data-t="i4">450 minutes a month, about 150 calls (extra minutes are billed)</li>
-        <li data-t="i5"><b>Never-Miss Guarantee:</b> if a call forwards to Sofia during your business hours and she doesn't answer, that month is free.</li>
       </ul>
     </div>
   </div>
@@ -319,7 +332,7 @@
 </section>
 
 <footer>
-  <p class="legal" data-t="legal">Sofia AI is an AI voice assistant. Performance depends on your call forwarding setup and your carrier's availability. The Never-Miss Guarantee covers calls forwarded to Sofia during your business hours. Messages to your customers come from +1 (866) 827-6803; they can reply STOP to opt out.</p>
+  <p class="legal" data-t="legal">Sofia AI is an AI voice assistant. Performance depends on your call forwarding setup and your carrier's availability. Never-Miss Guarantee: a missed job is a customer call that forwarded to Sofia and she didn't answer it or didn't send you the job. Messages to your customers come from +1 (866) 827-6803; they can reply STOP to opt out.</p>
   <div class="links">
     <a href="terms.html" data-t="lk1">Terms &amp; Conditions</a>
     <a href="privacy-policy.html" data-t="lk2">Privacy Policy</a>
@@ -364,16 +377,17 @@
     p1deal: '7 meses de temporada alta a $399. Los 5 meses de temporada baja corren por mi cuenta por $207 en total. Sin cargo de activación.',
     ends: '10 Pases esta temporada, termina el 31 de octubre. Yo dejo lista cada línea personalmente.',
     split: 'Puede pagarlo en 3 pagos de $1,000 en 3 meses.',
-    p1l2: '¿Cambia de opinión en los primeros 30 días después de pagar? Paga un mes y le devuelvo el resto.',
+    p1l2: '<b>Reembolso de 30 días:</b> si cambia de opinión después de pagar, paga un mes y le devuelvo el resto.',
+    s1: '3 semanas gratis primero. Sin tarjeta.', s1b: '3 semanas gratis primero. Sin tarjeta.',
+    s2: '<b>Garantía Nunca-Falla:</b> si alguna vez se le pasa un trabajo, ese mes es gratis.', s2b: '<b>Garantía Nunca-Falla:</b> si alguna vez se le pasa un trabajo, ese mes es gratis.', s3b: 'Cancele cuando quiera.',
     p1cta: 'Empezar mis 3 semanas gratis', p1fine: '$4,987 = un año a $399/mes más la activación de $199.',
-    p2n: 'Mensual', p2per: '/mes', p2deal: 'Más una activación única de $199. Cancele cuando quiera.',
+    p2n: 'Mensual', p2per: '/mes', p2deal: 'Más una activación única de $199.',
     p2cta: 'Empezar mis 3 semanas gratis',
     ih: 'Todos los planes incluyen',
     i1: 'Contesta 24/7 en inglés y español',
     i2: 'Le dice al cliente su cargo por visita y consigue una hora más otra de reserva',
     i3: 'El trabajo en su WhatsApp en segundos',
     i4: '450 minutos al mes, unas 150 llamadas (los minutos extra se cobran aparte)',
-    i5: '<b>Garantía Nunca-Falla:</b> si una llamada se desvía a Sofia en su horario de trabajo y ella no contesta, ese mes es gratis.',
     fh: 'Lo que preguntan los dueños',
     q1: '¿De verdad es IA? ¿Se dan cuenta mis clientes?',
     a1: 'Sí. Desde el saludo les dice que es la asistente de IA de su negocio y que contesta mientras el equipo anda en un trabajo. Habla inglés y español y cambia sola.',
@@ -384,7 +398,7 @@
     endh: 'Pruébela en su propia línea por 3 semanas.',
     end1: 'Empezar mis 3 semanas gratis', end2: 'Mándele texto a Robert',
     enddemo: 'O llame a la demo como si fuera un cliente: <a href="tel:+19152867434">(915) 286-7434</a> · Robert Gavaldon, RG Automations, <a href="tel:+19156132915">(915) 613-2915</a>',
-    legal: 'Sofia AI es una asistente de voz con inteligencia artificial. El servicio depende de su desvío de llamadas y de la disponibilidad de su compañía telefónica. La Garantía Nunca-Falla cubre las llamadas desviadas a Sofia en su horario de trabajo. Los mensajes a sus clientes salen del +1 (866) 827-6803; pueden responder STOP para dejar de recibirlos.',
+    legal: 'Sofia AI es una asistente de voz con inteligencia artificial. El servicio depende de su desvío de llamadas y de la disponibilidad de su compañía telefónica. Garantía Nunca-Falla: un trabajo perdido es la llamada de un cliente que se desvió a Sofia y que ella no contestó o no le mandó. Los mensajes a sus clientes salen del +1 (866) 827-6803; pueden responder STOP para dejar de recibirlos.',
     lk1: 'Términos y Condiciones', lk2: 'Política de Privacidad', lk3: 'Consentimiento SMS', lk4: 'Tutoriales', lk5: 'Contacto'
   };
   var SOLO_LEAD = { en: 'It starts with 3 free weeks on your own line. No card.', es: 'Empieza con 3 semanas gratis en su propia línea. Sin tarjeta.' };
