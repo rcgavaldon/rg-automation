@@ -140,6 +140,21 @@
     .plan .btn { width: 100%; }
     .plans-note { margin-top: 18px; font-size: .88rem; color: var(--muted); text-align: center; }
 
+    /* what 100 calls are worth: fee spinner */
+    .calc { background: var(--surface); border: 1px solid var(--amber-border); border-radius: 18px; padding: 24px 22px; margin-top: 18px; text-align: center; }
+    .calc-l { display: block; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .spin { display: inline-flex; align-items: center; gap: 10px; }
+    .spin-b { width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--amber-border); background: var(--amber-dim); color: var(--white);
+              font-size: 1.6rem; font-weight: 800; line-height: 1; cursor: pointer; font-family: inherit; }
+    .spin-b:active { background: var(--amber); color: #000; }
+    .spin-v { font-size: 1.9rem; font-weight: 900; letter-spacing: -0.02em; display: inline-flex; align-items: center; }
+    .spin-v input { width: 3.4ch; background: transparent; border: 0; border-bottom: 2px solid var(--amber-border); color: var(--white);
+                    font: inherit; text-align: center; -moz-appearance: textfield; padding: 0; }
+    .spin-v input::-webkit-outer-spin-button, .spin-v input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .calc-big { font-size: clamp(2.6rem, 9vw, 3.6rem); font-weight: 900; letter-spacing: -0.04em; color: var(--amber); line-height: 1; margin-top: 20px; }
+    .calc-cap { font-size: .95rem; color: var(--white); font-weight: 700; margin-top: 6px; }
+    .calc-out { font-size: .95rem; color: var(--text); margin: 12px auto 0; max-width: 520px; }
+    .calc-out b { color: var(--white); }
     /* guarantee stack on each price */
     .plan ul.stack { list-style: none; margin: 12px 0 18px; flex: 0 0 auto; }
     .plan ul.stack li { padding: 5px 0 5px 28px; font-size: .9rem; color: var(--text); }
@@ -251,6 +266,24 @@
         <p class="privacy" data-t="rpriv">The customer's voice is AI-altered and their name and address are removed for privacy. Sofia's audio is unedited.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="worth">
+  <div class="wrap narrow">
+    <h2 data-t="wh">How much your missed calls are worth.</h2>
+    <div class="calc">
+      <span class="calc-l" data-t="wfl">Your service-call fee</span>
+      <div class="spin">
+        <button type="button" class="spin-b" id="feeMinus" aria-label="Lower fee">−</button>
+        <span class="spin-v">$<input id="feeIn" type="number" inputmode="numeric" min="25" max="500" step="5" value="100" aria-label="Service-call fee"></span>
+        <button type="button" class="spin-b" id="feePlus" aria-label="Higher fee">+</button>
+      </div>
+      <div class="calc-big" id="calcBig">$1,000</div>
+      <p class="calc-cap" id="calcCap">in visit fees from every 100 calls, before any repair</p>
+      <p class="calc-out" id="calcOut"></p>
+    </div>
+    <p class="source" style="text-align:center" data-t="wsrc">Based on 790 calls Sofia answered for 6 HVAC shops in 2026: 161 were real jobs.</p>
   </div>
 </section>
 
@@ -372,6 +405,9 @@
     psrc: 'Albuquerque, Houston y El Paso, del 16 de junio al 4 de octubre de 2026. Cargos de visita a la tarifa base de cada negocio. Sin contar las llamadas de prueba de los dueños.',
     rh: 'Escúchela atender a un cliente real. 58 segundos.',
     rpriv: 'La voz del cliente fue alterada con IA y se quitaron su nombre y su dirección por privacidad. El audio de Sofia no está editado.',
+    wh: 'Cuánto valen las llamadas que se le van.',
+    wfl: 'Su cargo por visita',
+    wsrc: 'Con base en 790 llamadas que Sofia contestó para 6 negocios de HVAC en 2026: 161 fueron trabajos reales.',
     ol: 'Precios', oh: 'Elija cómo pagar.',
     olead: 'Los dos empiezan con 3 semanas gratis en su propia línea. Sin tarjeta. <b>Una sola instalación de una llamada que se le iba a ir paga todo el año.</b>',
     ribbon: 'Ahorre $1,987', p1n: 'El Pase Nunca-Falla de Temporada Baja', p1per: 'por todo el año',
@@ -403,6 +439,30 @@
     legal: 'Sofia AI es una asistente de voz con inteligencia artificial. El servicio depende de su desvío de llamadas y de la disponibilidad de su compañía telefónica. Garantía Nunca-Falla: un trabajo perdido es la llamada de un cliente que se desvió a Sofia y que ella no contestó o no le mandó. Los mensajes a sus clientes salen del +1 (866) 827-6803; pueden responder STOP para dejar de recibirlos.',
     lk1: 'Términos y Condiciones', lk2: 'Política de Privacidad', lk3: 'Consentimiento SMS', lk4: 'Tutoriales', lk5: 'Contacto'
   };
+  var CALC = {
+    en: { cap: 'in visit fees from every 100 calls, before any repair',
+          out: function (f) { return 'About <b>20 of every 100 calls</b> she answers are real jobs. If only half of them book, that\'s <b>10 visits</b> at your $' + f + ' fee.'; } },
+    es: { cap: 'en cargos de visita por cada 100 llamadas, sin contar la reparación',
+          out: function (f) { return '<b>Como 20 de cada 100 llamadas</b> que contesta son trabajos reales. Si solo la mitad se agenda, son <b>10 visitas</b> a su cargo de $' + f + '.'; } }
+  };
+  function calcRender() {
+    var inp = document.getElementById('feeIn'); if (!inp) return;
+    var f = Math.round(Number(inp.value)); if (!isFinite(f) || f < 25) f = 25; if (f > 500) f = 500;
+    var l = document.documentElement.lang === 'es' ? 'es' : 'en';
+    document.getElementById('calcBig').textContent = '$' + (10 * f).toLocaleString('en-US');
+    document.getElementById('calcCap').textContent = CALC[l].cap;
+    document.getElementById('calcOut').innerHTML = CALC[l].out(f);
+  }
+  function feeStep(d) {
+    var inp = document.getElementById('feeIn');
+    var f = Math.round(Number(inp.value)) || 100;
+    f = Math.min(500, Math.max(25, (d > 0 ? Math.floor(f / 5) * 5 + 5 : Math.ceil(f / 5) * 5 - 5)));
+    inp.value = f; calcRender();
+  }
+  document.getElementById('feeMinus').onclick = function () { feeStep(-1); };
+  document.getElementById('feePlus').onclick = function () { feeStep(1); };
+  document.getElementById('feeIn').addEventListener('input', calcRender);
+  document.getElementById('feeIn').addEventListener('change', function () { var i = this; var f = Math.round(Number(i.value)); i.value = (!isFinite(f) || f < 25) ? 25 : (f > 500 ? 500 : f); calcRender(); });
   var SOLO_LEAD = { en: 'It starts with 3 free weeks on your own line. No card.', es: 'Empieza con 3 semanas gratis en su propia línea. Sin tarjeta.' };
   var SMS_BODY = { en: "Hi Robert, I'd like to try Sofia.", es: 'Hola Robert, quiero probar a Sofia.' };
   var TITLE = { en: 'Sofia AI — Bilingual AI Receptionist for HVAC Shops', es: 'Sofia AI — Recepcionista bilingüe con IA para negocios de HVAC' };
@@ -436,6 +496,7 @@
     var tb = document.getElementById('talk-btn');
     if (tb && !tb.dataset.live) tb.textContent = window.TALK_IDLE[l];
     applyPassDeadline(Date.now(), l);
+    calcRender();
     try { localStorage.setItem('sofia-lang', l); } catch (e) {}
   }
   (function () {
