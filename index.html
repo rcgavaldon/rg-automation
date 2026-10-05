@@ -6,7 +6,7 @@
   <meta name="facebook-domain-verification" content="enehkn7pnqisw3hu5oee9peazkult9">
   <meta name="theme-color" content="#0a0a0f">
   <title>Sofia AI — Bilingual AI Receptionist for HVAC Shops</title>
-  <meta name="description" content="You're on the roof, Sofia's on the phone. She answers the HVAC calls you can't, in English or Spanish, and sends the job to your WhatsApp. 507 calls answered in 90 days for 2 Albuquerque shops. 3 weeks free.">
+  <meta name="description" content="You're on the roof, Sofia's on the phone. She answers the HVAC calls you can't, in English or Spanish, and sends the job to your WhatsApp. 161 real jobs sent to HVAC owners so far in 2026. 3 weeks free.">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -140,12 +140,14 @@
     .plan .btn { width: 100%; }
     .plans-note { margin-top: 18px; font-size: .88rem; color: var(--muted); text-align: center; }
 
-    /* guarantee */
-    .guar { display: flex; gap: 16px; align-items: flex-start; background: var(--green-dim); border: 1px solid var(--green-border);
-            border-radius: 16px; padding: 20px 22px; margin-top: 22px; }
-    .guar-icon { font-size: 1.8rem; line-height: 1; flex-shrink: 0; }
-    .guar h3 { font-size: 1.02rem; margin-bottom: 4px; }
-    .guar p { font-size: .92rem; color: var(--text); }
+    /* every plan includes (one list for both plans; the guarantee is the last line) */
+    .incl { background: var(--green-dim); border: 1px solid var(--green-border); border-radius: 16px; padding: 18px 22px; margin-top: 18px; }
+    .incl h3 { font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+    .incl ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+    @media (max-width: 700px) { .incl ul { grid-template-columns: 1fr; } .incl { padding: 16px 18px; } }
+    .incl li { position: relative; padding: 5px 0 5px 26px; font-size: .92rem; color: var(--text); }
+    .incl li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
+    .incl li b { color: var(--white); }
 
     /* faq */
     details { border-bottom: 1px solid var(--border); }
@@ -199,7 +201,7 @@
       <p class="micro" data-t="micro">Books a 15-minute setup call. No card. Live on your line the same day.</p>
       <div id="talk-status" class="only-desk" aria-live="polite"></div>
       <p class="or-call only-desk" data-t="orcall">Or call her like a customer: <a href="tel:+19152867434">(915) 286-7434</a></p>
-      <p class="proofline" data-t="proofline"><b>507 calls answered</b> in 90 days for 2 Albuquerque HVAC shops.</p>
+      <p class="proofline" data-t="proofline"><b>161 real jobs</b> sent to HVAC owners so far in 2026, worth <b>$17,814</b> in service-call fees alone, before any repair work.</p>
     </div>
     <div aria-hidden="true">
       <div class="card-label" data-t="cardlabel">What lands on your WhatsApp</div>
@@ -226,18 +228,17 @@
 
 <section>
   <div class="wrap">
-    <div class="label" data-t="pl">90 days · 2 Albuquerque shops</div>
-    <h2 data-t="ph">Most calls come while you're working.</h2>
+    <div class="label" data-t="pl">So far in 2026 · 6 HVAC shops</div>
+    <h2 data-t="ph">What she's done so far.</h2>
     <div class="proof-grid">
       <div>
         <div class="tiles">
-          <div class="tile"><b>507</b><span data-t="t1">calls answered</span></div>
-          <div class="tile"><b>186</b><span data-t="t2">leads and messages for the owner</span></div>
-          <div class="tile"><b data-t="t3n">Nearly 1 in 4</b><span data-t="t3">came before 8, after 5, or on a weekend</span></div>
-          <div class="tile"><b>10 AM</b><span data-t="t4">busiest hour, when you're on a job</span></div>
+          <div class="tile"><b>790</b><span data-t="t1">calls answered</span></div>
+          <div class="tile"><b>161</b><span data-t="t2">real jobs sent to the owner</span></div>
+          <div class="tile"><b>$17,814</b><span data-t="t3">in visit fees alone, before the repair</span></div>
+          <div class="tile"><b data-t="t4n">More than 1 in 4</b><span data-t="t4">of those jobs came after hours</span></div>
         </div>
-        <p class="proof-more" data-t="pmore">Busiest days: Thursday and Friday. About 1 in 7 calls came at night or on a weekend.</p>
-        <p class="source" data-t="psrc">Jun 16 – Sep 15, 2026. Owner test calls excluded.</p>
+        <p class="source" data-t="psrc">Albuquerque, Houston and El Paso, Jun 16 – Oct 4, 2026. Visit fees at each shop's own base rate. Owner test calls excluded.</p>
       </div>
       <div>
         <p class="call-h" data-t="rh">Hear her handle a real customer. 58 seconds.</p>
@@ -250,12 +251,6 @@
 
 <section id="offer">
   <div class="wrap">
-    <div class="narrow">
-      <div class="why">
-        <p data-t="why">"It's the slow season. You're not getting July call volume right now, so I'm not charging July prices."</p>
-        <cite data-t="whocite">Robert Gavaldon, RG Automations</cite>
-      </div>
-    </div>
     <div class="label" data-t="ol">Pricing</div>
     <h2 data-t="oh">Pick how you pay.</h2>
     <p class="lead" id="olead" data-t="olead">Both start with 3 free weeks on your own line. No card. <b>One install from a call you'd have missed pays for the whole year.</b></p>
@@ -265,18 +260,10 @@
         <div class="ribbon" data-t="ribbon">Save $1,987</div>
         <div class="plan-name" data-t="p1n">The Slow-Season Never-Miss Pass</div>
         <div class="price"><s>$4,987</s><b>$3,000</b><small data-t="p1per">for the whole year</small></div>
-        <p class="deal" data-t="p1deal">7 busy months at $399. The 5 slow months are $207 total, about $41 a month; the rest is on me. No setup fee.</p>
-        <p class="save" data-t="p1save">You save $1,987 vs. paying monthly.</p>
+        <p class="deal" data-t="p1deal">7 busy months at $399. The 5 slow months are on me for $207 total. No setup fee.</p>
         <p class="ends" data-t="ends">10 Passes this season, ends October 31. I set up every shop myself.</p>
-        <ul>
-          <li data-t="p1f1">Answers 24/7 in English and Spanish</li>
-          <li data-t="p1f2">Quotes your visit fee, gets a time plus a backup</li>
-          <li data-t="p1f3">The job on your WhatsApp in seconds</li>
-          <li data-t="p1l1">450 minutes a month, about 150 calls</li>
-          <li data-t="p1g">Never-Miss Guarantee</li>
-          <li data-t="p1l2">Change your mind in the first 30 days after paying? You pay for one month and I refund the rest.</li>
-        </ul>
-        <a class="btn primary" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p1cta">Start my 3 free weeks</a>
+        <p class="fine" style="margin:8px 0 16px" data-t="p1l2">Change your mind in the first 30 days after paying? You pay for one month and I refund the rest.</p>
+        <a class="btn primary" style="margin-top:auto" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p1cta">Start my 3 free weeks</a>
         <p class="fine" style="margin-top:12px" data-t="p1fine">$4,987 = a year at $399/month plus the $199 setup.</p>
         <p class="fine" data-t="split">Can pay in 3 payments of $1,000 over 3 months.</p>
       </div>
@@ -284,26 +271,20 @@
       <div class="plan">
         <div class="plan-name" data-t="p2n">Monthly</div>
         <div class="price"><b>$399</b><small data-t="p2per">/month</small></div>
-        <p class="deal" data-t="p2deal">Plus a one-time $199 setup. Cancel anytime.</p>
-        <ul>
-          <li data-t="p2f1">Answers 24/7 in English and Spanish</li>
-          <li data-t="p2f2">Quotes your visit fee, gets a time plus a backup</li>
-          <li data-t="p2f3">The job on your WhatsApp in seconds</li>
-          <li data-t="p2l1">450 minutes a month, about 150 calls</li>
-          <li data-t="p2g">Never-Miss Guarantee</li>
-        </ul>
-        <a class="btn ghost" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p2cta">Start my 3 free weeks</a>
+        <p class="deal" style="margin-bottom:16px" data-t="p2deal">Plus a one-time $199 setup. Cancel anytime.</p>
+        <a class="btn ghost" style="margin-top:auto" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p2cta">Start my 3 free weeks</a>
       </div>
     </div>
 
-    <p class="plans-note" data-t="pnote">Even in July, the busier Albuquerque shop used under 250 minutes a month. Go past 450 and you pay for the extra minutes or move up a plan.</p>
-
-    <div class="guar">
-      <div class="guar-icon" aria-hidden="true">🛡️</div>
-      <div>
-        <h3 data-t="gh">The Never-Miss Guarantee</h3>
-        <p data-t="gp">If a call forwards to Sofia during your business hours and she doesn't answer, that month is free.</p>
-      </div>
+    <div class="incl">
+      <h3 data-t="ih">Every plan includes</h3>
+      <ul>
+        <li data-t="i1">Answers 24/7 in English and Spanish</li>
+        <li data-t="i2">Quotes your visit fee, gets a time plus a backup</li>
+        <li data-t="i3">The job on your WhatsApp in seconds</li>
+        <li data-t="i4">450 minutes a month, about 150 calls (extra minutes are billed)</li>
+        <li data-t="i5"><b>Never-Miss Guarantee:</b> if a call forwards to Sofia during your business hours and she doesn't answer, that month is free.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -322,10 +303,6 @@
     <details>
       <summary data-t="q3">What happens after the 3 free weeks?</summary>
       <p data-t="a3">Pick a plan. If she's not for you, turn off the forwarding and you owe nothing.</p>
-    </details>
-    <details>
-      <summary data-t="q4">How fast can I go live?</summary>
-      <p data-t="a4">The same day. I set her up with you on the phone.</p>
     </details>
   </div>
 </section>
@@ -366,43 +343,37 @@
     demobtn: 'Llame a la demo: (915) 286-7434',
     micro: 'Agende una llamada de 15 minutos para activarla. Sin tarjeta. Queda lista en su línea el mismo día.',
     orcall: 'O llámele como si fuera un cliente: <a href="tel:+19152867434">(915) 286-7434</a>',
-    proofline: '<b>507 llamadas contestadas</b> en 90 días para 2 negocios de HVAC en Albuquerque.',
+    proofline: '<b>161 trabajos reales</b> enviados a dueños de HVAC en lo que va de 2026, con un valor de <b>$17,814</b> solo en cargos de visita, sin contar la reparación.',
     cardlabel: 'Lo que le llega a su WhatsApp',
     wl1: 'Nombre', wl2: 'Teléfono', wl3: 'Dirección', wl4: 'Problema', wl5: 'Quiere',
     wv4: 'El aire no enfría · unidad en el techo', wv5: 'Mañana 8–10 AM · de reserva 2–4 PM',
     wb1: '✅ En Camino', wb2: '📅 Agendar', wb3: '✕ No es cliente',
     smstop: 'Su cliente recibe',
     smsp: '¡Gracias por llamar! Ya tenemos sus datos y el equipo se comunicará para confirmar su hora.',
-    pl: '90 días · 2 negocios en Albuquerque',
-    ph: 'La mayoría de las llamadas entran mientras usted trabaja.',
-    t1: 'llamadas contestadas', t2: 'posibles clientes y recados para el dueño',
-    t3n: 'Casi 1 de cada 4', t3: 'entró antes de las 8, después de las 5 o en fin de semana',
-    t4: 'la hora más ocupada, cuando usted anda en un trabajo',
-    pmore: 'Los días más ocupados: jueves y viernes. Como 1 de cada 7 llamadas entró de noche o en fin de semana.',
-    psrc: '16 de junio al 15 de septiembre de 2026. Sin contar las llamadas de prueba del dueño.',
+    pl: 'En lo que va de 2026 · 6 negocios de HVAC',
+    ph: 'Lo que ha hecho hasta ahora.',
+    t1: 'llamadas contestadas', t2: 'trabajos reales enviados al dueño',
+    t3: 'solo en cargos de visita, sin contar la reparación',
+    t4n: 'Más de 1 de cada 4', t4: 'de esos trabajos entró fuera de horario',
+    psrc: 'Albuquerque, Houston y El Paso, del 16 de junio al 4 de octubre de 2026. Cargos de visita a la tarifa base de cada negocio. Sin contar las llamadas de prueba de los dueños.',
     rh: 'Escúchela atender a un cliente real. 58 segundos.',
     rpriv: 'La voz del cliente fue alterada con IA y se quitaron su nombre y su dirección por privacidad. El audio de Sofia no está editado.',
-    why: '"Es temporada baja. Ahorita no le entran las llamadas de julio, así que no le voy a cobrar precios de julio."',
-    whocite: 'Robert Gavaldon, RG Automations',
     ol: 'Precios', oh: 'Elija cómo pagar.',
     olead: 'Los dos empiezan con 3 semanas gratis en su propia línea. Sin tarjeta. <b>Una sola instalación de una llamada que se le iba a ir paga todo el año.</b>',
     ribbon: 'Ahorre $1,987', p1n: 'El Pase Nunca-Falla de Temporada Baja', p1per: 'por todo el año',
-    p1deal: '7 meses de temporada alta a $399. Los 5 meses de temporada baja son $207 en total, unos $41 al mes; el resto corre por mi cuenta. Sin cargo de activación.',
-    p1save: 'Se ahorra $1,987 contra pagar mes a mes.',
+    p1deal: '7 meses de temporada alta a $399. Los 5 meses de temporada baja corren por mi cuenta por $207 en total. Sin cargo de activación.',
     ends: '10 Pases esta temporada, termina el 31 de octubre. Yo dejo lista cada línea personalmente.',
     split: 'Puede pagarlo en 3 pagos de $1,000 en 3 meses.',
-    p1f1: 'Contesta 24/7 en inglés y español', p1f2: 'Le dice al cliente su cargo por visita y consigue una hora más otra de reserva',
-    p1f3: 'El trabajo en su WhatsApp en segundos',
-    p1l1: '450 minutos al mes, unas 150 llamadas', p1g: 'Garantía Nunca-Falla',
     p1l2: '¿Cambia de opinión en los primeros 30 días después de pagar? Paga un mes y le devuelvo el resto.',
     p1cta: 'Empezar mis 3 semanas gratis', p1fine: '$4,987 = un año a $399/mes más la activación de $199.',
     p2n: 'Mensual', p2per: '/mes', p2deal: 'Más una activación única de $199. Cancele cuando quiera.',
-    p2f1: 'Contesta 24/7 en inglés y español', p2f2: 'Le dice al cliente su cargo por visita y consigue una hora más otra de reserva',
-    p2f3: 'El trabajo en su WhatsApp en segundos',
-    p2l1: '450 minutos al mes, unas 150 llamadas', p2g: 'Garantía Nunca-Falla', p2cta: 'Empezar mis 3 semanas gratis',
-    pnote: 'Aun en julio, el negocio más ocupado de Albuquerque usó menos de 250 minutos al mes. Si pasa de 450, paga los minutos extra o sube de plan.',
-    gh: 'La Garantía Nunca-Falla',
-    gp: 'Si una llamada se desvía a Sofia en su horario de trabajo y ella no contesta, ese mes es gratis.',
+    p2cta: 'Empezar mis 3 semanas gratis',
+    ih: 'Todos los planes incluyen',
+    i1: 'Contesta 24/7 en inglés y español',
+    i2: 'Le dice al cliente su cargo por visita y consigue una hora más otra de reserva',
+    i3: 'El trabajo en su WhatsApp en segundos',
+    i4: '450 minutos al mes, unas 150 llamadas (los minutos extra se cobran aparte)',
+    i5: '<b>Garantía Nunca-Falla:</b> si una llamada se desvía a Sofia en su horario de trabajo y ella no contesta, ese mes es gratis.',
     fh: 'Lo que preguntan los dueños',
     q1: '¿De verdad es IA? ¿Se dan cuenta mis clientes?',
     a1: 'Sí. Desde el saludo les dice que es la asistente de IA de su negocio y que contesta mientras el equipo anda en un trabajo. Habla inglés y español y cambia sola.',
@@ -410,8 +381,6 @@
     a2: 'Sí. Su teléfono suena primero. Solo las llamadas que no alcanza a contestar se desvían a Sofia, y lo puede apagar cuando quiera con un código.',
     q3: '¿Qué pasa después de las 3 semanas gratis?',
     a3: 'Escoja un plan. Si no es para usted, quite el desvío y no debe nada.',
-    q4: '¿Qué tan rápido queda lista?',
-    a4: 'El mismo día. Yo la dejo lista con usted por teléfono.',
     endh: 'Pruébela en su propia línea por 3 semanas.',
     end1: 'Empezar mis 3 semanas gratis', end2: 'Mándele texto a Robert',
     enddemo: 'O llame a la demo como si fuera un cliente: <a href="tel:+19152867434">(915) 286-7434</a> · Robert Gavaldon, RG Automations, <a href="tel:+19156132915">(915) 613-2915</a>',
