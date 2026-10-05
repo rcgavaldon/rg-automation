@@ -139,6 +139,8 @@
     .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
     .plan .btn { width: 100%; }
     .plans-note { margin-top: 18px; font-size: .88rem; color: var(--muted); text-align: center; }
+    .plan .cap { color: var(--amber); font-weight: 800; font-size: .95rem; margin-top: 6px; }
+    .ribbon-2 { background: var(--surface); color: var(--amber); border: 1px solid var(--amber-border); }
 
     /* what 100 calls are worth: fee spinner */
     .calc { background: var(--surface); border: 1px solid var(--amber-border); border-radius: 18px; padding: 24px 22px; margin-top: 18px; text-align: center; }
@@ -290,39 +292,43 @@
 <section id="offer">
   <div class="wrap">
     <div class="label" data-t="ol">Pricing</div>
-    <h2 data-t="oh">Pick how you pay.</h2>
-    <p class="lead" id="olead" data-t="olead">Both start with 3 free weeks on your own line. No card. <b>One install from a call you'd have missed pays for the whole year.</b></p>
+    <h2 data-t="oh">Pay for 4 months. Get 8 free.</h2>
+    <p class="lead" data-t="olead">Both start with 3 free weeks on your own line. No card. <b>Only real calls count</b>: a job or a message for you. Spam, robocalls and hang-ups are always free.</p>
 
     <div class="plans" id="plans">
-      <div class="plan featured" id="pass">
-        <div class="ribbon" data-t="ribbon">Save $1,987</div>
-        <div class="plan-name" data-t="p1n">The Slow-Season Never-Miss Pass</div>
-        <div class="price"><s>$4,987</s><b>$3,000</b><small data-t="p1per">for the whole year</small></div>
-        <p class="deal" data-t="p1deal">7 busy months at $399. The 5 slow months are on me for $207 total. No setup fee.</p>
-        <p class="ends" data-t="ends">10 Passes this season, ends October 31. I set up every shop myself.</p>
+      <div class="plan featured">
+        <div class="ribbon" data-t="ribbon">8 months free</div>
+        <div class="plan-name" data-t="p1n">The Never-Miss Year</div>
+        <div class="price"><s>$9,000</s><b>$3,000</b><small data-t="p1per">for the whole year</small></div>
+        <p class="deal" data-t="p1deal">4 months at $750. The other 8 are on me. No setup fee.</p>
+        <p class="cap" data-t="p1cap">Up to 65 real calls a month.</p>
         <ul class="stack">
           <li data-t="s1">3 free weeks first. No card.</li>
           <li data-t="s2"><b>Never-Miss Guarantee:</b> if she ever misses a job, that month is free.</li>
-          <li data-t="p1l2"><b>Cancel anytime:</b> in month 1, you pay for one month and I refund the rest. In months 2–5, I refund half of what's left through month 6.</li>
+          <li data-t="s3"><b>Cancel anytime:</b> in month 1, you pay for one month and I refund the rest. In months 2–3, I refund half of the paid months you haven't used.</li>
         </ul>
         <a class="btn primary" style="margin-top:auto" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p1cta">Start my 3 free weeks</a>
-        <p class="fine" style="margin-top:12px" data-t="p1nr">From month 6 on, there's no refund.</p>
-        <p class="fine" data-t="p1fine">$4,987 = a year at $399/month plus the $199 setup.</p>
+        <p class="fine" style="margin-top:12px" data-t="p1nr">From month 4 on, there's no refund. $9,000 = 12 months at $750.</p>
         <p class="fine" data-t="split">Can pay in 3 payments of $1,000 over 3 months.</p>
       </div>
 
       <div class="plan">
-        <div class="plan-name" data-t="p2n">Monthly</div>
-        <div class="price"><b>$399</b><small data-t="p2per">/month</small></div>
-        <p class="deal" data-t="p2deal">Plus a one-time $199 setup.</p>
+        <div class="ribbon ribbon-2" data-t="ribbon2">Double the calls</div>
+        <div class="plan-name" data-t="p2n">The Busy Shop Year</div>
+        <div class="price"><s>$15,000</s><b>$5,000</b><small data-t="p2per">for the whole year</small></div>
+        <p class="deal" data-t="p2deal">4 months at $1,250. The other 8 are on me. No setup fee.</p>
+        <p class="cap" data-t="p2cap">Up to 130 real calls a month. For busy shops and 24/7 lines.</p>
         <ul class="stack">
           <li data-t="s1b">3 free weeks first. No card.</li>
           <li data-t="s2b"><b>Never-Miss Guarantee:</b> if she ever misses a job, that month is free.</li>
-          <li data-t="s3b">Cancel anytime.</li>
+          <li data-t="s3b"><b>Cancel anytime:</b> in month 1, you pay for one month and I refund the rest. In months 2–3, I refund half of the paid months you haven't used.</li>
         </ul>
         <a class="btn ghost" style="margin-top:auto" href="https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free" data-t="p2cta">Start my 3 free weeks</a>
+        <p class="fine" style="margin-top:12px" data-t="p2nr">From month 4 on, there's no refund. $15,000 = 12 months at $1,250.</p>
       </div>
     </div>
+
+    <p class="plans-note" data-t="pmon">Rather go month to month? $750 a month ($1,250 for the Busy Shop) plus a one-time $199 setup. Cancel anytime. More than 130 real calls a month? I'll quote you.</p>
 
     <div class="incl">
       <h3 data-t="ih">Every plan includes</h3>
@@ -330,7 +336,7 @@
         <li data-t="i1">Answers 24/7 in English and Spanish</li>
         <li data-t="i2">Quotes your visit fee, gets a time plus a backup</li>
         <li data-t="i3">The job on your WhatsApp in seconds</li>
-        <li data-t="i4">450 minutes a month, about 150 calls (extra minutes are billed)</li>
+        <li data-t="i4">I set up every shop myself</li>
       </ul>
     </div>
   </div>
@@ -379,8 +385,6 @@
 
 <script>
   var CAL = 'https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free';
-  // The Slow-Season Pass ends Oct 31, 2026, 11:59 PM Mountain (MDT, UTC-6). After that the Pass card hides itself.
-  var PASS_END = new Date('2026-10-31T23:59:00-06:00').getTime();
   var ES = {
     navcta: 'Prueba gratis',
     badge: 'Hecha solo para HVAC',
@@ -408,24 +412,29 @@
     wh: 'Cuánto valen las llamadas que se le van.',
     wfl: 'Su cargo por visita',
     wsrc: 'Con base en 790 llamadas que Sofia contestó para 6 negocios de HVAC en 2026: 161 fueron trabajos reales.',
-    ol: 'Precios', oh: 'Elija cómo pagar.',
-    olead: 'Los dos empiezan con 3 semanas gratis en su propia línea. Sin tarjeta. <b>Una sola instalación de una llamada que se le iba a ir paga todo el año.</b>',
-    ribbon: 'Ahorre $1,987', p1n: 'El Pase Nunca-Falla de Temporada Baja', p1per: 'por todo el año',
-    p1deal: '7 meses de temporada alta a $399. Los 5 meses de temporada baja corren por mi cuenta por $207 en total. Sin cargo de activación.',
-    ends: '10 Pases esta temporada, termina el 31 de octubre. Yo dejo lista cada línea personalmente.',
-    split: 'Puede pagarlo en 3 pagos de $1,000 en 3 meses.',
-    p1l2: '<b>Cancele cuando quiera:</b> en el mes 1 paga un mes y le devuelvo el resto. En los meses 2 a 5 le devuelvo la mitad de lo que queda hasta el mes 6.',
-    p1nr: 'Del mes 6 en adelante no hay reembolso.',
+    ol: 'Precios', oh: 'Pague 4 meses. Llévese 8 gratis.',
+    olead: 'Los dos empiezan con 3 semanas gratis en su propia línea. Sin tarjeta. <b>Solo cuentan las llamadas de verdad</b>: un trabajo o un recado para usted. El spam, las llamadas automáticas y las que cuelgan siempre son gratis.',
+    ribbon: '8 meses gratis', p1n: 'El Año Nunca-Falla', p1per: 'por todo el año',
+    p1deal: '4 meses a $750. Los otros 8 corren por mi cuenta. Sin cargo de activación.',
+    p1cap: 'Hasta 65 llamadas de verdad al mes.',
     s1: '3 semanas gratis primero. Sin tarjeta.', s1b: '3 semanas gratis primero. Sin tarjeta.',
-    s2: '<b>Garantía Nunca-Falla:</b> si alguna vez se le pasa un trabajo, ese mes es gratis.', s2b: '<b>Garantía Nunca-Falla:</b> si alguna vez se le pasa un trabajo, ese mes es gratis.', s3b: 'Cancele cuando quiera.',
-    p1cta: 'Empezar mis 3 semanas gratis', p1fine: '$4,987 = un año a $399/mes más la activación de $199.',
-    p2n: 'Mensual', p2per: '/mes', p2deal: 'Más una activación única de $199.',
+    s2: '<b>Garantía Nunca-Falla:</b> si alguna vez se le pasa un trabajo, ese mes es gratis.', s2b: '<b>Garantía Nunca-Falla:</b> si alguna vez se le pasa un trabajo, ese mes es gratis.',
+    s3: '<b>Cancele cuando quiera:</b> en el mes 1 paga un mes y le devuelvo el resto. En los meses 2 y 3 le devuelvo la mitad de los meses pagados que no ha usado.',
+    s3b: '<b>Cancele cuando quiera:</b> en el mes 1 paga un mes y le devuelvo el resto. En los meses 2 y 3 le devuelvo la mitad de los meses pagados que no ha usado.',
+    p1cta: 'Empezar mis 3 semanas gratis',
+    p1nr: 'Del mes 4 en adelante no hay reembolso. $9,000 = 12 meses a $750.',
+    split: 'Puede pagarlo en 3 pagos de $1,000 en 3 meses.',
+    ribbon2: 'El doble de llamadas', p2n: 'El Año del Negocio Ocupado', p2per: 'por todo el año',
+    p2deal: '4 meses a $1,250. Los otros 8 corren por mi cuenta. Sin cargo de activación.',
+    p2cap: 'Hasta 130 llamadas de verdad al mes. Para negocios ocupados y líneas 24/7.',
     p2cta: 'Empezar mis 3 semanas gratis',
+    p2nr: 'Del mes 4 en adelante no hay reembolso. $15,000 = 12 meses a $1,250.',
+    pmon: '¿Prefiere pagar mes a mes? $750 al mes ($1,250 el del Negocio Ocupado) más una activación única de $199. Cancele cuando quiera. ¿Más de 130 llamadas de verdad al mes? Le hago una cotización.',
     ih: 'Todos los planes incluyen',
     i1: 'Contesta 24/7 en inglés y español',
     i2: 'Le dice al cliente su cargo por visita y consigue una hora más otra de reserva',
     i3: 'El trabajo en su WhatsApp en segundos',
-    i4: '450 minutos al mes, unas 150 llamadas (los minutos extra se cobran aparte)',
+    i4: 'Yo dejo lista cada línea personalmente',
     fh: 'Lo que preguntan los dueños',
     q1: '¿De verdad es IA? ¿Se dan cuenta mis clientes?',
     a1: 'Sí. Desde el saludo les dice que es la asistente de IA de su negocio y que contesta mientras el equipo anda en un trabajo. Habla inglés y español y cambia sola.',
@@ -463,22 +472,11 @@
   document.getElementById('feePlus').onclick = function () { feeStep(1); };
   document.getElementById('feeIn').addEventListener('input', calcRender);
   document.getElementById('feeIn').addEventListener('change', function () { var i = this; var f = Math.round(Number(i.value)); i.value = (!isFinite(f) || f < 25) ? 25 : (f > 500 ? 500 : f); calcRender(); });
-  var SOLO_LEAD = { en: 'It starts with 3 free weeks on your own line. No card.', es: 'Empieza con 3 semanas gratis en su propia línea. Sin tarjeta.' };
   var SMS_BODY = { en: "Hi Robert, I'd like to try Sofia.", es: 'Hola Robert, quiero probar a Sofia.' };
   var TITLE = { en: 'Sofia AI — Bilingual AI Receptionist for HVAC Shops', es: 'Sofia AI — Recepcionista bilingüe con IA para negocios de HVAC' };
   window.TALK_IDLE = { en: '🎙️ Talk to Sofia now', es: '🎙️ Hable con Sofia ahora' };
   var EN = {};
   document.querySelectorAll('[data-t]').forEach(function (el) { EN[el.getAttribute('data-t')] = el.innerHTML; });
-
-  // After Oct 31 the Pass is gone: hide its card and the slow-season quote, and switch the pricing lead to the one plan left.
-  function applyPassDeadline(now, l) {
-    if (now <= PASS_END) return false;
-    var pass = document.getElementById('pass'); if (pass) pass.style.display = 'none';
-    var why = document.querySelector('.why'); if (why) why.style.display = 'none';
-    var plans = document.getElementById('plans'); if (plans) plans.classList.add('solo');
-    var lead = document.getElementById('olead'); if (lead) lead.textContent = SOLO_LEAD[l];
-    return true;
-  }
 
   function setLang(l) {
     if (l !== 'es') l = 'en';
@@ -495,7 +493,6 @@
     if (sms) sms.setAttribute('href', 'sms:+19156132915?&body=' + encodeURIComponent(SMS_BODY[l]));
     var tb = document.getElementById('talk-btn');
     if (tb && !tb.dataset.live) tb.textContent = window.TALK_IDLE[l];
-    applyPassDeadline(Date.now(), l);
     calcRender();
     try { localStorage.setItem('sofia-lang', l); } catch (e) {}
   }
