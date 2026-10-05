@@ -281,8 +281,8 @@
         <span class="spin-v">$<input id="feeIn" type="number" inputmode="numeric" min="25" max="500" step="5" value="100" aria-label="Service-call fee"></span>
         <button type="button" class="spin-b" id="feePlus" aria-label="Higher fee">+</button>
       </div>
-      <div class="calc-big" id="calcBig">$1,000</div>
-      <p class="calc-cap" id="calcCap">in visit fees from every 100 calls, before any repair</p>
+      <div class="calc-big" id="calcBig">$12,000</div>
+      <p class="calc-cap" id="calcCap">a year in visit fees, if 100 calls a month go to Sofia</p>
       <p class="calc-out" id="calcOut"></p>
     </div>
     <p class="source" style="text-align:center" data-t="wsrc">Based on 790 calls Sofia answered for 6 HVAC shops in 2026: 161 were real jobs.</p>
@@ -449,16 +449,16 @@
     lk1: 'Términos y Condiciones', lk2: 'Política de Privacidad', lk3: 'Consentimiento SMS', lk4: 'Tutoriales', lk5: 'Contacto'
   };
   var CALC = {
-    en: { cap: 'in visit fees from every 100 calls, before any repair',
-          out: function (f) { return 'About <b>20 of every 100 calls</b> she answers are real jobs. If only half of them book, that\'s <b>10 visits</b> at your $' + f + ' fee.'; } },
-    es: { cap: 'en cargos de visita por cada 100 llamadas, sin contar la reparación',
-          out: function (f) { return '<b>Como 20 de cada 100 llamadas</b> que contesta son trabajos reales. Si solo la mitad se agenda, son <b>10 visitas</b> a su cargo de $' + f + '.'; } }
+    en: { cap: 'a year in visit fees, if 100 calls a month go to Sofia',
+          out: function (f) { return 'About <b>20 of every 100 calls</b> she answers are real jobs. If only half of them book, that\'s <b>10 visits a month, 120 a year</b> at your $' + f + ' fee, before any repair.'; } },
+    es: { cap: 'al año en cargos de visita, si le llegan a Sofia 100 llamadas al mes',
+          out: function (f) { return '<b>Como 20 de cada 100 llamadas</b> que contesta son trabajos reales. Si solo la mitad se agenda, son <b>10 visitas al mes, 120 al año</b> a su cargo de $' + f + ', sin contar la reparación.'; } }
   };
   function calcRender() {
     var inp = document.getElementById('feeIn'); if (!inp) return;
     var f = Math.round(Number(inp.value)); if (!isFinite(f) || f < 25) f = 25; if (f > 500) f = 500;
     var l = document.documentElement.lang === 'es' ? 'es' : 'en';
-    document.getElementById('calcBig').textContent = '$' + (10 * f).toLocaleString('en-US');
+    document.getElementById('calcBig').textContent = '$' + (120 * f).toLocaleString('en-US');
     document.getElementById('calcCap').textContent = CALC[l].cap;
     document.getElementById('calcOut').innerHTML = CALC[l].out(f);
   }
