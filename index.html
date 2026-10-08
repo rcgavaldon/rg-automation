@@ -463,19 +463,19 @@
   // Pricing (10/8): three sizes, yearly = 6 months paid + 6 free, monthly = same plan month to month + $199 setup.
   var BILLING = 'year';
   var PLANS = [
-    { id: 'starter', calls: 60,  mo: 700,  yr: 4200, featured: false,
+    { id: 'starter', calls: 60,  mo: 750,  yr: 4500, featured: false,
       name: { en: 'The Starter Year',    es: 'El Año Inicial' },
       cap:  { en: 'Up to 60 real calls a month. One tech, one line.',           es: 'Hasta 60 llamadas de verdad al mes. Un técnico, una línea.' } },
-    { id: 'shop',    calls: 100, mo: 899,  yr: 5400, featured: true,
+    { id: 'shop',    calls: 100, mo: 999,  yr: 5999, featured: true,
       name: { en: 'The Never-Miss Year', es: 'El Año Nunca-Falla' },
       cap:  { en: 'Up to 100 real calls a month. Most shops live here.',        es: 'Hasta 100 llamadas de verdad al mes. Aquí está la mayoría.' } },
-    { id: 'busy',    calls: 200, mo: 1499, yr: 9000, featured: false,
+    { id: 'busy',    calls: 200, mo: 1667, yr: 9999, featured: false,
       name: { en: 'The Busy Shop Year',  es: 'El Año del Negocio Ocupado' },
       cap:  { en: 'Up to 200 real calls a month. Busy shops and 24/7 lines.',  es: 'Hasta 200 llamadas de verdad al mes. Negocios ocupados y líneas 24/7.' } }
   ];
   var PT = {
     en: { ribbon: '6 months free', pop: 'Most popular', year: 'for the whole year', month: 'a month',
-          dealY: function (p) { return '6 months at $' + fmt(p.mo) + '. The other 6 are on me. No setup fee.'; },
+          dealY: function (p) { return 'Six months' worth. The other 6 are on me. No setup fee.'; },
           dealM: function (p) { return 'Month to month, plus a one-time $199 setup. Cancel anytime.'; },
           saveY: function (p) { return 'You save $' + fmt(p.mo * 12 - p.yr) + ' a year'; },
           saveM: function (p) { return 'Go yearly and save $' + fmt(p.mo * 12 - p.yr); },
@@ -486,7 +486,7 @@
           nrY: function (p) { return 'From month 4 on, there\'s no refund. $' + fmt(p.mo * 12) + ' = 12 months at $' + fmt(p.mo) + '.'; },
           split: function (p) { return 'Can pay in 3 payments of $' + fmt(p.yr / 3) + ' over 3 months.'; } },
     es: { ribbon: '6 meses gratis', pop: 'El más pedido', year: 'por todo el año', month: 'al mes',
-          dealY: function (p) { return '6 meses a $' + fmt(p.mo) + '. Los otros 6 corren por mi cuenta. Sin cargo de activación.'; },
+          dealY: function (p) { return 'Lo de 6 meses. Los otros 6 corren por mi cuenta. Sin cargo de activación.'; },
           dealM: function (p) { return 'Mes a mes, más una activación única de $199. Cancele cuando quiera.'; },
           saveY: function (p) { return 'Se ahorra $' + fmt(p.mo * 12 - p.yr) + ' al año'; },
           saveM: function (p) { return 'Con el anual se ahorra $' + fmt(p.mo * 12 - p.yr); },
