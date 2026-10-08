@@ -147,6 +147,17 @@
     @media (max-width: 820px) { .plans.three { grid-template-columns: 1fr; } }
     .plan .save { display: inline-block; margin: 10px 0 2px; padding: 5px 10px; border-radius: 999px; background: rgba(34,197,94,0.14); color: var(--green); font-size: .82rem; font-weight: 800; }
     .plan .price small { display: block; }
+    .yours { margin-top: 22px; background: var(--surface); border: 1px solid var(--amber-border); border-radius: 16px; padding: 18px 20px; }
+    .yours-in { display: flex; gap: 22px; flex-wrap: wrap; }
+    .yl { display: flex; flex-direction: column; gap: 6px; font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .yinp { display: inline-flex; align-items: center; gap: 2px; font-size: 1.55rem; font-weight: 900; color: var(--white); }
+    .yinp input { width: 5.4ch; background: transparent; border: 0; border-bottom: 2px solid var(--amber); color: var(--white); font: inherit; font-size: 1.55rem; font-weight: 900; text-align: center; padding: 0 2px; -moz-appearance: textfield; }
+    .yinp input::-webkit-outer-spin-button, .yinp input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .yours-out { margin-top: 14px; font-size: 1.02rem; line-height: 1.55; color: var(--text); }
+    .yours-out b { color: var(--white); } .yours-out .amber { color: var(--amber); } .yours-out .green { color: var(--green); }
+    .plan.mine { border-color: var(--green); }
+    .plan .mine-tag { position: absolute; top: -12px; right: 16px; background: var(--green); color: #07140b; font-size: .7rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+    .plans-note.fine { font-size: .8rem; margin-top: 10px; }
     .plan .cap { color: var(--amber); font-weight: 800; font-size: .95rem; margin-top: 6px; }
     .ribbon-2 { background: var(--surface); color: var(--amber); border: 1px solid var(--amber-border); }
 
@@ -303,6 +314,14 @@
     <h2 data-t="oh">Pick your size. Pay for 6 months, get 6 free.</h2>
     <p class="lead" data-t="olead">Every plan starts with 3 free weeks on your own line. No card. <b>Only real calls count</b>: a job or a message for you. Spam, robocalls and hang-ups are unlimited*, on me.</p>
 
+    <div class="yours" id="yours">
+      <div class="yours-in">
+        <label class="yl"><span data-t="y1">Your visit fee</span><span class="yinp">$<input id="yFee" type="number" inputmode="numeric" min="25" max="500" step="5" value="100" aria-label="Visit fee"></span></label>
+        <label class="yl"><span data-t="y2">Real calls a month</span><span class="yinp"><input id="yCalls" type="number" inputmode="numeric" min="1" max="400" value="70" aria-label="Real calls a month"></span></label>
+      </div>
+      <div class="yours-out" id="yOut"></div>
+    </div>
+
     <div class="bill" id="bill" role="tablist" aria-label="Billing">
       <button type="button" id="bYear" class="on" onclick="setBilling('year')" data-t="bYear">Yearly — pay 6 months, get 6 free</button>
       <button type="button" id="bMonth" onclick="setBilling('month')" data-t="bMonth">Monthly</button>
@@ -310,6 +329,7 @@
     <div class="plans three" id="plans"></div>
 
     <p class="plans-note" data-t="pmon">Extra real calls past your plan: $4 each. *Spam, robocalls and hang-ups are covered up to 500 a month; past that, 50¢ each (no shop has ever come close). More than 200 real calls a month, or more than one line? I'll quote you.</p>
+    <p class="plans-note fine" id="yNote"></p>
 
     <div class="incl">
       <h3 data-t="ih">Every plan includes</h3>
@@ -396,6 +416,7 @@
     ol: 'Precios', oh: 'Elija su tamaño. Pague 6 meses, llévese 6 gratis.',
     olead: 'Todos los planes empiezan con 3 semanas gratis en su propia línea. Sin tarjeta. <b>Solo cuentan las llamadas de verdad</b>: un trabajo o un recado para usted. El spam, las llamadas automáticas y las que cuelgan son ilimitadas*, por mi cuenta.',
     bYear: 'Anual — pague 6 meses, llévese 6 gratis', bMonth: 'Mensual',
+    y1: 'Su cargo por visita', y2: 'Llamadas de verdad al mes',
     ribbon: '8 meses gratis', p1n: 'El Año Nunca-Falla', p1per: 'por todo el año',
     p1deal: '4 meses a $750. Los otros 8 corren por mi cuenta. Sin cargo de activación.',
     p1cap: 'Hasta 65 llamadas de verdad al mes.',
@@ -499,6 +520,53 @@
   };
   function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
   var CAL = 'https://calendly.com/rcgavaldon-rgaibiz/sofia-3-week-trial-demo-free';
+  // 'Put your numbers' (10/8): 6 of every 10 real calls Sofia takes turn into a visit (Tech Air 2026: 103 jobs from 166 real calls).
+  var JOB_SHARE = 0.6;
+  var YT = {
+    en: { fits: function (p) { return '<b class="amber">' + p.name.en + '</b> fits you.'; },
+          over: 'That\'s more than the Busy Shop covers — <b>I\'ll quote you.</b>',
+          line: function (n, v, fees, f) { return 'At <b>' + n + ' real calls</b> a month, about <b>' + v + ' visits a month</b> → <b class="amber">$' + fmt(fees) + ' a year</b> in visit fees at your $' + f + ', repairs on top.'; },
+          keep: function (price, keep, x, y) { return 'The plan is <b>$' + fmt(price) + (y ? ' a year' : ' a year billed monthly') + '</b> → you keep <b class="green">$' + fmt(keep) + '</b>, about <b class="green">' + x + '×</b> what Sofia costs.'; },
+          note: function (f, n, fees) { return 'Estimate: about 6 of every 10 real calls Sofia takes turn into a visit (Tech Air\'s 2026 numbers: 103 jobs from 166 real calls), times your $' + f + ' fee, times 12. At ' + n + ' real calls a month that\'s $' + fmt(fees) + ' a year in visit fees before any repair. Your calls and fee may differ.'; },
+          mine: 'Your plan' },
+    es: { fits: function (p) { return '<b class="amber">' + p.name.es + '</b> es el suyo.'; },
+          over: 'Es más de lo que cubre el Negocio Ocupado — <b>le hago una cotización.</b>',
+          line: function (n, v, fees, f) { return 'Con <b>' + n + ' llamadas de verdad</b> al mes, como <b>' + v + ' visitas al mes</b> → <b class="amber">$' + fmt(fees) + ' al año</b> en cargos de visita a sus $' + f + ', sin contar la reparación.'; },
+          keep: function (price, keep, x, y) { return 'El plan cuesta <b>$' + fmt(price) + (y ? ' al año' : ' al año pagando mes a mes') + '</b> → usted se queda con <b class="green">$' + fmt(keep) + '</b>, como <b class="green">' + x + ' veces</b> lo que cuesta Sofia.'; },
+          note: function (f, n, fees) { return 'Estimado: como 6 de cada 10 llamadas de verdad que atiende Sofia se vuelven una visita (números de Tech Air en 2026: 103 trabajos de 166 llamadas de verdad), por su cargo de $' + f + ', por 12. Con ' + n + ' llamadas de verdad al mes son $' + fmt(fees) + ' al año en cargos de visita, sin contar la reparación. Sus llamadas y su cargo pueden variar.'; },
+          mine: 'Su plan' }
+  };
+  function yoursVals() {
+    var fe = document.getElementById('yFee'), ce = document.getElementById('yCalls');
+    var f = Math.round(Number(fe && fe.value)); if (!isFinite(f) || f < 25) f = 25; if (f > 500) f = 500;
+    var n = Math.round(Number(ce && ce.value)); if (!isFinite(n) || n < 1) n = 1; if (n > 400) n = 400;
+    return { f: f, n: n };
+  }
+  function yoursPlan(n) { for (var i = 0; i < PLANS.length; i++) if (n <= PLANS[i].calls) return PLANS[i]; return null; }
+  function yoursRender() {
+    var out = document.getElementById('yOut'), note = document.getElementById('yNote'); if (!out) return;
+    var l = document.documentElement.lang === 'es' ? 'es' : 'en', t = YT[l], v = yoursVals();
+    var visits = Math.round(v.n * JOB_SHARE), fees = visits * v.f * 12, p = yoursPlan(v.n), y = BILLING === 'year';
+    var html = (p ? t.fits(p) : t.over) + ' ' + t.line(v.n, visits, fees, v.f);
+    if (p) { var price = y ? p.yr : p.mo * 12; html += ' ' + t.keep(price, Math.max(0, fees - price), (fees / price).toFixed(1).replace(/\.0$/, ''), y); }
+    out.innerHTML = html;
+    if (note) note.textContent = t.note(v.f, v.n, fees);
+    document.querySelectorAll('.plan').forEach(function (el) {
+      var mine = p && el.id === 'plan-' + p.id;
+      el.classList.toggle('mine', !!mine);
+      var tag = el.querySelector('.mine-tag');
+      if (mine && !tag) { tag = document.createElement('div'); tag.className = 'mine-tag'; el.appendChild(tag); }
+      if (tag) { if (mine) tag.textContent = t.mine; else tag.remove(); }
+    });
+  }
+  (function () {
+    var yf = document.getElementById('yFee'), yc = document.getElementById('yCalls'), fi = document.getElementById('feeIn');
+    if (yf) yf.addEventListener('input', function () { if (fi) { fi.value = yf.value; calcRender(); } yoursRender(); });
+    if (yc) yc.addEventListener('input', yoursRender);
+    if (fi && yf) fi.addEventListener('input', function () { yf.value = fi.value; yoursRender(); });
+    if (yf) yf.addEventListener('change', function () { var x = yoursVals(); yf.value = x.f; if (fi) fi.value = x.f; calcRender(); yoursRender(); });
+    if (yc) yc.addEventListener('change', function () { yc.value = yoursVals().n; yoursRender(); });
+  })();
   function renderPlans() {
     var box = document.getElementById('plans'); if (!box) return;
     var l = document.documentElement.lang === 'es' ? 'es' : 'en', t = PT[l], y = BILLING === 'year';
@@ -515,6 +583,7 @@
         '<ul class="stack"><li>' + t.s1 + '</li><li>' + t.s2 + '</li><li>' + t.s3 + '</li></ul>' +
         '<a class="btn ' + (p.featured ? 'primary' : 'ghost') + '" style="margin-top:auto" href="' + CAL + '">' + t.cta + '</a>' + fine + '</div>';
     }).join('');
+    yoursRender();
   }
   function setBilling(b) {
     BILLING = b === 'month' ? 'month' : 'year';
